@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_11-gpt-4.1-nano-temp_0.5-k_4.dfy(24,4): Error: invalid UnaryExpression
+   |
+24 |     while i < |s| && s[i] != ch
+   |     ^
+
+1 parse errors detected in task_id_11-gpt-4.1-nano-temp_0.5-k_4.dfy

@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_7-gpt-4.1-nano-temp_0.5-k_2.dfy(35,4): Error: invalid UnaryExpression
+   |
+35 |     for c in str
+   |     ^
+
+1 parse errors detected in task_id_7-gpt-4.1-nano-temp_0.5-k_2.dfy

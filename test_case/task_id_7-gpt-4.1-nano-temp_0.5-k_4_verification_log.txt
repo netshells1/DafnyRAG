@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_7-gpt-4.1-nano-temp_0.5-k_4.dfy(11,4): Error: rbrace expected
+   |
+11 |     function method StartIndex(w: string): nat
+   |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_7-gpt-4.1-nano-temp_0.5-k_4.dfy(16,12): Error: invalid UnaryExpression
+   |
+16 |             while currentPos <= |s| - |w|
+   |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_7-gpt-4.1-nano-temp_0.5-k_4.dfy(11,4): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+11 |     function method StartIndex(w: string): nat
+   |     ^^^^^^^^^^^^^^^
+
+3 parse errors detected in task_id_7-gpt-4.1-nano-temp_0.5-k_4.dfy

@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_9-gpt-4.1-nano-temp_0.5-k_2.dfy(6,12): Error: invalid UnaryExpression
+  |
+6 |     ensures for all k :: 1 <= k < |s| :: RotateRight(s, k) != s
+  |             ^
+
+1 parse errors detected in task_id_9-gpt-4.1-nano-temp_0.5-k_2.dfy

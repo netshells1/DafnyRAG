@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_7-gpt-4.1-nano-temp_0.5-k_5.dfy(3,54): Error: this symbol not expected in Dafny
+  |
+3 |     ensures forall w :: w in words ==> w is substring of s
+  |                                                       ^
+
+1 parse errors detected in task_id_7-gpt-4.1-nano-temp_0.5-k_5.dfy

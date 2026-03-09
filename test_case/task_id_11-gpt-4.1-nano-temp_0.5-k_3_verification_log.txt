@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_11-gpt-4.1-nano-temp_0.5-k_3.dfy(4,17): Error: unresolved identifier: firstIndex
+  |
+4 |             (k < firstIndex || k > lastIndex - 2) ==> v[k] == s[if k < firstIndex then k else k + 2]))
+  |                  ^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_11-gpt-4.1-nano-temp_0.5-k_3.dfy(4,35): Error: unresolved identifier: lastIndex
+  |
+4 |             (k < firstIndex || k > lastIndex - 2) ==> v[k] == s[if k < firstIndex then k else k + 2]))
+  |                                    ^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_11-gpt-4.1-nano-temp_0.5-k_3.dfy(4,71): Error: unresolved identifier: firstIndex
+  |
+4 |             (k < firstIndex || k > lastIndex - 2) ==> v[k] == s[if k < firstIndex then k else k + 2]))
+  |                                                                        ^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_11-gpt-4.1-nano-temp_0.5-k_3.dfy(35,24): Error: type seq<char> does not have a member Length
+   |
+35 |             invariant v.Length == idx
+   |                         ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_11-gpt-4.1-nano-temp_0.5-k_3.dfy(45,24): Error: type seq<char> does not have a member Length
+   |
+45 |             invariant v.Length == idx + (j - (firstIndex + 1))
+   |                         ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_11-gpt-4.1-nano-temp_0.5-k_3.dfy(55,24): Error: type seq<char> does not have a member Length
+   |
+55 |             invariant v.Length == idx + (lastIndex - firstIndex - 1) + (k - (lastIndex + 1))
+   |                         ^^^^^^
+
+6 resolution/type errors detected in task_id_11-gpt-4.1-nano-temp_0.5-k_3.dfy

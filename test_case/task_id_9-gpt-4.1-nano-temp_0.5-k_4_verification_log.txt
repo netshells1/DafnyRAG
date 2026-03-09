@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_9-gpt-4.1-nano-temp_0.5-k_4.dfy(4,4): Error: rbrace expected
+  |
+4 |     forall i :: 0 <= i < |s| ==> r[i] == s[(i - n + |s|) % |s|]
+  |     ^
+
+1 parse errors detected in task_id_9-gpt-4.1-nano-temp_0.5-k_4.dfy

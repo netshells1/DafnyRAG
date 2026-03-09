@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_9-gpt-4.1-nano-temp_0.5-k_3.dfy(8,15): Error: type seq<char> does not have a member Length
+  |
+8 |     requires s.Length > 0
+  |                ^^^^^^
+
+1 resolution/type errors detected in task_id_9-gpt-4.1-nano-temp_0.5-k_3.dfy

@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_11-gpt-4.1-nano-temp_0.5-k_2.dfy(6,4): Error: non-function expression (of type ?) is called with parameters
+  |
+6 |     (forall i :: 0 <= i < |v| ==> v[i] != c)
+  |     ^
+
+1 resolution/type errors detected in task_id_11-gpt-4.1-nano-temp_0.5-k_2.dfy
