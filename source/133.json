@@ -1,0 +1,39 @@
+{
+  "task_id": "133",
+  "task_description": "Write a method in Dafny to calculate the sum of the negative numbers of a given list of numbers.",
+  "method_signature": "method sumNegativeNums(nums:array<int>) returns (res:int)",
+  "test_cases": {
+    "test_1": "var a1:= new int[] [2, 4, -6, -9, 11, -12, 14, -5, 17];\nvar out1:=sumNegativeNums(a1);\nassert out1==-32;",
+    "test_2": "var a2:= new int[] [10,15,-14,13,-18,12,-20];\nvar out2:=sumNegativeNums(a2);\nassert out2==-52;",
+    "test_3": "var a3:= new int[] [19, -65, 57, 39, 152,-639, 121, 44, 90, -190];\nvar out3:=sumNegativeNums(a3);\nassert out3==-894;"
+  },
+  "buggy_code": "method SumOfNegativeNumbers(a: array<int>) returns (sum: int)\n    requires a != null\n    ensures sum >= 0\n    ensures sum == sumNegatives(a, a.Length)\n{\n    sum := 0;\n    var i := 0;\n    while i < a.Length\n        invariant 0 <= i <= a.Length\n        invariant sum == sumNegatives(a, i)\n    {\n        if a[i] < 0 {\n            sum := sum + a[i];\n        }\n        i := i + 1;\n    }\n}\n\nfunction sumNegatives(a: array<int>, n: int): int\n    requires a != null\n    requires 0 <= n <= a.Length\n    decreases n\n{\n    if n == 0 then 0\n    else\n        var current := a[n - 1];\n        if current < 0 then\n            current + sumNegatives(a, n - 1)\n        else\n            sumNegatives(a, n - 1)\n}",
+  "verifier_error": [
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_133-gpt-4.1-nano-temp_0.5-k_3.dfy(2,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n2 |     requires a != null\n  |                ^^\n",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_133-gpt-4.1-nano-temp_0.5-k_3.dfy(20,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n   |\n20 |     requires a != null\n   |                ^^\n",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_133-gpt-4.1-nano-temp_0.5-k_3.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_133-gpt-4.1-nano-temp_0.5-k_3.dfy(3,16): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures sum >= 0\n  |                 ^^\n",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_133-gpt-4.1-nano-temp_0.5-k_3.dfy(10,22): Error: this invariant could not be proved to be maintained by the loop\n Related message: loop invariant violation\n   |\n10 |         invariant sum == sumNegatives(a, i)\n   |                       ^^\n",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_133-gpt-4.1-nano-temp_0.5-k_3.dfy(26,24): Error: insufficient reads clause to read array element; Consider adding 'reads a' in the enclosing function specification for resolution\n   |\n26 |         var current := a[n - 1];\n   |                         ^^\n",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_133-gpt-4.1-nano-temp_0.5-k_3.dfy(26,24): Error: insufficient reads clause to read array element; Consider adding 'reads a' in the enclosing function specification for resolution\n   |\n26 |         var current := a[n - 1];\n   |                         ^^\n"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "MissingReadsClause",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved",
+    "line": 5,
+    "context": "ensures sum >= 0"
+  },
+  "fixed_code": "method SumOfNegativeNumbers(a: array<int>) returns (sum: int)\n    requires a != null\n    ensures sum == sumNegatives(a, a.Length)\n{\n    sum := 0;\n    var i := 0;\n    while i < a.Length\n        invariant 0 <= i <= a.Length\n        invariant sum == sumNegatives(a, i)\n    {\n        if a[i] < 0 {\n            sum := sum + a[i];\n        }\n        i := i + 1;\n    }\n    assert sum == sumNegatives(a, a.Length);\n}\n\nfunction sumNegatives(a: array<int>, n: int): int\n    requires 0 <= n <= a.Length\n    requires a != null\n    reads a\n    decreases n\n{\n    if n == 0 then 0\n    else if a[n - 1] < 0 then a[n - 1] + sumNegatives(a, n - 1)\n    else sumNegatives(a, n - 1)\n}",
+  "repair_strategy": {
+    "problem_summary": "The postcondition sum >= 0 was incorrect since the sum of negative numbers is non-positive, and the recursive function was missing a reads clause.",
+    "problem_details": {
+      "what": "Incorrect postcondition, unverifiable loop invariant, and function missing 'reads a'.",
+      "why": "sum can be negative; Dafny requires reads clauses for functions using arrays; loop invariant must match function behavior.",
+      "how": "Remove invalid ensures sum >= 0, add 'reads a' to function, and assert final invariant to satisfy sum == sumNegatives(a, a.Length)."
+    }
+  }
+}

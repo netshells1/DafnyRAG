@@ -1,0 +1,32 @@
+{
+  "task_id": "680",
+  "task_description": "Write a method in Dafny to compute the power of a number (alpha^n) using a ghost function specification.",
+  "method_signature": "method pow(n: nat, alpha: real) returns (product: real)",
+  "test_cases": {
+    "test_1": "var res1 := pow(3, 4.0);\nassert res1 == power(3.0, 4.0);",
+    "test_2": "var res2 := pow(1, 2.0);\nassert res2 == 2.0;",
+    "test_3": "var res3 := pow(2, 3.0);\nassert res3 == power(2.0, 3.0);"
+  },
+  "buggy_code": "ghost function power(n: real, alpha: real): real\n    requires n > 0.0 && alpha > 0.0\n    ensures power(n, alpha) > 0.0\n\nghost function log(n: real, alpha: real): real\n    requires n > 0.0 && alpha > 0.0\n    ensures log(n, alpha) > 0.0\n\nlemma consistency(n: real, alpha: real)\n    requires n > 0.0 && alpha > 0.0\n    ensures log(power(n,alpha), alpha) == n\n    ensures power(log(n, alpha), alpha) == n\n\nlemma logarithmSum(n: real, alpha: real, x: real, y: real)\n    requires n > 0.0 && alpha > 0.0\n    requires x > 0.0\n    requires n == x * y\n    ensures log(n,alpha) == log(x, alpha) +  log(y, alpha)\n\nlemma powerLemma(n: real, alpha: real)\n    requires n > 0.0 && alpha > 0.0\n    ensures power(n, alpha) * alpha == power(n+1.0, alpha)\n\nlemma power1(alpha: real)\n    requires alpha > 0.0\n    ensures power(1.0, alpha) == alpha\n\nlemma test() {\n    var pow3 := power(3.0,4.0);\n    consistency(3.0,4.0);\n    var log6 := log(6.0,8.0);\n    logarithmSum(6.0, 8.0, 2.0, 3.0);\n}\n\nlemma test2() {\n    var pow3 := power(3.0, 4.0);\n    var power4 := power(4.0, 4.0);\n    powerLemma(3.0, 4.0);\n}\n\nmethod pow(n: nat, alpha: real) returns (product: real)\n    requires n > 0\n    requires alpha > 0.0\n    ensures product == power(n as real, alpha)\n{\n    product := alpha;\n    var i: nat := 1;\n    power1(alpha);\n    while i < n\n    {\n        powerLemma(i as real, alpha);\n        product := product * alpha;\n        i := i + 1;\n    }\n}",
+  "verifier_error": [
+    "680_code.dfy(91,1): Error: a postcondition could not be proved on this return path\n   |\n91 | }\n   | ^\n\n680_code.dfy(89,21): Related location: this is the postcondition that could not be proved\n   |\n89 |     ensures product == power(n as real, alpha)\n   |                     ^^"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "LoopInvariantNotMaintained"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 91,
+    "context": "ensures product == power(n as real, alpha)"
+  },
+  "fixed_code": "ghost function power(n: real, alpha: real): real\n    requires n > 0.0 && alpha > 0.0\n    ensures power(n, alpha) > 0.0\n\nghost function log(n: real, alpha: real): real\n    requires n > 0.0 && alpha > 0.0\n    ensures log(n, alpha) > 0.0\n\nlemma consistency(n: real, alpha: real)\n    requires n > 0.0 && alpha > 0.0\n    ensures log(power(n,alpha), alpha) == n\n    ensures power(log(n, alpha), alpha) == n\n\nlemma logarithmSum(n: real, alpha: real, x: real, y: real)\n    requires n > 0.0 && alpha > 0.0\n    requires x > 0.0\n    requires n == x * y\n    ensures log(n,alpha) == log(x, alpha) +  log(y, alpha)\n\nlemma powerLemma(n: real, alpha: real)\n    requires n > 0.0 && alpha > 0.0\n    ensures power(n, alpha) * alpha == power(n+1.0, alpha)\n\nlemma power1(alpha: real)\n    requires alpha > 0.0\n    ensures power(1.0, alpha) == alpha\n\nlemma test() {\n    var pow3 := power(3.0,4.0);\n    consistency(3.0,4.0);\n    assert log(pow3, 4.0) == 3.0;\n    var log6 := log(6.0,8.0);\n    logarithmSum(6.0, 8.0, 2.0, 3.0);\n    assert log6 == log(2.0,8.0)+log(3.0,8.0);\n}\n\nlemma test2() {\n    var pow3 := power(3.0, 4.0);\n    var power4 := power(4.0, 4.0);\n    powerLemma(3.0, 4.0);\n    assert pow3 * 4.0 == power4;\n}\n\nmethod pow(n: nat, alpha: real) returns (product: real)\n    requires n > 0\n    requires alpha > 0.0\n    ensures product == power(n as real, alpha)\n{\n    product := alpha;\n    var i: nat := 1;\n    power1(alpha);\n    assert product == power(1.0, alpha);\n    while i < n\n        invariant i <= n\n        invariant product == power(i as real, alpha)\n    {\n        powerLemma(i as real, alpha);\n        product := product * alpha;\n        i := i + 1;\n    }\n    assert i == n;\n    assert product == power(n as real, alpha);\n}",
+  "repair_strategy": {
+    "problem_summary": "Missing loop invariants prevent Dafny from proving that the iterative power computation equals the ghost function specification.",
+    "problem_details": {
+      "what": "The while loop in method 'pow' lacks invariants to establish the relationship between the loop variable 'i', the accumulator 'product', and the ghost function 'power'. Without these, Dafny cannot verify the postcondition 'product == power(n as real, alpha)'.",
+      "why": "The method iteratively computes alpha^n by multiplying product by alpha in each iteration. The ghost function 'power' provides the specification, and lemmas like 'power1' and 'powerLemma' define its mathematical properties. However, without an invariant stating 'product == power(i as real, alpha)', Dafny has no way to connect the iterative computation to the ghost function. When the loop exits with i == n, Dafny needs this invariant to deduce the postcondition.",
+      "how": "Add two loop invariants: (1) 'invariant i <= n' to establish the bounds of the loop variable, and (2) 'invariant product == power(i as real, alpha)' to relate the accumulator to the ghost function at each step. The initialization uses 'power1(alpha)' to establish that alpha == power(1.0, alpha), satisfying the invariant initially. Each iteration uses 'powerLemma(i as real, alpha)' which proves power(i, alpha) * alpha == power(i+1, alpha), maintaining the invariant after product := product * alpha and i := i + 1. Add assertions before and after the loop to help Dafny verify the logical chain."
+    }
+  }
+}

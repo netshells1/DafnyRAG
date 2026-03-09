@@ -1,0 +1,32 @@
+{
+  "task_id": "113",
+  "task_description": "Write a method in Dafny to check if a string represents an integer or not.",
+  "method_signature": "method checkInteger (str:string) returns (res:bool)",
+  "test_cases": {
+    "test_1": "var res1:=checkInteger(\"python\"); \nassert res1==false;",
+    "test_2": "var res2:=checkInteger(\"1\"); \nassert res2==true;",
+    "test_3": "var res3:=checkInteger(\"12345\"); \nassert res3==true;"
+  },
+  "buggy_code": "predicate IsDigit(c: char)\n{\n    48 <= c as int <= 57\n}\n\nmethod IsIntegerString(s: string) returns (result: bool)\n    ensures result <==> (|s| > 0 && (exists i: int :: 0 <= i < |s| && (s[i] == '-' || s[i] == '+') && (forall j: int :: 1 <= j < |s| ==> IsDigit(s[j])) || (forall j: int :: 0 <= j < |s| ==> IsDigit(s[j]))))\n{\n    if |s| == 0 {\n        result := false;\n        return;\n    }\n\n    var startIndex := 0;\n    if s[0] == '-' || s[0] == '+' {\n        if |s| == 1 {\n            result := false;\n            return;\n        }\n        startIndex := 1;\n    }\n\n    var allDigits := true;\n    var i := startIndex;\n    while i < |s|\n        invariant startIndex <= i <= |s|\n        invariant allDigits ==> (forall j: int :: startIndex <= j < i ==> IsDigit(s[j]))\n    {\n        if !IsDigit(s[i]) {\n            allDigits := false;\n            break;\n        }\n        i := i + 1;\n    }\n    result := allDigits;\n}",
+  "verifier_error": [
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_113-gpt-4.1-nano-temp_0.5-k_5.dfy(7,152): Error: Ambiguous use of && and ||. Use parentheses to disambiguate.\n  |\n7 |     ensures result <==> (|s| > 0 && (exists i: int :: 0 <= i < |s| && (s[i] == '-' || s[i] == '+') && (forall j: int :: 1 <= j < |s| ==> IsDigit(s[j])) || (forall j: int :: 0 <= j < |s| ==> IsDigit(s[j]))))\n  |                                                                                                                                                         ^^\n\n1 parse errors detected in task_id_113-gpt-4.1-nano-temp_0.5-k_5.dfy"
+  ],
+  "error_categories": [
+    "SyntaxError",
+    "AmbiguousLogic"
+  ],
+  "primary_error": {
+    "message": "Ambiguous use of && and ||",
+    "line": 7,
+    "context": "ensures result <==> (...) expression"
+  },
+  "fixed_code": "predicate IsDigit(c: char)\n{\n    48 <= c as int <= 57\n}\n\nmethod IsIntegerString(s: string) returns (result: bool)\n    ensures result == ((|s| > 0 && (s[0] == '-' || s[0] == '+') && |s| > 1 && (forall j: int :: 1 <= j < |s| ==> IsDigit(s[j]))) || (|s| > 0 && (forall j: int :: 0 <= j < |s| ==> IsDigit(s[j]))))\n{\n    if |s| == 0 {\n        result := false;\n        return;\n    }\n\n    var startIndex := 0;\n    if s[0] == '-' || s[0] == '+' {\n        if |s| == 1 {\n            result := false;\n            return;\n        }\n        startIndex := 1;\n    }\n\n    var allDigits := true;\n    var i := startIndex;\n    while i < |s|\n        invariant startIndex <= i <= |s|\n        invariant allDigits ==> (forall j: int :: startIndex <= j < i ==> IsDigit(s[j]))\n        invariant (forall j: int :: startIndex <= j < i ==> IsDigit(s[j]))\n    {\n        if !IsDigit(s[i]) {\n            allDigits := false;\n            break;\n        }\n        i := i + 1;\n    }\n    result := allDigits;\n    assert result == (forall j: int :: startIndex <= j < |s| ==> IsDigit(s[j]));\n}",
+  "repair_strategy": {
+    "problem_summary": "The ensures clause used mixed logical operators without parentheses.",
+    "problem_details": {
+      "what": "The ensures clause combined && and || in a long expression.",
+      "why": "Dafny requires explicit parentheses to avoid logical precedence ambiguity.",
+      "how": "Rewrite the ensures clause into two explicit cases (signed integer / unsigned integer) and fully parenthesize the expression."
+    }
+  }
+}

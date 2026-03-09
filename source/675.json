@@ -1,0 +1,37 @@
+{
+  "task_id": "675",
+  "task_description": "Write a method in Dafny to solve the Dutch National Flag problem: sort an array of Red, White, and Blue elements.",
+  "method_signature": "method DutchFlag(a: array<Color>)",
+  "test_cases": {
+    "test_1": "var arr1 := new Color[][Red, White, Blue, Red, White];\nDutchFlag(arr1);\nassert forall i, j :: 0 <= i < j < arr1.Length ==> Below(arr1[i], arr1[j]);",
+    "test_2": "var arr2 := new Color[][Blue, Blue, Red, Red, White];\nDutchFlag(arr2);\nassert forall i, j :: 0 <= i < j < arr2.Length ==> Below(arr2[i], arr2[j]);",
+    "test_3": "var arr3 := new Color[][White, Red, Blue];\nDutchFlag(arr3);\nassert forall i, j :: 0 <= i < j < arr3.Length ==> Below(arr3[i], arr3[j]);"
+  },
+  "buggy_code": "datatype Color = Red | White | Blue\n\npredicate Below(c: Color, d: Color)\n{\n    c == Red || c == d || d == Blue\n}\n\nmethod DutchFlag(a: array<Color>)\n    modifies a\n    ensures forall i, j :: 0 <= i < j < a.Length ==> Below(a[i], a[j])\n    ensures multiset(a[..]) == multiset(old(a[..]))\n{\n    var r,w,b := 0, 0, a.Length;\n    while w < b\n    {\n        match a[w]\n        case Red => \n            a[r], a[w] := a[w], a[r];\n            r, w := r + 1, w + 1;\n        case White => \n            w := w + 1;\n        case Blue => \n            a[b-1], a[w] := a[w], a[b-1];\n            b := b - 1;\n    }\n}",
+  "verifier_error": [
+    "675_code.dfy(31,5): Error: a postcondition could not be proved on this return path\n   |\n31 |     while w < b\n   |     ^^^^^\n\n675_code.dfy(23,13): Related location: this is the postcondition that could not be proved\n   |\n23 |     ensures forall i, j :: 0 <= i < j < a.Length ==> Below(a[i], a[j])\n   |             ^^^^^^",
+    "675_code.dfy(31,5): Error: a postcondition could not be proved on this return path\n   |\n31 |     while w < b\n   |     ^^^^^\n\n675_code.dfy(25,29): Related location: this is the postcondition that could not be proved\n   |\n25 |     ensures multiset(a[..]) == multiset(old(a[..]))\n   |                             ^^",
+    "675_code.dfy(35,16): Error: index out of range\n   |\n35 |         match a[w]\n   |                 ^",
+    "675_code.dfy(39,14): Error: index out of range\n   |\n39 |             a[r], a[w] := a[w], a[r];\n   |               ^",
+    "675_code.dfy(49,14): Error: index out of range\n   |\n49 |             a[b-1], a[w] := a[w], a[b-1];\n   |               ^"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "LoopInvariantNotMaintained",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 31,
+    "context": "ensures forall i, j :: 0 <= i < j < a.Length ==> Below(a[i], a[j])"
+  },
+  "fixed_code": "datatype Color = Red | White | Blue\n\npredicate Below(c: Color, d: Color)\n{\n    c == Red || c == d || d == Blue\n}\n\nmethod DutchFlag(a: array<Color>)\n    modifies a\n    ensures forall i, j :: 0 <= i < j < a.Length ==> Below(a[i], a[j])\n    ensures multiset(a[..]) == multiset(old(a[..]))\n{\n    var r,w,b := 0, 0, a.Length;\n    while w < b\n    invariant 0 <= r <= w <= b <= a.Length\n    invariant forall i :: 0 <= i < r ==> a[i] == Red\n    invariant forall i :: r <= i < w ==> a[i] == White\n    invariant forall i :: b <= i < a.Length ==> a[i] == Blue\n    invariant multiset(a[..]) == multiset(old(a[..]))\n    {\n        match a[w]\n        case Red => \n            a[r], a[w] := a[w], a[r];\n            r, w := r + 1, w + 1;\n        case White => \n            w := w + 1;\n        case Blue => \n            a[b-1], a[w] := a[w], a[b-1];\n            b := b - 1;\n    }\n}",
+  "repair_strategy": {
+    "problem_summary": "Missing loop invariants cause index out of range errors and prevent postconditions from being verified for the Dutch Flag algorithm.",
+    "problem_details": {
+      "what": "The while loop lacks invariants to describe: (1) the relationship between pointers r, w, b and array bounds, (2) the color partitioning property of the array regions, and (3) the preservation of array elements. This causes 'index out of range' errors when accessing a[w], a[r], a[b-1] and prevents proving the sorting postcondition.",
+      "why": "The Dutch Flag algorithm partitions the array into four regions: [0,r) contains Red, [r,w) contains White, [w,b) is unprocessed, and [b,Length) contains Blue. Without invariants describing these regions, Dafny cannot verify that: (1) array accesses are within bounds (needs 0 <= r <= w <= b <= a.Length), (2) the final array is sorted (needs region color invariants), and (3) no elements are lost or created (needs multiset preservation invariant).",
+      "how": "Add five loop invariants: (1) 'invariant 0 <= r <= w <= b <= a.Length' to establish pointer ordering and bounds, ensuring all array accesses are safe; (2) 'invariant forall i :: 0 <= i < r ==> a[i] == Red' to track the red region; (3) 'invariant forall i :: r <= i < w ==> a[i] == White' to track the white region; (4) 'invariant forall i :: b <= i < a.Length ==> a[i] == Blue' to track the blue region; (5) 'invariant multiset(a[..]) == multiset(old(a[..]))' to ensure elements are only rearranged, not modified. When w == b, the unprocessed region is empty, and the color invariants directly imply the sorting postcondition."
+    }
+  }
+}

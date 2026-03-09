@@ -1,0 +1,33 @@
+{
+  "task_id": "557",
+  "task_description": "Write a method in Dafny to toggle the case of all characters in a string.",
+  "method_signature": "method toggleString(str:string) returns (res:string)",
+  "test_cases": {
+    "test_1": "var out1:=toggleString(\"Python\");\nassert out1==\"pYTHON\";",
+    "test_2": "var out2:=toggleString(\"Pangram\");\nassert out2==\"pANGRAM\";",
+    "test_3": "var out3:=toggleString(\"LIttLE\");\nassert out3==\"liTTle\";"
+  },
+  "buggy_code": "predicate IsLowerCase(c : char)\n{\n    97 <= c as int <= 122\n}\n\npredicate IsUpperCase(c : char)\n{\n    65 <= c as int <= 90\n}\n\npredicate IsLowerUpperPair(c : char, C : char)\n{\n    (c as int) == (C as int) + 32\n}\n\npredicate IsUpperLowerPair(C : char, c : char)\n{\n    (C as int) == (c as int) - 32\n}\n\nfunction ShiftMinus32(c : char) :  char\n{\n    ((c as int - 32) % 128) as char\n}\n\nfunction ShiftPlus32(c : char) :  char\n{\n    ((c as int + 32) % 128) as char\n}\n\nmethod ToggleCase(s: string) returns (v: string)\n    ensures |v| == |s|\n    ensures forall i :: 0 <= i < |s| ==> \n                (if IsLowerCase(s[i]) then IsUpperLowerPair(s[i], v[i]) \n                 else if IsUpperCase(s[i]) then IsLowerUpperPair(s[i], v[i]) \n                 else v[i] == s[i])\n{\n    var s' : string := [];\n    for i := 0 to |s|\n        invariant 0 <= i <= |s|\n        invariant |s'| == i\n        invariant forall k :: 0 <= k < i ==> \n            (if IsLowerCase(s[k]) then IsUpperLowerPair(s[k], s'[k]) \n             else if IsUpperCase(s[k]) then IsLowerUpperPair(s[k], s'[k]) \n             else s[k] == s'[k])\n    {\n        if IsLowerCase(s[i]) {\n            s' := s' + [ShiftMinus32(s[i])];\n        } else if IsUpperCase(s[i]) {\n            s' := s' + [ShiftPlus32(s[i])];\n        } else {\n            s' := s' + [s[i]];\n        }\n    }\n    return s';\n}",
+  "verifier_error": [
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_557-gpt-4.1-nano-temp_0.5-k_1.dfy(42,18): Error: this invariant could not be proved to be maintained by the loop\n Related message: loop invariant violation\n   |\n42 |         invariant forall k :: 0 <= k < i ==> \n   |                   ^^^^^^",
+    "Dafny program verifier finished with 3 verified, 1 error"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "LoopInvariantNotMaintained"
+  ],
+  "primary_error": {
+    "message": "this invariant could not be proved to be maintained by the loop",
+    "line": 42,
+    "context": "invariant forall k :: 0 <= k < i ==> "
+  },
+  "fixed_code": "predicate IsLowerCase(c : char)\n{\n    97 <= c as int <= 122\n}\n\npredicate IsUpperCase(c : char)\n{\n    65 <= c as int <= 90\n}\n\npredicate IsLowerUpperPair(c : char, C : char)\n{\n    (c as int) == (C as int) + 32\n}\n\npredicate IsUpperLowerPair(C : char, c : char)\n{\n    (C as int) == (c as int) - 32\n}\n\nfunction ShiftMinus32(c : char) :  char\n{\n    ((c as int - 32) % 128) as char\n}\n\nfunction ShiftPlus32(c : char) :  char\n{\n    ((c as int + 32) % 128) as char\n}\n\nmethod ToggleCase(s: string) returns (v: string)\n    ensures |v| == |s|\n    ensures forall i :: 0 <= i < |s| ==> \n                (if IsLowerCase(s[i]) then IsUpperLowerPair(v[i], s[i]) \n                 else if IsUpperCase(s[i]) then IsLowerUpperPair(v[i], s[i]) \n                 else v[i] == s[i])\n{\n    var s' : string := [];\n    for i := 0 to |s|\n        invariant 0 <= i <= |s|\n        invariant |s'| == i\n        invariant forall k :: 0 <= k < i ==> \n            (if IsLowerCase(s[k]) then IsUpperLowerPair(s'[k], s[k]) \n             else if IsUpperCase(s[k]) then IsLowerUpperPair(s'[k], s[k]) \n             else s[k] == s'[k])\n    {\n        if IsLowerCase(s[i]) {\n            s' := s' + [ShiftMinus32(s[i])];\n        } else if IsUpperCase(s[i]) {\n            s' := s' + [ShiftPlus32(s[i])];\n        } else {\n            s' := s' + [s[i]];\n        }\n    }\n    return s';\n}",
+  "repair_strategy": {
+    "problem_summary": "Incorrect parameter order in predicate calls within specifications.",
+    "problem_details": {
+      "what": "The ensures clause and loop invariant used incorrect parameter order when calling 'IsUpperLowerPair' and 'IsLowerUpperPair' predicates. The buggy code used 'IsUpperLowerPair(s[i], v[i])' and 'IsLowerUpperPair(s[i], v[i])', but the predicates expect the toggled character first.",
+      "why": "The predicates 'IsUpperLowerPair(C, c)' and 'IsLowerUpperPair(c, C)' define relationships where the first parameter is the result character and the second is the original. The buggy code reversed this order, causing the verification to fail because the invariant didn't match the actual transformation being performed.",
+      "how": "Swap the parameter order in both the ensures clause and loop invariant: change 'IsUpperLowerPair(s[i], v[i])' to 'IsUpperLowerPair(v[i], s[i])' and 'IsLowerUpperPair(s[i], v[i])' to 'IsLowerUpperPair(v[i], s[i])'. This correctly expresses that 'v[i]' (the result) is the toggled version of 's[i]' (the original)."
+    }
+  }
+}

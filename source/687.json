@@ -1,0 +1,34 @@
+{
+  "task_id": "687",
+  "task_description": "Write a method in Dafny to verify whether an array of characters is a Palindrome.",
+  "method_signature": "method PalVerify(a: array<char>) returns (yn: bool)",
+  "test_cases": {
+    "test_1": "var a := new char[]['r','e','f','e','r'];\nvar r := PalVerify(a);\nassert r;",
+    "test_2": "var b := new char[]['z'];\nvar r := PalVerify(b);\nassert r;",
+    "test_3": "var c := new char[][];\nvar r := PalVerify(c);\nassert r;",
+    "test_4": "var d := new char[]['x', 'y'];\nvar r := PalVerify(d);\nassert !r;",
+    "test_5": "var e := new char[]['1', '2', '3', '4', '2', '1'];\nvar r := PalVerify(e);\nassert !r;"
+  },
+  "buggy_code": "method PalVerify(a: array<char>) returns (yn: bool)\nensures yn == true ==> forall i :: 0 <= i < a.Length/2 ==> a[i] == a[a.Length - i -1]\nensures yn == false ==> exists i :: 0 <= i < a.Length/2 && a[i] != a[a.Length - i -1]\nensures forall j :: 0<=j<a.Length ==> a[j] == old(a[j]) \n{\n   var i:int := 0;\n   while i < a.Length/2\n   {                                      \n      if a[i] != a[a.Length-i-1]          \n      {                                   \n         return false;                    \n      }                                   \n      i := i+1;                           \n   }                                      \n   return true;                           \n}     \n\nmethod TEST()\n{\n   var a:array<char> := new char[]['r','e','f','e','r'];\n   var r:bool := PalVerify(a);\n\n   var b:array<char> := new char[]['z'];\n   r := PalVerify(b);\n\n   var c:array<char> := new char[][];\n   r := PalVerify(c);\n\n   var d:array<char> := new char[]['x', 'y'];\n   r := PalVerify(d);\n\n   var e:array<char> := new char[]['1', '2', '3', '4', '2', '1'];\n   r := PalVerify(e);\n}",
+  "verifier_error": [
+    "687_code.dfy(65,4): Error: a postcondition could not be proved on this return path\n   |\n65 |    return true;\n   |    ^^^^^^^^^^^^\n\n687_code.dfy(39,24): Related location: this is the postcondition that could not be proved\n   |\n39 | ensures yn == true ==> forall i :: 0 <= i < a.Length/2 ==> a[i] == a[a.Length - i -1]\n   |                        ^^^^^^"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "LoopInvariantNotMaintained"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 65,
+    "context": "return true;"
+  },
+  "fixed_code": "method PalVerify(a: array<char>) returns (yn: bool)\nensures yn == true ==> forall i :: 0 <= i < a.Length/2 ==> a[i] == a[a.Length - i -1]\nensures yn == false ==> exists i :: 0 <= i < a.Length/2 && a[i] != a[a.Length - i -1]\nensures forall j :: 0<=j<a.Length ==> a[j] == old(a[j]) \n{\n   var i:int := 0;\n   while i < a.Length/2\n   invariant 0 <= i <= a.Length/2 && forall j:: 0<=j<i ==> a[j] == a[a.Length-j-1]\n   decreases a.Length/2 - i\n   {                                      \n      if a[i] != a[a.Length-i-1]          \n      {                                   \n         return false;                    \n      }                                   \n      i := i+1;                           \n   }                                      \n   return true;                           \n}     \n\nmethod TEST()\n{\n   var a:array<char> := new char[]['r','e','f','e','r'];\n   var r:bool := PalVerify(a);\n   assert r;\n\n   var b:array<char> := new char[]['z'];\n   r := PalVerify(b);\n   assert r;\n\n   var c:array<char> := new char[][];\n   r := PalVerify(c);\n   assert r;\n\n   var d:array<char> := new char[]['x', 'y'];\n   assert d[0]=='x' && d[1]=='y';\n   r := PalVerify(d);\n   assert !r;\n\n   var e:array<char> := new char[]['1', '2', '3', '4', '2', '1'];\n   assert e[0]=='1' && e[1]=='2' && e[2]=='3' && e[3]=='4' && e[4]=='2' && e[5]=='1';\n   r := PalVerify(e);\n   assert !r;\n}",
+  "repair_strategy": {
+    "problem_summary": "Missing loop invariant prevents Dafny from proving the postcondition that returning true implies the array is a palindrome.",
+    "problem_details": {
+      "what": "The while loop in PalVerify lacks a loop invariant. When the method returns true after the loop completes, Dafny cannot prove that all character pairs have been checked and match, which is required by the postcondition 'yn == true ==> forall i :: 0 <= i < a.Length/2 ==> a[i] == a[a.Length - i -1]'.",
+      "why": "A palindrome check works by comparing characters from both ends moving toward the center. The loop iterates through the first half of the array, comparing a[i] with a[a.Length-i-1]. Without an invariant stating that all previously checked pairs matched (forall j :: 0<=j<i ==> a[j] == a[a.Length-j-1]), Dafny has no knowledge of what was verified in previous iterations. When i reaches a.Length/2 and the loop exits normally, Dafny needs this accumulated knowledge to prove the postcondition.",
+      "how": "Add a loop invariant combining bounds and the palindrome property: 'invariant 0 <= i <= a.Length/2 && forall j :: 0<=j<i ==> a[j] == a[a.Length-j-1]'. This states that i is within bounds and all pairs checked so far are equal. Also add 'decreases a.Length/2 - i' for termination. When the loop exits with i == a.Length/2, the invariant directly implies the postcondition. Additionally, add assertions in TEST method to verify the expected results for each test case, with helper assertions for non-palindromes to help Dafny understand array contents."
+    }
+  }
+}

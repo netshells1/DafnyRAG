@@ -1,0 +1,37 @@
+{
+  "task_id": "636",
+  "task_description": "Write a method in Dafny to find the product of the first even and first odd numbers in a list.",
+  "method_signature": "method ProductEvenOdd(lst: seq<int>) returns (product : int)",
+  "test_cases": {
+    "test_1": "var lst1 := [2, 3, 4, 5];\nvar res1 := ProductEvenOdd(lst1);\nassert res1 == 6;",
+    "test_2": "var lst2 := [1, 4, 6, 8];\nvar res2 := ProductEvenOdd(lst2);\nassert res2 == 4;",
+    "test_3": "var lst3 := [3, 5, 2, 7];\nvar res3 := ProductEvenOdd(lst3);\nassert res3 == 6;"
+  },
+  "buggy_code": "predicate IsEven(n: int)\n{\n    n % 2 == 0\n}\n\npredicate IsOdd(n: int)\n{\n    n % 2 != 0\n}\n\npredicate IsFirstEven(evenIndex: int, lst: seq<int>)\n    requires 0 <= evenIndex < |lst|\n    requires IsEven(lst[evenIndex])\n{\n    forall i :: 0 <= i < evenIndex ==> IsOdd(lst[i])\n}\n\npredicate IsFirstOdd(oddIndex: int, lst: seq<int>)\n    requires 0 <= oddIndex < |lst|\n    requires IsOdd(lst[oddIndex])\n{\n    forall i :: 0 <= i < oddIndex ==> IsEven(lst[i])\n}\n\n\nmethod FirstEvenOddIndices(lst : seq<int>) returns (evenIndex: int, oddIndex : int)\n    requires |lst| >= 2\n    requires exists i :: 0 <= i < |lst| && IsEven(lst[i])\n    requires exists i :: 0 <= i < |lst| && IsOdd(lst[i])\n    ensures 0 <= evenIndex < |lst|\n    ensures 0 <= oddIndex < |lst|\n    // This is the postcondition that ensures that it's the first, not just any\n    ensures IsEven(lst[evenIndex]) && IsFirstEven(evenIndex, lst)\n    ensures IsOdd(lst[oddIndex]) && IsFirstOdd(oddIndex, lst)\n{\n    for i := 0 to |lst|\n    {\n        if IsEven(lst[i])\n        {\n            evenIndex := i;\n            break;\n        }\n    }\n\n    for i := 0 to |lst|\n    {\n        if IsOdd(lst[i])\n        {\n            oddIndex := i;\n            break;\n        }\n    }\n}\n\nmethod ProductEvenOdd(lst: seq<int>) returns (product : int)\n    requires |lst| >= 2\n    requires exists i :: 0 <= i < |lst| && IsEven(lst[i])\n    requires exists i :: 0 <= i < |lst| && IsOdd(lst[i])\n    ensures exists i, j :: 0 <= i < |lst| && IsEven(lst[i]) && IsFirstEven(i, lst) && \n                           0 <= j < |lst| && IsOdd(lst[j])  && IsFirstOdd(j, lst) && product == lst[i] * lst[j]\n{\n    var evenIndex, oddIndex := FirstEvenOddIndices(lst);\n    product := lst[evenIndex] * lst[oddIndex];\n}",
+  "verifier_error": [
+    "636_code.dfy(35,1): Error: a postcondition could not be proved on this return path\n   |\n35 | {\n   | ^\n\n636_code.dfy(30,15): Related location: this is the postcondition that could not be proved\n   |\n30 |     ensures 0 <= evenIndex < |lst|\n   |                 ^^",
+    "636_code.dfy(35,1): Error: a postcondition could not be proved on this return path\n   |\n35 | {\n   | ^\n\n636_code.dfy(30,28): Related location: this is the postcondition that could not be proved\n   |\n30 |     ensures 0 <= evenIndex < |lst|\n   |                              ^",
+    "636_code.dfy(35,1): Error: a postcondition could not be proved on this return path\n   |\n35 | {\n   | ^\n\n636_code.dfy(31,15): Related location: this is the postcondition that could not be proved\n   |\n31 |     ensures 0 <= oddIndex < |lst|\n   |                 ^^",
+    "636_code.dfy(53,1): Error: out-parameter 'evenIndex', which is subject to definite-assignment rules, might be uninitialized at this return point\n   |\n53 | }\n   | ^",
+    "636_code.dfy(53,1): Error: out-parameter 'oddIndex', which is subject to definite-assignment rules, might be uninitialized at this return point\n   |\n53 | }\n   | ^"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "PostconditionNotHeld",
+    "LoopInvariantNotMaintained"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 35,
+    "context": "ensures 0 <= evenIndex < |lst|"
+  },
+  "fixed_code": "predicate IsEven(n: int)\n{\n    n % 2 == 0\n}\n\npredicate IsOdd(n: int)\n{\n    n % 2 != 0\n}\n\npredicate IsFirstEven(evenIndex: int, lst: seq<int>)\n    requires 0 <= evenIndex < |lst|\n    requires IsEven(lst[evenIndex])\n{\n    forall i :: 0 <= i < evenIndex ==> IsOdd(lst[i])\n}\n\npredicate IsFirstOdd(oddIndex: int, lst: seq<int>)\n    requires 0 <= oddIndex < |lst|\n    requires IsOdd(lst[oddIndex])\n{\n    forall i :: 0 <= i < oddIndex ==> IsEven(lst[i])\n}\n\n\nmethod FirstEvenOddIndices(lst : seq<int>) returns (evenIndex: int, oddIndex : int)\n    requires |lst| >= 2\n    requires exists i :: 0 <= i < |lst| && IsEven(lst[i])\n    requires exists i :: 0 <= i < |lst| && IsOdd(lst[i])\n    ensures 0 <= evenIndex < |lst|\n    ensures 0 <= oddIndex < |lst|\n    // This is the postcondition that ensures that it's the first, not just any\n    ensures IsEven(lst[evenIndex]) && IsFirstEven(evenIndex, lst)\n    ensures IsOdd(lst[oddIndex]) && IsFirstOdd(oddIndex, lst)\n{\n    for i := 0 to |lst|\n        invariant 0 <= i <= |lst|\n        invariant forall j :: 0 <= j < i ==> IsOdd(lst[j])\n    {\n        if IsEven(lst[i])\n        {\n            evenIndex := i;\n            break;\n        }\n    }\n\n    for i := 0 to |lst|\n        invariant 0 <= i <= |lst|\n        invariant forall j :: 0 <= j < i ==> IsEven(lst[j])\n    {\n        if IsOdd(lst[i])\n        {\n            oddIndex := i;\n            break;\n        }\n    }\n}\n\nmethod ProductEvenOdd(lst: seq<int>) returns (product : int)\n    requires |lst| >= 2\n    requires exists i :: 0 <= i < |lst| && IsEven(lst[i])\n    requires exists i :: 0 <= i < |lst| && IsOdd(lst[i])\n    ensures exists i, j :: 0 <= i < |lst| && IsEven(lst[i]) && IsFirstEven(i, lst) && \n                           0 <= j < |lst| && IsOdd(lst[j])  && IsFirstOdd(j, lst) && product == lst[i] * lst[j]\n{\n    var evenIndex, oddIndex := FirstEvenOddIndices(lst);\n    product := lst[evenIndex] * lst[oddIndex];\n}",
+  "repair_strategy": {
+    "problem_summary": "Missing loop invariants cause postconditions to be unprovable and output parameters to appear uninitialized.",
+    "problem_details": {
+      "what": "The two for loops in method 'FirstEvenOddIndices' lack loop invariants. Without invariants, Dafny cannot prove: (1) the postconditions about evenIndex and oddIndex bounds and properties, and (2) that the output parameters will definitely be assigned before the method returns.",
+      "why": "In Dafny, loop invariants are essential for verification. They describe what is true at each iteration and help the verifier understand the loop's behavior. Without invariants stating that 'all elements before index i do not satisfy the search condition', Dafny cannot deduce that finding an element means it is the first one. Additionally, without proper invariants, Dafny cannot prove that the loop will find and assign a value (even though preconditions guarantee existence).",
+      "how": "Add loop invariants to both for loops: (1) 'invariant 0 <= i <= |lst|' to track the loop index bounds, and (2) 'invariant forall j :: 0 <= j < i ==> IsOdd(lst[j])' for the first loop (searching for even) and 'invariant forall j :: 0 <= j < i ==> IsEven(lst[j])' for the second loop (searching for odd). These invariants establish that all previously checked elements don't match, proving the found element is indeed the first."
+    }
+  }
+}

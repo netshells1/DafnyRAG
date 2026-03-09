@@ -1,0 +1,33 @@
+{
+  "task_id": "82",
+  "task_description": "Write a method in Dafny to find the volume of a sphere.",
+  "method_signature": "method volumeSphere(r: real) returns (area: real)",
+  "test_cases": {
+    "test_1": "var res1:=volumeSphere(10); \nassert res1==4188.790204786391;",
+    "test_2": "var res2:=volumeSphere(25); \nassert res2==65449.84694978735;",
+    "test_3": "var res3:=volumeSphere(20); \nassert res3==33510.32163829113;"
+  },
+  "buggy_code": "method SphereVolume(radius: real) returns (volume: real)\n  requires radius > 0.0\n  ensures volume == (4.0 / 3.0) * Pi * radius * radius * radius\n{\n  volume := (4.0 / 3.0) * Pi * radius * radius * radius;\n}",
+  "verifier_error": [
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_82-gpt-4.1-nano-temp_0.5-k_1.dfy(3,34): Error: unresolved identifier: Pi\n  |\n3 |   ensures volume == (4.0 / 3.0) * Pi * radius * radius * radius\n  |                                   ^^",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_82-gpt-4.1-nano-temp_0.5-k_1.dfy(5,26): Error: unresolved identifier: Pi\n  |\n5 |   volume := (4.0 / 3.0) * Pi * radius * radius * radius;\n  |                           ^^"
+  ],
+  "error_categories": [
+    "TypeError",
+    "UnresolvedIdentifier"
+  ],
+  "primary_error": {
+    "message": "unresolved identifier: Pi",
+    "line": 3,
+    "context": "ensures volume == (4.0 / 3.0) * Pi * radius * radius * radius"
+  },
+  "fixed_code": "method SphereVolume(radius: real) returns (volume: real)\n  requires radius >= 0.0\n  ensures volume == (4.0 / 3.0) * 3.1415926535 * radius * radius * radius\n{\n  volume := (4.0 / 3.0) * 3.1415926535 * radius * radius * radius;\n}",
+  "repair_strategy": {
+    "problem_summary": "The code used an undefined identifier 'Pi' which is not available in Dafny.",
+    "problem_details": {
+      "what": "The identifier 'Pi' was used in both the postcondition and method body, but it is not defined anywhere in the code.",
+      "why": "Dafny does not have a built-in Math.PI constant or library function. The identifier 'Pi' must either be defined by the user or replaced with a numeric literal.",
+      "how": "Replace the undefined 'Pi' identifier with its numeric approximation '3.1415926535' in both the postcondition and the method body."
+    }
+  }
+}

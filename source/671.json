@@ -1,0 +1,32 @@
+{
+  "task_id": "671",
+  "task_description": "Write a method in Dafny to compute the factorial of a non-negative integer iteratively.",
+  "method_signature": "method IterativeFactorial(n: nat) returns (result: nat)",
+  "test_cases": {
+    "test_1": "var res1 := IterativeFactorial(5);\nassert res1 == 120;",
+    "test_2": "var res2 := IterativeFactorial(0);\nassert res2 == 1;",
+    "test_3": "var res3 := IterativeFactorial(3);\nassert res3 == 6;"
+  },
+  "buggy_code": "// recursive definition of factorial\nfunction Factorial(n: nat): nat {\n  if n == 0 then 1 else n * Factorial(n - 1)\n}\n\n// iterative implementation of factorial\nmethod IterativeFactorial(n: nat) returns (result: nat)\n  ensures result == Factorial(n)\n{\n  result := 1;\n  var i := 1;\n  while i <= n\n  {\n    result := result * i;\n    i := i + 1;\n  }\n}",
+  "verifier_error": [
+    "671_code.dfy(17,1): Error: a postcondition could not be proved on this return path\n   |\n17 | }\n   | ^\n\n671_code.dfy(15,18): Related location: this is the postcondition that could not be proved\n   |\n15 |   ensures result == Factorial(n)\n   |                  ^^"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "LoopInvariantNotMaintained"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 17,
+    "context": "ensures result == Factorial(n)"
+  },
+  "fixed_code": "// recursive definition of factorial\nfunction Factorial(n: nat): nat {\n  if n == 0 then 1 else n * Factorial(n - 1)\n}\n\n// iterative implementation of factorial\nmethod IterativeFactorial(n: nat) returns (result: nat)\n  ensures result == Factorial(n)\n{\n  result := 1;\n  var i := 1;\n  while i <= n\n    invariant i <= n + 1\n    invariant result == Factorial(i - 1)\n  {\n    result := result * i;\n    i := i + 1;\n  }\n}",
+  "repair_strategy": {
+    "problem_summary": "Missing loop invariants prevent Dafny from proving that the iterative factorial computation equals the recursive definition.",
+    "problem_details": {
+      "what": "The while loop lacks invariants to establish the relationship between the loop variable 'i', the accumulator 'result', and the recursive Factorial function. Without these, Dafny cannot verify that 'result == Factorial(n)' holds after the loop terminates.",
+      "why": "In Dafny, loops require explicit invariants to bridge the gap between iterative computation and functional specification. The loop computes factorial by multiplying result by i at each step (result = 1*2*3*...*i), but without an invariant stating 'result == Factorial(i-1)', Dafny has no way to know what value result holds relative to the Factorial function. When the loop exits with i == n+1, Dafny needs the invariant to deduce that result == Factorial(n).",
+      "how": "Add two loop invariants: (1) 'invariant i <= n + 1' to establish the bounds of the loop variable i (it ranges from 1 to n+1), and (2) 'invariant result == Factorial(i - 1)' to establish that result always holds the factorial of (i-1). Initially when i=1, result=1=Factorial(0). After each iteration, result becomes result*i = Factorial(i-1)*i = Factorial(i), and then i increments, maintaining result == Factorial(i-1). When the loop exits with i == n+1, the invariant gives result == Factorial(n)."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "task_id": "661",
+  "task_description": "Write a method in Dafny to compute the nth Fibonacci number.",
+  "method_signature": "method ComputeFib(n: nat) returns (b: nat)",
+  "test_cases": {
+    "test_1": "var ret1 := ComputeFib(5);\nassert ret1 == 5;",
+    "test_2": "var ret2 := ComputeFib(10);\nassert ret2 == 55;",
+    "test_3": "var ret3 := ComputeFib(0);\nassert ret3 == 0;"
+  },
+  "buggy_code": "function fib(n: nat): nat\n{\n\tif n == 0 then 0 else\n\tif n == 1 then 1 else\n\t\tfib(n - 1) + fib(n - 2)\n}\n\nmethod ComputeFib(n: nat) returns (b: nat)\n\tensures b == fib(n)\n{\n\tvar i: int := 1;\n\tif 0 <= n < 2 { return n; }\n\tb := 1;\n\tvar c := 1;\n\t\n\twhile i < n\n\t{\n\t\tb, c := c, b + c;\n\t\ti := i + 1;\n\t}\n}\n\nmethod Main()\n{\n\tvar ret := ComputeFib(5);\n}",
+  "verifier_error": [
+    "661_code.dfy(19,1): Error: a postcondition could not be proved on this return path\n   |\n19 | }\n   | ^\n\n661_code.dfy(17,12): Related location: this is the postcondition that could not be proved\n   |\n17 | \tensures b == fib(n)\n   |             ^^"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "LoopInvariantNotMaintained"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 19,
+    "context": "ensures b == fib(n)"
+  },
+  "fixed_code": "function fib(n: nat): nat\n{\n\tif n == 0 then 0 else\n\tif n == 1 then 1 else\n\t\tfib(n - 1) + fib(n - 2)\n}\n\nmethod ComputeFib(n: nat) returns (b: nat)\n\tensures b == fib(n)\n{\n\tvar i: int := 1;\n\tif 0 <= n < 2 { return n; }\n\tb := 1;\n\tvar c := 1;\n\t\n\twhile i < n\n\t\tdecreases n - i\n\t\tinvariant 0 < i <= n\n\t\tinvariant b == fib(i)\n\t\tinvariant c == fib(i+1)\n\t{\n\t\tb, c := c, b + c;\n\t\ti := i + 1;\n\t}\n}\n\nmethod Main()\n{\n\tvar ret := ComputeFib(5);\n\tassert ret == fib(5);\n}",
+  "repair_strategy": {
+    "problem_summary": "Missing loop invariants prevent Dafny from proving that the computed result equals fib(n).",
+    "problem_details": {
+      "what": "The while loop in method 'ComputeFib' lacks loop invariants and a decreases clause. Without these, Dafny cannot verify that the postcondition 'b == fib(n)' holds after the loop terminates.",
+      "why": "In Dafny, loops require explicit invariants to establish the relationship between loop variables and the specification. The variables 'b' and 'c' iteratively compute Fibonacci values, but without invariants stating 'b == fib(i)' and 'c == fib(i+1)', Dafny has no way to know what these variables represent at each iteration. When the loop exits with 'i == n', Dafny cannot deduce that 'b == fib(n)'.",
+      "how": "Add three loop invariants and a decreases clause: (1) 'decreases n - i' to prove loop termination, (2) 'invariant 0 < i <= n' to maintain index bounds, (3) 'invariant b == fib(i)' to establish that b holds the i-th Fibonacci number, and (4) 'invariant c == fib(i+1)' to establish that c holds the (i+1)-th Fibonacci number. When the loop exits with i == n, the invariant 'b == fib(i)' directly implies the postcondition 'b == fib(n)'."
+    }
+  }
+}

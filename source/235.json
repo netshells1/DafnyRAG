@@ -1,0 +1,35 @@
+{
+  "task_id": "235",
+  "task_description": "Write a method in Dafny to set all even bits of a given number.",
+  "method_signature": "method evenBitSetNumber(n:int) returns (res:int)",
+  "test_cases": {
+    "test_1": "var out1:=evenBitSetNumber(10);\nassert out1==10;",
+    "test_2": "var out2:=evenBitSetNumber(20);\nassert out2==30;",
+    "test_3": "var out3:=evenBitSetNumber(30);\nassert out3==30;"
+  },
+  "buggy_code": "method SetAllEvenBits(n: int) returns (result: int)\n    ensures result == (n | 0x55555555)\n{\n    result := n | 0x55555555;\n}",
+  "verifier_error": [
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_235-gpt-4.1-nano-temp_0.5-k_2.dfy(2,25): Error: first argument to | must be of a bitvector type (instead got int)\n  |\n2 |     ensures result == (n | 0x55555555)\n  |                          ^\n",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_235-gpt-4.1-nano-temp_0.5-k_2.dfy(2,25): Error: second argument to | must be of a bitvector type (instead got int)\n  |\n2 |     ensures result == (n | 0x55555555)\n  |                          ^\n",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_235-gpt-4.1-nano-temp_0.5-k_2.dfy(4,16): Error: first argument to | must be of a bitvector type (instead got int)\n  |\n4 |     result := n | 0x55555555;\n  |                 ^\n",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_235-gpt-4.1-nano-temp_0.5-k_2.dfy(4,16): Error: second argument to | must be of a bitvector type (instead got int)\n  |\n4 |     result := n | 0x55555555;\n  |                 ^\n"
+  ],
+  "error_categories": [
+    "TypeError",
+    "TypeMismatch"
+  ],
+  "primary_error": {
+    "message": "Bitwise OR operator requires bitvector operands, but 'int' was provided.",
+    "line": 2,
+    "context": "n | 0x55555555"
+  },
+  "fixed_code": "const EVEN_BIT_MASK: bv32 := 0x55555555;\n\nmethod SetAllEvenBits(n: bv32) returns (result: bv32)\n  ensures result == (n | EVEN_BIT_MASK)\n{\n  result := n | EVEN_BIT_MASK;\n}",
+  "repair_strategy": {
+    "problem_summary": "Bitwise OR was applied to integers instead of bitvectors.",
+    "problem_details": {
+      "what": "The operator '|' only works on bitvectors, but 'n' and the mask were typed as int.",
+      "why": "Dafny does not allow bitwise operations on mathematical integers.",
+      "how": "Declare the function argument as 'bv32', convert the mask to a bitvector, and define a const EVEN_BIT_MASK of type bv32."
+    }
+  }
+}

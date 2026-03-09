@@ -1,0 +1,35 @@
+{
+  "task_id": "139",
+  "task_description": "Write a method in Dafny to find the circumference of a circle.",
+  "method_signature": "method circleCircumference (r:real) returns (area:real)",
+  "test_cases": {
+    "test_1": "var res1:=circleCircumference(10); \nassert res1==62.83185307179586476920;",
+    "test_2": "var res2:=circleCircumference(5); \nassert res2==31.41592653589793238460;",
+    "test_3": "var res3:=circleCircumference(4); \nassert res3==25.13274122871834590768;"
+  },
+  "buggy_code": "method CircleCircumference(radius: real) returns (circumference: real)\n    requires radius >= 0\n    ensures circumference == 2.0 * Math.PI * radius\n{\n    circumference := 2.0 * Math.PI * radius;\n}",
+  "verifier_error": [
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_139-gpt-4.1-nano-temp_0.5-k_1.dfy(3,35): Error: unresolved identifier: Math\n  |\n3 |     ensures circumference == 2.0 * Math.PI * radius\n  |                                    ^^^^",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_139-gpt-4.1-nano-temp_0.5-k_1.dfy(2,20): Error: arguments to >= must have a common supertype (got real and int)\n  |\n2 |     requires radius >= 0\n  |                     ^^",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_139-gpt-4.1-nano-temp_0.5-k_1.dfy(5,27): Error: unresolved identifier: Math\n  |5 |     circumference := 2.0 * Math.PI * radius;\n  |                            ^^^^"
+  ],
+  "error_categories": [
+    "TypeError",
+    "UnresolvedIdentifier",
+    "TypeMismatch"
+  ],
+  "primary_error": {
+    "message": "unresolved identifier: Math",
+    "line": 3,
+    "context": "ensures circumference == 2.0 * Math.PI * radius"
+  },
+  "fixed_code": "// 定义圆周率常量\nconst PI: real := 3.14159265358979323846\n\n// 方法：计算圆的周长\nmethod CircleCircumference(radius: real) returns (circumference: real)\n  requires radius >= 0.0\n  ensures circumference == 2.0 * PI * radius\n{\n  circumference := 2.0 * PI * radius;\n}",
+  "repair_strategy": {
+    "problem_summary": "Attempted to use a non-existent Math library and had type mismatch between real and int types.",
+    "problem_details": {
+      "what": "Two main issues: (1) Referenced 'Math.PI' which doesn't exist in Dafny - there is no built-in Math library or module; (2) Compared a real value 'radius' with integer literal '0', causing a type mismatch error.",
+      "why": "Dafny does not have a standard Math library like many other programming languages (e.g., Java, C#). Mathematical constants like PI must be explicitly defined by the user. Additionally, Dafny has strict type checking and does not automatically convert between int and real types - when working with real numbers, all numeric literals must also be real (e.g., '0.0' instead of '0').",
+      "how": "Added a module-level constant definition 'const PI: real := 3.14159265358979323846' to define the value of π. Replaced all occurrences of 'Math.PI' with the user-defined constant 'PI'. Changed the integer literal '0' to the real literal '0.0' in the requires clause to match the type of 'radius'. This ensures type consistency throughout the method."
+    }
+  }
+}

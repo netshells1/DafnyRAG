@@ -1,0 +1,35 @@
+{
+  "task_id": "665",
+  "task_description": "Write a method in Dafny to compute the integer square root of a non-negative integer using binary search.",
+  "method_signature": "method mySqrt(x: int) returns (res: int)",
+  "test_cases": {
+    "test_1": "var res1 := mySqrt(4);\nassert res1 == 2;",
+    "test_2": "var res2 := mySqrt(8);\nassert res2 == 2;",
+    "test_3": "var res3 := mySqrt(0);\nassert res3 == 0;"
+  },
+  "buggy_code": "predicate sqrt(x: int, r: int) {\n    r*r <= x && (r+1)*(r+1) > x\n}\n\nlemma uniqueSqrt(x: int, r1: int, r2: int)\nrequires x >= 0 && r1 >= 0 && r2 >= 0;\nensures sqrt(x, r1) && sqrt(x, r2) ==> r1 == r2\n{}\n\nmethod mySqrt(x: int) returns (res: int)\nrequires 0 <= x;\nensures sqrt(x, res);\n{\n    var l, r := 0, x;\n    while (l <= r)\n    {\n        var mid := (l + r) / 2;\n        if (mid * mid <= x && (mid + 1) * (mid + 1) > x) {\n            return mid;\n        } else if (mid * mid <= x) {\n            l := mid + 1;\n        } else {\n            r := mid - 1;\n        }\n    }\n}",
+  "verifier_error": [
+    "665_code.dfy(29,1): Error: a postcondition could not be proved on this return path\n   |\n29 | }\n   | ^\n\n665_code.dfy(27,13): Related location: this is the postcondition that could not be proved\n   |\n27 | ensures sqrt(x, res);\n   |              ^\n\n665_code.dfy(7,9): Related location: this proposition could not be proved\n   |\n7  |     r*r <= x && (r+1)*(r+1) > x\n   |          ^^",
+    "665_code.dfy(29,1): Error: a postcondition could not be proved on this return path\n   |\n29 | }\n   | ^\n\n665_code.dfy(27,13): Related location: this is the postcondition that could not be proved\n   |\n27 | ensures sqrt(x, res);\n   |              ^\n\n665_code.dfy(7,29): Related location: this proposition could not be proved\n   |\n7  |     r*r <= x && (r+1)*(r+1) > x\n   |                              ^",
+    "665_code.dfy(55,1): Error: out-parameter 'res', which is subject to definite-assignment rules, might be uninitialized at this return point\n   |\n55 | }\n   | ^"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "LoopInvariantNotMaintained",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 29,
+    "context": "ensures sqrt(x, res);"
+  },
+  "fixed_code": "predicate sqrt(x: int, r: int) {\n    r*r <= x && (r+1)*(r+1) > x\n}\n\nlemma uniqueSqrt(x: int, r1: int, r2: int)\nrequires x >= 0 && r1 >= 0 && r2 >= 0;\nensures sqrt(x, r1) && sqrt(x, r2) ==> r1 == r2\n{}\n\nmethod mySqrt(x: int) returns (res: int)\nrequires 0 <= x;\nensures sqrt(x, res);\n{\n    var l, r := 0, x;\n    while (l <= r)\n    decreases r - l;\n    invariant l >= 0;\n    invariant r >= 0;\n    invariant l*l <= x;\n    invariant (r+1)*(r+1) > x;\n    {\n        var mid := (l + r) / 2;\n        if (mid * mid <= x && (mid + 1) * (mid + 1) > x) {\n            return mid;\n        } else if (mid * mid <= x) {\n            l := mid + 1;\n        } else {\n            r := mid - 1;\n        }\n    }\n}",
+  "repair_strategy": {
+    "problem_summary": "Missing loop invariants prevent Dafny from proving the binary search correctly computes the integer square root.",
+    "problem_details": {
+      "what": "The while loop implementing binary search lacks invariants to track the search bounds' relationship with x. Without these, Dafny cannot prove: (1) the postcondition 'sqrt(x, res)' holds when returning mid, (2) that the loop will definitely find and return a result (causing 'res might be uninitialized' error).",
+      "why": "Binary search maintains the property that the answer lies within [l, r]. Specifically: l*l <= x (l is not too large) and (r+1)*(r+1) > x (r+1 is too large, so answer is at most r). Without these invariants, Dafny cannot verify that when mid satisfies the condition, it truly is the integer square root. Additionally, without proving these bounds converge to a valid answer, Dafny cannot guarantee the loop will return before normal termination.",
+      "how": "Add a decreases clause and four loop invariants: (1) 'decreases r - l' to prove termination, (2) 'invariant l >= 0' to maintain l's non-negativity, (3) 'invariant r >= 0' to maintain r's non-negativity, (4) 'invariant l*l <= x' to establish that l is a lower bound for the answer, and (5) 'invariant (r+1)*(r+1) > x' to establish that r is an upper bound. These invariants ensure that when mid*mid <= x && (mid+1)*(mid+1) > x is true, mid is indeed the integer square root."
+    }
+  }
+}

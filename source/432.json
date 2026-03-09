@@ -1,0 +1,37 @@
+{
+  "task_id": "432",
+  "task_description": "Write a method in Dafny to find the median length of a trapezium.",
+  "method_signature": "method medianTrapezium(base1:int,base2:int,height:int) returns (res:real)",
+  "test_cases": {
+    "test_1": "var res1:=medianTrapezium(15,25,35); \nassert res1==20.0;",
+    "test_2": "var res2:=medianTrapezium(10,20,30); \nassert res2==15.0;",
+    "test_3": "var res3:=medianTrapezium(6,9,4); \nassert res3==7.5;"
+  },
+  "buggy_code": "method MedianLengthTrapezium(a: real, b: real, c: real, d: real) returns (median: real)\n    requires a > 0 && b > 0 && c > 0 && d > 0\n    // Assuming sides a and c are the parallel sides\n    ensures median == (a + c) / 2\n{\n    // For simplicity, assume sides a and c are the parallel sides\n    median := (a + c) / 2;\n}",
+  "verifier_error": [
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy(2,15): Error: arguments to > must have a common supertype (got real and int)\n  |\n2 |     requires a > 0 && b > 0 && c > 0 && d > 0\n  |                ^",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy(2,24): Error: arguments to > must have a common supertype (got real and int)\n  |\n2 |     requires a > 0 && b > 0 && c > 0 && d > 0\n  |                         ^",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy(2,33): Error: arguments to > must have a common supertype (got real and int)\n  |\n2 |     requires a > 0 && b > 0 && c > 0 && d > 0\n  |                                  ^",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy(2,42): Error: arguments to > must have a common supertype (got real and int)\n  |\n2 |     requires a > 0 && b > 0 && c > 0 && d > 0\n  |                                           ^",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy(4,30): Error: type of right argument to / (int) must agree with the result type (real)\n  |\n4 |     ensures median == (a + c) / 2\n  |                               ^",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy(7,22): Error: type of right argument to / (int) must agree with the result type (real)\n  |\n7 |     median := (a + c) / 2;\n  |                       ^"
+  ],
+  "error_categories": [
+    "TypeError",
+    "TypeMismatch"
+  ],
+  "primary_error": {
+    "message": "arguments to > must have a common supertype (got real and int)",
+    "line": 2,
+    "context": "requires a > 0 && b > 0 && c > 0 && d > 0"
+  },
+  "fixed_code": "method MedianLengthTrapezium(a: real, b: real, c: real) returns (median: real)\n    requires a > 0.0 && b > 0.0 && c > 0.0\n    // Assuming sides a and c are the parallel sides\n    ensures median == (a + c) / 2.0\n{\n    // For simplicity, assume sides a and c are the parallel sides\n    median := (a + c) / 2.0;\n}",
+  "repair_strategy": {
+    "problem_summary": "Type mismatch between real and int types in comparisons and division operations, and incorrect parameter count.",
+    "problem_details": {
+      "what": "The method has 4 parameters instead of 3, and uses integer literals (0 and 2) in operations with real-typed variables, causing type errors in comparisons (a > 0) and division ((a + c) / 2).",
+      "why": "In Dafny, real and int are distinct types that cannot be directly compared or used together in arithmetic operations without explicit conversion. The comparison 'a > 0' fails because 'a' is real while '0' is int. Similarly, dividing a real expression by the integer literal '2' causes a type error.",
+      "how": "Remove the unnecessary fourth parameter 'd' to match the correct signature. Change all integer literals to real literals by adding '.0' suffix: replace '0' with '0.0' in all requires clauses, and replace '2' with '2.0' in both the ensures clause and the method body."
+    }
+  }
+}

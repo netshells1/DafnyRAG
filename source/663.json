@@ -1,0 +1,35 @@
+{
+  "task_id": "663",
+  "task_description": "Write a method in Dafny to solve the Two Sum problem: find two indices in an array whose elements add up to the target value.",
+  "method_signature": "method TwoSum(nums: array<int>, target: int) returns (r: (int, int))",
+  "test_cases": {
+    "test_1": "var arr1 := new int[][2, 7, 11, 15];\nvar res1 := TwoSum(arr1, 9);\nassert res1.0 >= 0 ==> arr1[res1.0] + arr1[res1.1] == 9;",
+    "test_2": "var arr2 := new int[][3, 2, 4];\nvar res2 := TwoSum(arr2, 6);\nassert res2.0 >= 0 ==> arr2[res2.0] + arr2[res2.1] == 6;",
+    "test_3": "var arr3 := new int[][1, 2, 3];\nvar res3 := TwoSum(arr3, 10);\nassert res3.0 == -1;"
+  },
+  "buggy_code": "predicate InMap(nums: seq<int>, m: map<int, int>, t: int) {\n  forall j :: 0 <= j < |nums| ==> t - nums[j] in m\n}\n\nmethod TwoSum(nums: array<int>, target: int) returns (r: (int, int))\n  ensures 0 <= r.0 ==> 0 <= r.0 < r.1 < nums.Length && \n                       nums[r.0] + nums[r.1] == target &&\n                       forall i, j :: 0 <= i < j < r.1 ==> nums[i] + nums[j] != target\n  ensures r.0 == -1 <==> forall i, j :: 0 <= i < j < nums.Length ==> nums[i] + nums[j] != target\n{\n  var m: map<int, int> := map[];\n  var i := 0;\n  while i < nums.Length\n  {\n    if nums[i] in m {\n      return (m[nums[i]], i);\n    }\n    m := m[target - nums[i] := i];\n    i := i + 1;\n  }\n  return (-1, -1);\n}",
+  "verifier_error": [
+    "663_code.dfy(41,7): Error: a postcondition could not be proved on this return path\n   |\n41 |       return (m[nums[i]], i);\n   |       ^^^^^^^^^^^^^^^^^^^^^^\n\n663_code.dfy(21,33): Related location: this is the postcondition that could not be proved\n   |\n21 |   ensures 0 <= r.0 ==> 0 <= r.0 < r.1 < nums.Length &&\n   |                                  ^",
+    "663_code.dfy(41,7): Error: a postcondition could not be proved on this return path\n   |\n41 |       return (m[nums[i]], i);\n   |       ^^^^^^^^^^^^^^^^^^^^^^\n\n663_code.dfy(23,46): Related location: this is the postcondition that could not be proved\n   |\n23 |                        forall i, j :: 0 <= i < j < r.1 ==> nums[i] + nums[j] != target\n   |                                               ^^",
+    "663_code.dfy(41,7): Error: a postcondition could not be proved on this return path\n   |\n41 |       return (m[nums[i]], i);\n   |       ^^^^^^^^^^^^^^^^^^^^^^\n\n663_code.dfy(25,24): Related location: this is the postcondition that could not be proved\n   |\n25 |   ensures r.0 == -1 <==> forall i, j :: 0 <= i < j < nums.Length ==> nums[i] + nums[j] != target\n   |                          ^^^^^^",
+    "663_code.dfy(51,3): Error: a postcondition could not be proved on this return path\n   |\n51 |   return (-1, -1);\n   |   ^^^^^^^^^^^^^^^^\n\n663_code.dfy(27,21): Related location: this is the postcondition that could not be proved\n   |\n27 |   ensures r.0 == -1 <==> forall ...\n   |                     ^^^^"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "LoopInvariantNotMaintained"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 41,
+    "context": "return (m[nums[i]], i);"
+  },
+  "fixed_code": "predicate InMap(nums: seq<int>, m: map<int, int>, t: int) {\n  forall j :: 0 <= j < |nums| ==> t - nums[j] in m\n}\n\nmethod TwoSum(nums: array<int>, target: int) returns (r: (int, int))\n  ensures 0 <= r.0 ==> 0 <= r.0 < r.1 < nums.Length && \n                       nums[r.0] + nums[r.1] == target &&\n                       forall i, j :: 0 <= i < j < r.1 ==> nums[i] + nums[j] != target\n  ensures r.0 == -1 <==> forall i, j :: 0 <= i < j < nums.Length ==> nums[i] + nums[j] != target\n{\n  var m: map<int, int> := map[];\n  var i := 0;\n  while i < nums.Length\n    invariant i <= nums.Length\n    invariant forall k :: k in m ==> 0 <= m[k] < i\n    invariant forall k :: k in m ==> nums[m[k]] + k == target\n    invariant InMap(nums[..i], m, target)\n    invariant forall u, v :: 0 <= u < v < i ==> nums[u] + nums[v] != target\n  {\n    if nums[i] in m {\n      return (m[nums[i]], i);\n    }\n    m := m[target - nums[i] := i];\n    i := i + 1;\n  }\n  return (-1, -1);\n}",
+  "repair_strategy": {
+    "problem_summary": "Missing loop invariants prevent Dafny from proving postconditions about the Two Sum algorithm's correctness.",
+    "problem_details": {
+      "what": "The while loop lacks invariants to describe: (1) the relationship between map keys/values and array indices, (2) the mathematical property that map entries encode (target - nums[j] maps to j), (3) that all previously examined pairs don't sum to target, and (4) the InMap predicate property for processed elements.",
+      "why": "The Two Sum algorithm uses a hash map to store complements: for each index j, it stores (target - nums[j]) -> j. When finding nums[i] in the map, it means there exists some earlier index j where target - nums[j] == nums[i], thus nums[j] + nums[i] == target. Without invariants explaining this relationship, Dafny cannot verify that: (1) m[nums[i]] is a valid index less than i, (2) the sum property holds, (3) this is the first valid pair, and (4) returning (-1,-1) means no solution exists.",
+      "how": "Add five loop invariants: (1) 'invariant i <= nums.Length' for index bounds, (2) 'invariant forall k :: k in m ==> 0 <= m[k] < i' to ensure map values are valid indices less than current position, (3) 'invariant forall k :: k in m ==> nums[m[k]] + k == target' to encode the complement relationship, (4) 'invariant InMap(nums[..i], m, target)' to track that all processed elements have their complements in the map, (5) 'invariant forall u, v :: 0 <= u < v < i ==> nums[u] + nums[v] != target' to establish that no valid pair was found in the examined portion."
+    }
+  }
+}

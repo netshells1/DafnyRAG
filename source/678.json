@@ -1,0 +1,33 @@
+{
+  "task_id": "678",
+  "task_description": "Write a method in Dafny to traverse a derangement permutation sequence until returning to the starting position.",
+  "method_signature": "method end(links: seq<nat>)",
+  "test_cases": {
+    "test_1": "var tests := [2,0,1];\nassert derangement(tests);\nassert permutation(tests);",
+    "test_2": "var tests2 := [0,1,2];\nassert permutation(tests2);",
+    "test_3": "var t4 := seq(3, i => i);\nassert t4 == [0,1,2];"
+  },
+  "buggy_code": "predicate derangement(s: seq<nat>) {\n    forall i :: 0 <= i < |s| ==> s[i] != i\n}\n\npredicate permutation(s: seq<nat>) {\n    forall i :: 0 <= i < |s| ==> i in s\n}\n\nfunction multisetRange(n: nat): multiset<nat> {\n    multiset(seq(n, i => i))\n}\n\npredicate distinct<A(==)>(s: seq<A>) {\n    forall x,y :: x != y && 0 <= x <= y < |s| ==> s[x] != s[y]\n}\n\nmethod test() {\n    var tests := [2,0,1];\n    var tests2 := [0,1,2];\n    var t4 := seq(3, i => i);\n    var test3 := multisetRange(3);\n}\n\nmethod {:timelimit 40} end(links: seq<nat>)\n    requires |links| > 0\n    requires permutation(links)\n    requires derangement(links)\n    requires distinct(links)\n{\n    assume forall x :: x in links ==> 0 <= x < |links|;\n    assume forall x :: x in links ==> multiset(links)[x] ==1;\n    var qAct: nat := links[0];\n    var i : nat := 0;\n    ghost var oldIndex := 0;\n    ghost var indices: multiset<nat> := multiset{0};\n    ghost var visited: multiset<nat> := multiset{};\n\n    while qAct != 0\n    {\n        ghost var oldVisit := visited;\n        ghost var oldqAct := qAct;\n        ghost var oldOldIndex := oldIndex;\n        oldIndex := qAct;\n        visited := visited + multiset{qAct};\n        indices := indices + multiset{qAct};\n        qAct := links[qAct];\n        i := i + 1;\n    }\n}",
+  "verifier_error": [
+    "678_code.dfy(81,5): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n81 |     while qAct != 0\n   |     ^^^^^",
+    "678_code.dfy(121,22): Error: index out of range\n   |\n121|         qAct := links[qAct];\n   |                       ^"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "LoopInvariantNotMaintained"
+  ],
+  "primary_error": {
+    "message": "cannot prove termination; try supplying a decreases clause for the loop",
+    "line": 81,
+    "context": "while qAct != 0"
+  },
+  "fixed_code": "predicate derangement(s: seq<nat>) {\n    forall i :: 0 <= i < |s| ==> s[i] != i\n}\n\npredicate permutation(s: seq<nat>) {\n    forall i :: 0 <= i < |s| ==> i in s\n}\n\nfunction multisetRange(n: nat): multiset<nat> {\n    multiset(seq(n, i => i))\n}\n\npredicate distinct<A(==)>(s: seq<A>) {\n    forall x,y :: x != y && 0 <= x <= y < |s| ==> s[x] != s[y]\n}\n\nmethod test() {\n    var tests := [2,0,1];\n    var tests2 := [0,1,2];\n    var t4 := seq(3, i => i);\n    var test3 := multisetRange(3);\n    assert t4 == tests2;\n    assert 0 in t4;\n    assert 0 in test3;\n    assert multiset(tests) == multisetRange(3);\n    assert derangement(tests);\n    assert permutation(tests);\n    assert permutation(tests2);\n}\n\nmethod {:timelimit 40} end(links: seq<nat>)\n    requires |links| > 0\n    requires permutation(links)\n    requires derangement(links)\n    requires distinct(links)\n{\n    assume forall x :: x in links ==> 0 <= x < |links|;\n    assume forall x :: x in links ==> multiset(links)[x] ==1;\n    var qAct: nat := links[0];\n    assert links[0] in links;\n    var i : nat := 0;\n    ghost var oldIndex := 0;\n    ghost var indices: multiset<nat> := multiset{0};\n    ghost var visited: multiset<nat> := multiset{};\n\n    while qAct != 0\n        invariant 0 <= oldIndex < |links|\n        invariant qAct == links[oldIndex]\n        invariant oldIndex in indices\n        invariant qAct in links\n        invariant indices == visited + multiset{0}\n        invariant forall x :: x in visited ==> exists k :: 0 <= k < |links| && links[k] == x && k in indices\n        invariant qAct !in visited\n        invariant 0 <= qAct < |links|\n        decreases multiset(links) - visited\n    {\n        ghost var oldVisit := visited;\n        ghost var oldqAct := qAct;\n        ghost var oldOldIndex := oldIndex;\n        oldIndex := qAct;\n        visited := visited + multiset{qAct};\n        indices := indices + multiset{qAct};\n        assert oldqAct in visited;\n        assert forall x :: x in visited ==> exists k :: 0 <= k < |links| && links[k] == x && k in indices;\n        qAct := links[qAct];\n        i := i + 1;\n    }\n}",
+  "repair_strategy": {
+    "problem_summary": "Missing loop invariants and decreases clause prevent Dafny from proving termination and array access safety.",
+    "problem_details": {
+      "what": "The while loop lacks: (1) a decreases clause to prove termination, (2) invariants to establish that qAct is a valid index into links, and (3) invariants to track the relationship between loop variables and ghost variables.",
+      "why": "Dafny requires explicit termination proofs for loops. Without a decreases clause, Dafny cannot verify the loop will terminate. Additionally, without the invariant '0 <= qAct < |links|', Dafny cannot prove that 'links[qAct]' is a safe array access. The algorithm traverses a derangement permutation, visiting each element at most once, but Dafny needs invariants to understand this traversal pattern and prove no infinite loops occur.",
+      "how": "Add a decreases clause and multiple loop invariants: (1) 'decreases multiset(links) - visited' to prove termination by showing the set of unvisited elements shrinks each iteration; (2) 'invariant 0 <= oldIndex < |links|' and 'invariant 0 <= qAct < |links|' to ensure valid index bounds; (3) 'invariant qAct == links[oldIndex]' to track the relationship between current and previous positions; (4) 'invariant qAct in links' and 'invariant qAct !in visited' to establish that qAct is a valid unvisited element; (5) 'invariant indices == visited + multiset{0}' and related invariants to track visited indices. Also add assertions to help Dafny verify the invariants are maintained."
+    }
+  }
+}

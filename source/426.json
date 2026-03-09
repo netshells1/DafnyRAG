@@ -1,0 +1,35 @@
+{
+  "task_id": "426",
+  "task_description": "Write a method in Dafny to filter odd numbers.",
+  "method_signature": "method filterOddNumbers (arr: array<int>) returns (odds: seq<int>)",
+  "test_cases": {
+    "test_1": "var a1:= new int[] [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];\nvar e1: seq<int> := [1,3,5,7,9];\nvar res1:=filterOddNumbers(a1);\nassert sequenceEquals(res1,e1);",
+    "test_2": "var a2:= new int[] [10,20,45,67,84,93];\nvar e2: seq<int> := [45,67,93];\nvar res2:=filterOddNumbers(a2);\nassert sequenceEquals(res2,e2);",
+    "test_3": "var a3:= new int[] [5,7,9,8,6,4,3];\nvar e3: seq<int> := [5,7,9,3];\nvar res3:=filterOddNumbers(a3);\nassert sequenceEquals(res3,e3);"
+  },
+  "buggy_code": "// Predicate to determine if a number is odd\npredicate IsOdd(n: int)\n{\n    n % 2 != 0\n}\n\n// Method to filter odd numbers from an input array\nmethod FilterOddNumbers(arr: array<int>) returns (oddNumbers: seq<int>)\n    requires arr != null\n    ensures forall i :: 0 <= i < |oddNumbers| ==> IsOdd(oddNumbers[i])\n    ensures forall i :: 0 <= i < arr.Length ==> (IsOdd(arr[i]) ==> i in oddNumbers)\n{\n    oddNumbers := [];\n    var index := 0;\n    while index < arr.Length\n        invariant 0 <= index <= arr.Length\n        invariant forall k :: 0 <= k < |oddNumbers| ==> IsOdd(oddNumbers[k])\n        invariant forall i :: 0 <= i < index ==> (IsOdd(arr[i]) ==> i in oddNumbers)\n    {\n        if IsOdd(arr[index])\n        {\n            oddNumbers := oddNumbers + [arr[index]];\n        }\n        index := index + 1;\n    }\n}",
+  "verifier_error": [
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_426-gpt-4.1-nano-temp_0.5-k_1.dfy(9,17): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'arr' to have the value 'null', declare its type to be 'array?<int>')\n  |\n9 |     requires arr != null\n  |                  ^^",
+    "/home/yqc/dafny-synthesis/output-dynamic_13/task_id_426-gpt-4.1-nano-temp_0.5-k_1.dfy(18,18): Error: this invariant could not be proved to be maintained by the loop\n Related message: loop invariant violation\n   |\n18 |         invariant forall i :: 0 <= i < index ==> (IsOdd(arr[i]) ==> i in oddNumbers)\n   |                   ^^^^^^",
+    "Dafny program verifier finished with 2 verified, 1 error"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "LoopInvariantNotMaintained",
+    "RedundantTypeCheck"
+  ],
+  "primary_error": {
+    "message": "this invariant could not be proved to be maintained by the loop",
+    "line": 18,
+    "context": "invariant forall i :: 0 <= i < index ==> (IsOdd(arr[i]) ==> i in oddNumbers)"
+  },
+  "fixed_code": "// Predicate to determine if a number is odd\npredicate IsOdd(n: int)\n{\n    n % 2 != 0\n}\n\n// Method to filter odd numbers from an input array\nmethod FilterOddNumbers(arr: array<int>) returns (oddNumbers: seq<int>)\n    //requires arr != null\n    ensures forall i :: 0 <= i < |oddNumbers| ==> IsOdd(oddNumbers[i])\n    ensures forall i :: 0 <= i < arr.Length ==> (IsOdd(arr[i]) ==> arr[i] in oddNumbers)\n{\n    oddNumbers := [];\n    var index := 0;\n    while index < arr.Length\n        invariant 0 <= index <= arr.Length\n        invariant forall k :: 0 <= k < |oddNumbers| ==> IsOdd(oddNumbers[k])\n        invariant forall i :: 0 <= i < index ==> (IsOdd(arr[i]) ==> arr[i] in oddNumbers)\n    {\n        if IsOdd(arr[index])\n        {\n            oddNumbers := oddNumbers + [arr[index]];\n        }\n        index := index + 1;\n    }\n}",
+  "repair_strategy": {
+    "problem_summary": "Incorrect specification using array index instead of array element value, and redundant null check.",
+    "problem_details": {
+      "what": "The ensures clause and loop invariant incorrectly checked 'i in oddNumbers' (treating index as value) instead of 'arr[i] in oddNumbers'. Additionally, the code included an unnecessary 'arr != null' precondition.",
+      "why": "In Dafny, arrays are non-null by default, making the null check redundant. The specification confused array indices with array element values - it should check whether the element value 'arr[i]' exists in the result sequence, not whether the index 'i' exists in it.",
+      "how": "Remove the redundant 'requires arr != null' precondition. Change 'i in oddNumbers' to 'arr[i] in oddNumbers' in both the ensures clause and the loop invariant to correctly express that odd element values (not their indices) should appear in the result sequence."
+    }
+  }
+}
