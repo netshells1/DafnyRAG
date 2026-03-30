@@ -68,8 +68,8 @@ export DEEPSEEK_API_KEY="your-key-here"
 
 ```bash
 # Run DafnyRAG on the MBPP-DFY-178 benchmark
-python main.py --model gpt-4o --max_iterations 5 --temperature 0.5
+python main_improved.py --model gpt-4o --max_iterations 5 --temperature 0.5
 
 # Run with a specific task
-python main.py --model gpt-4o --task_id 1 --max_iterations 5
+python main_improved.py --model gpt-4o --task_id 1 --max_iterations 5
 ```
