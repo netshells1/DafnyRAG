@@ -19,7 +19,7 @@ Unlike standard generation methods, DafnyRAG employs a two-fold strategy:
 
 ### Framework
 
-![framework_01](images/framework_012png)
+![framework_01](images/framework_01.png)
 
 ## Results
 
