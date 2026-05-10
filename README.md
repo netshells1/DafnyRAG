@@ -35,7 +35,7 @@ Evaluated on the **MBPP-DFY-178** benchmark across three representative LLMs:
 
 - **Python** 3.8+
 - **Dafny** 4.11.0
-- **Ubuntu** 20.04 (recommended)
+- **Operating System**: Ubuntu 20.04+ or Windows 10/11
 - API keys for at least one of: OpenAI (GPT-4o), Anthropic (Claude-4.5-Sonnet), or DeepSeek (DeepSeek-V3)
 
 ### Installation
@@ -49,7 +49,7 @@ cd DafnyRAG
 pip install -r requirements.txt
 
 # Install Dafny 4.11.0
-# See https://github.com/dafny-lang/dafny/releases/tag/v4.11.0
+See https://github.com/dafny-lang/dafny/releases/tag/v4.11.0
 ```
 
 ### Configuration
