@@ -1,0 +1,36 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_4.dfy(2,25): Error: missing semicolon at end of statement
+  |
+2 |     ensures sum == sum { x | x in lst && |lst|x| == 1 }
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_4.dfy(2,46): Error: verticalbar expected
+  |
+2 |     ensures sum == sum { x | x in lst && |lst|x| == 1 }
+  |                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_4.dfy(2,27): Error: missing semicolon at end of statement
+  |
+2 |     ensures sum == sum { x | x in lst && |lst|x| == 1 }
+  |                            ^^^^^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_4.dfy(2,46): Error: missing semicolon at end of statement
+  |
+2 |     ensures sum == sum { x | x in lst && |lst|x| == 1 }
+  |                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_4.dfy(2,49): Error: invalid UnaryExpression
+  |
+2 |     ensures sum == sum { x | x in lst && |lst|x| == 1 }
+  |                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_4.dfy(2,54): Error: verticalbar expected
+  |
+2 |     ensures sum == sum { x | x in lst && |lst|x| == 1 }
+  |                                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_4.dfy(2,47): Error: missing semicolon at end of statement
+  |
+2 |     ensures sum == sum { x | x in lst && |lst|x| == 1 }
+  |                                                ^^^^^^
+
+7 parse errors detected in task_id_777-gpt-4.1-nano-temp_0.5-k_4.dfy

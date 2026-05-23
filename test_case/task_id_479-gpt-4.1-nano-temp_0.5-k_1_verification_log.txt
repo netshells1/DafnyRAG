@@ -1,0 +1,61 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(3,24): Error: unresolved identifier: Power10
+  |
+3 |     0 <= d < 10 && n >= Power10(NumberOfDigits(n)-1) && n < Power10(NumberOfDigits(n))
+  |                         ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(3,32): Error: unresolved identifier: NumberOfDigits
+  |
+3 |     0 <= d < 10 && n >= Power10(NumberOfDigits(n)-1) && n < Power10(NumberOfDigits(n))
+  |                                 ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(3,60): Error: unresolved identifier: Power10
+  |
+3 |     0 <= d < 10 && n >= Power10(NumberOfDigits(n)-1) && n < Power10(NumberOfDigits(n))
+  |                                                             ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(3,68): Error: unresolved identifier: NumberOfDigits
+  |
+3 |     0 <= d < 10 && n >= Power10(NumberOfDigits(n)-1) && n < Power10(NumberOfDigits(n))
+  |                                                                     ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(15,23): Error: unresolved identifier: Power10
+   |
+15 |         invariant n >= Power10(NumberOfDigits(n)-1)
+   |                        ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(15,31): Error: unresolved identifier: NumberOfDigits
+   |
+15 |         invariant n >= Power10(NumberOfDigits(n)-1)
+   |                                ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(16,22): Error: unresolved identifier: Power10
+   |
+16 |         invariant n < Power10(NumberOfDigits(n))
+   |                       ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(16,30): Error: unresolved identifier: NumberOfDigits
+   |
+16 |         invariant n < Power10(NumberOfDigits(n))
+   |                               ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(17,26): Error: unresolved identifier: Power10
+   |
+17 |         invariant temp >= Power10(NumberOfDigits(temp)-1)
+   |                           ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(17,34): Error: unresolved identifier: NumberOfDigits
+   |
+17 |         invariant temp >= Power10(NumberOfDigits(temp)-1)
+   |                                   ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(18,25): Error: unresolved identifier: Power10
+   |
+18 |         invariant temp < Power10(NumberOfDigits(temp))
+   |                          ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy(18,33): Error: unresolved identifier: NumberOfDigits
+   |
+18 |         invariant temp < Power10(NumberOfDigits(temp))
+   |                                  ^^^^^^^^^^^^^^
+
+12 resolution/type errors detected in task_id_479-gpt-4.1-nano-temp_0.5-k_1.dfy

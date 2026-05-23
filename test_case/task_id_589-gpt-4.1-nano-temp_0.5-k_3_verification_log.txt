@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_589-gpt-4.1-nano-temp_0.5-k_3.dfy(20,27): Error: rbracket expected
+   |
+20 |         invariant res == [ for x in res :: exists k: int :: k * k == x ]
+   |                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_589-gpt-4.1-nano-temp_0.5-k_3.dfy(20,33): Error: gets expected
+   |
+20 |         invariant res == [ for x in res :: exists k: int :: k * k == x ]
+   |                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_589-gpt-4.1-nano-temp_0.5-k_3.dfy(20,40): Error: ident expected
+   |
+20 |         invariant res == [ for x in res :: exists k: int :: k * k == x ]
+   |                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_589-gpt-4.1-nano-temp_0.5-k_3.dfy(20,36): Error: Expected 'to' or 'downto'
+   |
+20 |         invariant res == [ for x in res :: exists k: int :: k * k == x ]
+   |                                     ^^^
+
+4 parse errors detected in task_id_589-gpt-4.1-nano-temp_0.5-k_3.dfy

@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_394-gpt-4.1-nano-temp_0.5-k_2.dfy(1,20): Error: closeparen expected
+  |
+1 | method NoDuplicates(seq: seq<int>) returns (result: bool)
+  |                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_394-gpt-4.1-nano-temp_0.5-k_2.dfy(2,55): Error: openparen expected
+  |
+2 |   ensures result <==> (forall i, j :: 0 <= i < j < |seq| ==> seq[i] != seq[j])
+  |                                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_394-gpt-4.1-nano-temp_0.5-k_2.dfy(2,64): Error: openparen expected
+  |
+2 |   ensures result <==> (forall i, j :: 0 <= i < j < |seq| ==> seq[i] != seq[j])
+  |                                                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_394-gpt-4.1-nano-temp_0.5-k_2.dfy(2,74): Error: openparen expected
+  |
+2 |   ensures result <==> (forall i, j :: 0 <= i < j < |seq| ==> seq[i] != seq[j])
+  |                                                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_394-gpt-4.1-nano-temp_0.5-k_2.dfy(2,77): Error: comma expected
+  |
+2 |   ensures result <==> (forall i, j :: 0 <= i < j < |seq| ==> seq[i] != seq[j])
+  |                                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_394-gpt-4.1-nano-temp_0.5-k_2.dfy(4,11): Error: rbrace expected
+  |
+4 |     result := true;
+  |            ^
+
+6 parse errors detected in task_id_394-gpt-4.1-nano-temp_0.5-k_2.dfy

@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_5.dfy(6,50): Error: arguments to <= must have a common supertype (got char and int)
+  |
+6 |           forall c :: c in fractionalPart ==> '0' <= c as int <= '9')
+  |                                                   ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_5.dfy(6,62): Error: arguments to <= must have a common supertype (got int and char)
+  |
+6 |           forall c :: c in fractionalPart ==> '0' <= c as int <= '9')
+  |                                                               ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_5.dfy(33,52): Error: arguments to <= must have a common supertype (got char and int)
+   |
+33 |            (forall c :: c in fractionalPart ==> '0' <= c as int <= '9')
+   |                                                     ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_5.dfy(33,64): Error: arguments to <= must have a common supertype (got int and char)
+   |
+33 |            (forall c :: c in fractionalPart ==> '0' <= c as int <= '9')
+   |                                                                 ^^
+
+4 resolution/type errors detected in task_id_759-gpt-4.1-nano-temp_0.5-k_5.dfy

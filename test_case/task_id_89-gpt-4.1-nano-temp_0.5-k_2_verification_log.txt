@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_89-gpt-4.1-nano-temp_0.5-k_2.dfy(3,135): Error: unresolved identifier: i
+  |
+3 |   ensures (exists i :: 0 <= i < s.Length && s[i] < n && (forall j :: 0 <= j < s.Length && s[j] < n ==> s[j] <= s[i])) ==> closest == s[i]
+  |                                                                                                                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_89-gpt-4.1-nano-temp_0.5-k_2.dfy(12,95): Error: unresolved identifier: k
+   |
+12 |         invariant (exists k :: 0 <= k < i && s[k] < n && s[k] > maxLessThanN) ==> closest == s[k]
+   |                                                                                                ^
+
+2 resolution/type errors detected in task_id_89-gpt-4.1-nano-temp_0.5-k_2.dfy

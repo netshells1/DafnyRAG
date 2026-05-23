@@ -1,0 +1,18 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_557-gpt-4.1-nano-temp_0.5-k_3.dfy(32,18): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+32 |         invariant forall k :: 0 <= k < i ==> 
+   |                   ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_557-gpt-4.1-nano-temp_0.5-k_3.dfy(51,22): Error: value to be converted could not be proved to fit in char
+   |
+51 |     ((c as int) - 32) as char
+   |                       ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_557-gpt-4.1-nano-temp_0.5-k_3.dfy(56,22): Error: value to be converted could not be proved to fit in char
+   |
+56 |     ((c as int) + 32) as char
+   |                       ^^
+
+
+Dafny program verifier finished with 1 verified, 3 errors

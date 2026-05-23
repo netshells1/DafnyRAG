@@ -1,0 +1,41 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_628-gpt-4.1-nano-temp_0.5-k_3.dfy(14,30): Error: missing semicolon at end of statement
+   |
+14 |         invariant |v'| == sum of 1 or 3 per iteration
+   |                               ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_628-gpt-4.1-nano-temp_0.5-k_3.dfy(14,35): Error: invalid Suffix
+   |
+14 |         invariant |v'| == sum of 1 or 3 per iteration
+   |                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_628-gpt-4.1-nano-temp_0.5-k_3.dfy(14,33): Error: missing semicolon at end of statement
+   |
+14 |         invariant |v'| == sum of 1 or 3 per iteration
+   |                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_628-gpt-4.1-nano-temp_0.5-k_3.dfy(14,35): Error: missing semicolon at end of statement
+   |
+14 |         invariant |v'| == sum of 1 or 3 per iteration
+   |                                    ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_628-gpt-4.1-nano-temp_0.5-k_3.dfy(14,40): Error: invalid Suffix
+   |
+14 |         invariant |v'| == sum of 1 or 3 per iteration
+   |                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_628-gpt-4.1-nano-temp_0.5-k_3.dfy(14,38): Error: missing semicolon at end of statement
+   |
+14 |         invariant |v'| == sum of 1 or 3 per iteration
+   |                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_628-gpt-4.1-nano-temp_0.5-k_3.dfy(14,40): Error: missing semicolon at end of statement
+   |
+14 |         invariant |v'| == sum of 1 or 3 per iteration
+   |                                         ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_628-gpt-4.1-nano-temp_0.5-k_3.dfy(14,44): Error: missing semicolon at end of statement
+   |
+14 |         invariant |v'| == sum of 1 or 3 per iteration
+   |                                             ^^^^^^^^^
+
+8 parse errors detected in task_id_628-gpt-4.1-nano-temp_0.5-k_3.dfy

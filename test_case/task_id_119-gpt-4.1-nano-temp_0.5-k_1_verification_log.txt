@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_119-gpt-4.1-nano-temp_0.5-k_1.dfy(6,142): Error: unresolved identifier: i
+  |
+6 |     ensures (a[..] != [] && (exists i :: 0 <= i < a.Length && (i == 0 || a[i] != a[i - 1]) && (i == a.Length - 1 || a[i] != a[i + 1]))) ==> a[i] == element
+  |                                                                                                                                               ^
+
+1 resolution/type errors detected in task_id_119-gpt-4.1-nano-temp_0.5-k_1.dfy

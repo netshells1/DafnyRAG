@@ -1,0 +1,61 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(4,9): Error: unresolved identifier: Power10
+  |
+4 |     n >= Power10(NumberOfDigits(n) - 1) &&
+  |          ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(4,17): Error: unresolved identifier: NumberOfDigits
+  |
+4 |     n >= Power10(NumberOfDigits(n) - 1) &&
+  |                  ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(5,8): Error: unresolved identifier: Power10
+  |
+5 |     n < Power10(NumberOfDigits(n))
+  |         ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(5,16): Error: unresolved identifier: NumberOfDigits
+  |
+5 |     n < Power10(NumberOfDigits(n))
+  |                 ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(17,26): Error: unresolved identifier: Power10
+   |
+17 |         invariant temp >= Power10(NumberOfDigits(temp) - 1)
+   |                           ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(17,34): Error: unresolved identifier: NumberOfDigits
+   |
+17 |         invariant temp >= Power10(NumberOfDigits(temp) - 1)
+   |                                   ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(18,25): Error: unresolved identifier: Power10
+   |
+18 |         invariant temp < Power10(NumberOfDigits(temp))
+   |                          ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(18,33): Error: unresolved identifier: NumberOfDigits
+   |
+18 |         invariant temp < Power10(NumberOfDigits(temp))
+   |                                  ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(19,23): Error: unresolved identifier: NumberOfDigits
+   |
+19 |         invariant 1 <= NumberOfDigits(temp)
+   |                        ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(20,30): Error: unresolved identifier: Power10
+   |
+20 |         invariant temp == n / Power10(NumberOfDigits(n) - NumberOfDigits(temp))
+   |                               ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(20,38): Error: unresolved identifier: NumberOfDigits
+   |
+20 |         invariant temp == n / Power10(NumberOfDigits(n) - NumberOfDigits(temp))
+   |                                       ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy(20,58): Error: unresolved identifier: NumberOfDigits
+   |
+20 |         invariant temp == n / Power10(NumberOfDigits(n) - NumberOfDigits(temp))
+   |                                                           ^^^^^^^^^^^^^^
+
+12 resolution/type errors detected in task_id_479-gpt-4.1-nano-temp_0.5-k_3.dfy

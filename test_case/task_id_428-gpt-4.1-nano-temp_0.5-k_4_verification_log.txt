@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_4.dfy(9,20): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+  |
+9 |         invariant 0 < gap <= n / 2 + 1
+  |                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_4.dfy(9,20): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+  |
+9 |         invariant 0 < gap <= n / 2 + 1
+  |                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_4.dfy(11,18): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+11 |         invariant forall i, j :: 0 <= i < j < a.Length && j - i >= gap ==> a[i] <= a[j]
+   |                   ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_4.dfy(20,22): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+20 |             invariant forall k :: 0 <= k < i ==> a[k] <= a[k+1]
+   |                       ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_4.dfy(20,58): Error: index out of range
+   |
+20 |             invariant forall k :: 0 <= k < i ==> a[k] <= a[k+1]
+   |                                                           ^
+
+
+Dafny program verifier finished with 1 verified, 5 errors

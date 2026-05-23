@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_587-gpt-4.1-nano-temp_0.5-k_2.dfy(3,25): Error: unresolved identifier: Seq
+  |
+3 |     ensures seqResult == Seq.FromArray(a)
+  |                          ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_587-gpt-4.1-nano-temp_0.5-k_2.dfy(6,17): Error: unresolved identifier: Seq
+  |
+6 |     seqResult := Seq.Empty;
+  |                  ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_587-gpt-4.1-nano-temp_0.5-k_2.dfy(10,31): Error: unresolved identifier: Seq
+   |
+10 |         invariant seqResult == Seq.FromArray(a[..i])
+   |                                ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_587-gpt-4.1-nano-temp_0.5-k_2.dfy(12,21): Error: unresolved identifier: Seq
+   |
+12 |         seqResult := Seq.Concat(seqResult, a[i]);
+   |                      ^^^
+
+4 resolution/type errors detected in task_id_587-gpt-4.1-nano-temp_0.5-k_2.dfy

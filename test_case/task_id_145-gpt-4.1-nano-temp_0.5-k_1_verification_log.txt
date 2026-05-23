@@ -1,0 +1,24 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_145-gpt-4.1-nano-temp_0.5-k_1.dfy(4,0): Error: a postcondition could not be proved on this return path
+  |
+4 | {
+  | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_145-gpt-4.1-nano-temp_0.5-k_1.dfy(3,17): Related location: this is the postcondition that could not be proved
+  |
+3 |     ensures diff == Max(a[..]) - Min(a[..])
+  |                  ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_145-gpt-4.1-nano-temp_0.5-k_1.dfy(12,25): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+12 |         invariant minVal == Min(a[..i])
+   |                          ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_145-gpt-4.1-nano-temp_0.5-k_1.dfy(13,25): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+13 |         invariant maxVal == Max(a[..i])
+   |                          ^^
+
+
+Dafny program verifier finished with 3 verified, 3 errors

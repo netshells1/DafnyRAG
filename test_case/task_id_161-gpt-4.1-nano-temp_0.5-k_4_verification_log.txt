@@ -1,0 +1,26 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_4.dfy(10,26): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+10 |     ensures forall x :: x in result ==> !InArray(toRemove, x)
+   |                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_4.dfy(11,26): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+11 |     ensures forall x :: x in s ==> (InArray(toRemove, x) ==> x !in result)
+   |                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_4.dfy(11,63): Error: second argument to "!in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+11 |     ensures forall x :: x in s ==> (InArray(toRemove, x) ==> x !in result)
+   |                                                                ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_4.dfy(12,40): Error: size operator expects a collection argument (instead got array<int>)
+   |
+12 |     ensures forall i, j :: 0 <= i < j < |result| ==> result[i] != result[j]
+   |                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_4.dfy(26,11): Error: RHS (of type seq<int>) not assignable to LHS (of type array<int>)
+   |
+26 |     result := res;
+   |            ^^
+
+5 resolution/type errors detected in task_id_161-gpt-4.1-nano-temp_0.5-k_4.dfy

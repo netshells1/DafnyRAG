@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_113-gpt-4.1-nano-temp_0.5-k_1.dfy(8,66): Error: Ambiguous use of && and ||. Use parentheses to disambiguate.
+  |
+8 |     ensures !result ==> (|s| == 0 || (s[0] != '+' && s[0] != '-') && exists i: int :: 0 <= i < |s| && '0' <= s[i] <= '9')
+  |                                                                   ^^
+
+1 parse errors detected in task_id_113-gpt-4.1-nano-temp_0.5-k_1.dfy

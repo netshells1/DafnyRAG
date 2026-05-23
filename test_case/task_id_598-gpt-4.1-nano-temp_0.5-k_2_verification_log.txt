@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_598-gpt-4.1-nano-temp_0.5-k_2.dfy(24,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+24 | function method NumDigits(x: int): int
+   | ^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_598-gpt-4.1-nano-temp_0.5-k_2.dfy(30,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+30 | function method Power(base: int, exp: int): int
+   | ^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_598-gpt-4.1-nano-temp_0.5-k_2.dfy(43,4): Error: invalid UnaryExpression
+   |
+43 |     while temp > 0
+   |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_598-gpt-4.1-nano-temp_0.5-k_2.dfy(37,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+37 | function method SumOfDigitsPowered(n: int): int
+   | ^^^^^^^^^^^^^^^
+
+4 parse errors detected in task_id_598-gpt-4.1-nano-temp_0.5-k_2.dfy

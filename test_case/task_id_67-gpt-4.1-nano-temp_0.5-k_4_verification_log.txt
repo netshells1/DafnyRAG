@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_67-gpt-4.1-nano-temp_0.5-k_4.dfy(21,33): Error: invalid NameSegment
+   |
+21 |           invariant sum == sum_{m=0}^{k} binomial(i-1, m) * Bell[m]
+   |                                  ^
+
+1 parse errors detected in task_id_67-gpt-4.1-nano-temp_0.5-k_4.dfy

@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_437-gpt-4.1-nano-temp_0.5-k_2.dfy(15,11): Error: unresolved identifier: String
+   |
+15 |     res := String.FromSeq(resChars);
+   |            ^^^^^^
+
+1 resolution/type errors detected in task_id_437-gpt-4.1-nano-temp_0.5-k_2.dfy

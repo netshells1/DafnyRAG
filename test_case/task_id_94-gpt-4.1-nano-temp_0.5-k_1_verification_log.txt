@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_94-gpt-4.1-nano-temp_0.5-k_1.dfy(3,20): Error: invalid Ident
+  |
+3 |     requires forall seq :: seq in s ==> |seq| >= 2
+  |                     ^
+
+1 parse errors detected in task_id_94-gpt-4.1-nano-temp_0.5-k_1.dfy

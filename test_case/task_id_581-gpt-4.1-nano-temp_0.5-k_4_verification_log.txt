@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_4.dfy(23,4): Error: invalid UnaryExpression
+   |
+23 |     while low < high
+   |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_4.dfy(17,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+17 | function method SqrtInteger(x: int): int
+   | ^^^^^^^^^^^^^^^
+
+2 parse errors detected in task_id_581-gpt-4.1-nano-temp_0.5-k_4.dfy

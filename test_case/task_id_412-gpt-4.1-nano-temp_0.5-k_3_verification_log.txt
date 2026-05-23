@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_3.dfy(16,24): Error: type seq<int> does not have a member Length
+   |
+16 |         invariant evens.Length <= i
+   |                         ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_3.dfy(17,45): Error: type seq<int> does not have a member Length
+   |
+17 |         invariant forall k :: 0 <= k < evens.Length ==> IsEven(evens[k])
+   |                                              ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_3.dfy(25,20): Error: type seq<int> does not have a member ToArray
+   |
+25 |     result := evens.ToArray();
+   |                     ^^^^^^^
+
+3 resolution/type errors detected in task_id_412-gpt-4.1-nano-temp_0.5-k_3.dfy

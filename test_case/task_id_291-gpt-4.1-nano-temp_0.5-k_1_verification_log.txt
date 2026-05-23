@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_291-gpt-4.1-nano-temp_0.5-k_1.dfy(6,51): Error: first argument to ^ must be of a bitvector type (instead got int)
+  |
+6 |                    else (k * (k - 1) + k) * (k - 1)^(n - 2)
+  |                                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_291-gpt-4.1-nano-temp_0.5-k_1.dfy(6,51): Error: second argument to ^ must be of a bitvector type (instead got int)
+  |
+6 |                    else (k * (k - 1) + k) * (k - 1)^(n - 2)
+  |                                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_291-gpt-4.1-nano-temp_0.5-k_1.dfy(19,58): Error: first argument to ^ must be of a bitvector type (instead got int)
+   |
+19 |             invariant total == (k * (k - 1) + k) * (k - 1)^(i - 2)
+   |                                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_291-gpt-4.1-nano-temp_0.5-k_1.dfy(19,58): Error: second argument to ^ must be of a bitvector type (instead got int)
+   |
+19 |             invariant total == (k * (k - 1) + k) * (k - 1)^(i - 2)
+   |                                                           ^
+
+4 resolution/type errors detected in task_id_291-gpt-4.1-nano-temp_0.5-k_1.dfy

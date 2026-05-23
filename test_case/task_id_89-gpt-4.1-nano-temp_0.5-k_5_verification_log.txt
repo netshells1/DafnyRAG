@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_89-gpt-4.1-nano-temp_0.5-k_5.dfy(1,62): Error: Type or type parameter is not declared in this scope: int? (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+1 | method ClosestSmaller(n: int, a: array<int>) returns (result: int?)
+  |                                                               ^^^^
+
+1 resolution/type errors detected in task_id_89-gpt-4.1-nano-temp_0.5-k_5.dfy

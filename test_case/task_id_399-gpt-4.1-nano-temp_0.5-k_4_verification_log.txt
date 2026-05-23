@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_399-gpt-4.1-nano-temp_0.5-k_4.dfy(1,32): Error: Type or type parameter is not declared in this scope: bit (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+1 | method BitwiseXorSeqs(seq1: seq<bit>, seq2: seq<bit>) returns (result: seq<bit>)
+  |                                 ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_399-gpt-4.1-nano-temp_0.5-k_4.dfy(1,48): Error: Type or type parameter is not declared in this scope: bit (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+1 | method BitwiseXorSeqs(seq1: seq<bit>, seq2: seq<bit>) returns (result: seq<bit>)
+  |                                                 ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_399-gpt-4.1-nano-temp_0.5-k_4.dfy(1,75): Error: Type or type parameter is not declared in this scope: bit (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+1 | method BitwiseXorSeqs(seq1: seq<bit>, seq2: seq<bit>) returns (result: seq<bit>)
+  |                                                                            ^^^
+
+3 resolution/type errors detected in task_id_399-gpt-4.1-nano-temp_0.5-k_4.dfy

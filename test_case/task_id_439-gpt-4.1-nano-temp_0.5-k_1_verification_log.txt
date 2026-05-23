@@ -1,0 +1,36 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_439-gpt-4.1-nano-temp_0.5-k_1.dfy(21,10): Error: var expected
+   |
+21 |     ghost {
+   |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_439-gpt-4.1-nano-temp_0.5-k_1.dfy(24,0): Error: semicolon expected
+   |
+24 | }
+   | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_439-gpt-4.1-nano-temp_0.5-k_1.dfy(15,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+15 | function method StringToInt(s: string): int
+   | ^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_439-gpt-4.1-nano-temp_0.5-k_1.dfy(26,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+26 | function method StringConcatUpTo(a: array<int>, i: int): string
+   | ^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_439-gpt-4.1-nano-temp_0.5-k_1.dfy(36,10): Error: var expected
+   |
+36 |     ghost {
+   |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_439-gpt-4.1-nano-temp_0.5-k_1.dfy(39,0): Error: semicolon expected
+   |
+39 | }
+   | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_439-gpt-4.1-nano-temp_0.5-k_1.dfy(33,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+33 | function method IntToString(n: int): string
+   | ^^^^^^^^^^^^^^^
+
+7 parse errors detected in task_id_439-gpt-4.1-nano-temp_0.5-k_1.dfy

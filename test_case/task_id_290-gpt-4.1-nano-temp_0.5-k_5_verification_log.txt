@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_290-gpt-4.1-nano-temp_0.5-k_5.dfy(3,57): Error: this symbol not expected in Dafny
+  |
+3 |     ensures |maxList| == if |lists| == 0 then 0 else max i |lists[i]|
+  |                                                          ^
+
+1 parse errors detected in task_id_290-gpt-4.1-nano-temp_0.5-k_5.dfy

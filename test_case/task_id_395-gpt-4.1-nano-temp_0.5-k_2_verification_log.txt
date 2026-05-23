@@ -1,0 +1,26 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_2.dfy(2,18): Error: type of 'null' is a reference type, but it is used as seq<char>
+  |
+2 |     requires s != null
+  |                   ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_2.dfy(24,54): Error: incorrect type for selection into array<int> (got char)
+   |
+24 |         invariant (forall k :: 0 <= k < j ==> counts[s[k]] >= 1)
+   |                                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_2.dfy(25,69): Error: incorrect type for selection into array<int> (got char)
+   |
+25 |         invariant (exists i :: 0 <= i < j && s[i] == s[j] && counts[s[j]] == 1) ==> found
+   |                                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_2.dfy(28,19): Error: incorrect type for selection into array<int> (got char)
+   |
+28 |         if counts[s[j]] == 1 {
+   |                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_2.dfy(14,15): Error: RHS (of type char) not assignable to LHS (of type int)
+   |
+14 |         var ch := s[i];
+   |                ^^
+
+5 resolution/type errors detected in task_id_395-gpt-4.1-nano-temp_0.5-k_2.dfy

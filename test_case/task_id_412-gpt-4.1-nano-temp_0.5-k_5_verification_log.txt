@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_5.dfy(10,44): Error: rbracket expected
+   |
+10 |     ensures |result| == |[ x | x in arr[..] :: IsEven(x)]|
+   |                                             ^
+
+1 parse errors detected in task_id_412-gpt-4.1-nano-temp_0.5-k_5.dfy

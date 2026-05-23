@@ -1,0 +1,12 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_4.dfy(3,0): Error: a postcondition could not be proved on this return path
+  |
+3 | {
+  | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_4.dfy(2,19): Related location: this is the postcondition that could not be proved
+  |
+2 |     ensures result <==> (exists a: int, b: int :: n == a * a - b * b)
+  |                    ^^^^
+
+
+Dafny program verifier finished with 0 verified, 1 error

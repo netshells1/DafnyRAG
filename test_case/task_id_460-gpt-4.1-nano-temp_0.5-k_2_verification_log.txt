@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_460-gpt-4.1-nano-temp_0.5-k_2.dfy(7,18): Error: size operator expects a collection argument (instead got array<int>)
+  |
+7 |         invariant |res| == i
+  |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_460-gpt-4.1-nano-temp_0.5-k_2.dfy(18,11): Error: RHS (of type array<int>) not assignable to LHS (of type seq<int>)
+   |
+18 |     result := res;
+   |            ^^
+
+2 resolution/type errors detected in task_id_460-gpt-4.1-nano-temp_0.5-k_2.dfy

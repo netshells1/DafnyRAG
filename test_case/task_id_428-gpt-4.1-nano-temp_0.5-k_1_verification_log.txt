@@ -1,0 +1,37 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_1.dfy(2,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')
+  |
+2 |   requires a != null
+  |              ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_1.dfy(9,18): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+  |
+9 |       invariant 0 < gap <= n / 2
+  |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_1.dfy(9,18): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+  |
+9 |       invariant 0 < gap <= n / 2
+  |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_1.dfy(10,16): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+10 |       invariant forall i, j :: 0 <= i < j < a.Length ==> a[i] <= a[j]
+   |                 ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_1.dfy(16,20): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+16 |           invariant forall k, l :: 0 <= k < l < a.Length && (k <= i - 1 || l <= i - 1) ==> a[k] <= a[l]
+   |                     ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_1.dfy(23,24): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+23 |               invariant forall k :: 0 <= k < a.Length ==> a[k] == old(a[k]) || (k >= j && a[k] >= temp)
+   |                         ^^^^^^
+
+
+Dafny program verifier finished with 1 verified, 5 errors

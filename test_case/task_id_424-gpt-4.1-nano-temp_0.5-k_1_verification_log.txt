@@ -1,0 +1,61 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(1,29): Error: closeparen expected
+  |
+1 | method ExtractRearCharacters(seq: seq<string>) returns (result: seq<char>)
+  |                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(2,28): Error: openparen expected
+  |
+2 |     ensures |result| == |seq|
+  |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(3,37): Error: openparen expected
+  |
+3 |     ensures forall i :: 0 <= i < |seq| ==> (|seq[i]| > 0 ==> result[i] == seq[i][|seq[i]| - 1]) && (|seq[i]| == 0 ==> result[i] == '\0')
+  |                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(3,48): Error: openparen expected
+  |
+3 |     ensures forall i :: 0 <= i < |seq| ==> (|seq[i]| > 0 ==> result[i] == seq[i][|seq[i]| - 1]) && (|seq[i]| == 0 ==> result[i] == '\0')
+  |                                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(3,53): Error: invalid UnaryExpression
+  |
+3 |     ensures forall i :: 0 <= i < |seq| ==> (|seq[i]| > 0 ==> result[i] == seq[i][|seq[i]| - 1]) && (|seq[i]| == 0 ==> result[i] == '\0')
+  |                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(3,77): Error: openparen expected
+  |
+3 |     ensures forall i :: 0 <= i < |seq| ==> (|seq[i]| > 0 ==> result[i] == seq[i][|seq[i]| - 1]) && (|seq[i]| == 0 ==> result[i] == '\0')
+  |                                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(3,85): Error: openparen expected
+  |
+3 |     ensures forall i :: 0 <= i < |seq| ==> (|seq[i]| > 0 ==> result[i] == seq[i][|seq[i]| - 1]) && (|seq[i]| == 0 ==> result[i] == '\0')
+  |                                                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(3,93): Error: comma expected
+  |
+3 |     ensures forall i :: 0 <= i < |seq| ==> (|seq[i]| > 0 ==> result[i] == seq[i][|seq[i]| - 1]) && (|seq[i]| == 0 ==> result[i] == '\0')
+  |                                                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(3,104): Error: openparen expected
+  |
+3 |     ensures forall i :: 0 <= i < |seq| ==> (|seq[i]| > 0 ==> result[i] == seq[i][|seq[i]| - 1]) && (|seq[i]| == 0 ==> result[i] == '\0')
+  |                                                                                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(3,109): Error: invalid UnaryExpression
+  |
+3 |     ensures forall i :: 0 <= i < |seq| ==> (|seq[i]| > 0 ==> result[i] == seq[i][|seq[i]| - 1]) && (|seq[i]| == 0 ==> result[i] == '\0')
+  |                                                                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(3,135): Error: comma expected
+  |
+3 |     ensures forall i :: 0 <= i < |seq| ==> (|seq[i]| > 0 ==> result[i] == seq[i][|seq[i]| - 1]) && (|seq[i]| == 0 ==> result[i] == '\0')
+  |                                                                                                                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy(7,4): Error: invalid UnaryExpression
+  |
+7 |     while i < |seq|
+  |     ^
+
+12 parse errors detected in task_id_424-gpt-4.1-nano-temp_0.5-k_1.dfy

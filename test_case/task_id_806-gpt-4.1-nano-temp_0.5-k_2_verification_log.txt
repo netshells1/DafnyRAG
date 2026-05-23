@@ -1,0 +1,46 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_2.dfy(8,12): Warning: unusual indentation in body of exists (which ends at line 10, column 122); do you perhaps need parentheses?
+  |
+8 |     ensures exists start :: 0 <= start <= |s| - maxRun && (forall k :: start <= k < start + maxRun ==> s[k] is uppercase) &&
+  |             ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_2.dfy(8,111): Error: Type or type parameter is not declared in this scope: uppercase (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+8 |     ensures exists start :: 0 <= start <= |s| - maxRun && (forall k :: start <= k < start + maxRun ==> s[k] is uppercase) &&
+  |                                                                                                                ^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_2.dfy(10,100): Error: Type or type parameter is not declared in this scope: uppercase (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+   |
+10 |                 (exists j :: 0 <= j <= |s| - maxRun && (forall k :: j <= k < j + maxRun ==> s[k] is uppercase) && j <= i))
+   |                                                                                                     ^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_2.dfy(8,108): Error: type test for type 'uppercase' must be from an expression assignable to it (got 'char')
+  |
+8 |     ensures exists start :: 0 <= start <= |s| - maxRun && (forall k :: start <= k < start + maxRun ==> s[k] is uppercase) &&
+  |                                                                                                             ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_2.dfy(10,97): Error: type test for type 'uppercase' must be from an expression assignable to it (got 'char')
+   |
+10 |                 (exists j :: 0 <= j <= |s| - maxRun && (forall k :: j <= k < j + maxRun ==> s[k] is uppercase) && j <= i))
+   |                                                                                                  ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_2.dfy(20,110): Error: Type or type parameter is not declared in this scope: uppercase (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+   |
+20 |         invariant forall start :: 0 <= start <= i && (forall k :: start <= k < start + currentRun ==> s[k] is uppercase) ==> start <= i - currentRun
+   |                                                                                                               ^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_2.dfy(22,19): Error: Type or type parameter is not declared in this scope: uppercase (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+   |
+22 |         if s[i] is uppercase {
+   |                    ^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_2.dfy(20,107): Error: type test for type 'uppercase' must be from an expression assignable to it (got 'char')
+   |
+20 |         invariant forall start :: 0 <= start <= i && (forall k :: start <= k < start + currentRun ==> s[k] is uppercase) ==> start <= i - currentRun
+   |                                                                                                            ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_2.dfy(22,16): Error: type test for type 'uppercase' must be from an expression assignable to it (got 'char')
+   |
+22 |         if s[i] is uppercase {
+   |                 ^^
+
+8 resolution/type errors detected in task_id_806-gpt-4.1-nano-temp_0.5-k_2.dfy

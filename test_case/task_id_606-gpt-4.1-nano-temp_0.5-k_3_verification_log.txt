@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_606-gpt-4.1-nano-temp_0.5-k_3.dfy(2,33): Error: unresolved identifier: Pi
+  |
+2 |     ensures radians == degrees * Pi / 180.0
+  |                                  ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_606-gpt-4.1-nano-temp_0.5-k_3.dfy(4,25): Error: unresolved identifier: Pi
+  |
+4 |     radians := degrees * Pi / 180.0;
+  |                          ^^
+
+2 resolution/type errors detected in task_id_606-gpt-4.1-nano-temp_0.5-k_3.dfy

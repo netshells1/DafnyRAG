@@ -1,0 +1,81 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(3,20): Error: non-function expression (of type int) is called with parameters
+  |
+3 |   ensures sum == sum(i | 1 <= i <= if a < b then a else b && a % i == 0 && b % i == 0)
+  |                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(3,21): Error: unresolved identifier: i
+  |
+3 |   ensures sum == sum(i | 1 <= i <= if a < b then a else b && a % i == 0 && b % i == 0)
+  |                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(3,30): Error: unresolved identifier: i
+  |
+3 |   ensures sum == sum(i | 1 <= i <= if a < b then a else b && a % i == 0 && b % i == 0)
+  |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(3,65): Error: unresolved identifier: i
+  |
+3 |   ensures sum == sum(i | 1 <= i <= if a < b then a else b && a % i == 0 && b % i == 0)
+  |                                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(3,79): Error: unresolved identifier: i
+  |
+3 |   ensures sum == sum(i | 1 <= i <= if a < b then a else b && a % i == 0 && b % i == 0)
+  |                                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(3,58): Error: first argument to && must be of type bool (instead got int)
+  |
+3 |   ensures sum == sum(i | 1 <= i <= if a < b then a else b && a % i == 0 && b % i == 0)
+  |                                                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(3,35): Error: the two branches of an if-then-else expression must have the same type (got int and bool)
+  |
+3 |   ensures sum == sum(i | 1 <= i <= if a < b then a else b && a % i == 0 && b % i == 0)
+  |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(3,23): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+3 |   ensures sum == sum(i | 1 <= i <= if a < b then a else b && a % i == 0 && b % i == 0)
+  |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(3,23): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+3 |   ensures sum == sum(i | 1 <= i <= if a < b then a else b && a % i == 0 && b % i == 0)
+  |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(10,26): Error: non-function expression (of type int) is called with parameters
+   |
+10 |       invariant sum == sum(k | 1 <= k < i && a % k == 0 && b % k == 0)
+   |                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(10,27): Error: unresolved identifier: k
+   |
+10 |       invariant sum == sum(k | 1 <= k < i && a % k == 0 && b % k == 0)
+   |                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(10,36): Error: unresolved identifier: k
+   |
+10 |       invariant sum == sum(k | 1 <= k < i && a % k == 0 && b % k == 0)
+   |                                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(10,49): Error: unresolved identifier: k
+   |
+10 |       invariant sum == sum(k | 1 <= k < i && a % k == 0 && b % k == 0)
+   |                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(10,63): Error: unresolved identifier: k
+   |
+10 |       invariant sum == sum(k | 1 <= k < i && a % k == 0 && b % k == 0)
+   |                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(10,29): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+10 |       invariant sum == sum(k | 1 <= k < i && a % k == 0 && b % k == 0)
+   |                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy(10,29): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+10 |       invariant sum == sum(k | 1 <= k < i && a % k == 0 && b % k == 0)
+   |                              ^
+
+16 resolution/type errors detected in task_id_126-gpt-4.1-nano-temp_0.5-k_4.dfy

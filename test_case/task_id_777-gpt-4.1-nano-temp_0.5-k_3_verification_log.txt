@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_3.dfy(8,4): Error: missing semicolon at end of statement
+  |
+8 |     foreach x in lst
+  |     ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_3.dfy(8,14): Error: invalid AssignStatement
+  |
+8 |     foreach x in lst
+  |               ^
+
+2 parse errors detected in task_id_777-gpt-4.1-nano-temp_0.5-k_3.dfy

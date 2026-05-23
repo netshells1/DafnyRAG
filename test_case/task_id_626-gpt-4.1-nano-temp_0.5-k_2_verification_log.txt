@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_626-gpt-4.1-nano-temp_0.5-k_2.dfy(2,20): Error: arguments to > must have a common supertype (got real and int)
+  |
+2 |     requires radius > 0
+  |                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_626-gpt-4.1-nano-temp_0.5-k_2.dfy(3,38): Error: type of right argument to / (int) must agree with the result type (real)
+  |
+3 |     ensures area == (radius * radius) / 2
+  |                                       ^
+
+2 resolution/type errors detected in task_id_626-gpt-4.1-nano-temp_0.5-k_2.dfy

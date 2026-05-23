@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_639-gpt-4.1-nano-temp_0.5-k_3.dfy(17,50): Error: lbrace expected
+   |
+17 |         if |names[i]| > 0 && (names[i])[0] !in 'a'..'z' {
+   |                                                   ^
+
+1 parse errors detected in task_id_639-gpt-4.1-nano-temp_0.5-k_3.dfy

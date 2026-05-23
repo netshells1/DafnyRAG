@@ -1,0 +1,41 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_4.dfy(4,19): Error: type seq<char> does not have a member Split
+  |
+4 |     var parts := s.Split('.');
+  |                    ^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_4.dfy(5,10): Error: type of the receiver is not fully determined at this program point
+  |
+5 |     parts.Length == 2 &&
+  |           ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_4.dfy(6,12): Error: incorrect type for selection into ? (got int)
+  |
+6 |     | parts[0] | >= 1 && // at least one digit before decimal
+  |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_4.dfy(7,12): Error: incorrect type for selection into ? (got int)
+  |
+7 |     | parts[1] | == 2 && // exactly two digits after decimal
+  |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_4.dfy(9,28): Error: incorrect type for selection into ? (got int)
+  |
+9 |     (forall c :: c in parts[0] ==> '0' <= c <= '9') &&
+  |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_4.dfy(9,19): Error: second argument to "in" must be a set, multiset, or sequence with elements of type char, or a map with domain char (instead got ?)
+  |
+9 |     (forall c :: c in parts[0] ==> '0' <= c <= '9') &&
+  |                    ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_4.dfy(10,28): Error: incorrect type for selection into ? (got int)
+   |
+10 |     (forall c :: c in parts[1] ==> '0' <= c <= '9')
+   |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_4.dfy(10,19): Error: second argument to "in" must be a set, multiset, or sequence with elements of type char, or a map with domain char (instead got ?)
+   |
+10 |     (forall c :: c in parts[1] ==> '0' <= c <= '9')
+   |                    ^^
+
+8 resolution/type errors detected in task_id_759-gpt-4.1-nano-temp_0.5-k_4.dfy

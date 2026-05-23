@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_2.dfy(41,28): Error: invalid UnaryExpression
+   |
+41 |         var less := s[1..] |> Seq.filter(x => x <= pivot);
+   |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_2.dfy(42,31): Error: invalid UnaryExpression
+   |
+42 |         var greater := s[1..] |> Seq.filter(x => x > pivot);
+   |                                ^
+
+2 parse errors detected in task_id_432-gpt-4.1-nano-temp_0.5-k_2.dfy

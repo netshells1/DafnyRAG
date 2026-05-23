@@ -1,0 +1,25 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_394-gpt-4.1-nano-temp_0.5-k_5.dfy(8,25): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+  |
+8 |         invariant result <==> (forall x, y :: 0 <= x < y < i ==> s[x] != s[y])
+  |                          ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_394-gpt-4.1-nano-temp_0.5-k_5.dfy(13,29): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+13 |             invariant result <==> (result && (forall x :: 0 <= x < i ==> s[x] != s[j]))
+   |                              ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_394-gpt-4.1-nano-temp_0.5-k_5.dfy(13,29): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+13 |             invariant result <==> (result && (forall x :: 0 <= x < i ==> s[x] != s[j]))
+   |                              ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_394-gpt-4.1-nano-temp_0.5-k_5.dfy(13,82): Error: index out of range
+   |
+13 |             invariant result <==> (result && (forall x :: 0 <= x < i ==> s[x] != s[j]))
+   |                                                                                   ^
+
+
+Dafny program verifier finished with 1 verified, 4 errors

@@ -1,0 +1,7 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_271-gpt-4.1-nano-temp_0.5-k_2.dfy(1,7): Error: Verification of 'SumOfFifthPowerOfFirstNEvenNumbers' timed out after 30 seconds. (the limit can be increased using --verification-time-limit)
+  |
+1 | method SumOfFifthPowerOfFirstNEvenNumbers(n: int) returns (sum: int)
+  |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Dafny program verifier finished with 1 verified, 0 errors, 1 time out

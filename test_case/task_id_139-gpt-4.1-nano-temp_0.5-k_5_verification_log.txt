@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_139-gpt-4.1-nano-temp_0.5-k_5.dfy(3,35): Error: unresolved identifier: Pi
+  |
+3 |     ensures circumference == 2.0 * Pi * radius
+  |                                    ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_139-gpt-4.1-nano-temp_0.5-k_5.dfy(5,27): Error: unresolved identifier: Pi
+  |
+5 |     circumference := 2.0 * Pi * radius;
+  |                            ^^
+
+2 resolution/type errors detected in task_id_139-gpt-4.1-nano-temp_0.5-k_5.dfy

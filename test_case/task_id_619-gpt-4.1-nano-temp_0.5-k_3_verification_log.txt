@@ -1,0 +1,51 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy(9,14): Error: type seq<char> does not have a member Length
+  |
+9 |     ensures s.Length == old(s.Length)
+  |               ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy(9,30): Error: type seq<char> does not have a member Length
+  |
+9 |     ensures s.Length == old(s.Length)
+  |                               ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy(10,42): Error: type seq<char> does not have a member Length
+   |
+10 |     ensures forall i, j :: 0 <= i < j < s.Length && IsDigit(s[i]) ==> j >= firstNonDigitIndex
+   |                                           ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy(10,75): Error: unresolved identifier: firstNonDigitIndex
+   |
+10 |     ensures forall i, j :: 0 <= i < j < s.Length && IsDigit(s[i]) ==> j >= firstNonDigitIndex
+   |                                                                            ^^^^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy(11,42): Error: type seq<char> does not have a member Length
+   |
+11 |     ensures forall i, j :: 0 <= i < j < s.Length && !IsDigit(s[i]) ==> s[i] == old(s[i]) || (i < firstNonDigitIndex && s[i] == old(s[i]))
+   |                                           ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy(11,97): Error: unresolved identifier: firstNonDigitIndex
+   |
+11 |     ensures forall i, j :: 0 <= i < j < s.Length && !IsDigit(s[i]) ==> s[i] == old(s[i]) || (i < firstNonDigitIndex && s[i] == old(s[i]))
+   |                                                                                                  ^^^^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy(8,13): Error: a modifies-clause expression must denote an object, a single field location like o`x or a`[i] of type (object, field)  (with `--referrers`), or a set/iset/multiset/seq of objects or single field locations (with `--referrers`) (instead got string)
+  |
+8 |     modifies s
+  |              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy(7,18): Error: type of 'null' is a reference type, but it is used as seq<char>
+  |
+7 |     requires s != null
+  |                   ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy(17,20): Error: type seq<char> does not have a member Length
+   |
+17 |     var length := s.Length;
+   |                     ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy(38,4): Error: LHS of assignment must denote a mutable variable
+   |
+38 |     s := result;
+   |     ^
+
+10 resolution/type errors detected in task_id_619-gpt-4.1-nano-temp_0.5-k_3.dfy

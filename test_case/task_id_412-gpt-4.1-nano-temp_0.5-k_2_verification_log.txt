@@ -1,0 +1,46 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_2.dfy(10,26): Error: unresolved identifier: k
+   |
+10 |     ensures |result| == |[k | 0 <= k < arr.Length && IsEven(arr[k])]| // Length matches count of even numbers
+   |                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_2.dfy(10,35): Error: unresolved identifier: k
+   |
+10 |     ensures |result| == |[k | 0 <= k < arr.Length && IsEven(arr[k])]| // Length matches count of even numbers
+   |                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_2.dfy(10,64): Error: unresolved identifier: k
+   |
+10 |     ensures |result| == |[k | 0 <= k < arr.Length && IsEven(arr[k])]| // Length matches count of even numbers
+   |                                                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_2.dfy(8,33): Error: size operator expects a collection argument (instead got array<int>)
+  |
+8 |     ensures forall i :: 0 <= i < |result| ==> IsEven(result[i])
+  |                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_2.dfy(9,87): Error: size operator expects a collection argument (instead got array<int>)
+  |
+9 |     ensures forall i :: 0 <= i < arr.Length && IsEven(arr[i]) ==> exists j :: 0 <= j < |result| && result[j] == arr[i]
+  |                                                                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_2.dfy(10,12): Error: size operator expects a collection argument (instead got array<int>)
+   |
+10 |     ensures |result| == |[k | 0 <= k < arr.Length && IsEven(arr[k])]| // Length matches count of even numbers
+   |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_2.dfy(10,28): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+10 |     ensures |result| == |[k | 0 <= k < arr.Length && IsEven(arr[k])]| // Length matches count of even numbers
+   |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_2.dfy(10,28): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+10 |     ensures |result| == |[k | 0 <= k < arr.Length && IsEven(arr[k])]| // Length matches count of even numbers
+   |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_2.dfy(25,11): Error: RHS (of type seq<int>) not assignable to LHS (of type array<int>)
+   |
+25 |     result := evens;
+   |            ^^
+
+9 resolution/type errors detected in task_id_412-gpt-4.1-nano-temp_0.5-k_2.dfy

@@ -1,0 +1,13 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_437-gpt-4.1-nano-temp_0.5-k_3.dfy(3,42): Error: index out of range
+  |
+3 |     ensures forall i :: 0 <= i < |v| ==> s[2 * i] == v[i]
+  |                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_437-gpt-4.1-nano-temp_0.5-k_3.dfy(10,23): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+10 |         invariant |v'| == i / 2
+   |                        ^^
+
+
+Dafny program verifier finished with 0 verified, 2 errors

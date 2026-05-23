@@ -1,0 +1,36 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_1.dfy(47,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+47 | function method inArray(arr: array<int>, x: int): bool
+   | ^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_1.dfy(52,22): Error: closeparen expected
+   |
+52 | function method inSeq(seq: seq<int>, x: int): bool
+   |                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_1.dfy(54,29): Error: openparen expected
+   |
+54 |     exists i :: 0 <= i < |seq| && seq[i] == x
+   |                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_1.dfy(54,37): Error: openparen expected
+   |
+54 |     exists i :: 0 <= i < |seq| && seq[i] == x
+   |                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_1.dfy(55,0): Error: comma expected
+   |
+55 | }
+   | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_1.dfy(52,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+52 | function method inSeq(seq: seq<int>, x: int): bool
+   | ^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_1.dfy(57,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+57 | function method OldIndexOf(x: int, s: array<int>): nat
+   | ^^^^^^^^^^^^^^^
+
+7 parse errors detected in task_id_161-gpt-4.1-nano-temp_0.5-k_1.dfy

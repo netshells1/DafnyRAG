@@ -1,0 +1,18 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_415-gpt-4.1-nano-temp_0.5-k_3.dfy(16,20): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+16 |         invariant 1 <= i <= n - 1
+   |                     ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_415-gpt-4.1-nano-temp_0.5-k_3.dfy(17,30): Error: index out of range
+   |
+17 |         invariant maxProd == a[maxI] * a[maxJ]
+   |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_415-gpt-4.1-nano-temp_0.5-k_3.dfy(17,40): Error: index out of range
+   |
+17 |         invariant maxProd == a[maxI] * a[maxJ]
+   |                                         ^
+
+
+Dafny program verifier finished with 1 verified, 3 errors

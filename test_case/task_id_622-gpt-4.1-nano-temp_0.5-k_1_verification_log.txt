@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_622-gpt-4.1-nano-temp_0.5-k_1.dfy(19,18): Error: Calls with side-effects such as constructors are not allowed in expressions.
+   |
+19 |     var merged := new int[a.Length + b.Length];
+   |                   ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_622-gpt-4.1-nano-temp_0.5-k_1.dfy(19,22): Error: invalid UnaryExpression
+   |
+19 |     var merged := new int[a.Length + b.Length];
+   |                       ^
+
+2 parse errors detected in task_id_622-gpt-4.1-nano-temp_0.5-k_1.dfy

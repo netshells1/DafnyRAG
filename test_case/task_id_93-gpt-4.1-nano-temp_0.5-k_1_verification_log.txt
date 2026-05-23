@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_93-gpt-4.1-nano-temp_0.5-k_1.dfy(3,48): Error: expression is not allowed to invoke a method (Power)
+  |
+3 |     ensures result == if b == 0 then 1 else a * Power(a, b - 1)
+  |                                                 ^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_93-gpt-4.1-nano-temp_0.5-k_1.dfy(3,53): Error: method call is not allowed to be used in an expression context (Power)
+  |
+3 |     ensures result == if b == 0 then 1 else a * Power(a, b - 1)
+  |                                                      ^
+
+2 resolution/type errors detected in task_id_93-gpt-4.1-nano-temp_0.5-k_1.dfy

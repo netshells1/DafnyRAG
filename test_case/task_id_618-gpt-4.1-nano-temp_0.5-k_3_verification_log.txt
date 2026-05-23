@@ -1,0 +1,26 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_618-gpt-4.1-nano-temp_0.5-k_3.dfy(2,18): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+2 |     requires a != null && b != null
+  |                   ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_618-gpt-4.1-nano-temp_0.5-k_3.dfy(2,31): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+2 |     requires a != null && b != null
+  |                                ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_618-gpt-4.1-nano-temp_0.5-k_3.dfy(5,22): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+5 |     ensures result != null
+  |                       ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_618-gpt-4.1-nano-temp_0.5-k_3.dfy(19,11): Error: RHS (of type array<int>) not assignable to LHS (of type seq<int>)
+   |
+19 |     result := res;
+   |            ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_618-gpt-4.1-nano-temp_0.5-k_3.dfy(13,18): Error: size operator expects a collection argument (instead got array<int>)
+   |
+13 |         invariant |res| == |a|
+   |                   ^
+
+5 resolution/type errors detected in task_id_618-gpt-4.1-nano-temp_0.5-k_3.dfy

@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_233-gpt-4.1-nano-temp_0.5-k_4.dfy(4,22): Error: unresolved identifier: Math
+  |
+4 |   ensures area == 2 * Math.PI * radius * height
+  |                       ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_233-gpt-4.1-nano-temp_0.5-k_4.dfy(6,16): Error: unresolved identifier: Math
+  |
+6 |     area := 2 * Math.PI * radius * height;
+  |                 ^^^^
+
+2 resolution/type errors detected in task_id_233-gpt-4.1-nano-temp_0.5-k_4.dfy

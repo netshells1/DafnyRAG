@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_5.dfy(17,14): Error: type seq<int> does not have a member Length
+   |
+17 |     if sorted.Length % 2 == 1 {
+   |               ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_5.dfy(18,32): Error: type seq<int> does not have a member Length
+   |
+18 |         median := sorted[sorted.Length / 2] as real;
+   |                                 ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_5.dfy(20,33): Error: type seq<int> does not have a member Length
+   |
+20 |         median := (sorted[sorted.Length / 2 - 1] + sorted[sorted.Length / 2]) as real / 2.0;
+   |                                  ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_5.dfy(20,65): Error: type seq<int> does not have a member Length
+   |
+20 |         median := (sorted[sorted.Length / 2 - 1] + sorted[sorted.Length / 2]) as real / 2.0;
+   |                                                                  ^^^^^^
+
+4 resolution/type errors detected in task_id_432-gpt-4.1-nano-temp_0.5-k_5.dfy

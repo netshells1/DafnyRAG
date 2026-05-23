@@ -1,0 +1,51 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy(3,43): Error: type seq<string> does not have a member Length
+  |
+3 |     requires exists i, j :: 0 <= i < words.Length && 0 <= j < words.Length && i != j && words[i].Length > 0 && words[j].Length > 0 && (words[i][0] == 'p' || words[i][0] == 'P') && (words[j][0] == 'p' || words[j][0] == 'P')
+  |                                            ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy(3,68): Error: type seq<string> does not have a member Length
+  |
+3 |     requires exists i, j :: 0 <= i < words.Length && 0 <= j < words.Length && i != j && words[i].Length > 0 && words[j].Length > 0 && (words[i][0] == 'p' || words[i][0] == 'P') && (words[j][0] == 'p' || words[j][0] == 'P')
+  |                                                                     ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy(3,97): Error: type seq<char> does not have a member Length
+  |
+3 |     requires exists i, j :: 0 <= i < words.Length && 0 <= j < words.Length && i != j && words[i].Length > 0 && words[j].Length > 0 && (words[i][0] == 'p' || words[i][0] == 'P') && (words[j][0] == 'p' || words[j][0] == 'P')
+  |                                                                                                  ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy(3,120): Error: type seq<char> does not have a member Length
+  |
+3 |     requires exists i, j :: 0 <= i < words.Length && 0 <= j < words.Length && i != j && words[i].Length > 0 && words[j].Length > 0 && (words[i][0] == 'p' || words[i][0] == 'P') && (words[j][0] == 'p' || words[j][0] == 'P')
+  |                                                                                                                         ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy(4,42): Error: type seq<string> does not have a member Length
+  |
+4 |     ensures exists i, j :: 0 <= i < words.Length && 0 <= j < words.Length && i != j && (words[i][0] == 'p' || words[i][0] == 'P') && (words[j][0] == 'p' || words[j][0] == 'P') && words[i] == word1 && words[j] == word2
+  |                                           ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy(4,67): Error: type seq<string> does not have a member Length
+  |
+4 |     ensures exists i, j :: 0 <= i < words.Length && 0 <= j < words.Length && i != j && (words[i][0] == 'p' || words[i][0] == 'P') && (words[j][0] == 'p' || words[j][0] == 'P') && words[i] == word1 && words[j] == word2
+  |                                                                    ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy(2,22): Error: type of 'null' is a reference type, but it is used as seq<string>
+  |
+2 |     requires words != null
+  |                       ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy(12,20): Error: type seq<string> does not have a member Length
+   |
+12 |     while i < words.Length && !(found1 && found2)
+   |                     ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy(13,34): Error: type seq<string> does not have a member Length
+   |
+13 |         invariant 0 <= i <= words.Length
+   |                                   ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy(19,21): Error: type seq<char> does not have a member Length
+   |
+19 |         if (words[i].Length > 0 && (words[i][0] == 'p' || words[i][0] == 'P')) {
+   |                      ^^^^^^
+
+10 resolution/type errors detected in task_id_305-gpt-4.1-nano-temp_0.5-k_1.dfy

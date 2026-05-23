@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_1.dfy(15,33): Error: openparen expected
+   |
+15 |         invariant |odds| == |seq { j | 0 <= j < i && IsOdd(lst[j]) }|
+   |                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_1.dfy(19,12): Error: then expected
+   |
+19 |             {
+   |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_1.dfy(20,21): Error: rbrace expected
+   |
+20 |                 odds := odds + [lst[i]];
+   |                      ^
+
+3 parse errors detected in task_id_554-gpt-4.1-nano-temp_0.5-k_1.dfy

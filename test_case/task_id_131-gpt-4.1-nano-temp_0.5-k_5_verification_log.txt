@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_5.dfy(35,12): Error: gets expected
+   |
+35 |     for idx in 0 .. |vowelIndices|
+   |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_5.dfy(35,17): Error: ident expected
+   |
+35 |     for idx in 0 .. |vowelIndices|
+   |                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_5.dfy(35,15): Error: Expected 'to' or 'downto'
+   |
+35 |     for idx in 0 .. |vowelIndices|
+   |                ^
+
+3 parse errors detected in task_id_131-gpt-4.1-nano-temp_0.5-k_5.dfy

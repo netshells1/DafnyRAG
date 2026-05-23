@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_457-gpt-4.1-nano-temp_0.5-k_1.dfy(7,22): Error: invalid relational operator
+  |
+7 |     ensures (main[..] !contains sub) ==> startIndex == -1 && length == 0
+  |                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_457-gpt-4.1-nano-temp_0.5-k_1.dfy(7,32): Error: closeparen expected
+  |
+7 |     ensures (main[..] !contains sub) ==> startIndex == -1 && length == 0
+  |                                 ^
+
+2 parse errors detected in task_id_457-gpt-4.1-nano-temp_0.5-k_1.dfy

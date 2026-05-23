@@ -1,0 +1,86 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(3,8): Error: openparen expected
+  |
+3 |     |seq.Filter(e => e == x, lst)| > 1
+  |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(3,8): Error: invalid real literal (no whitespace allowed after leading dot)
+  |
+3 |     |seq.Filter(e => e == x, lst)| > 1
+  |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(3,8): Error: incorrectly formatted number
+  |
+3 |     |seq.Filter(e => e == x, lst)| > 1
+  |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(3,35): Error: invalid UnaryExpression
+  |
+3 |     |seq.Filter(e => e == x, lst)| > 1
+  |                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(4,0): Error: closeparen expected
+  |
+4 | }
+  | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(8,12): Error: openparen expected
+  |
+8 |     Sum(seq Filter(e => !IsRepeated(lst, e), lst))
+  |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(8,49): Error: comma expected
+  |
+8 |     Sum(seq Filter(e => !IsRepeated(lst, e), lst))
+  |                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(16,19): Error: invalid Ident
+   |
+16 |     var seen := set<int>{};
+   |                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(17,23): Error: invalid Ident
+   |
+17 |     var repeated := set<int>{};
+   |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(20,10): Error: gets expected
+   |
+20 |     for e in lst
+   |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(21,8): Error: ident expected
+   |
+21 |         invariant e in lst
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(20,13): Error: Expected 'to' or 'downto'
+   |
+20 |     for e in lst
+   |              ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(34,10): Error: gets expected
+   |
+34 |     for e in lst
+   |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(35,8): Error: ident expected
+   |
+35 |         invariant e in lst
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(34,13): Error: Expected 'to' or 'downto'
+   |
+34 |     for e in lst
+   |              ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(37,33): Error: openparen expected
+   |
+37 |         invariant sum == Sum(seq Filter(e' => e' != e && e' !in repeated, lst[0..>]))
+   |                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy(37,81): Error: rbracket expected
+   |
+37 |         invariant sum == Sum(seq Filter(e' => e' != e && e' !in repeated, lst[0..>]))
+   |                                                                                  ^
+
+17 parse errors detected in task_id_777-gpt-4.1-nano-temp_0.5-k_2.dfy

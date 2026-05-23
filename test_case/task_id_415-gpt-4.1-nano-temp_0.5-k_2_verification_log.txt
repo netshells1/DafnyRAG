@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_415-gpt-4.1-nano-temp_0.5-k_2.dfy(7,23): Error: arguments to >= must have a common supertype (got int and bool)
+  |
+7 |     ensures maxProduct >= (exists i, j :: 0 <= i < j < a.Length && maxProduct == a[i] * a[j])
+  |                        ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_415-gpt-4.1-nano-temp_0.5-k_2.dfy(17,26): Error: arguments must have comparable types (got int and bool)
+   |
+17 |         invariant maxProd == (exists p, q :: 0 <= p < q < i + 1 && maxProd == a[p] * a[q])
+   |                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_415-gpt-4.1-nano-temp_0.5-k_2.dfy(25,30): Error: arguments must have comparable types (got int and bool)
+   |
+25 |             invariant maxProd == (exists p, q :: 0 <= p < q < i + 1 && maxProd == a[p] * a[q]) ||
+   |                               ^^
+
+3 resolution/type errors detected in task_id_415-gpt-4.1-nano-temp_0.5-k_2.dfy

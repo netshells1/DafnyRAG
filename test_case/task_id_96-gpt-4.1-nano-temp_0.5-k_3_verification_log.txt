@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_96-gpt-4.1-nano-temp_0.5-k_3.dfy(8,26): Error: rbrace expected
+  |
+8 |     ensures count == | { d: int | d > 0 && Divides(d, if n >= 0 then n else -n) } |
+  |                           ^
+
+1 parse errors detected in task_id_96-gpt-4.1-nano-temp_0.5-k_3.dfy

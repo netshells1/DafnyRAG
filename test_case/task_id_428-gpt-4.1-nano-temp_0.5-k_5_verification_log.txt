@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_5.dfy(11,23): Error: unresolved identifier: i
+   |
+11 |         invariant 0 <= i <= n
+   |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_428-gpt-4.1-nano-temp_0.5-k_5.dfy(12,23): Error: unresolved identifier: j
+   |
+12 |         invariant 0 <= j <= n
+   |                        ^
+
+2 resolution/type errors detected in task_id_428-gpt-4.1-nano-temp_0.5-k_5.dfy

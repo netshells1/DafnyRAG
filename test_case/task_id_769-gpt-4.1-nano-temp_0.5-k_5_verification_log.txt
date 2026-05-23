@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_5.dfy(22,29): Error: openparen expected
+   |
+22 |         invariant res == seq x | x in a[..i] && x !in b && x !in seen
+   |                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_5.dfy(23,4): Error: comma expected
+   |
+23 |     {
+   |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_5.dfy(25,8): Error: then expected
+   |
+25 |         {
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_5.dfy(26,16): Error: rbrace expected
+   |
+26 |             res := res + [a[i]];
+   |                 ^
+
+4 parse errors detected in task_id_769-gpt-4.1-nano-temp_0.5-k_5.dfy

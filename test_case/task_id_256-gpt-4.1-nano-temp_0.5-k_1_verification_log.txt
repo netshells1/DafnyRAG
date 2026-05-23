@@ -1,0 +1,51 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy(8,23): Error: unresolved identifier: k
+  |
+8 |     ensures count == |{k | 0 <= k < n && IsPrime(k)}|
+  |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy(8,32): Error: unresolved identifier: k
+  |
+8 |     ensures count == |{k | 0 <= k < n && IsPrime(k)}|
+  |                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy(8,49): Error: unresolved identifier: k
+  |
+8 |     ensures count == |{k | 0 <= k < n && IsPrime(k)}|
+  |                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy(8,25): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+8 |     ensures count == |{k | 0 <= k < n && IsPrime(k)}|
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy(8,25): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+8 |     ensures count == |{k | 0 <= k < n && IsPrime(k)}|
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy(14,25): Error: unresolved identifier: i
+   |
+14 |         invariant c == |{i | 0 <= i < k && IsPrime(i)}|
+   |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy(14,34): Error: unresolved identifier: i
+   |
+14 |         invariant c == |{i | 0 <= i < k && IsPrime(i)}|
+   |                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy(14,51): Error: unresolved identifier: i
+   |
+14 |         invariant c == |{i | 0 <= i < k && IsPrime(i)}|
+   |                                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy(14,27): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+14 |         invariant c == |{i | 0 <= i < k && IsPrime(i)}|
+   |                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy(14,27): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+14 |         invariant c == |{i | 0 <= i < k && IsPrime(i)}|
+   |                            ^
+
+10 resolution/type errors detected in task_id_256-gpt-4.1-nano-temp_0.5-k_1.dfy

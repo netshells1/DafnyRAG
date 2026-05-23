@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_3.dfy(15,30): Error: unresolved identifier: ceiling
+   |
+15 |     var max := if n >= 0 then ceiling(sqrt(n + 1)) else ceiling(sqrt(-n + 1));
+   |                               ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_3.dfy(15,38): Error: unresolved identifier: sqrt
+   |
+15 |     var max := if n >= 0 then ceiling(sqrt(n + 1)) else ceiling(sqrt(-n + 1));
+   |                                       ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_3.dfy(15,56): Error: unresolved identifier: ceiling
+   |
+15 |     var max := if n >= 0 then ceiling(sqrt(n + 1)) else ceiling(sqrt(-n + 1));
+   |                                                         ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_3.dfy(15,64): Error: unresolved identifier: sqrt
+   |
+15 |     var max := if n >= 0 then ceiling(sqrt(n + 1)) else ceiling(sqrt(-n + 1));
+   |                                                                 ^^^^
+
+4 resolution/type errors detected in task_id_72-gpt-4.1-nano-temp_0.5-k_3.dfy

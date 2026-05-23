@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_166-gpt-4.1-nano-temp_0.5-k_1.dfy(8,69): Error: closeparen expected
+  |
+8 |     ensures count == |{ (i, j) | 0 <= i < j < arr.Length && ((arr[i] xor arr[j]) % 2 == 0) }|
+  |                                                                      ^
+
+1 parse errors detected in task_id_166-gpt-4.1-nano-temp_0.5-k_1.dfy

@@ -1,0 +1,26 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_19-gpt-4.1-nano-temp_0.5-k_1.dfy(6,20): Error: Type or type parameter is not declared in this scope: HashSet (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+6 |     var seen := new HashSet<int>();
+  |                     ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_19-gpt-4.1-nano-temp_0.5-k_1.dfy(6,16): Error: new can be applied only to class types (got HashSet<int>)
+  |
+6 |     var seen := new HashSet<int>();
+  |                 ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_19-gpt-4.1-nano-temp_0.5-k_1.dfy(9,60): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got int)
+  |
+9 |         invariant result ==> exists k :: 0 <= k < i && a[k] in seen
+  |                                                             ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_19-gpt-4.1-nano-temp_0.5-k_1.dfy(10,62): Error: second argument to "!in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got int)
+   |
+10 |         invariant !result ==> forall k :: 0 <= k < i ==> a[k] !in seen
+   |                                                               ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_19-gpt-4.1-nano-temp_0.5-k_1.dfy(13,16): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got int)
+   |
+13 |         if a[i] in seen {
+   |                 ^^
+
+5 resolution/type errors detected in task_id_19-gpt-4.1-nano-temp_0.5-k_1.dfy

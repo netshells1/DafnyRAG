@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_4.dfy(9,35): Error: rbracket expected
+  |
+9 |         invariant lengths[..i] == [real(a[k] + b[k]) | k := 0 .. i-1]
+  |                                    ^
+
+1 parse errors detected in task_id_432-gpt-4.1-nano-temp_0.5-k_4.dfy

@@ -1,0 +1,8 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_437-gpt-4.1-nano-temp_0.5-k_1.dfy(8,25): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+  |
+8 |         invariant 0 <= i <= |s| / 2
+  |                          ^^
+
+
+Dafny program verifier finished with 1 verified, 1 error

@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_426-gpt-4.1-nano-temp_0.5-k_5.dfy(17,28): Error: unresolved identifier: length
+   |
+17 |         invariant |odds| == length(odds)
+   |                             ^^^^^^
+
+1 resolution/type errors detected in task_id_426-gpt-4.1-nano-temp_0.5-k_5.dfy

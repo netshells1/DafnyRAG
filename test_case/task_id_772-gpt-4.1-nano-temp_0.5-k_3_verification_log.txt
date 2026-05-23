@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_3.dfy(5,41): Error: this symbol not expected in Dafny
+  |
+5 |     ensures Words(result) is subsequence of Words(s) with all words of length k removed
+  |                                          ^
+
+1 parse errors detected in task_id_772-gpt-4.1-nano-temp_0.5-k_3.dfy

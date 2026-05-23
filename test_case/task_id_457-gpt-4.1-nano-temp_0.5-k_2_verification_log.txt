@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_457-gpt-4.1-nano-temp_0.5-k_2.dfy(17,16): Error: lbrace expected
+   |
+17 |                 minLen := j - i;
+   |                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_457-gpt-4.1-nano-temp_0.5-k_2.dfy(22,1): Error: rbrace expected
+   |
+22 | }
+   |  ^
+
+2 parse errors detected in task_id_457-gpt-4.1-nano-temp_0.5-k_2.dfy

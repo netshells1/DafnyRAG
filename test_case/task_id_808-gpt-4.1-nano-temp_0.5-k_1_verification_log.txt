@@ -1,0 +1,26 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_808-gpt-4.1-nano-temp_0.5-k_1.dfy(1,17): Error: closeparen expected
+  |
+1 | method ContainsK(seq: seq<int>, k: int) returns (result: bool)
+  |                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_808-gpt-4.1-nano-temp_0.5-k_1.dfy(2,30): Error: openparen expected
+  |
+2 |  ensures result <==> (k in seq)
+  |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_808-gpt-4.1-nano-temp_0.5-k_1.dfy(6,18): Error: openparen expected
+  |
+6 |     while i < |seq|
+  |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_808-gpt-4.1-nano-temp_0.5-k_1.dfy(7,32): Error: openparen expected
+  |
+7 |         invariant 0 <= i <= |seq|
+  |                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_808-gpt-4.1-nano-temp_0.5-k_1.dfy(8,39): Error: openparen expected
+  |
+8 |         invariant result <==> (k in seq[..i])
+  |                                        ^
+
+5 parse errors detected in task_id_808-gpt-4.1-nano-temp_0.5-k_1.dfy

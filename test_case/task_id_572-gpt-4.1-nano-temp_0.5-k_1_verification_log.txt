@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_1.dfy(24,30): Error: rbracket expected
+   |
+24 |         invariant resSeq == [ for k := 0 to i-1 :: a[k] | a[k] !in seen ]
+   |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_1.dfy(24,48): Error: invalid ForLoopStmt
+   |
+24 |         invariant resSeq == [ for k := 0 to i-1 :: a[k] | a[k] !in seen ]
+   |                                                 ^
+
+2 parse errors detected in task_id_572-gpt-4.1-nano-temp_0.5-k_1.dfy

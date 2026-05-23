@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_792-gpt-4.1-nano-temp_0.5-k_1.dfy(2,22): Error: type of 'null' is a reference type, but it is used as seq<seq<int>>
+  |
+2 |     requires lists != null
+  |                       ^^^^
+
+1 resolution/type errors detected in task_id_792-gpt-4.1-nano-temp_0.5-k_1.dfy

@@ -1,0 +1,41 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_430-gpt-4.1-nano-temp_0.5-k_3.dfy(4,54): Error: type of left argument to * (int) must agree with the result type (real)
+  |
+4 |     ensures (a > 0) ==> directrixY == focusY - 1 / (4 * a)
+  |                                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_430-gpt-4.1-nano-temp_0.5-k_3.dfy(4,49): Error: type of left argument to / (int) must agree with the result type (real)
+  |
+4 |     ensures (a > 0) ==> directrixY == focusY - 1 / (4 * a)
+  |                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_430-gpt-4.1-nano-temp_0.5-k_3.dfy(5,54): Error: type of left argument to * (int) must agree with the result type (real)
+  |
+5 |     ensures (a < 0) ==> directrixY == focusY + 1 / (4 * a)
+  |                                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_430-gpt-4.1-nano-temp_0.5-k_3.dfy(5,49): Error: type of left argument to / (int) must agree with the result type (real)
+  |
+5 |     ensures (a < 0) ==> directrixY == focusY + 1 / (4 * a)
+  |                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_430-gpt-4.1-nano-temp_0.5-k_3.dfy(2,15): Error: arguments must have comparable types (got real and int)
+  |
+2 |     requires a != 0
+  |                ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_430-gpt-4.1-nano-temp_0.5-k_3.dfy(4,15): Error: arguments to > must have a common supertype (got real and int)
+  |
+4 |     ensures (a > 0) ==> directrixY == focusY - 1 / (4 * a)
+  |                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_430-gpt-4.1-nano-temp_0.5-k_3.dfy(5,15): Error: arguments to < must have a common supertype (got real and int)
+  |
+5 |     ensures (a < 0) ==> directrixY == focusY + 1 / (4 * a)
+  |                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_430-gpt-4.1-nano-temp_0.5-k_3.dfy(7,9): Error: arguments to > must have a common supertype (got real and int)
+  |
+7 |     if a > 0 {
+  |          ^
+
+8 resolution/type errors detected in task_id_430-gpt-4.1-nano-temp_0.5-k_3.dfy

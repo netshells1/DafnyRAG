@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_414-gpt-4.1-nano-temp_0.5-k_1.dfy(10,14): Error: type seq<int> does not have a member Contains
+   |
+10 |         if s2.Contains(s1[i]) {
+   |               ^^^^^^^^
+
+1 resolution/type errors detected in task_id_414-gpt-4.1-nano-temp_0.5-k_1.dfy

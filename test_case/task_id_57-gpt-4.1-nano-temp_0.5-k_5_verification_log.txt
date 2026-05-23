@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_57-gpt-4.1-nano-temp_0.5-k_5.dfy(8,22): Error: arguments to >= must have a common supertype (got int and seq<int>)
+  |
+8 |         invariant max >= a[0..i]
+  |                       ^^
+
+1 resolution/type errors detected in task_id_57-gpt-4.1-nano-temp_0.5-k_5.dfy

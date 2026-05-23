@@ -1,0 +1,46 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_5.dfy(3,36): Error: type seq<char> does not have a member Split
+  |
+3 |     ensures forall w :: w in result.Split(' ') ==> |w| != k
+  |                                     ^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_5.dfy(4,22): Error: unresolved identifier: String
+  |
+4 |     ensures result == String.Join(" ", (s.Split(' ')).Filter(w => |w| != k))
+  |                       ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_5.dfy(4,42): Error: type seq<char> does not have a member Split
+  |
+4 |     ensures result == String.Join(" ", (s.Split(' ')).Filter(w => |w| != k))
+  |                                           ^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_5.dfy(6,19): Error: type seq<char> does not have a member Split
+  |
+6 |     var words := s.Split(' ');
+  |                    ^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_5.dfy(11,46): Error: type seq<?> does not have a member Filter
+   |
+11 |         invariant filteredWords == words[..i].Filter(w => |w| != k)
+   |                                               ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_5.dfy(18,14): Error: unresolved identifier: String
+   |
+18 |     result := String.Join(" ", filteredWords);
+   |               ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_5.dfy(11,43): Error: incorrect type for selection into ? (got int)
+   |
+11 |         invariant filteredWords == words[..i].Filter(w => |w| != k)
+   |                                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_5.dfy(13,18): Error: incorrect type for selection into ? (got int)
+   |
+13 |         if |words[i]| != k {
+   |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_5.dfy(14,52): Error: incorrect type for selection into ? (got int)
+   |
+14 |             filteredWords := filteredWords + [words[i]];
+   |                                                     ^
+
+9 resolution/type errors detected in task_id_772-gpt-4.1-nano-temp_0.5-k_5.dfy

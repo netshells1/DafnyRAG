@@ -1,0 +1,8 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_389-gpt-4.1-nano-temp_0.5-k_4.dfy(31,26): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+31 |         invariant current == LucasNumber(i)
+   |                           ^^
+
+
+Dafny program verifier finished with 2 verified, 1 error

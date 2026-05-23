@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_3.dfy(12,11): Error: gets expected
+   |
+12 |     for ai in a
+   |            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_3.dfy(13,6): Error: ident expected
+   |
+13 |       for bi in b
+   |       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_3.dfy(12,14): Error: Expected 'to' or 'downto'
+   |
+12 |     for ai in a
+   |               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_3.dfy(13,13): Error: gets expected
+   |
+13 |       for bi in b
+   |              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_3.dfy(14,8): Error: Expected 'to' or 'downto'
+   |
+14 |         allProducts := allProducts + [ai * bi];
+   |         ^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_3.dfy(14,20): Error: invalid ForLoopStmt
+   |
+14 |         allProducts := allProducts + [ai * bi];
+   |                     ^
+
+6 parse errors detected in task_id_308-gpt-4.1-nano-temp_0.5-k_3.dfy

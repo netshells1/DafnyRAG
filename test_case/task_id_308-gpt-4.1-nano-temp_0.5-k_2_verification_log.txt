@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_2.dfy(13,35): Error: openparen expected
+   |
+13 |         invariant products == (seq for x in a[0..i] :: seq for y in b :: x * y)
+   |                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_2.dfy(13,41): Error: gets expected
+   |
+13 |         invariant products == (seq for x in a[0..i] :: seq for y in b :: x * y)
+   |                                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_2.dfy(13,52): Error: ident expected
+   |
+13 |         invariant products == (seq for x in a[0..i] :: seq for y in b :: x * y)
+   |                                                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_2.dfy(13,50): Error: Expected 'to' or 'downto'
+   |
+13 |         invariant products == (seq for x in a[0..i] :: seq for y in b :: x * y)
+   |                                                   ^
+
+4 parse errors detected in task_id_308-gpt-4.1-nano-temp_0.5-k_2.dfy

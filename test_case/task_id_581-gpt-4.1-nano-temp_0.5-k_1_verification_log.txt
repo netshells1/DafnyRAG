@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_1.dfy(5,2): Error: this symbol not expected in Dafny
+  |
+5 |   where
+  |   ^
+
+1 parse errors detected in task_id_581-gpt-4.1-nano-temp_0.5-k_1.dfy

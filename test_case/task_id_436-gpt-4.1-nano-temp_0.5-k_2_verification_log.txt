@@ -1,0 +1,111 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,45): Error: unresolved identifier: a
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,49): Error: unresolved identifier: a
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,75): Error: unresolved identifier: a
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                                                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,62): Error: first argument to | must be of a bitvector type (instead got seq<int>)
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,62): Error: second argument to | must be of a bitvector type (instead got bool)
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,62): Error: first argument to | must be of a bitvector type (instead got seq<int>)
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,62): Error: second argument to | must be of a bitvector type (instead got bool)
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,51): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got int)
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                                    ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,32): Error: arguments must have comparable types (got multiset<int> and multiset<bool>)
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                 ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,47): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(10,47): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+10 |     ensures multiset(negatives) == multiset([a | a in arr[..] | IsNegative(a)])
+   |                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,51): Error: unresolved identifier: a
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,55): Error: unresolved identifier: a
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,82): Error: unresolved identifier: a
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                                                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,69): Error: first argument to | must be of a bitvector type (instead got seq<int>)
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,69): Error: second argument to | must be of a bitvector type (instead got bool)
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,69): Error: first argument to | must be of a bitvector type (instead got seq<int>)
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,69): Error: second argument to | must be of a bitvector type (instead got bool)
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,57): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got int)
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                                          ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,38): Error: arguments must have comparable types (got multiset<int> and multiset<bool>)
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                       ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,53): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy(16,53): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+16 |         invariant multiset(negatives) == multiset([a | a in arr[..i] | IsNegative(a)])
+   |                                                      ^
+
+22 resolution/type errors detected in task_id_436-gpt-4.1-nano-temp_0.5-k_2.dfy

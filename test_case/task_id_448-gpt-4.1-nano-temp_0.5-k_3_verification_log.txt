@@ -1,0 +1,41 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_448-gpt-4.1-nano-temp_0.5-k_3.dfy(30,33): Error: missing semicolon at end of statement
+   |
+30 |             invariant sum == sum of Perrin numbers from 0 to k-1
+   |                                  ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_448-gpt-4.1-nano-temp_0.5-k_3.dfy(30,36): Error: missing semicolon at end of statement
+   |
+30 |             invariant sum == sum of Perrin numbers from 0 to k-1
+   |                                     ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_448-gpt-4.1-nano-temp_0.5-k_3.dfy(30,43): Error: missing semicolon at end of statement
+   |
+30 |             invariant sum == sum of Perrin numbers from 0 to k-1
+   |                                            ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_448-gpt-4.1-nano-temp_0.5-k_3.dfy(30,51): Error: missing semicolon at end of statement
+   |
+30 |             invariant sum == sum of Perrin numbers from 0 to k-1
+   |                                                    ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_448-gpt-4.1-nano-temp_0.5-k_3.dfy(30,58): Error: invalid Suffix
+   |
+30 |             invariant sum == sum of Perrin numbers from 0 to k-1
+   |                                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_448-gpt-4.1-nano-temp_0.5-k_3.dfy(30,56): Error: missing semicolon at end of statement
+   |
+30 |             invariant sum == sum of Perrin numbers from 0 to k-1
+   |                                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_448-gpt-4.1-nano-temp_0.5-k_3.dfy(30,58): Error: missing semicolon at end of statement
+   |
+30 |             invariant sum == sum of Perrin numbers from 0 to k-1
+   |                                                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_448-gpt-4.1-nano-temp_0.5-k_3.dfy(30,62): Error: invalid AssignStatement
+   |
+30 |             invariant sum == sum of Perrin numbers from 0 to k-1
+   |                                                               ^
+
+8 parse errors detected in task_id_448-gpt-4.1-nano-temp_0.5-k_3.dfy

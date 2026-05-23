@@ -1,0 +1,7 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_622-gpt-4.1-nano-temp_0.5-k_2.dfy(9,25): Error: index out of range
+  |
+9 |     var middle1 := merged[n - 1];
+  |                          ^
+
+
+Dafny program verifier finished with 1 verified, 1 error

@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_4.dfy(6,10): Error: gets expected
+  |
+6 |     for x in a
+  |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_4.dfy(7,8): Error: ident expected
+  |
+7 |         invariant forall y :: y in res ==> y in a && y !in b
+  |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_4.dfy(6,13): Error: Expected 'to' or 'downto'
+  |
+6 |     for x in a
+  |              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_4.dfy(8,49): Error: Ambiguous use of && and ||. Use parentheses to disambiguate.
+  |
+8 |         invariant res == [y | y in a && y in res || y in res]
+  |                                                  ^^
+
+4 parse errors detected in task_id_769-gpt-4.1-nano-temp_0.5-k_4.dfy

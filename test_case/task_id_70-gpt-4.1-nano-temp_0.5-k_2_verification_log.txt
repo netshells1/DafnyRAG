@@ -1,0 +1,81 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(3,34): Error: type seq<seq<int>> does not have a member Length
+  |
+3 |     ensures result ==> (sequences.Length == 0 || forall i, j :: 0 <= i < sequences.Length && 0 <= j < sequences.Length ==> sequences[i].Length == sequences[j].Length)
+  |                                   ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(3,83): Error: type seq<seq<int>> does not have a member Length
+  |
+3 |     ensures result ==> (sequences.Length == 0 || forall i, j :: 0 <= i < sequences.Length && 0 <= j < sequences.Length ==> sequences[i].Length == sequences[j].Length)
+  |                                                                                    ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(3,112): Error: type seq<seq<int>> does not have a member Length
+  |
+3 |     ensures result ==> (sequences.Length == 0 || forall i, j :: 0 <= i < sequences.Length && 0 <= j < sequences.Length ==> sequences[i].Length == sequences[j].Length)
+  |                                                                                                                 ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(3,136): Error: type seq<int> does not have a member Length
+  |
+3 |     ensures result ==> (sequences.Length == 0 || forall i, j :: 0 <= i < sequences.Length && 0 <= j < sequences.Length ==> sequences[i].Length == sequences[j].Length)
+  |                                                                                                                                         ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(3,159): Error: type seq<int> does not have a member Length
+  |
+3 |     ensures result ==> (sequences.Length == 0 || forall i, j :: 0 <= i < sequences.Length && 0 <= j < sequences.Length ==> sequences[i].Length == sequences[j].Length)
+  |                                                                                                                                                                ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(4,59): Error: type seq<seq<int>> does not have a member Length
+  |
+4 |     ensures !result ==> (exists i, j :: 0 <= i < sequences.Length && 0 <= j < sequences.Length && sequences[i].Length != sequences[j].Length)
+  |                                                            ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(4,88): Error: type seq<seq<int>> does not have a member Length
+  |
+4 |     ensures !result ==> (exists i, j :: 0 <= i < sequences.Length && 0 <= j < sequences.Length && sequences[i].Length != sequences[j].Length)
+  |                                                                                         ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(4,111): Error: type seq<int> does not have a member Length
+  |
+4 |     ensures !result ==> (exists i, j :: 0 <= i < sequences.Length && 0 <= j < sequences.Length && sequences[i].Length != sequences[j].Length)
+  |                                                                                                                ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(4,134): Error: type seq<int> does not have a member Length
+  |
+4 |     ensures !result ==> (exists i, j :: 0 <= i < sequences.Length && 0 <= j < sequences.Length && sequences[i].Length != sequences[j].Length)
+  |                                                                                                                                       ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(2,26): Error: type of 'null' is a reference type, but it is used as seq<seq<int>>
+  |
+2 |     requires sequences != null
+  |                           ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(6,17): Error: type seq<seq<int>> does not have a member Length
+  |
+6 |     if sequences.Length == 0 {
+  |                  ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(10,36): Error: type seq<int> does not have a member Length
+   |
+10 |     var firstLength := sequences[0].Length;
+   |                                     ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(13,28): Error: type seq<seq<int>> does not have a member Length
+   |
+13 |     for i := 1 to sequences.Length
+   |                             ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(14,38): Error: type seq<seq<int>> does not have a member Length
+   |
+14 |         invariant 1 <= i <= sequences.Length
+   |                                       ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(15,69): Error: type seq<int> does not have a member Length
+   |
+15 |         invariant result ==> forall k :: 0 <= k < i ==> sequences[k].Length == firstLength
+   |                                                                      ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy(17,24): Error: type seq<int> does not have a member Length
+   |
+17 |         if sequences[i].Length != firstLength {
+   |                         ^^^^^^
+
+16 resolution/type errors detected in task_id_70-gpt-4.1-nano-temp_0.5-k_2.dfy

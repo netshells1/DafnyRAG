@@ -1,0 +1,61 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(3,25): Error: unresolved identifier: i
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(3,28): Error: unresolved identifier: j
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(3,38): Error: unresolved identifier: i
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(3,42): Error: unresolved identifier: j
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(3,59): Error: unresolved identifier: i
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(3,69): Error: unresolved identifier: j
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(3,31): Error: first argument to | must be of a bitvector type (instead got (?, ?))
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(3,31): Error: first argument to | must be of a bitvector type (instead got (?, ?))
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(3,31): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(7,16): Error: new can be applied only to class types (got set<int>)
+  |
+7 |     var seen := new set<int>;
+  |                 ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(14,22): Error: a 'for' loop is allowed an explicit 'decreases' clause only if the end-expression is '*'
+   |
+14 |         decreases len - i
+   |                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy(23,24): Error: a 'for' loop is allowed an explicit 'decreases' clause only if the end-expression is '*'
+   |
+23 |             decreases i - j
+   |                         ^
+
+12 resolution/type errors detected in task_id_564-gpt-4.1-nano-temp_0.5-k_2.dfy

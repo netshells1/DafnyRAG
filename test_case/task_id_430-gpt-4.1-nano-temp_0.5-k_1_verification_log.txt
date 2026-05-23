@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_430-gpt-4.1-nano-temp_0.5-k_1.dfy(2,15): Error: arguments must have comparable types (got real and int)
+  |
+2 |     requires a != 0
+  |                ^^
+
+1 resolution/type errors detected in task_id_430-gpt-4.1-nano-temp_0.5-k_1.dfy

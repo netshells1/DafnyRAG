@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_388-gpt-4.1-nano-temp_0.5-k_1.dfy(3,13): Error: first argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures 2^p <= n
+  |              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_388-gpt-4.1-nano-temp_0.5-k_1.dfy(3,13): Error: second argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures 2^p <= n
+  |              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_388-gpt-4.1-nano-temp_0.5-k_1.dfy(5,13): Error: first argument to ^ must be of a bitvector type (instead got int)
+  |
+5 |     ensures 2^(p + 1) > n
+  |              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_388-gpt-4.1-nano-temp_0.5-k_1.dfy(5,13): Error: second argument to ^ must be of a bitvector type (instead got int)
+  |
+5 |     ensures 2^(p + 1) > n
+  |              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_388-gpt-4.1-nano-temp_0.5-k_1.dfy(11,28): Error: first argument to ^ must be of a bitvector type (instead got int)
+   |
+11 |         invariant power == 2^p
+   |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_388-gpt-4.1-nano-temp_0.5-k_1.dfy(11,28): Error: second argument to ^ must be of a bitvector type (instead got int)
+   |
+11 |         invariant power == 2^p
+   |                             ^
+
+6 resolution/type errors detected in task_id_388-gpt-4.1-nano-temp_0.5-k_1.dfy

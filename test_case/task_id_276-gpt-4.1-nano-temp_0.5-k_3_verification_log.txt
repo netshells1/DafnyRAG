@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_276-gpt-4.1-nano-temp_0.5-k_3.dfy(4,22): Error: unresolved identifier: Pi
+  |
+4 |     ensures volume == Pi * radius * radius * height
+  |                       ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_276-gpt-4.1-nano-temp_0.5-k_3.dfy(6,14): Error: unresolved identifier: Pi
+  |
+6 |     volume := Pi * radius * radius * height;
+  |               ^^
+
+2 resolution/type errors detected in task_id_276-gpt-4.1-nano-temp_0.5-k_3.dfy

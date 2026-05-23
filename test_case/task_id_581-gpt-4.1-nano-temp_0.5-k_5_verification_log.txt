@@ -1,0 +1,51 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy(4,59): Error: unresolved identifier: sqrt
+  |
+4 |   ensures area == (baseEdge * baseEdge) + 2.0 * baseEdge * sqrt( (baseEdge/2.0)*(baseEdge/2.0) + height * height )
+  |                                                            ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy(4,46): Error: type of left argument to * (real) must agree with the result type (int)
+  |
+4 |   ensures area == (baseEdge * baseEdge) + 2.0 * baseEdge * sqrt( (baseEdge/2.0)*(baseEdge/2.0) + height * height )
+  |                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy(4,15): Error: arguments must have comparable types (got real and int)
+  |
+4 |   ensures area == (baseEdge * baseEdge) + 2.0 * baseEdge * sqrt( (baseEdge/2.0)*(baseEdge/2.0) + height * height )
+  |                ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy(4,74): Error: type of right argument to / (real) must agree with the result type (int)
+  |
+4 |   ensures area == (baseEdge * baseEdge) + 2.0 * baseEdge * sqrt( (baseEdge/2.0)*(baseEdge/2.0) + height * height )
+  |                                                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy(4,89): Error: type of right argument to / (real) must agree with the result type (int)
+  |
+4 |   ensures area == (baseEdge * baseEdge) + 2.0 * baseEdge * sqrt( (baseEdge/2.0)*(baseEdge/2.0) + height * height )
+  |                                                                                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy(7,23): Error: unresolved identifier: sqrt
+  |
+7 |     var slantHeight := sqrt( (baseEdge/2.0)*(baseEdge/2.0) + height * height );
+  |                        ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy(8,27): Error: type of left argument to * (real) must agree with the result type (int)
+  |
+8 |     area := baseArea + 2.0 * baseEdge * slantHeight;
+  |                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy(8,9): Error: RHS (of type int) not assignable to LHS (of type real)
+  |
+8 |     area := baseArea + 2.0 * baseEdge * slantHeight;
+  |          ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy(7,38): Error: type of right argument to / (real) must agree with the result type (int)
+  |
+7 |     var slantHeight := sqrt( (baseEdge/2.0)*(baseEdge/2.0) + height * height );
+  |                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy(7,53): Error: type of right argument to / (real) must agree with the result type (int)
+  |
+7 |     var slantHeight := sqrt( (baseEdge/2.0)*(baseEdge/2.0) + height * height );
+  |                                                      ^
+
+10 resolution/type errors detected in task_id_581-gpt-4.1-nano-temp_0.5-k_5.dfy

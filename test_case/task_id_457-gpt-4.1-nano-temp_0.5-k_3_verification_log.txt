@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_457-gpt-4.1-nano-temp_0.5-k_3.dfy(19,25): Error: second argument to "in" must be a set, multiset, or sequence with elements of type seq<int>, or a map with domain seq<int> (instead got seq<int>) (expecting element type to be assignable to int (got seq<int>))
+   |
+19 |         invariant minSub in main
+   |                          ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_457-gpt-4.1-nano-temp_0.5-k_3.dfy(26,29): Error: second argument to "in" must be a set, multiset, or sequence with elements of type seq<int>, or a map with domain seq<int> (instead got seq<int>) (expecting element type to be assignable to int (got seq<int>))
+   |
+26 |             invariant minSub in main
+   |                              ^^
+
+2 resolution/type errors detected in task_id_457-gpt-4.1-nano-temp_0.5-k_3.dfy

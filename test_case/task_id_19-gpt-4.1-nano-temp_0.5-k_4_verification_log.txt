@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_19-gpt-4.1-nano-temp_0.5-k_4.dfy(6,20): Error: Type or type parameter is not declared in this scope: HashSet (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+6 |     var seen := new HashSet<int>();
+  |                     ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_19-gpt-4.1-nano-temp_0.5-k_4.dfy(6,16): Error: new can be applied only to class types (got HashSet<int>)
+  |
+6 |     var seen := new HashSet<int>();
+  |                 ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_19-gpt-4.1-nano-temp_0.5-k_4.dfy(11,27): Error: a 'for' loop is allowed an explicit 'decreases' clause only if the end-expression is '*'
+   |
+11 |         decreases a.Length - i
+   |                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_19-gpt-4.1-nano-temp_0.5-k_4.dfy(10,26): Error: type of 'null' is a reference type, but it is used as set<int>
+   |
+10 |         invariant seen != null
+   |                           ^^^^
+
+4 resolution/type errors detected in task_id_19-gpt-4.1-nano-temp_0.5-k_4.dfy

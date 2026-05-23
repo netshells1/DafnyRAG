@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_2.dfy(4,35): Error: first argument to ^ must be of a bitvector type (instead got int)
+  |
+4 |     ensures exists k :: result == 2^k
+  |                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_2.dfy(4,35): Error: second argument to ^ must be of a bitvector type (instead got int)
+  |
+4 |     ensures exists k :: result == 2^k
+  |                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_2.dfy(16,40): Error: first argument to ^ must be of a bitvector type (instead got int)
+   |
+16 |         invariant exists k :: power == 2^k
+   |                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_2.dfy(16,40): Error: second argument to ^ must be of a bitvector type (instead got int)
+   |
+16 |         invariant exists k :: power == 2^k
+   |                                         ^
+
+4 resolution/type errors detected in task_id_167-gpt-4.1-nano-temp_0.5-k_2.dfy

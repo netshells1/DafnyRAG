@@ -1,0 +1,20 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_388-gpt-4.1-nano-temp_0.5-k_5.dfy(11,20): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+11 |         invariant p <= n
+   |                     ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_388-gpt-4.1-nano-temp_0.5-k_5.dfy(12,24): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+12 |         invariant 2 * p <= n
+   |                         ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_388-gpt-4.1-nano-temp_0.5-k_5.dfy(12,24): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+12 |         invariant 2 * p <= n
+   |                         ^^
+
+
+Dafny program verifier finished with 1 verified, 3 errors

@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_3.dfy(5,25): Error: invalid Ident
+  |
+5 |     var charCounts := map<char, int];
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_3.dfy(11,8): Error: doublecolon expected
+   |
+11 |         {
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_3.dfy(13,32): Error: then expected
+   |
+13 |             if ch in charCounts {
+   |                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_3.dfy(14,31): Error: rbrace expected
+   |
+14 |                 charCounts[ch] := charCounts[ch] + 1;
+   |                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_3.dfy(14,52): Warning: deprecated style: a semi-colon is not needed here
+   |
+14 |                 charCounts[ch] := charCounts[ch] + 1;
+   |                                                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_3.dfy(15,14): Error: this symbol not expected in Dafny
+   |
+15 |             } else {
+   |               ^
+
+5 parse errors detected in task_id_395-gpt-4.1-nano-temp_0.5-k_3.dfy

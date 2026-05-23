@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_4.dfy(10,27): Error: unresolved identifier: countNegatives
+   |
+10 |     ensures |negatives| == countNegatives(arr)
+   |                            ^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_4.dfy(18,33): Error: unresolved identifier: countNegatives
+   |
+18 |         invariant |negatives| == countNegatives(arr[..i])
+   |                                  ^^^^^^^^^^^^^^
+
+2 resolution/type errors detected in task_id_436-gpt-4.1-nano-temp_0.5-k_4.dfy

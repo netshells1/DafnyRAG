@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_5.dfy(6,109): Error: this symbol not expected in Dafny
+  |
+6 |     ensures forall k :: 0 <= k < |words| && (words[k][0] == 'p' || words[k][0] == 'P') ==> (k == i || k == j))
+  |                                                                                                              ^
+
+1 parse errors detected in task_id_305-gpt-4.1-nano-temp_0.5-k_5.dfy

@@ -1,0 +1,61 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(4,32): Error: type seq<int> does not have a member Zip
+  |
+4 |     ensures elementwise == seq1.Zip(seq2)
+  |                                 ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(5,29): Error: type seq<int> does not have a member SelectMany
+  |
+5 |     ensures sequence == seq1.SelectMany(x => [ [x] ]) + seq2.SelectMany(x => [ [x] ])
+  |                              ^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(5,61): Error: type seq<int> does not have a member SelectMany
+  |
+5 |     ensures sequence == seq1.SelectMany(x => [ [x] ]) + seq2.SelectMany(x => [ [x] ])
+  |                                                              ^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(2,21): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+2 |     requires seq1 != null
+  |                      ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(3,21): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+3 |     requires seq2 != null
+  |                      ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(8,24): Error: type seq<int> does not have a member Zip
+  |
+8 |     elementwise := seq1.Zip(seq2);
+  |                         ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(11,23): Error: type seq<int> does not have a member Length
+   |
+11 |     var len := if seq1.Length < seq2.Length then seq1.Length else seq2.Length;
+   |                        ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(11,37): Error: type seq<int> does not have a member Length
+   |
+11 |     var len := if seq1.Length < seq2.Length then seq1.Length else seq2.Length;
+   |                                      ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(11,54): Error: type seq<int> does not have a member Length
+   |
+11 |     var len := if seq1.Length < seq2.Length then seq1.Length else seq2.Length;
+   |                                                       ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(11,71): Error: type seq<int> does not have a member Length
+   |
+11 |     var len := if seq1.Length < seq2.Length then seq1.Length else seq2.Length;
+   |                                                                        ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(15,31): Error: type seq<int> does not have a member Take
+   |
+15 |         invariant seqs == seq1.Take(i).Select(x => [x]) + seq2.Take(i).Select(x => [x])
+   |                                ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy(15,63): Error: type seq<int> does not have a member Take
+   |
+15 |         invariant seqs == seq1.Take(i).Select(x => [x]) + seq2.Take(i).Select(x => [x])
+   |                                                                ^^^^
+
+12 resolution/type errors detected in task_id_429-gpt-4.1-nano-temp_0.5-k_2.dfy

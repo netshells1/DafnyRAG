@@ -1,0 +1,36 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_4.dfy(3,40): Error: unresolved identifier: InArray
+  |
+3 |     ensures forall x :: x in result ==> InArray(a, x)
+  |                                         ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_4.dfy(4,12): Error: unresolved identifier: distinct
+  |
+4 |     ensures distinct(result)
+  |             ^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_4.dfy(3,26): Error: second argument to "in" must be a set, multiset, or sequence with elements of type ?, or a map with domain ? (instead got array<int>)
+  |
+3 |     ensures forall x :: x in result ==> InArray(a, x)
+  |                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_4.dfy(5,12): Error: size operator expects a collection argument (instead got array<int>)
+  |
+5 |     ensures |result| <= a.Length
+  |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_4.dfy(12,46): Error: unresolved identifier: InArray
+   |
+12 |         invariant forall x :: x in resSeq ==> InArray(a, x)
+   |                                               ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_4.dfy(14,18): Error: unresolved identifier: distinct
+   |
+14 |         invariant distinct(resSeq)
+   |                   ^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_4.dfy(21,21): Error: type seq<int> does not have a member ToArray
+   |
+21 |     result := resSeq.ToArray();
+   |                      ^^^^^^^
+
+7 resolution/type errors detected in task_id_572-gpt-4.1-nano-temp_0.5-k_4.dfy

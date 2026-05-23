@@ -1,0 +1,46 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_4.dfy(3,25): Error: unresolved identifier: i
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_4.dfy(3,28): Error: unresolved identifier: j
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_4.dfy(3,38): Error: unresolved identifier: i
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_4.dfy(3,42): Error: unresolved identifier: j
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_4.dfy(3,59): Error: unresolved identifier: i
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_4.dfy(3,69): Error: unresolved identifier: j
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_4.dfy(3,31): Error: first argument to | must be of a bitvector type (instead got (?, ?))
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_4.dfy(3,31): Error: first argument to | must be of a bitvector type (instead got (?, ?))
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_564-gpt-4.1-nano-temp_0.5-k_4.dfy(3,31): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+3 |     ensures count == |{ (i, j) | 0 <= i < j < |lst| && lst[i] != lst[j] }|
+  |                                ^
+
+9 resolution/type errors detected in task_id_564-gpt-4.1-nano-temp_0.5-k_4.dfy

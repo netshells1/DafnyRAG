@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_4.dfy(11,29): Error: missing semicolon at end of statement
+   |
+11 |         invariant power >= n or power == n
+   |                              ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_4.dfy(11,38): Error: invalid AssignStatement
+   |
+11 |         invariant power >= n or power == n
+   |                                       ^
+
+2 parse errors detected in task_id_167-gpt-4.1-nano-temp_0.5-k_4.dfy

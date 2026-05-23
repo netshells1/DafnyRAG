@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_3.dfy(11,37): Error: Ambiguous use of && and ||. Use parentheses to disambiguate.
+   |
+11 |     (str[0] == '-' || str[0] == '+') || true
+   |                                      ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_759-gpt-4.1-nano-temp_0.5-k_3.dfy(12,2): Error: this symbol not expected in Dafny
+   |
+12 | } &&
+   |   ^
+
+2 parse errors detected in task_id_759-gpt-4.1-nano-temp_0.5-k_3.dfy

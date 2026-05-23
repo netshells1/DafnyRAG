@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_622-gpt-4.1-nano-temp_0.5-k_4.dfy(14,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+14 | function method GetKthSmallest(a: seq<int>, b: seq<int>, k: int): int
+   | ^^^^^^^^^^^^^^^
+
+1 parse errors detected in task_id_622-gpt-4.1-nano-temp_0.5-k_4.dfy

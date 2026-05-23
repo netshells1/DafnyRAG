@@ -1,0 +1,22 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_4.dfy(17,0): Error: a postcondition could not be proved on this return path
+   |
+17 | {
+   | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_4.dfy(15,14): Related location: this is the postcondition that could not be proved
+   |
+15 |     ensures 1 <= d <= n
+   |               ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_4.dfy(17,0): Error: a postcondition could not be proved on this return path
+   |
+17 | {
+   | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_479-gpt-4.1-nano-temp_0.5-k_4.dfy(15,19): Related location: this is the postcondition that could not be proved
+   |
+15 |     ensures 1 <= d <= n
+   |                    ^^
+
+
+Dafny program verifier finished with 2 verified, 2 errors

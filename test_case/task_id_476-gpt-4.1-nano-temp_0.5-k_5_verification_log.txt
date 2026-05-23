@@ -1,0 +1,29 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_476-gpt-4.1-nano-temp_0.5-k_5.dfy(2,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')
+  |
+2 |     requires a != null
+  |                ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_476-gpt-4.1-nano-temp_0.5-k_5.dfy(5,0): Error: a postcondition could not be proved on this return path
+  |
+5 | {
+  | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_476-gpt-4.1-nano-temp_0.5-k_5.dfy(4,16): Related location: this is the postcondition that could not be proved
+  |
+4 |     ensures sum == Max(a[..]) + Min(a[..])
+  |                 ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_476-gpt-4.1-nano-temp_0.5-k_5.dfy(13,25): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+13 |         invariant minVal == Min(a[..i])
+   |                          ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_476-gpt-4.1-nano-temp_0.5-k_5.dfy(14,25): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+14 |         invariant maxVal == Max(a[..i])
+   |                          ^^
+
+
+Dafny program verifier finished with 3 verified, 3 errors

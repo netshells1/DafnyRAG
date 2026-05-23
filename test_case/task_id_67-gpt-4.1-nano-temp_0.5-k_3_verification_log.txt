@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_67-gpt-4.1-nano-temp_0.5-k_3.dfy(20,4): Error: rbrace expected
+   |
+20 |     function binomial(n: int, k: int): int
+   |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_67-gpt-4.1-nano-temp_0.5-k_3.dfy(29,4): Error: fields are not allowed to be declared at the module level; instead, wrap the field in a 'class' declaration
+   |
+29 |     var i := 0;
+   |     ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_67-gpt-4.1-nano-temp_0.5-k_3.dfy(29,8): Error: a mutable field must be declared with a type
+   |
+29 |     var i := 0;
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_67-gpt-4.1-nano-temp_0.5-k_3.dfy(29,10): Error: a mutable field may not have an initializer
+   |
+29 |     var i := 0;
+   |           ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_67-gpt-4.1-nano-temp_0.5-k_3.dfy(29,14): Warning: deprecated style: a semi-colon is not needed here
+   |
+29 |     var i := 0;
+   |               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_67-gpt-4.1-nano-temp_0.5-k_3.dfy(30,4): Error: this symbol not expected in Dafny
+   |
+30 |     while i < n
+   |     ^
+
+5 parse errors detected in task_id_67-gpt-4.1-nano-temp_0.5-k_3.dfy

@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_457-gpt-4.1-nano-temp_0.5-k_4.dfy(3,104): Error: this symbol not expected in Dafny
+  |
+3 |     ensures v in lst ==> 0 <= start < |lst| && 1 <= length <= |lst| - start && lst[start..start+length] contains v
+  |                                                                                                         ^
+
+1 parse errors detected in task_id_457-gpt-4.1-nano-temp_0.5-k_4.dfy

@@ -1,0 +1,46 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_405-gpt-4.1-nano-temp_0.5-k_1.dfy(1,16): Error: closeparen expected
+  |
+1 | method Contains(seq: seq<int>, elem: int) returns (result: bool)
+  |                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_405-gpt-4.1-nano-temp_0.5-k_1.dfy(2,36): Error: openparen expected
+  |
+2 |     ensures result <==> (elem in seq)
+  |                                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_405-gpt-4.1-nano-temp_0.5-k_1.dfy(6,18): Error: openparen expected
+  |
+6 |     while i < |seq|
+  |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_405-gpt-4.1-nano-temp_0.5-k_1.dfy(7,32): Error: openparen expected
+  |
+7 |         invariant 0 <= i <= |seq|
+  |                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_405-gpt-4.1-nano-temp_0.5-k_1.dfy(8,60): Error: openparen expected
+  |
+8 |         invariant result <==> (exists j :: 0 <= j < i && seq[j] == elem)
+  |                                                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_405-gpt-4.1-nano-temp_0.5-k_1.dfy(8,71): Error: comma expected
+  |
+8 |         invariant result <==> (exists j :: 0 <= j < i && seq[j] == elem)
+  |                                                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_405-gpt-4.1-nano-temp_0.5-k_1.dfy(10,14): Error: openparen expected
+   |
+10 |         if seq[i] == elem {
+   |               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_405-gpt-4.1-nano-temp_0.5-k_1.dfy(10,26): Error: comma expected
+   |
+10 |         if seq[i] == elem {
+   |                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_405-gpt-4.1-nano-temp_0.5-k_1.dfy(11,19): Error: rbrace expected
+   |
+11 |             result := true;
+   |                    ^
+
+9 parse errors detected in task_id_405-gpt-4.1-nano-temp_0.5-k_1.dfy

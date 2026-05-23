@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_589-gpt-4.1-nano-temp_0.5-k_1.dfy(22,40): Error: rbracket expected
+   |
+22 |         invariant squares == [s * s | s := 0 .. i - 1]  // sequence of squares up to i-1
+   |                                         ^
+
+1 parse errors detected in task_id_589-gpt-4.1-nano-temp_0.5-k_1.dfy

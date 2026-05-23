@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_270-gpt-4.1-nano-temp_0.5-k_1.dfy(8,36): Error: rbracket expected
+  |
+8 |     ensures sum == sum([ arr[i] | i := 0 .. arr.Length - 1, i % 2 == 0, IsEven(arr[i]) ])
+  |                                     ^
+
+1 parse errors detected in task_id_270-gpt-4.1-nano-temp_0.5-k_1.dfy

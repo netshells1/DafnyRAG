@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_4.dfy(4,4): Error: verticalbar expected
+  |
+4 |     ensures !result ==> exists i, j :: 0 <= i < |sequences| && 0 <= j < |sequences| && i != j && |sequences[i]| != |sequences[j]
+  |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_4.dfy(5,0): Error: verticalbar expected
+  |
+5 | {
+  | ^
+
+2 parse errors detected in task_id_70-gpt-4.1-nano-temp_0.5-k_4.dfy

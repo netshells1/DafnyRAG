@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_3.dfy(10,62): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+10 |     ensures forall x :: x in result ==> (InArray(s, x) && !(x in toRemove))
+   |                                                               ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_3.dfy(11,44): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+11 |     ensures forall x :: x in result ==> !(x in toRemove)
+   |                                             ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_3.dfy(18,47): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+18 |         invariant forall x :: x in res ==> !(x in toRemove)
+   |                                                ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_3.dfy(20,47): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+20 |         invariant forall x :: x in res ==> !(x in toRemove)
+   |                                                ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_3.dfy(22,46): Error: second argument to "!in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+22 |         invariant forall x :: x in res ==> (x !in toRemove)
+   |                                               ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_3.dfy(24,46): Error: second argument to "!in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+24 |         invariant forall x :: x in res ==> (x !in toRemove)
+   |                                               ^^^
+
+6 resolution/type errors detected in task_id_161-gpt-4.1-nano-temp_0.5-k_3.dfy

@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_82-gpt-4.1-nano-temp_0.5-k_3.dfy(3,32): Error: unresolved identifier: Pi
+  |
+3 |   ensures volume == (4.0/3.0) * Pi * radius * radius * radius
+  |                                 ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_82-gpt-4.1-nano-temp_0.5-k_3.dfy(2,18): Error: arguments to > must have a common supertype (got real and int)
+  |
+2 |   requires radius > 0
+  |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_82-gpt-4.1-nano-temp_0.5-k_3.dfy(5,26): Error: unresolved identifier: Pi
+  |
+5 |     volume := (4.0/3.0) * Pi * radius * radius * radius;
+  |                           ^^
+
+3 resolution/type errors detected in task_id_82-gpt-4.1-nano-temp_0.5-k_3.dfy

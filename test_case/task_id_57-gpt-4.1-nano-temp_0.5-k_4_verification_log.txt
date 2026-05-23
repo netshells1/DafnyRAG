@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_57-gpt-4.1-nano-temp_0.5-k_4.dfy(7,20): Error: rbracket expected
+  |
+7 |     var strNums := [for n in nums :: n.ToString()];
+  |                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_57-gpt-4.1-nano-temp_0.5-k_4.dfy(12,10): Error: gets expected
+   |
+12 |     for s in sortedStrs
+   |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_57-gpt-4.1-nano-temp_0.5-k_4.dfy(13,8): Error: ident expected
+   |
+13 |         invariant true
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_57-gpt-4.1-nano-temp_0.5-k_4.dfy(12,13): Error: Expected 'to' or 'downto'
+   |
+12 |     for s in sortedStrs
+   |              ^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_57-gpt-4.1-nano-temp_0.5-k_4.dfy(30,43): Error: invalid TypeAndToken
+   |
+30 | method BubbleSort(arr: array<string>, cmp: function(string, string): int) returns (sorted: array<string>)
+   |                                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_57-gpt-4.1-nano-temp_0.5-k_4.dfy(36,4): Error: invalid UnaryExpression
+   |
+36 |     while swapped
+   |     ^
+
+6 parse errors detected in task_id_57-gpt-4.1-nano-temp_0.5-k_4.dfy

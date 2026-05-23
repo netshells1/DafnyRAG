@@ -1,0 +1,16 @@
+method ContainsK(s: seq<int>, k: int) returns (result: bool)
+    ensures result <==> (k in s)
+{
+    result := false;
+    var i := 0;
+    while i < |s|
+        invariant 0 <= i <= |s|
+        invariant result <==> (k in s[..i])
+    {
+        if s[i] == k {
+            result := true;
+            break;
+        }
+        i := i + 1;
+    }
+}

@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_5.dfy(7,14): Error: quantifiers in non-ghost contexts must be compilable, but Dafny's heuristics can't figure out how to produce or compile a bounded set of values for 'a'
+  |
+7 |     result := exists a, b: int :: n == a * a - b * b;
+  |               ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_5.dfy(7,14): Error: quantifiers in non-ghost contexts must be compilable, but Dafny's heuristics can't figure out how to produce or compile a bounded set of values for 'b'
+  |
+7 |     result := exists a, b: int :: n == a * a - b * b;
+  |               ^^^^^^
+
+2 resolution/type errors detected in task_id_72-gpt-4.1-nano-temp_0.5-k_5.dfy

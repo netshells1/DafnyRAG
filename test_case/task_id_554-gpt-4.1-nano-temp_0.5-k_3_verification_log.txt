@@ -1,0 +1,8 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_3.dfy(17,18): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+17 |         invariant forall k :: 0 <= k < i ==> (IsOdd(lst[k]) ==> exists j :: 0 <= j < index && odds[j] == lst[k])
+   |                   ^^^^^^
+
+
+Dafny program verifier finished with 2 verified, 1 error

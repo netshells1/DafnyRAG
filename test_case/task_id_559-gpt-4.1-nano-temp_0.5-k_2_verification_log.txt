@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_559-gpt-4.1-nano-temp_0.5-k_2.dfy(3,75): Error: unresolved identifier: sum
+  |
+3 |     ensures exists start, end :: 0 <= start <= end < a.Length && maxSum == sum(a[start..end+1])
+  |                                                                            ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_559-gpt-4.1-nano-temp_0.5-k_2.dfy(19,36): Error: unresolved identifier: sum
+   |
+19 |             invariant currentSum == sum(a[tempStart..i])
+   |                                     ^^^
+
+2 resolution/type errors detected in task_id_559-gpt-4.1-nano-temp_0.5-k_2.dfy

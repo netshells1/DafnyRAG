@@ -1,0 +1,96 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(9,42): Error: unresolved identifier: a
+  |
+9 |     ensures multiset(result) == multiset([a | a <- arr[..], IsEven(a)])
+  |                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(9,46): Error: unresolved identifier: a
+  |
+9 |     ensures multiset(result) == multiset([a | a <- arr[..], IsEven(a)])
+  |                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(9,67): Error: unresolved identifier: a
+  |
+9 |     ensures multiset(result) == multiset([a | a <- arr[..], IsEven(a)])
+  |                                                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(8,33): Error: size operator expects a collection argument (instead got array<int>)
+  |
+8 |     ensures forall i :: 0 <= i < |result| ==> IsEven(result[i])
+  |                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(9,21): Error: can only form a multiset from a seq or set (got array<int>)
+  |
+9 |     ensures multiset(result) == multiset([a | a <- arr[..], IsEven(a)])
+  |                      ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(9,54): Error: the argument of a unary minus must have numeric or bitvector type (instead got seq<int>)
+  |
+9 |     ensures multiset(result) == multiset([a | a <- arr[..], IsEven(a)])
+  |                                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(9,48): Error: arguments to < must have a common supertype (got int and seq<int>)
+  |
+9 |     ensures multiset(result) == multiset([a | a <- arr[..], IsEven(a)])
+  |                                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(9,44): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+9 |     ensures multiset(result) == multiset([a | a <- arr[..], IsEven(a)])
+  |                                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(9,44): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+9 |     ensures multiset(result) == multiset([a | a <- arr[..], IsEven(a)])
+  |                                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(10,12): Error: size operator expects a collection argument (instead got array<int>)
+   |
+10 |     ensures |result| <= arr.Length
+   |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(16,50): Error: unresolved identifier: a
+   |
+16 |         invariant multiset(tempList) == multiset([a | a <- arr[..i], IsEven(a)])
+   |                                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(16,54): Error: unresolved identifier: a
+   |
+16 |         invariant multiset(tempList) == multiset([a | a <- arr[..i], IsEven(a)])
+   |                                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(16,76): Error: unresolved identifier: a
+   |
+16 |         invariant multiset(tempList) == multiset([a | a <- arr[..i], IsEven(a)])
+   |                                                                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(16,62): Error: the argument of a unary minus must have numeric or bitvector type (instead got seq<int>)
+   |
+16 |         invariant multiset(tempList) == multiset([a | a <- arr[..i], IsEven(a)])
+   |                                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(16,56): Error: arguments to < must have a common supertype (got int and seq<int>)
+   |
+16 |         invariant multiset(tempList) == multiset([a | a <- arr[..i], IsEven(a)])
+   |                                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(16,52): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+16 |         invariant multiset(tempList) == multiset([a | a <- arr[..i], IsEven(a)])
+   |                                                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(16,52): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+16 |         invariant multiset(tempList) == multiset([a | a <- arr[..i], IsEven(a)])
+   |                                                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(25,11): Error: RHS (of type seq<int>) not assignable to LHS (of type array<int>)
+   |
+25 |     result := tempList;
+   |            ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy(16,37): Error: arguments must have comparable types (got multiset<int> and multiset<bool>)
+   |
+16 |         invariant multiset(tempList) == multiset([a | a <- arr[..i], IsEven(a)])
+   |                                      ^^
+
+19 resolution/type errors detected in task_id_412-gpt-4.1-nano-temp_0.5-k_1.dfy

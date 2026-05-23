@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_119-gpt-4.1-nano-temp_0.5-k_3.dfy(19,63): Error: invalid UnaryExpression
+   |
+19 |         var leftNeighbor := if mid > 0 then arr[mid - 1] else -∞;
+   |                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_119-gpt-4.1-nano-temp_0.5-k_3.dfy(20,77): Error: invalid UnaryExpression
+   |
+20 |         var rightNeighbor := if mid < arr.Length - 1 then arr[mid + 1] else -∞;
+   |                                                                              ^
+
+2 parse errors detected in task_id_119-gpt-4.1-nano-temp_0.5-k_3.dfy

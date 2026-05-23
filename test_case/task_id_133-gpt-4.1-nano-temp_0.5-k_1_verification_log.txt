@@ -1,0 +1,41 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_133-gpt-4.1-nano-temp_0.5-k_1.dfy(17,23): Error: closeparen expected
+   |
+17 | predicate SumNegatives(seq: seq<int>) returns (res: int)
+   |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_133-gpt-4.1-nano-temp_0.5-k_1.dfy(19,0): Error: openparen expected
+   |
+19 | {
+   | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_133-gpt-4.1-nano-temp_0.5-k_1.dfy(20,11): Error: openparen expected
+   |
+20 |     if |seq| == 0 then 0
+   |            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_133-gpt-4.1-nano-temp_0.5-k_1.dfy(20,18): Error: verticalbar expected
+   |
+20 |     if |seq| == 0 then 0
+   |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_133-gpt-4.1-nano-temp_0.5-k_1.dfy(22,23): Error: openparen expected
+   |
+22 |         var head := seq[0];
+   |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_133-gpt-4.1-nano-temp_0.5-k_1.dfy(22,26): Error: comma expected
+   |
+22 |         var head := seq[0];
+   |                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_133-gpt-4.1-nano-temp_0.5-k_1.dfy(23,23): Error: openparen expected
+   |
+23 |         var tail := seq[1..];
+   |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_133-gpt-4.1-nano-temp_0.5-k_1.dfy(23,25): Error: rbracket expected
+   |
+23 |         var tail := seq[1..];
+   |                          ^
+
+8 parse errors detected in task_id_133-gpt-4.1-nano-temp_0.5-k_1.dfy

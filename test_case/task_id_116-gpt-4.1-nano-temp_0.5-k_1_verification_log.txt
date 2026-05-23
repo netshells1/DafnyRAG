@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_1.dfy(4,25): Error: closeparen expected
+  |
+4 | method SequenceToInteger(seq: seq<int>) returns (result: int)
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_1.dfy(5,34): Error: openparen expected
+  |
+5 |     requires forall x :: x in seq ==> x > 0
+  |                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_1.dfy(6,4): Error: comma expected
+  |
+6 |     ensures result >= 0
+  |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_1.dfy(7,45): Error: openparen expected
+  |
+7 |     ensures result == ConcatenateSequence(seq)
+  |                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_1.dfy(12,17): Error: openparen expected
+   |
+12 |     for i := |seq| - 1 to 0 by -1
+   |                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_1.dfy(12,23): Error: verticalbar expected
+   |
+12 |     for i := |seq| - 1 to 0 by -1
+   |                        ^
+
+6 parse errors detected in task_id_116-gpt-4.1-nano-temp_0.5-k_1.dfy

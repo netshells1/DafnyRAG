@@ -1,0 +1,41 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_5.dfy(2,20): Error: first argument to & must be of a bitvector type (instead got int)
+  |
+2 |     ensures (result & 0x55555555) == (n & 0x55555555) // odd bits unchanged
+  |                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_5.dfy(2,40): Error: first argument to & must be of a bitvector type (instead got int)
+  |
+2 |     ensures (result & 0x55555555) == (n & 0x55555555) // odd bits unchanged
+  |                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_5.dfy(3,20): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+3 |     ensures (result | 0x55555555) == result // all even bits are set to 1
+  |                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_5.dfy(2,20): Error: second argument to & must be of a bitvector type (instead got int)
+  |
+2 |     ensures (result & 0x55555555) == (n & 0x55555555) // odd bits unchanged
+  |                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_5.dfy(2,40): Error: second argument to & must be of a bitvector type (instead got int)
+  |
+2 |     ensures (result & 0x55555555) == (n & 0x55555555) // odd bits unchanged
+  |                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_5.dfy(3,20): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+3 |     ensures (result | 0x55555555) == result // all even bits are set to 1
+  |                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_5.dfy(6,16): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+6 |     result := n | 0x55555555;
+  |                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_5.dfy(6,16): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+6 |     result := n | 0x55555555;
+  |                 ^
+
+8 resolution/type errors detected in task_id_235-gpt-4.1-nano-temp_0.5-k_5.dfy

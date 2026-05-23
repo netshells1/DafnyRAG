@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy(20,8): Error: invalid UnaryExpression
+   |
+20 |         invariant sorted[..i] == /* sorted prefix of size i */
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy(21,8): Error: invalid UnaryExpression
+   |
+21 |         invariant sorted[..i+1] == sorted[..i] + [sorted[i]]
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy(28,12): Error: invalid UnaryExpression
+   |
+28 |             invariant sorted[j+1..i+1] == /* remaining elements */
+   |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy(30,24): Error: rbrace expected
+   |
+30 |             sorted[j+1] := sorted[j];
+   |                         ^
+
+4 parse errors detected in task_id_432-gpt-4.1-nano-temp_0.5-k_3.dfy

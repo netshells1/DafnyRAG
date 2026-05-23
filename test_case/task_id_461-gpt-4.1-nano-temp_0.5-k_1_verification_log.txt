@@ -1,0 +1,8 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_461-gpt-4.1-nano-temp_0.5-k_1.dfy(15,33): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+15 |         invariant uppercaseCount == | set k: int | 0 <= k < i && IsUpperCase(s[k]) |
+   |                                  ^^
+
+
+Dafny program verifier finished with 1 verified, 1 error

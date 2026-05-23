@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_290-gpt-4.1-nano-temp_0.5-k_2.dfy(10,10): Error: gets expected
+   |
+10 |     for s in lists
+   |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_290-gpt-4.1-nano-temp_0.5-k_2.dfy(11,8): Error: ident expected
+   |
+11 |         invariant MaxLength >= 0
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_290-gpt-4.1-nano-temp_0.5-k_2.dfy(10,13): Error: Expected 'to' or 'downto'
+   |
+10 |     for s in lists
+   |              ^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_290-gpt-4.1-nano-temp_0.5-k_2.dfy(21,10): Error: gets expected
+   |
+21 |     for s in lists
+   |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_290-gpt-4.1-nano-temp_0.5-k_2.dfy(22,8): Error: ident expected
+   |
+22 |         invariant MaxLength >= 0
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_290-gpt-4.1-nano-temp_0.5-k_2.dfy(21,13): Error: Expected 'to' or 'downto'
+   |
+21 |     for s in lists
+   |              ^^^^^
+
+6 parse errors detected in task_id_290-gpt-4.1-nano-temp_0.5-k_2.dfy

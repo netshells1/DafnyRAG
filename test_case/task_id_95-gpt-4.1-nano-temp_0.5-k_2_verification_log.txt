@@ -1,0 +1,26 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_95-gpt-4.1-nano-temp_0.5-k_2.dfy(10,83): Error: gets expected
+   |
+10 |             invariant minLength <= |lists[i-1]| && minLength <= |lists[j]| for all j < i
+   |                                                                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_95-gpt-4.1-nano-temp_0.5-k_2.dfy(11,8): Error: ident expected
+   |
+11 |         {
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_95-gpt-4.1-nano-temp_0.5-k_2.dfy(10,87): Error: Expected 'to' or 'downto'
+   |
+10 |             invariant minLength <= |lists[i-1]| && minLength <= |lists[j]| for all j < i
+   |                                                                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_95-gpt-4.1-nano-temp_0.5-k_2.dfy(12,38): Error: then expected
+   |
+12 |             if |lists[i]| < minLength {
+   |                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_95-gpt-4.1-nano-temp_0.5-k_2.dfy(13,26): Error: rbrace expected
+   |
+13 |                 minLength := |lists[i]|;
+   |                           ^
+
+5 parse errors detected in task_id_95-gpt-4.1-nano-temp_0.5-k_2.dfy

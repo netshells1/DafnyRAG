@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_748-gpt-4.1-nano-temp_0.5-k_2.dfy(24,23): Error: invalid UnaryExpression
+   |
+24 |             if j < |s> && s[j] != ' ' && (i == 0 || v'[i-1] != ' ' && inWord)
+   |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_748-gpt-4.1-nano-temp_0.5-k_2.dfy(24,67): Error: Ambiguous use of && and ||. Use parentheses to disambiguate.
+   |
+24 |             if j < |s> && s[j] != ' ' && (i == 0 || v'[i-1] != ' ' && inWord)
+   |                                                                    ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_748-gpt-4.1-nano-temp_0.5-k_2.dfy(25,12): Error: verticalbar expected
+   |
+25 |             {
+   |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_748-gpt-4.1-nano-temp_0.5-k_2.dfy(28,23): Error: invalid UnaryExpression
+   |
+28 |             if j < |s> && IsUpper(s[j]) && (i == 0 || v'[i-1] != ' ')
+   |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_748-gpt-4.1-nano-temp_0.5-k_2.dfy(29,12): Error: verticalbar expected
+   |
+29 |             {
+   |             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_748-gpt-4.1-nano-temp_0.5-k_2.dfy(36,19): Error: rbrace expected
+   |
+36 |                 v' := v' + [s[j]];
+   |                    ^
+
+6 parse errors detected in task_id_748-gpt-4.1-nano-temp_0.5-k_2.dfy

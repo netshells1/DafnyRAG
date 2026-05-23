@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_308-gpt-4.1-nano-temp_0.5-k_1.dfy(6,22): Error: this symbol not expected in Dafny
+  |
+6 |         let (x, y, p) := results[i] in p == x * y
+  |                       ^
+
+1 parse errors detected in task_id_308-gpt-4.1-nano-temp_0.5-k_1.dfy

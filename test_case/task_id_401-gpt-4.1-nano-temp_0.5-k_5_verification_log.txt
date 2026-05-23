@@ -1,0 +1,111 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(2,21): Error: type of 'null' is a reference type, but it is used as seq<seq<int>>
+  |
+2 |     requires seq1 != null && seq2 != null
+  |                      ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(2,37): Error: type of 'null' is a reference type, but it is used as seq<seq<int>>
+  |
+2 |     requires seq1 != null && seq2 != null
+  |                                      ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(9,4): Error: unresolved identifier: i
+  |
+9 |     i := 0;
+  |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(10,10): Error: unresolved identifier: i
+   |
+10 |     while i < |seq1|
+   |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(11,23): Error: unresolved identifier: i
+   |
+11 |         invariant 0 <= i <= |seq1|
+   |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(12,30): Error: unresolved identifier: i
+   |
+12 |         invariant |resSeq| == i
+   |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(13,39): Error: unresolved identifier: i
+   |
+13 |         invariant forall j :: 0 <= j < i ==> |resSeq[j]| == |seq1[j] + seq2[j]|
+   |                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(15,38): Error: unresolved identifier: i
+   |
+15 |         var innerRes := new int[|seq1[i]|];
+   |                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(17,24): Error: unresolved identifier: i
+   |
+17 |         while j < |seq1[i]|
+   |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(18,38): Error: unresolved identifier: i
+   |
+18 |             invariant 0 <= j <= |seq1[i]|
+   |                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(20,69): Error: unresolved identifier: i
+   |
+20 |             invariant forall k :: 0 <= k < j ==> innerRes[k] == seq1[i][k] + seq2[i][k]
+   |                                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(20,82): Error: unresolved identifier: i
+   |
+20 |             invariant forall k :: 0 <= k < j ==> innerRes[k] == seq1[i][k] + seq2[i][k]
+   |                                                                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(22,32): Error: unresolved identifier: i
+   |
+22 |             innerRes[j] := seq1[i][j] + seq2[i][j];
+   |                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(22,45): Error: unresolved identifier: i
+   |
+22 |             innerRes[j] := seq1[i][j] + seq2[i][j];
+   |                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(25,15): Error: unresolved identifier: i
+   |
+25 |         resSeq[i] := innerRes;
+   |                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(26,8): Error: unresolved identifier: i
+   |
+26 |         i := i + 1;
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(26,13): Error: unresolved identifier: i
+   |
+26 |         i := i + 1;
+   |              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(12,18): Error: size operator expects a collection argument (instead got array<seq<int>>)
+   |
+12 |         invariant |resSeq| == i
+   |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(28,11): Error: RHS (of type array<seq<int>>) not assignable to LHS (of type seq<seq<int>>)
+   |
+28 |     result := resSeq;
+   |            ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(20,58): Error: incorrect type for selection into ? (got int)
+   |
+20 |             invariant forall k :: 0 <= k < j ==> innerRes[k] == seq1[i][k] + seq2[i][k]
+   |                                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(20,57): Error: sequence has type ? which is incompatible with expected type int
+   |
+20 |             invariant forall k :: 0 <= k < j ==> innerRes[k] == seq1[i][k] + seq2[i][k]
+   |                                                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy(22,21): Error: incorrect type for selection into ? (got int)
+   |
+22 |             innerRes[j] := seq1[i][j] + seq2[i][j];
+   |                      ^
+
+22 resolution/type errors detected in task_id_401-gpt-4.1-nano-temp_0.5-k_5.dfy

@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_3.dfy(13,35): Error: rbracket expected
+   |
+13 |         invariant resSeq[..i] == [ for j | 0 <= j < i :: seq1[j] + seq2[j] ]
+   |                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_3.dfy(13,41): Error: gets expected
+   |
+13 |         invariant resSeq[..i] == [ for j | 0 <= j < i :: seq1[j] + seq2[j] ]
+   |                                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_3.dfy(13,54): Error: verticalbar expected
+   |
+13 |         invariant resSeq[..i] == [ for j | 0 <= j < i :: seq1[j] + seq2[j] ]
+   |                                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_401-gpt-4.1-nano-temp_0.5-k_3.dfy(13,52): Error: Expected 'to' or 'downto'
+   |
+13 |         invariant resSeq[..i] == [ for j | 0 <= j < i :: seq1[j] + seq2[j] ]
+   |                                                     ^
+
+4 parse errors detected in task_id_401-gpt-4.1-nano-temp_0.5-k_3.dfy

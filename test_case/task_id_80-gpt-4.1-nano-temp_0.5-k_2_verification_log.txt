@@ -1,0 +1,23 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_80-gpt-4.1-nano-temp_0.5-k_2.dfy(4,0): Error: a postcondition could not be proved on this return path
+  |
+4 | {
+  | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_80-gpt-4.1-nano-temp_0.5-k_2.dfy(3,12): Related location: this is the postcondition that could not be proved
+  |
+3 |   ensures t == n * (n + 1) * (n + 2) / 6
+  |             ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_80-gpt-4.1-nano-temp_0.5-k_2.dfy(9,13): Error: lower bound must not exceed upper bound
+  |
+9 |     for k := 1 to n
+  |              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_80-gpt-4.1-nano-temp_0.5-k_2.dfy(11,33): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+11 |         invariant sum_triangular == (k - 1) * k / 2
+   |                                  ^^
+
+
+Dafny program verifier finished with 1 verified, 3 errors

@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_3.dfy(5,55): Error: closeparen expected
+  |
+5 |     ensures (|matchingWords| >= 2) ==> (word1 in first two matching words) && (word2 in first two matching words)
+  |                                                        ^
+
+1 parse errors detected in task_id_305-gpt-4.1-nano-temp_0.5-k_3.dfy

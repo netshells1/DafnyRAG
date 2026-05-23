@@ -1,0 +1,36 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_5.dfy(7,23): Error: closeparen expected
+  |
+7 | predicate NoDuplicates(seq: seq<int>)
+  |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_5.dfy(9,34): Error: openparen expected
+  |
+9 |   forall i, j :: 0 <= i < j < |seq| ==> seq[i] != seq[j]
+  |                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_5.dfy(9,43): Error: openparen expected
+  |
+9 |   forall i, j :: 0 <= i < j < |seq| ==> seq[i] != seq[j]
+  |                                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_5.dfy(9,53): Error: openparen expected
+  |
+9 |   forall i, j :: 0 <= i < j < |seq| ==> seq[i] != seq[j]
+  |                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_5.dfy(10,0): Error: comma expected
+   |
+10 | }
+   | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_5.dfy(12,48): Error: predicates do not have an explicitly declared return type; it is always bool. Unless you want to name the result: ': (result: bool)'
+   |
+12 | predicate FirstOccurrenceOrder(a: array<int>) : seq<int>
+   |                                                 ^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_5.dfy(16,2): Error: invalid UnaryExpression
+   |
+16 |   for i := 0 to a.Length
+   |   ^
+
+7 parse errors detected in task_id_572-gpt-4.1-nano-temp_0.5-k_5.dfy

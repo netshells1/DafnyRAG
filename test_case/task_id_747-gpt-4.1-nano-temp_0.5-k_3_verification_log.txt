@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_3.dfy(11,18): Error: this symbol not expected in VarDeclStatement
+   |
+11 |     var len: array[0 .. |s1|+1, 0 .. |s2|+1, 0 .. |s3|+1] := array[.., .., ..] | 0;
+   |                   ^
+
+1 parse errors detected in task_id_747-gpt-4.1-nano-temp_0.5-k_3.dfy

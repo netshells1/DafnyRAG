@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_456-gpt-4.1-nano-temp_0.5-k_2.dfy(3,0): Error: invalid FunctionDecl
+  |
+3 | function ReverseString(s: string): string
+  | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_456-gpt-4.1-nano-temp_0.5-k_2.dfy(7,4): Error: invalid UnaryExpression
+  |
+7 |     while i < |s|
+  |     ^
+
+2 parse errors detected in task_id_456-gpt-4.1-nano-temp_0.5-k_2.dfy

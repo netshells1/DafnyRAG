@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_439-gpt-4.1-nano-temp_0.5-k_2.dfy(8,4): Error: invalid UnaryExpression
+  |
+8 |     for i := a.Length - 1 to 0
+  |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_439-gpt-4.1-nano-temp_0.5-k_2.dfy(1,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+  |
+1 | function method Concatenate(a: array<int>): int
+  | ^^^^^^^^^^^^^^^
+
+2 parse errors detected in task_id_439-gpt-4.1-nano-temp_0.5-k_2.dfy

@@ -1,0 +1,231 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(7,19): Error: type seq<char> does not have a member Length
+  |
+7 |     ensures result.Length == s.Length
+  |                    ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(7,31): Error: type seq<char> does not have a member Length
+  |
+7 |     ensures result.Length == s.Length
+  |                                ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(8,22): Error: unresolved identifier: c
+  |
+8 |     ensures multiset([c | c in result]) == multiset([c | c in s])
+  |                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(8,26): Error: unresolved identifier: c
+  |
+8 |     ensures multiset([c | c in result]) == multiset([c | c in s])
+  |                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(8,53): Error: unresolved identifier: c
+  |
+8 |     ensures multiset([c | c in result]) == multiset([c | c in s])
+  |                                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(8,57): Error: unresolved identifier: c
+  |
+8 |     ensures multiset([c | c in result]) == multiset([c | c in s])
+  |                                                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(9,47): Error: type seq<char> does not have a member Length
+  |
+9 |     ensures forall i, j :: 0 <= i < j < result.Length && IsDigit(result[i]) ==> IsDigit(result[j])
+  |                                                ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(10,47): Error: type seq<char> does not have a member Length
+   |
+10 |     ensures forall i, j :: 0 <= i < j < result.Length && !IsDigit(result[i]) ==> !IsDigit(result[j])
+   |                                                ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(11,42): Error: type seq<char> does not have a member Length
+   |
+11 |     ensures forall n, m :: 0 <= n < m < s.Length && !IsDigit(s[n]) && !IsDigit(s[m]) ==> 
+   |                                           ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(12,19): Error: unresolved identifier: ?k
+   |
+12 |             result[?k] == s[n] && result[?l] == s[m] && k < l
+   |                    ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(12,41): Error: unresolved identifier: ?l
+   |
+12 |             result[?k] == s[n] && result[?l] == s[m] && k < l
+   |                                          ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(12,56): Error: unresolved identifier: k
+   |
+12 |             result[?k] == s[n] && result[?l] == s[m] && k < l
+   |                                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(12,60): Error: unresolved identifier: l
+   |
+12 |             result[?k] == s[n] && result[?l] == s[m] && k < l
+   |                                                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(8,24): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+8 |     ensures multiset([c | c in result]) == multiset([c | c in s])
+  |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(8,24): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+8 |     ensures multiset([c | c in result]) == multiset([c | c in s])
+  |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(8,28): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got string) (expecting element type to be assignable to char (got int))
+  |
+8 |     ensures multiset([c | c in result]) == multiset([c | c in s])
+  |                             ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(8,55): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+8 |     ensures multiset([c | c in result]) == multiset([c | c in s])
+  |                                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(8,55): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+8 |     ensures multiset([c | c in result]) == multiset([c | c in s])
+  |                                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(8,59): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got string) (expecting element type to be assignable to char (got int))
+  |
+8 |     ensures multiset([c | c in result]) == multiset([c | c in s])
+  |                                                            ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(18,16): Error: type seq<char> does not have a member Length
+   |
+18 |     while i < s.Length
+   |                 ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(19,30): Error: type seq<char> does not have a member Length
+   |
+19 |         invariant 0 <= i <= s.Length
+   |                               ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(20,28): Error: unresolved identifier: c
+   |
+20 |         invariant multiset([c | c in s[..i]]) == multiset([c | c in nonDigits + digits])
+   |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(20,32): Error: unresolved identifier: c
+   |
+20 |         invariant multiset([c | c in s[..i]]) == multiset([c | c in nonDigits + digits])
+   |                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(20,59): Error: unresolved identifier: c
+   |
+20 |         invariant multiset([c | c in s[..i]]) == multiset([c | c in nonDigits + digits])
+   |                                                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(20,63): Error: unresolved identifier: c
+   |
+20 |         invariant multiset([c | c in s[..i]]) == multiset([c | c in nonDigits + digits])
+   |                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,28): Error: unresolved identifier: c
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,32): Error: unresolved identifier: c
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,61): Error: unresolved identifier: c
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,65): Error: unresolved identifier: c
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,92): Error: unresolved identifier: c
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                                                                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,96): Error: unresolved identifier: c
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                                                                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(20,30): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+20 |         invariant multiset([c | c in s[..i]]) == multiset([c | c in nonDigits + digits])
+   |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(20,30): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+20 |         invariant multiset([c | c in s[..i]]) == multiset([c | c in nonDigits + digits])
+   |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(20,34): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got seq<char>) (expecting element type to be assignable to char (got int))
+   |
+20 |         invariant multiset([c | c in s[..i]]) == multiset([c | c in nonDigits + digits])
+   |                                   ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(20,61): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+20 |         invariant multiset([c | c in s[..i]]) == multiset([c | c in nonDigits + digits])
+   |                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(20,61): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+20 |         invariant multiset([c | c in s[..i]]) == multiset([c | c in nonDigits + digits])
+   |                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(20,65): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got seq<char>) (expecting element type to be assignable to char (got int))
+   |
+20 |         invariant multiset([c | c in s[..i]]) == multiset([c | c in nonDigits + digits])
+   |                                                                  ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,30): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,30): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,34): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got string) (expecting element type to be assignable to char (got int))
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                   ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,63): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,63): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,67): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got seq<char>) (expecting element type to be assignable to char (got int))
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                                                    ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,94): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                                                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,94): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                                                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy(23,98): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got seq<char>) (expecting element type to be assignable to char (got int))
+   |
+23 |         invariant multiset([c | c in nonDigits]) + multiset([c | c in digits]) == multiset([c | c in s[..i]])
+   |                                                                                                   ^^
+
+46 resolution/type errors detected in task_id_619-gpt-4.1-nano-temp_0.5-k_2.dfy

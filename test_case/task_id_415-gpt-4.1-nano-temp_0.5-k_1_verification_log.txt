@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_415-gpt-4.1-nano-temp_0.5-k_1.dfy(19,49): Error: gets expected
+   |
+19 |         invariant maxProd >= a[k] * a[l] for all 0 <= k < i, 0 <= l < j
+   |                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_415-gpt-4.1-nano-temp_0.5-k_1.dfy(19,59): Error: ident expected
+   |
+19 |         invariant maxProd >= a[k] * a[l] for all 0 <= k < i, 0 <= l < j
+   |                                                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_415-gpt-4.1-nano-temp_0.5-k_1.dfy(19,58): Error: Expected 'to' or 'downto'
+   |
+19 |         invariant maxProd >= a[k] * a[l] for all 0 <= k < i, 0 <= l < j
+   |                                                           ^
+
+3 parse errors detected in task_id_415-gpt-4.1-nano-temp_0.5-k_1.dfy

@@ -1,0 +1,41 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_5.dfy(10,22): Error: unresolved identifier: x
+   |
+10 |     ensures odds == [ x | x <- lst, IsOdd(x) ]
+   |                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_5.dfy(10,26): Error: unresolved identifier: x
+   |
+10 |     ensures odds == [ x | x <- lst, IsOdd(x) ]
+   |                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_5.dfy(10,42): Error: unresolved identifier: x
+   |
+10 |     ensures odds == [ x | x <- lst, IsOdd(x) ]
+   |                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_5.dfy(10,31): Error: the argument of a unary minus must have numeric or bitvector type (instead got seq<int>)
+   |
+10 |     ensures odds == [ x | x <- lst, IsOdd(x) ]
+   |                                ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_5.dfy(10,28): Error: arguments to < must have a common supertype (got int and seq<int>)
+   |
+10 |     ensures odds == [ x | x <- lst, IsOdd(x) ]
+   |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_5.dfy(10,24): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+10 |     ensures odds == [ x | x <- lst, IsOdd(x) ]
+   |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_5.dfy(10,24): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+10 |     ensures odds == [ x | x <- lst, IsOdd(x) ]
+   |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_554-gpt-4.1-nano-temp_0.5-k_5.dfy(10,17): Error: arguments must have comparable types (got seq<int> and seq<bool>)
+   |
+10 |     ensures odds == [ x | x <- lst, IsOdd(x) ]
+   |                  ^^
+
+8 resolution/type errors detected in task_id_554-gpt-4.1-nano-temp_0.5-k_5.dfy

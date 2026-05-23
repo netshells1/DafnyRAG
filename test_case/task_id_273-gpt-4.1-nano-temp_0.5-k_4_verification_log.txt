@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_273-gpt-4.1-nano-temp_0.5-k_4.dfy(2,21): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+2 |     requires seq1 != null
+  |                      ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_273-gpt-4.1-nano-temp_0.5-k_4.dfy(3,21): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+3 |     requires seq2 != null
+  |                      ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_273-gpt-4.1-nano-temp_0.5-k_4.dfy(5,22): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+5 |     ensures result != null
+  |                       ^^^^
+
+3 resolution/type errors detected in task_id_273-gpt-4.1-nano-temp_0.5-k_4.dfy

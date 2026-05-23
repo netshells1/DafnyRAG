@@ -1,0 +1,14 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_2.dfy(18,25): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+18 |         invariant result <==> exists a2, b2: int :: -limit <= a2 <= limit && -limit <= b2 <= limit && n == a2 * a2 - b2 * b2
+   |                          ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_2.dfy(23,34): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+23 |             invariant -limit <= b <= limit
+   |                                   ^^
+
+
+Dafny program verifier finished with 0 verified, 2 errors

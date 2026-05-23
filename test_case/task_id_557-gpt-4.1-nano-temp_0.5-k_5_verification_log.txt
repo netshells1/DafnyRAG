@@ -1,0 +1,26 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_557-gpt-4.1-nano-temp_0.5-k_5.dfy(53,10): Error: Duplicate member name: IsUpperCase
+   |
+53 | predicate IsUpperCase(c: char)
+   |           ^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_557-gpt-4.1-nano-temp_0.5-k_5.dfy(58,10): Error: Duplicate member name: IsLowerCase
+   |
+58 | predicate IsLowerCase(c: char)
+   |           ^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_557-gpt-4.1-nano-temp_0.5-k_5.dfy(63,10): Error: Duplicate member name: IsLetter
+   |
+63 | predicate IsLetter(c: char)
+   |           ^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_557-gpt-4.1-nano-temp_0.5-k_5.dfy(68,10): Error: Duplicate member name: IsUpperLowerPair
+   |
+68 | predicate IsUpperLowerPair(c: char, C: char)
+   |           ^^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_557-gpt-4.1-nano-temp_0.5-k_5.dfy(73,10): Error: Duplicate member name: IsLowerUpperPair
+   |
+73 | predicate IsLowerUpperPair(c: char, C: char)
+   |           ^^^^^^^^^^^^^^^^
+
+5 resolution/type errors detected in task_id_557-gpt-4.1-nano-temp_0.5-k_5.dfy

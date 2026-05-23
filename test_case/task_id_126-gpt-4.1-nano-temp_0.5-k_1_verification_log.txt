@@ -1,0 +1,36 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_1.dfy(10,32): Error: missing semicolon at end of statement
+   |
+10 |         invariant result == sum of all common divisors up to d - 1
+   |                                 ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_1.dfy(10,35): Error: missing semicolon at end of statement
+   |
+10 |         invariant result == sum of all common divisors up to d - 1
+   |                                    ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_1.dfy(10,39): Error: missing semicolon at end of statement
+   |
+10 |         invariant result == sum of all common divisors up to d - 1
+   |                                        ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_1.dfy(10,46): Error: missing semicolon at end of statement
+   |
+10 |         invariant result == sum of all common divisors up to d - 1
+   |                                               ^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_1.dfy(10,55): Error: missing semicolon at end of statement
+   |
+10 |         invariant result == sum of all common divisors up to d - 1
+   |                                                        ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_1.dfy(10,58): Error: missing semicolon at end of statement
+   |
+10 |         invariant result == sum of all common divisors up to d - 1
+   |                                                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_1.dfy(10,63): Error: invalid AssignStatement
+   |
+10 |         invariant result == sum of all common divisors up to d - 1
+   |                                                                ^
+
+7 parse errors detected in task_id_126-gpt-4.1-nano-temp_0.5-k_1.dfy

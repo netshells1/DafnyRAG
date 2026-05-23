@@ -1,0 +1,12 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_56-gpt-4.1-nano-temp_0.5-k_2.dfy(13,16): Error: decreases expression must be bounded below by 0
+   |
+13 |         -reverse(-x)
+   |                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_56-gpt-4.1-nano-temp_0.5-k_2.dfy(9,14): Related location: this decreases clause was not satisfied
+  |
+9 |     decreases x
+  |               ^
+
+
+Dafny program verifier finished with 2 verified, 1 error

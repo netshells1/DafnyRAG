@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_256-gpt-4.1-nano-temp_0.5-k_3.dfy(8,24): Error: rbrace expected
+  |
+8 |     ensures count == |{k: int | 0 <= k < n && IsPrime(k)}|
+  |                         ^
+
+1 parse errors detected in task_id_256-gpt-4.1-nano-temp_0.5-k_3.dfy

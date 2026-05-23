@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_456-gpt-4.1-nano-temp_0.5-k_3.dfy(7,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+  |
+7 | function method Reverse(s: string): string
+  | ^^^^^^^^^^^^^^^
+
+1 parse errors detected in task_id_456-gpt-4.1-nano-temp_0.5-k_3.dfy

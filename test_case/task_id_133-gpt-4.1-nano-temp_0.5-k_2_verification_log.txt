@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_133-gpt-4.1-nano-temp_0.5-k_2.dfy(18,26): Error: this symbol not expected in Dafny
+   |
+18 |     ensures result == sum of all negative elements in s
+   |                           ^
+
+1 parse errors detected in task_id_133-gpt-4.1-nano-temp_0.5-k_2.dfy

@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_748-gpt-4.1-nano-temp_0.5-k_3.dfy(28,13): Error: semicolon expected
+   |
+28 |     return v := vBuilder;
+   |              ^
+
+1 parse errors detected in task_id_748-gpt-4.1-nano-temp_0.5-k_3.dfy

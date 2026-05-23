@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_2.dfy(4,37): Error: closeparen expected
+  |
+4 |                             n == sum S && 
+  |                                      ^
+
+1 parse errors detected in task_id_138-gpt-4.1-nano-temp_0.5-k_2.dfy

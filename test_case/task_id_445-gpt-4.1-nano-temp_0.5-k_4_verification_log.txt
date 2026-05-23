@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_445-gpt-4.1-nano-temp_0.5-k_4.dfy(16,25): Error: invalid Suffix
+   |
+16 |         result := result[:i] + [a[i] * b[i]] + result[i+1..];
+   |                          ^
+
+1 parse errors detected in task_id_445-gpt-4.1-nano-temp_0.5-k_4.dfy

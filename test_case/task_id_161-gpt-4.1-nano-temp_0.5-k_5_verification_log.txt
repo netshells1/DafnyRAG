@@ -1,0 +1,26 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_5.dfy(10,44): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+10 |     ensures forall x :: x in result ==> !(x in toRemove)
+   |                                             ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_5.dfy(11,26): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+11 |     ensures forall x :: x in s ==> (x in result) <==> !(x in toRemove)
+   |                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_5.dfy(11,58): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+11 |     ensures forall x :: x in s ==> (x in result) <==> !(x in toRemove)
+   |                                                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_5.dfy(17,47): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+17 |         invariant forall x :: x in res ==> !(x in toRemove)
+   |                                                ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_161-gpt-4.1-nano-temp_0.5-k_5.dfy(18,66): Error: second argument to "in" must be a set, multiset, or sequence with elements of type int, or a map with domain int (instead got array<int>)
+   |
+18 |         invariant forall x :: x in s[..i] ==> (x in res) <==> !(x in toRemove)
+   |                                                                   ^^
+
+5 resolution/type errors detected in task_id_161-gpt-4.1-nano-temp_0.5-k_5.dfy

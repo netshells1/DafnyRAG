@@ -1,0 +1,61 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,31): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,34): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                   ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,38): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                       ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,45): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                              ^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,54): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                                       ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,57): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,59): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                                            ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,63): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,65): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                                                  ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,70): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                                                       ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(13,75): Error: missing semicolon at end of statement
+   |
+13 |         invariant total == sum of all common divisors of a and b less than i
+   |                                                                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy(31,4): Error: invalid UnaryExpression
+   |
+31 |     while i <= limit
+   |     ^
+
+12 parse errors detected in task_id_126-gpt-4.1-nano-temp_0.5-k_2.dfy

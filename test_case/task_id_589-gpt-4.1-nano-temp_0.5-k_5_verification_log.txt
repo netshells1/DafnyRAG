@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_589-gpt-4.1-nano-temp_0.5-k_5.dfy(7,25): Error: invalid UnaryExpression
+  |
+7 |     ensures forall sq :: int :: sq in squares ==> low <= sq <= high && exists k: int :: k * k == sq
+  |                          ^
+
+1 parse errors detected in task_id_589-gpt-4.1-nano-temp_0.5-k_5.dfy

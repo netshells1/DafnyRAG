@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_639-gpt-4.1-nano-temp_0.5-k_4.dfy(3,31): Error: this symbol not expected in Dafny
+  |
+3 |     ensures totalLength == sum i | 0 <= i < |names| :: if names[i][0] !in 'a'..'z' then |names[i]| else 0
+  |                                ^
+
+1 parse errors detected in task_id_639-gpt-4.1-nano-temp_0.5-k_4.dfy

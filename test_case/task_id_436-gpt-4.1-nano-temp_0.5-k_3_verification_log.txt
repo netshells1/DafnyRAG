@@ -1,0 +1,51 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy(27,24): Error: closeparen expected
+   |
+27 | function countNegatives(seq: seq<int>) : nat
+   |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy(28,37): Error: openparen expected
+   |
+28 |     ensures forall i :: 0 <= i < |seq| ==> seq[i] < 0
+   |                                      ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy(28,46): Error: openparen expected
+   |
+28 |     ensures forall i :: 0 <= i < |seq| ==> seq[i] < 0
+   |                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy(29,0): Error: comma expected
+   |
+29 | {
+   | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy(30,11): Error: openparen expected
+   |
+30 |     if |seq| == 0 then 0
+   |            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy(30,18): Error: verticalbar expected
+   |
+30 |     if |seq| == 0 then 0
+   |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy(31,15): Error: openparen expected
+   |
+31 |     else if seq[0] < 0 then 1 + countNegatives(seq[1..])
+   |                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy(31,23): Error: comma expected
+   |
+31 |     else if seq[0] < 0 then 1 + countNegatives(seq[1..])
+   |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy(31,50): Error: openparen expected
+   |
+31 |     else if seq[0] < 0 then 1 + countNegatives(seq[1..])
+   |                                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy(31,52): Error: rbracket expected
+   |
+31 |     else if seq[0] < 0 then 1 + countNegatives(seq[1..])
+   |                                                     ^
+
+10 parse errors detected in task_id_436-gpt-4.1-nano-temp_0.5-k_3.dfy

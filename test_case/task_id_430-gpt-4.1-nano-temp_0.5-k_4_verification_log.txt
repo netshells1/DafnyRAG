@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_430-gpt-4.1-nano-temp_0.5-k_4.dfy(5,39): Error: closeparen expected
+  |
+5 | method FindParabolaDirectrix(vertex: (x: real, y: real), focus: (x: real, y: real))
+  |                                        ^
+
+1 parse errors detected in task_id_430-gpt-4.1-nano-temp_0.5-k_4.dfy

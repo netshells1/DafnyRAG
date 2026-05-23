@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_3.dfy(4,34): Error: type of << must be a bitvector type (instead got int)
+  |
+4 |   ensures exists k: int :: p == 1 << k
+  |                                   ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_3.dfy(10,40): Error: unresolved identifier: ceil_log2
+   |
+10 |         invariant p >= n ==> p == 1 << (ceil_log2(n))
+   |                                         ^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_3.dfy(10,36): Error: type of << must be a bitvector type (instead got int)
+   |
+10 |         invariant p >= n ==> p == 1 << (ceil_log2(n))
+   |                                     ^^
+
+3 resolution/type errors detected in task_id_167-gpt-4.1-nano-temp_0.5-k_3.dfy

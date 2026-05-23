@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_1.dfy(24,18): Error: a 'for' loop is allowed an explicit 'decreases' clause only if the end-expression is '*'
+   |
+24 |         decreases a
+   |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_72-gpt-4.1-nano-temp_0.5-k_1.dfy(28,22): Error: a 'for' loop is allowed an explicit 'decreases' clause only if the end-expression is '*'
+   |
+28 |             decreases b
+   |                       ^
+
+2 resolution/type errors detected in task_id_72-gpt-4.1-nano-temp_0.5-k_1.dfy

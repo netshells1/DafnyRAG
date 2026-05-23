@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_587-gpt-4.1-nano-temp_0.5-k_4.dfy(5,20): Error: RHS (of type string) not assignable to LHS (of type seq<int>) (covariant type parameter would require char <: int)
+  |
+5 |     var s: seq<int> := "";
+  |                     ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_587-gpt-4.1-nano-temp_0.5-k_4.dfy(11,15): Error: type of right argument to + (int) must agree with the result type (seq<int>)
+   |
+11 |         s := s + a[i];
+   |                ^
+
+2 resolution/type errors detected in task_id_587-gpt-4.1-nano-temp_0.5-k_4.dfy

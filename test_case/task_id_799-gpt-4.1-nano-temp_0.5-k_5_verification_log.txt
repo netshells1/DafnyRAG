@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_5.dfy(1,25): Error: Type or type parameter is not declared in this scope: uint (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+1 | method RotateLeftBits(n: uint, d: int) returns (res: uint)
+  |                          ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_5.dfy(1,53): Error: Type or type parameter is not declared in this scope: uint (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+1 | method RotateLeftBits(n: uint, d: int) returns (res: uint)
+  |                                                      ^^^^
+
+2 resolution/type errors detected in task_id_799-gpt-4.1-nano-temp_0.5-k_5.dfy

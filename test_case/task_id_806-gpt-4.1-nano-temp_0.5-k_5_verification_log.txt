@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_5.dfy(11,20): Error: invalid ParensExpression
+   |
+11 |                 && (for all j in [startIndex, startIndex + maxRun), s[j] is uppercase)
+   |                     ^
+
+1 parse errors detected in task_id_806-gpt-4.1-nano-temp_0.5-k_5.dfy

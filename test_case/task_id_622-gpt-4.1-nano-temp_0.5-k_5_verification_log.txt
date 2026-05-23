@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_622-gpt-4.1-nano-temp_0.5-k_5.dfy(16,16): Error: this symbol not expected in Dafny
+   |
+16 |             let idx1 := (|a| + |b|) / 2 - 1 in
+   |                 ^
+
+1 parse errors detected in task_id_622-gpt-4.1-nano-temp_0.5-k_5.dfy

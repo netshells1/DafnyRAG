@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_270-gpt-4.1-nano-temp_0.5-k_5.dfy(8,25): Error: missing semicolon at end of statement
+  |
+8 |     ensures sum == sum { i | 0 <= i < arr.Length && i % 2 == 0 && IsEven(arr[i]) :: arr[i] }
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_270-gpt-4.1-nano-temp_0.5-k_5.dfy(8,81): Error: verticalbar expected
+  |
+8 |     ensures sum == sum { i | 0 <= i < arr.Length && i % 2 == 0 && IsEven(arr[i]) :: arr[i] }
+  |                                                                                  ^
+
+2 parse errors detected in task_id_270-gpt-4.1-nano-temp_0.5-k_5.dfy

@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_93-gpt-4.1-nano-temp_0.5-k_2.dfy(3,24): Error: first argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures result == a ^ b
+  |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_93-gpt-4.1-nano-temp_0.5-k_2.dfy(3,24): Error: second argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures result == a ^ b
+  |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_93-gpt-4.1-nano-temp_0.5-k_2.dfy(9,30): Error: first argument to ^ must be of a bitvector type (instead got int)
+  |
+9 |         invariant result == a ^ i
+  |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_93-gpt-4.1-nano-temp_0.5-k_2.dfy(9,30): Error: second argument to ^ must be of a bitvector type (instead got int)
+  |
+9 |         invariant result == a ^ i
+  |                               ^
+
+4 resolution/type errors detected in task_id_93-gpt-4.1-nano-temp_0.5-k_2.dfy

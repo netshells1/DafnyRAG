@@ -1,0 +1,8 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_238-gpt-4.1-nano-temp_0.5-k_2.dfy(17,28): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+17 |             invariant count == (i * (i + 1)) / 2 + (j - i + 1)
+   |                             ^^
+
+
+Dafny program verifier finished with 1 verified, 1 error

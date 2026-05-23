@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_3.dfy(18,33): Error: invalid Ident
+   |
+18 |         invariant set res == set seq res
+   |                                  ^
+
+1 parse errors detected in task_id_572-gpt-4.1-nano-temp_0.5-k_3.dfy

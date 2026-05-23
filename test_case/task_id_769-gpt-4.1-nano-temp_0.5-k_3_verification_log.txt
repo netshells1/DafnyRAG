@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_3.dfy(11,10): Error: gets expected
+   |
+11 |     for x in a
+   |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_3.dfy(12,8): Error: ident expected
+   |
+12 |         invariant res == res[..]
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_769-gpt-4.1-nano-temp_0.5-k_3.dfy(11,13): Error: Expected 'to' or 'downto'
+   |
+11 |     for x in a
+   |              ^
+
+3 parse errors detected in task_id_769-gpt-4.1-nano-temp_0.5-k_3.dfy

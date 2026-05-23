@@ -1,0 +1,46 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_5.dfy(4,24): Error: closeparen expected
+  |
+4 | method SequenceToNumber(seq: seq<int>) returns (result: int)
+  |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_5.dfy(5,34): Error: openparen expected
+  |
+5 |     requires forall x :: x in seq ==> x > 0
+  |                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_5.dfy(6,4): Error: comma expected
+  |
+6 |     ensures result >= 0
+  |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_5.dfy(7,45): Error: openparen expected
+  |
+7 |     ensures result == ConcatenateSequence(seq)
+  |                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_5.dfy(12,17): Error: openparen expected
+   |
+12 |     var i := |seq| - 1;
+   |                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_5.dfy(12,22): Error: verticalbar expected
+   |
+12 |     var i := |seq| - 1;
+   |                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_5.dfy(14,32): Error: openparen expected
+   |
+14 |         invariant -1 <= i < |seq|
+   |                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_5.dfy(17,43): Error: openparen expected
+   |
+17 |         invariant result == SumSequence(seq[i+1..]) * multiplier + seq[i]
+   |                                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_116-gpt-4.1-nano-temp_0.5-k_5.dfy(17,47): Error: rbracket expected
+   |
+17 |         invariant result == SumSequence(seq[i+1..]) * multiplier + seq[i]
+   |                                                ^
+
+9 parse errors detected in task_id_116-gpt-4.1-nano-temp_0.5-k_5.dfy

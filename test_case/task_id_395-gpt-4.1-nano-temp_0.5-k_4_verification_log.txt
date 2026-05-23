@@ -1,0 +1,28 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_4.dfy(15,66): Error: index out of range
+   |
+15 |         invariant !found ==> (forall k :: 0 <= k < i ==> s[k] != s[i])
+   |                                                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_4.dfy(16,63): Error: index out of range
+   |
+16 |         invariant found ==> exists k :: 0 <= k < i && s[k] == s[i]
+   |                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_4.dfy(22,36): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+22 |             invariant isUnique ==> (forall m :: 0 <= m < j ==> s[m] != s[j])
+   |                                     ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_4.dfy(22,72): Error: index out of range
+   |
+22 |             invariant isUnique ==> (forall m :: 0 <= m < j ==> s[m] != s[j])
+   |                                                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_395-gpt-4.1-nano-temp_0.5-k_4.dfy(23,72): Error: index out of range
+   |
+23 |             invariant !isUnique ==> (exists m :: 0 <= m < j && s[m] == s[j])
+   |                                                                         ^
+
+
+Dafny program verifier finished with 1 verified, 5 errors

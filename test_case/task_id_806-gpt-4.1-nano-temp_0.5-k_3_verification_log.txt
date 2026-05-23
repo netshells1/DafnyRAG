@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_3.dfy(11,61): Error: invalid relational operator
+   |
+11 |              (start == 0 || (start - 1 >= 0 ==> s[start - 1] !? IsUpperCase(s[start - 1])))
+   |                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_806-gpt-4.1-nano-temp_0.5-k_3.dfy(11,64): Error: closeparen expected
+   |
+11 |              (start == 0 || (start - 1 >= 0 ==> s[start - 1] !? IsUpperCase(s[start - 1])))
+   |                                                                 ^
+
+2 parse errors detected in task_id_806-gpt-4.1-nano-temp_0.5-k_3.dfy

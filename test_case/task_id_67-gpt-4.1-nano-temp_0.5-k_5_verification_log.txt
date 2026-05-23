@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_67-gpt-4.1-nano-temp_0.5-k_5.dfy(22,35): Error: invalid NameSegment
+   |
+22 |             invariant sum == sum_{j=0}^{k-1} C(i-1, j) * b[j]
+   |                                    ^
+
+1 parse errors detected in task_id_67-gpt-4.1-nano-temp_0.5-k_5.dfy

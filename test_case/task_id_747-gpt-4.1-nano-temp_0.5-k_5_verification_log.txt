@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_5.dfy(7,17): Error: this symbol not expected in VarDeclStatement
+  |
+7 |     var dp: array[array[array]int]] := new array[|s1| + 1];
+  |                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_5.dfy(11,34): Error: invalid NewArray
+   |
+11 |             dp[i][j] := new array[int](|s3| + 1);
+   |                                   ^
+
+2 parse errors detected in task_id_747-gpt-4.1-nano-temp_0.5-k_5.dfy

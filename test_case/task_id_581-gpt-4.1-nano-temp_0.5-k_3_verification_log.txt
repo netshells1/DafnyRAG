@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_3.dfy(15,8): Error: invalid UnaryExpression
+   |
+15 |         while low * low <= slantHeightSquared && (high + 1) * (high + 1) <= slantHeightSquared
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_581-gpt-4.1-nano-temp_0.5-k_3.dfy(27,8): Error: this symbol not expected in Dafny
+   |
+27 |         low;
+   |         ^
+
+2 parse errors detected in task_id_581-gpt-4.1-nano-temp_0.5-k_3.dfy

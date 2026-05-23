@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_61-gpt-4.1-nano-temp_0.5-k_1.dfy(7,18): Error: type of 'null' is a reference type, but it is used as seq<char>
+  |
+7 |     requires s != null
+  |                   ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_61-gpt-4.1-nano-temp_0.5-k_1.dfy(34,46): Error: incorrect argument type at index 0 for function parameter 'digits' (expected seq<int>, found array<int>)
+   |
+34 |             invariant sum == SumDigitsInRange(digits, start, end)
+   |                                               ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_61-gpt-4.1-nano-temp_0.5-k_1.dfy(16,20): Error: arguments to <= must have a common supertype (got int and seq<int>)
+   |
+16 |         invariant 0 <= digits[..i]
+   |                     ^^
+
+3 resolution/type errors detected in task_id_61-gpt-4.1-nano-temp_0.5-k_1.dfy

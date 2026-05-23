@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_460-gpt-4.1-nano-temp_0.5-k_1.dfy(3,19): Error: type seq<int> does not have a member Length
+  |
+3 |     ensures firsts.Length == sublists.Length
+  |                    ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_460-gpt-4.1-nano-temp_0.5-k_1.dfy(3,38): Error: type seq<seq<int>> does not have a member Length
+  |
+3 |     ensures firsts.Length == sublists.Length
+  |                                       ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_460-gpt-4.1-nano-temp_0.5-k_1.dfy(4,42): Error: type seq<seq<int>> does not have a member Length
+  |
+4 |     ensures forall i :: 0 <= i < sublists.Length ==> 
+  |                                           ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_460-gpt-4.1-nano-temp_0.5-k_1.dfy(2,25): Error: type of 'null' is a reference type, but it is used as seq<seq<int>>
+  |
+2 |     requires sublists != null
+  |                          ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_460-gpt-4.1-nano-temp_0.5-k_1.dfy(9,22): Error: type seq<seq<int>> does not have a member Length
+  |
+9 |     var n := sublists.Length;
+  |                       ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_460-gpt-4.1-nano-temp_0.5-k_1.dfy(26,11): Error: RHS (of type array<int>) not assignable to LHS (of type seq<int>)
+   |
+26 |     firsts := result;
+   |            ^^
+
+6 resolution/type errors detected in task_id_460-gpt-4.1-nano-temp_0.5-k_1.dfy

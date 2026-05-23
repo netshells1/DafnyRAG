@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_389-gpt-4.1-nano-temp_0.5-k_1.dfy(5,22): Error: invalid UnaryExpression
+  |
+5 |                  else for all k :: 0 <= k <= n ==> LucasSequence(k)
+  |                       ^
+
+1 parse errors detected in task_id_389-gpt-4.1-nano-temp_0.5-k_1.dfy

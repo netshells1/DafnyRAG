@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_574-gpt-4.1-nano-temp_0.5-k_1.dfy(7,4): Error: rbrace expected
+  |
+7 |     const Pi := 3.141592653589793;
+  |     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_574-gpt-4.1-nano-temp_0.5-k_1.dfy(7,33): Warning: deprecated style: a semi-colon is not needed here
+  |
+7 |     const Pi := 3.141592653589793;
+  |                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_574-gpt-4.1-nano-temp_0.5-k_1.dfy(8,4): Error: this symbol not expected in Dafny
+  |
+8 |     area := 2.0 * Pi * radius * height + 2.0 * Pi * radius * radius;
+  |     ^
+
+2 parse errors detected in task_id_574-gpt-4.1-nano-temp_0.5-k_1.dfy

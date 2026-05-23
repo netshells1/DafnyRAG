@@ -1,0 +1,41 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_763-gpt-4.1-nano-temp_0.5-k_1.dfy(4,60): Error: size operator expects a collection argument (instead got int)
+  |
+4 |     ensures exists i, j :: 0 <= i < j < a.Length && diff == |a[i] - a[j]|
+  |                                                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_763-gpt-4.1-nano-temp_0.5-k_1.dfy(5,61): Error: size operator expects a collection argument (instead got int)
+  |
+5 |     ensures forall i, j :: 0 <= i < j < a.Length ==> diff <= |a[i] - a[j]|
+  |                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_763-gpt-4.1-nano-temp_0.5-k_1.dfy(7,41): Error: size operator expects a collection argument (instead got int)
+  |
+7 |     var minDiff := if a.Length >= 2 then |a[0] - a[1]| else 0;
+  |                                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_763-gpt-4.1-nano-temp_0.5-k_1.dfy(15,63): Error: size operator expects a collection argument (instead got int)
+   |
+15 |         invariant forall k, l :: 0 <= k < l < i ==> minDiff <= |a[k] - a[l]|
+   |                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_763-gpt-4.1-nano-temp_0.5-k_1.dfy(21,67): Error: size operator expects a collection argument (instead got int)
+   |
+21 |             invariant forall k, l :: 0 <= k < l < i ==> minDiff <= |a[k] - a[l]|
+   |                                                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_763-gpt-4.1-nano-temp_0.5-k_1.dfy(22,60): Error: size operator expects a collection argument (instead got int)
+   |
+22 |             invariant forall k :: 0 <= k < i ==> minDiff <= |a[k] - a[i]| || |a[k] - a[j]| >= minDiff
+   |                                                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_763-gpt-4.1-nano-temp_0.5-k_1.dfy(22,77): Error: size operator expects a collection argument (instead got int)
+   |
+22 |             invariant forall k :: 0 <= k < i ==> minDiff <= |a[k] - a[i]| || |a[k] - a[j]| >= minDiff
+   |                                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_763-gpt-4.1-nano-temp_0.5-k_1.dfy(24,31): Error: size operator expects a collection argument (instead got int)
+   |
+24 |             var currentDiff := |a[i] - a[j]|;
+   |                                ^
+
+8 resolution/type errors detected in task_id_763-gpt-4.1-nano-temp_0.5-k_1.dfy

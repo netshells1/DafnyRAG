@@ -1,0 +1,61 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(5,21): Error: type of << must be a bitvector type (instead got int)
+  |
+5 |   ensures res == ((n << d) | (n >> (32 - d))) & 0xFFFFFFFF
+  |                      ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(5,32): Error: type of >> must be a bitvector type (instead got int)
+  |
+5 |   ensures res == ((n << d) | (n >> (32 - d))) & 0xFFFFFFFF
+  |                                 ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(5,27): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+5 |   ensures res == ((n << d) | (n >> (32 - d))) & 0xFFFFFFFF
+  |                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(5,27): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+5 |   ensures res == ((n << d) | (n >> (32 - d))) & 0xFFFFFFFF
+  |                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(5,46): Error: first argument to & must be of a bitvector type (instead got int)
+  |
+5 |   ensures res == ((n << d) | (n >> (32 - d))) & 0xFFFFFFFF
+  |                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(5,46): Error: second argument to & must be of a bitvector type (instead got int)
+  |
+5 |   ensures res == ((n << d) | (n >> (32 - d))) & 0xFFFFFFFF
+  |                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(7,26): Error: type of << must be a bitvector type (instead got int)
+  |
+7 |     var shiftedLeft := (n << d);
+  |                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(8,27): Error: type of >> must be a bitvector type (instead got int)
+  |
+8 |     var shiftedRight := (n >> (32 - d));
+  |                            ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(9,24): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+9 |     res := (shiftedLeft | shiftedRight) & 0xFFFFFFFF;
+  |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(9,24): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+9 |     res := (shiftedLeft | shiftedRight) & 0xFFFFFFFF;
+  |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(9,40): Error: first argument to & must be of a bitvector type (instead got int)
+  |
+9 |     res := (shiftedLeft | shiftedRight) & 0xFFFFFFFF;
+  |                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy(9,40): Error: second argument to & must be of a bitvector type (instead got int)
+  |
+9 |     res := (shiftedLeft | shiftedRight) & 0xFFFFFFFF;
+  |                                         ^
+
+12 resolution/type errors detected in task_id_799-gpt-4.1-nano-temp_0.5-k_4.dfy

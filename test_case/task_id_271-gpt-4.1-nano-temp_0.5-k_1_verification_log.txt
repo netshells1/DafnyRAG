@@ -1,0 +1,13 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_271-gpt-4.1-nano-temp_0.5-k_1.dfy(7,13): Error: lower bound must not exceed upper bound
+  |
+7 |     for k := 0 to n - 1
+  |              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_271-gpt-4.1-nano-temp_0.5-k_1.dfy(9,20): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+  |
+9 |         invariant i == 2 * k + 2
+  |                     ^^
+
+
+Dafny program verifier finished with 1 verified, 2 errors

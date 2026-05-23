@@ -1,0 +1,26 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_437-gpt-4.1-nano-temp_0.5-k_5.dfy(6,90): Error: type seq<char> does not have a member Length
+  |
+6 |   ensures forall i :: 0 <= i < |result| ==> result[i] in s[..] && (exists j :: 0 <= j < s.Length && j % 2 == 0 && s[j] == result[i])
+  |                                                                                           ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_437-gpt-4.1-nano-temp_0.5-k_5.dfy(10,16): Error: type seq<char> does not have a member Length
+   |
+10 |     while i < s.Length
+   |                 ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_437-gpt-4.1-nano-temp_0.5-k_5.dfy(11,28): Error: type seq<char> does not have a member Length
+   |
+11 |       invariant 0 <= i <= s.Length
+   |                             ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_437-gpt-4.1-nano-temp_0.5-k_5.dfy(13,100): Error: type seq<char> does not have a member Length
+   |
+13 |       invariant forall k :: 0 <= k < |resChars| ==> resChars[k] in s[..] && (exists j :: 0 <= j < s.Length && j % 2 == 0 && s[j] == resChars[k])
+   |                                                                                                     ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_437-gpt-4.1-nano-temp_0.5-k_5.dfy(21,14): Error: unresolved identifier: String
+   |
+21 |     result := String.Concat(resChars);
+   |               ^^^^^^
+
+5 resolution/type errors detected in task_id_437-gpt-4.1-nano-temp_0.5-k_5.dfy

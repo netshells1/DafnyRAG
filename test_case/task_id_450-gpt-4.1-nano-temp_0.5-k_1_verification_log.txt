@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_450-gpt-4.1-nano-temp_0.5-k_1.dfy(1,25): Error: closeparen expected
+  |
+1 | method ExtractSubstrings(seq: seq<string>, start: int, length: int) returns (result: seq<string>)
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_450-gpt-4.1-nano-temp_0.5-k_1.dfy(4,35): Error: openparen expected
+  |
+4 |     requires start + length <= |seq|
+  |                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_450-gpt-4.1-nano-temp_0.5-k_1.dfy(6,25): Error: openparen expected
+  |
+6 |     ensures result == seq[start..start + length]
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_450-gpt-4.1-nano-temp_0.5-k_1.dfy(6,31): Error: rbracket expected
+  |
+6 |     ensures result == seq[start..start + length]
+  |                                ^
+
+4 parse errors detected in task_id_450-gpt-4.1-nano-temp_0.5-k_1.dfy

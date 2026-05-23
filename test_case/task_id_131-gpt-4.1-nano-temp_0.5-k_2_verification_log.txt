@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_2.dfy(12,19): Error: rbracket expected
+   |
+12 |     var vowels := [char];
+   |                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_2.dfy(24,50): Error: rbracket expected
+   |
+24 |     var revVowels := vowels[..][|vowels| - 1 .. 0 .. -1]; // reversed vowels
+   |                                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_2.dfy(49,4): Error: invalid UnaryExpression
+   |
+49 |     while j <= i
+   |     ^
+
+3 parse errors detected in task_id_131-gpt-4.1-nano-temp_0.5-k_2.dfy

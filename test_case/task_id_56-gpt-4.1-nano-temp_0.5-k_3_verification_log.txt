@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_56-gpt-4.1-nano-temp_0.5-k_3.dfy(2,31): Error: expression is not allowed to invoke a method (Reverse)
+  |
+2 |   ensures result <==> n == 2 * Reverse(n) - 1
+  |                                ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_56-gpt-4.1-nano-temp_0.5-k_3.dfy(2,38): Error: method call is not allowed to be used in an expression context (Reverse)
+  |
+2 |   ensures result <==> n == 2 * Reverse(n) - 1
+  |                                       ^
+
+2 resolution/type errors detected in task_id_56-gpt-4.1-nano-temp_0.5-k_3.dfy

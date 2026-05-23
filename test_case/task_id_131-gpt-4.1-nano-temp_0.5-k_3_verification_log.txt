@@ -1,0 +1,26 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_3.dfy(15,18): Error: type seq<char> does not have a member ToArray
+   |
+15 |     var sArr := s.ToArray;
+   |                   ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_3.dfy(46,9): Error: new can be applied only to class types (got string)
+   |
+46 |     v := new string(sArr);
+   |          ^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_3.dfy(17,17): Error: size operator expects a collection argument (instead got array?<char>)
+   |
+17 |     var right := |sArr| - 1;
+   |                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_3.dfy(20,31): Error: size operator expects a collection argument (instead got array?<char>)
+   |
+20 |         invariant 0 <= right < |sArr|
+   |                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_131-gpt-4.1-nano-temp_0.5-k_3.dfy(22,42): Error: size operator expects a collection argument (instead got array?<char>)
+   |
+22 |         invariant forall k :: right < k < |sArr| ==> sArr[k] == s[k]
+   |                                           ^
+
+5 resolution/type errors detected in task_id_131-gpt-4.1-nano-temp_0.5-k_3.dfy

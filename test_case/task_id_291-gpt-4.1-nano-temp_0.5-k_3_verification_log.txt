@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_291-gpt-4.1-nano-temp_0.5-k_3.dfy(22,42): Error: gets expected
+   |
+22 |             invariant prev2 == ways for n = i - 2
+   |                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_291-gpt-4.1-nano-temp_0.5-k_3.dfy(22,40): Error: Expected 'to' or 'downto'
+   |
+22 |             invariant prev2 == ways for n = i - 2
+   |                                         ^
+
+2 parse errors detected in task_id_291-gpt-4.1-nano-temp_0.5-k_3.dfy

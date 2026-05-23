@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_4.dfy(3,62): Error: this symbol not expected in Dafny
+  |
+3 |     ensures forall w :: w in Split(s) && Length(w) == k ==> w not in Split(result)
+  |                                                               ^
+
+1 parse errors detected in task_id_772-gpt-4.1-nano-temp_0.5-k_4.dfy

@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_4.dfy(2,23): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+2 |   ensures result == (n | 0x55555555)
+  |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_4.dfy(2,23): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+2 |   ensures result == (n | 0x55555555)
+  |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_4.dfy(4,16): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+4 |     result := n | 0x55555555;
+  |                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_235-gpt-4.1-nano-temp_0.5-k_4.dfy(4,16): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+4 |     result := n | 0x55555555;
+  |                 ^
+
+4 resolution/type errors detected in task_id_235-gpt-4.1-nano-temp_0.5-k_4.dfy

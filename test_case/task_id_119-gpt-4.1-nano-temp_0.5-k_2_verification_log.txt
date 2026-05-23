@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_119-gpt-4.1-nano-temp_0.5-k_2.dfy(22,47): Error: lbrace expected
+   |
+22 |         if mid > 0 && arr[mid] == arr[mid - 1] then
+   |                                                ^
+
+1 parse errors detected in task_id_119-gpt-4.1-nano-temp_0.5-k_2.dfy

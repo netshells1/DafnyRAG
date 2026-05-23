@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_628-gpt-4.1-nano-temp_0.5-k_5.dfy(7,48): Error: closeparen expected
+  |
+7 |     ensures |v| == (if |s| == 0 then 0 else sum i in 0..|s|-1 :: if s[i] == ' ' then 3 else 1)
+  |                                                 ^
+
+1 parse errors detected in task_id_628-gpt-4.1-nano-temp_0.5-k_5.dfy

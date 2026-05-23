@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_305-gpt-4.1-nano-temp_0.5-k_4.dfy(17,39): Error: openparen expected
+   |
+17 |         invariant (exists w :: w in seq[..i] && w[0] == 'p') ==> (found1 || found2)
+   |                                        ^
+
+1 parse errors detected in task_id_305-gpt-4.1-nano-temp_0.5-k_4.dfy

@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_57-gpt-4.1-nano-temp_0.5-k_1.dfy(8,22): Error: rbracket expected
+  |
+8 |     var strDigits := [for d in digits :: d.ToString()];
+  |                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_57-gpt-4.1-nano-temp_0.5-k_1.dfy(11,24): Error: invalid Rhs
+   |
+11 |     var concatenated := string.Join("", sortedStrDigits);
+   |                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_57-gpt-4.1-nano-temp_0.5-k_1.dfy(12,14): Error: invalid Rhs
+   |
+12 |     result := int.Parse(concatenated);
+   |               ^
+
+3 parse errors detected in task_id_57-gpt-4.1-nano-temp_0.5-k_1.dfy

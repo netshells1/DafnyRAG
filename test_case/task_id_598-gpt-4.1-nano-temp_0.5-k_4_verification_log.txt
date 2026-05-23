@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_598-gpt-4.1-nano-temp_0.5-k_4.dfy(31,13): Error: rbrace expected
+   |
+31 |     else let d := x % 10 in
+   |              ^
+
+1 parse errors detected in task_id_598-gpt-4.1-nano-temp_0.5-k_4.dfy

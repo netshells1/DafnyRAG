@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_16-gpt-4.1-nano-temp_0.5-k_2.dfy(47,9): Warning: deprecated style: a semi-colon is not needed here
+   |
+47 |         );
+   |          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_16-gpt-4.1-nano-temp_0.5-k_2.dfy(64,0): Error: this symbol not expected in Dafny
+   |
+64 | }
+   | ^
+
+1 parse errors detected in task_id_16-gpt-4.1-nano-temp_0.5-k_2.dfy

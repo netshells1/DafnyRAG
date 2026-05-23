@@ -1,0 +1,41 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_5.dfy(8,19): Error: type seq<char> does not have a member Length
+  |
+8 |     ensures result.Length == s.Length
+  |                    ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_5.dfy(8,31): Error: type seq<char> does not have a member Length
+  |
+8 |     ensures result.Length == s.Length
+  |                                ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_5.dfy(9,47): Error: type seq<char> does not have a member Length
+  |
+9 |     ensures forall i, j :: 0 <= i < j < result.Length && IsDigit(result[i]) ==> IsDigit(result[j])
+  |                                                ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_5.dfy(11,42): Error: type seq<char> does not have a member Length
+   |
+11 |     ensures forall n, m :: 0 <= n < m < s.Length && !IsDigit(s[n]) && !IsDigit(s[m]) ==> 
+   |                                           ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_5.dfy(12,47): Error: type seq<char> does not have a member Length
+   |
+12 |             exists k, l :: 0 <= k < l < result.Length && result[k] == s[n] && result[l] == s[m]
+   |                                                ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_5.dfy(7,18): Error: type of 'null' is a reference type, but it is used as seq<char>
+  |
+7 |     requires s != null
+  |                   ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_5.dfy(19,16): Error: type seq<char> does not have a member Length
+   |
+19 |     while i < s.Length
+   |                 ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_5.dfy(20,30): Error: type seq<char> does not have a member Length
+   |
+20 |         invariant 0 <= i <= s.Length
+   |                               ^^^^^^
+
+8 resolution/type errors detected in task_id_619-gpt-4.1-nano-temp_0.5-k_5.dfy

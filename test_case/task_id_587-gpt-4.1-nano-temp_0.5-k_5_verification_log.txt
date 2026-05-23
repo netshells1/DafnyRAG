@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_587-gpt-4.1-nano-temp_0.5-k_5.dfy(1,47): Error: closeparen expected
+  |
+1 | method ArrayToSequence(a: array<int>) returns (seq: seq<int>)
+  |                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_587-gpt-4.1-nano-temp_0.5-k_5.dfy(3,16): Error: openparen expected
+  |
+3 |     ensures seq == a[..]
+  |                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_587-gpt-4.1-nano-temp_0.5-k_5.dfy(4,0): Error: comma expected
+  |
+4 | {
+  | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_587-gpt-4.1-nano-temp_0.5-k_5.dfy(6,4): Error: invalid UnaryExpression
+  |
+6 |     for i := 0 to a.Length
+  |     ^
+
+4 parse errors detected in task_id_587-gpt-4.1-nano-temp_0.5-k_5.dfy

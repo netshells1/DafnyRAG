@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_619-gpt-4.1-nano-temp_0.5-k_1.dfy(11,95): Error: this symbol not expected in Dafny
+   |
+11 |             exists k, l :: 0 <= k < l < result.Length && result[k] == s[n] && result[l] == s[m])
+   |                                                                                                ^
+
+1 parse errors detected in task_id_619-gpt-4.1-nano-temp_0.5-k_1.dfy

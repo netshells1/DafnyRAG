@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_2.dfy(11,10): Error: unresolved identifier: Multiset
+   |
+11 |   ensures Multiset(result) == Multiset(a)
+   |           ^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_2.dfy(11,30): Error: unresolved identifier: Multiset
+   |
+11 |   ensures Multiset(result) == Multiset(a)
+   |                               ^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_2.dfy(18,14): Error: unresolved identifier: Multiset
+   |
+18 |     invariant Multiset(resSeq) == Multiset(resSeq)
+   |               ^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_2.dfy(18,34): Error: unresolved identifier: Multiset
+   |
+18 |     invariant Multiset(resSeq) == Multiset(resSeq)
+   |                                   ^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_2.dfy(29,19): Error: type seq<int> does not have a member ToArray
+   |
+29 |   result := resSeq.ToArray();
+   |                    ^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_572-gpt-4.1-nano-temp_0.5-k_2.dfy(20,29): Error: incorrect argument type for predicate parameter 'arr' (expected array<int>, found seq<int>)
+   |
+20 |     invariant SortedDistinct(resSeq)
+   |                              ^^^^^^
+
+6 resolution/type errors detected in task_id_572-gpt-4.1-nano-temp_0.5-k_2.dfy

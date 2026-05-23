@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_639-gpt-4.1-nano-temp_0.5-k_1.dfy(4,31): Error: this symbol not expected in Dafny
+  |
+4 |     ensures totalLength == sum of |name| for all name in names where name[0] !in {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}
+  |                                ^
+
+1 parse errors detected in task_id_639-gpt-4.1-nano-temp_0.5-k_1.dfy

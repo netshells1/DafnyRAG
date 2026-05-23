@@ -1,0 +1,36 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_3.dfy(3,34): Error: type seq<seq<int>> does not have a member Length
+  |
+3 |     ensures result ==> (sequences.Length == 0 || forall i :: 0 <= i < sequences.Length ==> |sequences[0]| == |sequences[i]|)
+  |                                   ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_3.dfy(3,80): Error: type seq<seq<int>> does not have a member Length
+  |
+3 |     ensures result ==> (sequences.Length == 0 || forall i :: 0 <= i < sequences.Length ==> |sequences[0]| == |sequences[i]|)
+  |                                                                                 ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_3.dfy(4,56): Error: type seq<seq<int>> does not have a member Length
+  |
+4 |     ensures !result ==> (exists i :: 0 <= i < sequences.Length && |sequences[i]| != |sequences[0]|)
+  |                                                         ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_3.dfy(2,26): Error: type of 'null' is a reference type, but it is used as seq<seq<int>>
+  |
+2 |     requires sequences != null
+  |                           ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_3.dfy(6,17): Error: type seq<seq<int>> does not have a member Length
+  |
+6 |     if sequences.Length == 0 {
+  |                  ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_3.dfy(13,28): Error: type seq<seq<int>> does not have a member Length
+   |
+13 |     for i := 1 to sequences.Length
+   |                             ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_70-gpt-4.1-nano-temp_0.5-k_3.dfy(14,38): Error: type seq<seq<int>> does not have a member Length
+   |
+14 |         invariant 1 <= i <= sequences.Length
+   |                                       ^^^^^^
+
+7 resolution/type errors detected in task_id_70-gpt-4.1-nano-temp_0.5-k_3.dfy

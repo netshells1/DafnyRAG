@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_262-gpt-4.1-nano-temp_0.5-k_1.dfy(7,26): Error: openparen expected
+  |
+7 |     var resSeq := seq<int>{};
+  |                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_262-gpt-4.1-nano-temp_0.5-k_1.dfy(7,28): Error: comma expected
+  |
+7 |     var resSeq := seq<int>{};
+  |                             ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_262-gpt-4.1-nano-temp_0.5-k_1.dfy(14,35): Error: openparen expected
+   |
+14 |         resSeq := resSeq + seq<int>{a[i]};
+   |                                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_262-gpt-4.1-nano-temp_0.5-k_1.dfy(14,41): Error: comma expected
+   |
+14 |         resSeq := resSeq + seq<int>{a[i]};
+   |                                          ^
+
+4 parse errors detected in task_id_262-gpt-4.1-nano-temp_0.5-k_1.dfy

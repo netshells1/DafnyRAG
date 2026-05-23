@@ -1,0 +1,41 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_5.dfy(5,19): Error: first argument to & must be of a bitvector type (instead got int)
+  |
+5 |     ensures (power & (power - 1)) == 0  // power is a power of two
+  |                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_5.dfy(5,19): Error: second argument to & must be of a bitvector type (instead got int)
+  |
+5 |     ensures (power & (power - 1)) == 0  // power is a power of two
+  |                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_5.dfy(6,42): Error: first argument to & must be of a bitvector type (instead got int)
+  |
+6 |     ensures forall p: int :: p >= n && (p & (p - 1)) == 0 ==> power <= p
+  |                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_5.dfy(6,42): Error: second argument to & must be of a bitvector type (instead got int)
+  |
+6 |     ensures forall p: int :: p >= n && (p & (p - 1)) == 0 ==> power <= p
+  |                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_5.dfy(11,39): Error: first argument to & must be of a bitvector type (instead got int)
+   |
+11 |         invariant power >= n || (power & (power - 1)) == 0
+   |                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_5.dfy(11,39): Error: second argument to & must be of a bitvector type (instead got int)
+   |
+11 |         invariant power >= n || (power & (power - 1)) == 0
+   |                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_5.dfy(12,48): Error: first argument to & must be of a bitvector type (instead got int)
+   |
+12 |         invariant forall p: int :: p >= n && (p & (p - 1)) == 0 ==> power <= p
+   |                                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_167-gpt-4.1-nano-temp_0.5-k_5.dfy(12,48): Error: second argument to & must be of a bitvector type (instead got int)
+   |
+12 |         invariant forall p: int :: p >= n && (p & (p - 1)) == 0 ==> power <= p
+   |                                                 ^
+
+8 resolution/type errors detected in task_id_167-gpt-4.1-nano-temp_0.5-k_5.dfy

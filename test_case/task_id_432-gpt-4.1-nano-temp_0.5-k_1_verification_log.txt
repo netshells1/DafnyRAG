@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_1.dfy(2,47): Error: unresolved identifier: sort
+  |
+2 |     ensures exists sortedList :: sortedList == sort([a, b, c, d]) && median == sortedList[1]
+  |                                                ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_1.dfy(2,90): Error: incorrect type for selection into ? (got int)
+  |
+2 |     ensures exists sortedList :: sortedList == sort([a, b, c, d]) && median == sortedList[1]
+  |                                                                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_1.dfy(2,89): Error: sequence has type ? which is incompatible with expected type int
+  |
+2 |     ensures exists sortedList :: sortedList == sort([a, b, c, d]) && median == sortedList[1]
+  |                                                                                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_1.dfy(5,22): Error: unresolved identifier: sort
+  |
+5 |     var sortedList := sort(lst);
+  |                       ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_1.dfy(6,25): Error: incorrect type for selection into ? (got int)
+  |
+6 |     median := sortedList[1]; // second element in sorted list (middle for even count)
+  |                          ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_432-gpt-4.1-nano-temp_0.5-k_1.dfy(6,24): Error: sequence has type ? which is incompatible with expected type int
+  |
+6 |     median := sortedList[1]; // second element in sorted list (middle for even count)
+  |                         ^
+
+6 resolution/type errors detected in task_id_432-gpt-4.1-nano-temp_0.5-k_1.dfy

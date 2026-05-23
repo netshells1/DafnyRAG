@@ -1,0 +1,91 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(3,113): Error: expression is not allowed to invoke a method (IsSumOfNonZeroPowersOfTwo)
+  |
+3 |     ensures result <==> (n == 0) || (exists k: int :: k >= 1 && (2^k) <= n && (n - 2^k) >= 0 && (n - 2^k == 0 || IsSumOfNonZeroPowersOfTwo(n - 2^k)))
+  |                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(3,138): Error: method call is not allowed to be used in an expression context (IsSumOfNonZeroPowersOfTwo)
+  |
+3 |     ensures result <==> (n == 0) || (exists k: int :: k >= 1 && (2^k) <= n && (n - 2^k) >= 0 && (n - 2^k == 0 || IsSumOfNonZeroPowersOfTwo(n - 2^k)))
+  |                                                                                                                                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(3,66): Error: first argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures result <==> (n == 0) || (exists k: int :: k >= 1 && (2^k) <= n && (n - 2^k) >= 0 && (n - 2^k == 0 || IsSumOfNonZeroPowersOfTwo(n - 2^k)))
+  |                                                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(3,66): Error: second argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures result <==> (n == 0) || (exists k: int :: k >= 1 && (2^k) <= n && (n - 2^k) >= 0 && (n - 2^k == 0 || IsSumOfNonZeroPowersOfTwo(n - 2^k)))
+  |                                                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(3,84): Error: first argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures result <==> (n == 0) || (exists k: int :: k >= 1 && (2^k) <= n && (n - 2^k) >= 0 && (n - 2^k == 0 || IsSumOfNonZeroPowersOfTwo(n - 2^k)))
+  |                                                                                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(3,84): Error: second argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures result <==> (n == 0) || (exists k: int :: k >= 1 && (2^k) <= n && (n - 2^k) >= 0 && (n - 2^k == 0 || IsSumOfNonZeroPowersOfTwo(n - 2^k)))
+  |                                                                                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(3,102): Error: first argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures result <==> (n == 0) || (exists k: int :: k >= 1 && (2^k) <= n && (n - 2^k) >= 0 && (n - 2^k == 0 || IsSumOfNonZeroPowersOfTwo(n - 2^k)))
+  |                                                                                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(3,102): Error: second argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures result <==> (n == 0) || (exists k: int :: k >= 1 && (2^k) <= n && (n - 2^k) >= 0 && (n - 2^k == 0 || IsSumOfNonZeroPowersOfTwo(n - 2^k)))
+  |                                                                                                       ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(3,144): Error: first argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures result <==> (n == 0) || (exists k: int :: k >= 1 && (2^k) <= n && (n - 2^k) >= 0 && (n - 2^k == 0 || IsSumOfNonZeroPowersOfTwo(n - 2^k)))
+  |                                                                                                                                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(3,144): Error: second argument to ^ must be of a bitvector type (instead got int)
+  |
+3 |     ensures result <==> (n == 0) || (exists k: int :: k >= 1 && (2^k) <= n && (n - 2^k) >= 0 && (n - 2^k == 0 || IsSumOfNonZeroPowersOfTwo(n - 2^k)))
+  |                                                                                                                                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(15,19): Error: first argument to ^ must be of a bitvector type (instead got int)
+   |
+15 |             while 2^k <= temp
+   |                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(15,19): Error: second argument to ^ must be of a bitvector type (instead got int)
+   |
+15 |             while 2^k <= temp
+   |                    ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(16,27): Error: first argument to ^ must be of a bitvector type (instead got int)
+   |
+16 |                 invariant 2^k <= temp
+   |                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(16,27): Error: second argument to ^ must be of a bitvector type (instead got int)
+   |
+16 |                 invariant 2^k <= temp
+   |                            ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(17,40): Error: first argument to ^ must be of a bitvector type (instead got int)
+   |
+17 |                 invariant (k == 0) || (2^(k - 1) <= temp)
+   |                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(17,40): Error: second argument to ^ must be of a bitvector type (instead got int)
+   |
+17 |                 invariant (k == 0) || (2^(k - 1) <= temp)
+   |                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(23,32): Error: first argument to ^ must be of a bitvector type (instead got int)
+   |
+23 |                 temp := temp - 2^k;
+   |                                 ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy(23,32): Error: second argument to ^ must be of a bitvector type (instead got int)
+   |
+23 |                 temp := temp - 2^k;
+   |                                 ^
+
+18 resolution/type errors detected in task_id_138-gpt-4.1-nano-temp_0.5-k_1.dfy

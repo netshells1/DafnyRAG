@@ -1,0 +1,8 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_420-gpt-4.1-nano-temp_0.5-k_1.dfy(10,22): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+10 |         invariant sum == k * (k + 1) * (2 * k + 1)
+   |                       ^^
+
+
+Dafny program verifier finished with 0 verified, 1 error

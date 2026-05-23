@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_291-gpt-4.1-nano-temp_0.5-k_5.dfy(5,27): Error: the two branches of an if-then-else expression must have the same type (got int and bool)
+  |
+5 |                       else if n == 1 then k
+  |                            ^^
+
+1 resolution/type errors detected in task_id_291-gpt-4.1-nano-temp_0.5-k_5.dfy

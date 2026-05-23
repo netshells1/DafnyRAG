@@ -1,0 +1,191 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(2,43): Warning: unusual indentation in body of exists (which ends at line 3, column 58); do you perhaps need parentheses?
+  |
+2 |     ensures forall i :: 0 <= i < |lcs| ==> exists k1, k2, k3 :: 0 <= k1 < |s1| && 0 <= k2 < |s2| && 0 <= k3 < |s3| &&
+  |                                            ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(4,12): Error: unresolved identifier: subsequence
+  |
+4 |     ensures subsequence(lcs, s1)
+  |             ^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(5,12): Error: unresolved identifier: subsequence
+  |
+5 |     ensures subsequence(lcs, s2)
+  |             ^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(6,12): Error: unresolved identifier: subsequence
+  |
+6 |     ensures subsequence(lcs, s3)
+  |             ^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(33,18): Error: a 'for' loop is allowed an explicit 'decreases' clause only if the end-expression is '*'
+   |
+33 |         decreases i
+   |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(37,26): Error: a 'for' loop is allowed an explicit 'decreases' clause only if the end-expression is '*'
+   |
+37 |                 decreases j
+   |                           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(41,34): Error: a 'for' loop is allowed an explicit 'decreases' clause only if the end-expression is '*'
+   |
+41 |                         decreases k
+   |                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(61,18): Error: unresolved identifier: subsequence
+   |
+61 |         invariant subsequence(lcs, s1)
+   |                   ^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(62,18): Error: unresolved identifier: subsequence
+   |
+62 |         invariant subsequence(lcs, s2)
+   |                   ^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(63,18): Error: unresolved identifier: subsequence
+   |
+63 |         invariant subsequence(lcs, s3)
+   |                   ^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(79,11): Error: unresolved identifier: String
+   |
+79 |     lcs := String(lcsChars);
+   |            ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(24,32): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+24 |                                 dp[i,j,k] := 0;
+   |                                 ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(11,37): Error: type array3<array<?>> is not assignable to LHS (of type array<array<array<int>>>)
+   |
+11 |     var dp: array<array<array<int>>> := new array[m+1, n+1, o+1];
+   |                                      ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(44,32): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+44 |                                 dp[i,j,k] := dp[i-1,j-1,k-1] + 1;
+   |                                 ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(44,45): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+44 |                                 dp[i,j,k] := dp[i-1,j-1,k-1] + 1;
+   |                                              ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(46,32): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+46 |                                 dp[i,j,k] := max3(dp[i-1,j,k], dp[i,j-1,k], dp[i,j,k-1]);
+   |                                 ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(46,50): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+46 |                                 dp[i,j,k] := max3(dp[i-1,j,k], dp[i,j-1,k], dp[i,j,k-1]);
+   |                                                   ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(46,63): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+46 |                                 dp[i,j,k] := max3(dp[i-1,j,k], dp[i,j-1,k], dp[i,j,k-1]);
+   |                                                                ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(46,76): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+46 |                                 dp[i,j,k] := max3(dp[i-1,j,k], dp[i,j-1,k], dp[i,j,k-1]);
+   |                                                                             ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(46,52): Error: incorrect argument type at index 0 for function parameter 'a' (expected int, found array<array<int>>)
+   |
+46 |                                 dp[i,j,k] := max3(dp[i-1,j,k], dp[i,j-1,k], dp[i,j,k-1]);
+   |                                                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(46,65): Error: incorrect argument type at index 1 for function parameter 'b' (expected int, found array<array<int>>)
+   |
+46 |                                 dp[i,j,k] := max3(dp[i-1,j,k], dp[i,j-1,k], dp[i,j,k-1]);
+   |                                                                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(46,78): Error: incorrect argument type at index 2 for function parameter 'c' (expected int, found array<array<int>>)
+   |
+46 |                                 dp[i,j,k] := max3(dp[i-1,j,k], dp[i,j-1,k], dp[i,j,k-1]);
+   |                                                                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(46,42): Error: RHS (of type int) not assignable to LHS (of type array<array<int>>)
+   |
+46 |                                 dp[i,j,k] := max3(dp[i-1,j,k], dp[i,j-1,k], dp[i,j,k-1]);
+   |                                           ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(71,18): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+71 |         } else if dp[i-1,j,k] >= dp[i,j-1,k] && dp[i-1,j,k] >= dp[i,j,k-1] {
+   |                   ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(71,33): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+71 |         } else if dp[i-1,j,k] >= dp[i,j-1,k] && dp[i-1,j,k] >= dp[i,j,k-1] {
+   |                                  ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(71,48): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+71 |         } else if dp[i-1,j,k] >= dp[i,j-1,k] && dp[i-1,j,k] >= dp[i,j,k-1] {
+   |                                                 ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(71,63): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+71 |         } else if dp[i-1,j,k] >= dp[i,j-1,k] && dp[i-1,j,k] >= dp[i,j,k-1] {
+   |                                                                ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(73,18): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+73 |         } else if dp[i,j-1,k] >= dp[i-1,j,k] && dp[i,j-1,k] >= dp[i,j,k-1] {
+   |                   ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(73,33): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+73 |         } else if dp[i,j-1,k] >= dp[i-1,j,k] && dp[i,j-1,k] >= dp[i,j,k-1] {
+   |                                  ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(73,48): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+73 |         } else if dp[i,j-1,k] >= dp[i-1,j,k] && dp[i,j-1,k] >= dp[i,j,k-1] {
+   |                                                 ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(73,63): Error: array selection requires an array3 (got array<array<array<int>>>)
+   |
+73 |         } else if dp[i,j-1,k] >= dp[i-1,j,k] && dp[i,j-1,k] >= dp[i,j,k-1] {
+   |                                                                ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(71,30): Error: arguments to >= must be of a numeric type, bitvector type, ORDINAL, char, or a set-like type (instead got _System.array and _System.array)
+   |
+71 |         } else if dp[i-1,j,k] >= dp[i,j-1,k] && dp[i-1,j,k] >= dp[i,j,k-1] {
+   |                               ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(71,60): Error: arguments to >= must be of a numeric type, bitvector type, ORDINAL, char, or a set-like type (instead got _System.array and _System.array)
+   |
+71 |         } else if dp[i-1,j,k] >= dp[i,j-1,k] && dp[i-1,j,k] >= dp[i,j,k-1] {
+   |                                                             ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(73,30): Error: arguments to >= must be of a numeric type, bitvector type, ORDINAL, char, or a set-like type (instead got _System.array and _System.array)
+   |
+73 |         } else if dp[i,j-1,k] >= dp[i-1,j,k] && dp[i,j-1,k] >= dp[i,j,k-1] {
+   |                               ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(73,60): Error: arguments to >= must be of a numeric type, bitvector type, ORDINAL, char, or a set-like type (instead got _System.array and _System.array)
+   |
+73 |         } else if dp[i,j-1,k] >= dp[i-1,j,k] && dp[i,j-1,k] >= dp[i,j,k-1] {
+   |                                                             ^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(44,61): Error: type of right argument to + (int) must agree with the result type (array?<array<int>>)
+   |
+44 |                                 dp[i,j,k] := dp[i-1,j-1,k-1] + 1;
+   |                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(44,61): Error: type of + must be of a numeric type, a bitvector type, ORDINAL, char, a sequence type, or a set-like or map-like type (instead got array?<array<int>>)
+   |
+44 |                                 dp[i,j,k] := dp[i-1,j-1,k-1] + 1;
+   |                                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy(24,42): Error: RHS (of type int) not assignable to LHS (of type array<array<int>>)
+   |
+24 |                                 dp[i,j,k] := 0;
+   |                                           ^^
+
+37 resolution/type errors detected in task_id_747-gpt-4.1-nano-temp_0.5-k_1.dfy

@@ -1,0 +1,31 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_603-gpt-4.1-nano-temp_0.5-k_2.dfy(1,17): Error: closeparen expected
+  |
+1 | predicate Sorted(seq: seq<int>)
+  |                  ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_603-gpt-4.1-nano-temp_0.5-k_2.dfy(3,36): Error: openparen expected
+  |
+3 |     forall i, j :: 0 <= i < j < |seq| ==> seq[i] <= seq[j]
+  |                                     ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_603-gpt-4.1-nano-temp_0.5-k_2.dfy(3,45): Error: openparen expected
+  |
+3 |     forall i, j :: 0 <= i < j < |seq| ==> seq[i] <= seq[j]
+  |                                              ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_603-gpt-4.1-nano-temp_0.5-k_2.dfy(3,55): Error: openparen expected
+  |
+3 |     forall i, j :: 0 <= i < j < |seq| ==> seq[i] <= seq[j]
+  |                                                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_603-gpt-4.1-nano-temp_0.5-k_2.dfy(4,0): Error: comma expected
+  |
+4 | }
+  | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_603-gpt-4.1-nano-temp_0.5-k_2.dfy(34,22): Error: closeparen expected
+   |
+34 |     x >= 0 && (digits of x) are in {1, 2, 3}
+   |                       ^
+
+6 parse errors detected in task_id_603-gpt-4.1-nano-temp_0.5-k_2.dfy

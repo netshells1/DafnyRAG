@@ -1,0 +1,21 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_2.dfy(27,0): Error: invalid UnaryExpression
+   |
+27 | }
+   | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_2.dfy(24,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+24 | function method Words(s: string): seq<string> 
+   | ^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_2.dfy(33,0): Error: invalid UnaryExpression
+   |
+33 | }
+   | ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_772-gpt-4.1-nano-temp_0.5-k_2.dfy(30,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+30 | function method StringFromWords(words: seq<string>): string
+   | ^^^^^^^^^^^^^^^
+
+4 parse errors detected in task_id_772-gpt-4.1-nano-temp_0.5-k_2.dfy

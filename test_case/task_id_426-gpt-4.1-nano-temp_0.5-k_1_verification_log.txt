@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_426-gpt-4.1-nano-temp_0.5-k_1.dfy(15,34): Error: openparen expected
+   |
+15 |         invariant resultSeq == seq{ for k := 0 to i-1 :: arr[k] in arr[..] && IsOdd(arr[k]) } // sequence of odd elements seen so far
+   |                                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_426-gpt-4.1-nano-temp_0.5-k_1.dfy(15,54): Error: invalid ForLoopStmt
+   |
+15 |         invariant resultSeq == seq{ for k := 0 to i-1 :: arr[k] in arr[..] && IsOdd(arr[k]) } // sequence of odd elements seen so far
+   |                                                       ^
+
+2 parse errors detected in task_id_426-gpt-4.1-nano-temp_0.5-k_1.dfy

@@ -1,0 +1,71 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(5,19): Error: type seq<int> does not have a member Length
+  |
+5 |     ensures result.Length == seq1.Length
+  |                    ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(5,34): Error: type seq<int> does not have a member Length
+  |
+5 |     ensures result.Length == seq1.Length
+  |                                   ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(6,40): Error: type seq<int> does not have a member Length
+  |
+6 |     ensures forall i :: 0 <= i < result.Length ==> result[i] == seq1[i] & seq2[i]
+  |                                         ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(6,72): Error: first argument to & must be of a bitvector type (instead got int)
+  |
+6 |     ensures forall i :: 0 <= i < result.Length ==> result[i] == seq1[i] & seq2[i]
+  |                                                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(6,72): Error: second argument to & must be of a bitvector type (instead got int)
+  |
+6 |     ensures forall i :: 0 <= i < result.Length ==> result[i] == seq1[i] & seq2[i]
+  |                                                                         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(2,21): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+2 |     requires seq1 != null
+  |                      ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(3,21): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+3 |     requires seq2 != null
+  |                      ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(4,22): Error: type of 'null' is a reference type, but it is used as seq<int>
+  |
+4 |     ensures result != null
+  |                       ^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(10,19): Error: type seq<int> does not have a member Length
+   |
+10 |     while i < seq1.Length
+   |                    ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(11,33): Error: type seq<int> does not have a member Length
+   |
+11 |         invariant 0 <= i <= seq1.Length
+   |                                  ^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(13,63): Error: first argument to & must be of a bitvector type (instead got int)
+   |
+13 |         invariant forall j :: 0 <= j < i ==> res[j] == seq1[j] & seq2[j]
+   |                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(13,63): Error: second argument to & must be of a bitvector type (instead got int)
+   |
+13 |         invariant forall j :: 0 <= j < i ==> res[j] == seq1[j] & seq2[j]
+   |                                                                ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(15,30): Error: first argument to & must be of a bitvector type (instead got int)
+   |
+15 |         res := res + [seq1[i] & seq2[i]];
+   |                               ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy(15,30): Error: second argument to & must be of a bitvector type (instead got int)
+   |
+15 |         res := res + [seq1[i] & seq2[i]];
+   |                               ^
+
+14 resolution/type errors detected in task_id_429-gpt-4.1-nano-temp_0.5-k_1.dfy

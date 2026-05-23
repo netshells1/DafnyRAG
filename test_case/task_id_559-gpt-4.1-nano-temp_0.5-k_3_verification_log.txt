@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_559-gpt-4.1-nano-temp_0.5-k_3.dfy(9,8): Error: invalid UnaryExpression
+  |
+9 |         while i < a.Length
+  |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_559-gpt-4.1-nano-temp_0.5-k_3.dfy(1,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+  |
+1 | function method MaximumSubArraySum(a: array<int>) : int
+  | ^^^^^^^^^^^^^^^
+
+2 parse errors detected in task_id_559-gpt-4.1-nano-temp_0.5-k_3.dfy

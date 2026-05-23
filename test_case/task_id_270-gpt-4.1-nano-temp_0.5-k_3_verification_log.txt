@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_270-gpt-4.1-nano-temp_0.5-k_3.dfy(8,84): Error: this symbol not expected in Dafny
+  |
+8 |     ensures sum == sumOver(i | 0 <= i < arr.Length && i % 2 == 0 && IsEven(arr[i])) arr[i]
+  |                                                                                     ^
+
+1 parse errors detected in task_id_270-gpt-4.1-nano-temp_0.5-k_3.dfy

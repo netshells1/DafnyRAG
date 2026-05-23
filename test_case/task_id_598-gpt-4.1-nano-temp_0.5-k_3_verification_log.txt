@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_598-gpt-4.1-nano-temp_0.5-k_3.dfy(3,30): Error: unresolved identifier: SumOfDigitsPowered
+  |
+3 |     ensures result <==> (n == SumOfDigitsPowered(n))
+  |                               ^^^^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_598-gpt-4.1-nano-temp_0.5-k_3.dfy(36,18): Error: first argument to ^ must be of a bitvector type (instead got int)
+   |
+36 |     else (x % 10) ^ power + SumDigitsPower(x / 10, power)
+   |                   ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_598-gpt-4.1-nano-temp_0.5-k_3.dfy(36,18): Error: second argument to ^ must be of a bitvector type (instead got int)
+   |
+36 |     else (x % 10) ^ power + SumDigitsPower(x / 10, power)
+   |                   ^
+
+3 resolution/type errors detected in task_id_598-gpt-4.1-nano-temp_0.5-k_3.dfy

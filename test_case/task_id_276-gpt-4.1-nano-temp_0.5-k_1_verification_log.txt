@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_276-gpt-4.1-nano-temp_0.5-k_1.dfy(2,23): Error: invalid Suffix
+  |
+2 |   requires radius > 0. && height > 0.
+  |                        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_276-gpt-4.1-nano-temp_0.5-k_1.dfy(3,2): Error: invalid Suffix
+  |
+3 |   ensures volume == Pi * radius * radius * height
+  |   ^
+
+2 parse errors detected in task_id_276-gpt-4.1-nano-temp_0.5-k_1.dfy

@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_126-gpt-4.1-nano-temp_0.5-k_5.dfy(3,17): Error: unresolved identifier: sumOfCommonDivisors
+  |
+3 |   ensures sum == sumOfCommonDivisors(a, b)
+  |                  ^^^^^^^^^^^^^^^^^^^
+
+1 resolution/type errors detected in task_id_126-gpt-4.1-nano-temp_0.5-k_5.dfy

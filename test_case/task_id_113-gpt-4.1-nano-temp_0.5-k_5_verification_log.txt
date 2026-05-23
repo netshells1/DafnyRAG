@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_113-gpt-4.1-nano-temp_0.5-k_5.dfy(12,23): Error: else expected
+   |
+12 |             startIndex := 1;
+   |                        ^
+
+1 parse errors detected in task_id_113-gpt-4.1-nano-temp_0.5-k_5.dfy

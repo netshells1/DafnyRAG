@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_283-gpt-4.1-nano-temp_0.5-k_5.dfy(9,7): Error: rbracket expected
+  |
+9 |     |[ for c in s | c in s && IsDigit(c) && c as int - 48 == d :: 1 ]|
+  |        ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_283-gpt-4.1-nano-temp_0.5-k_5.dfy(6,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+  |
+6 | function method CountDigitOccurrences(n: int, d: int): int
+  | ^^^^^^^^^^^^^^^
+
+2 parse errors detected in task_id_283-gpt-4.1-nano-temp_0.5-k_5.dfy

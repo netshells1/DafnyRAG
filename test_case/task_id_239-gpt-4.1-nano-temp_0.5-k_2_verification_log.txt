@@ -1,0 +1,6 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_239-gpt-4.1-nano-temp_0.5-k_2.dfy(5,25): Error: openparen expected
+  |
+5 |   ensures count == |{ seq: seq<int> | |seq| == n && |seq| > 0 && 
+  |                          ^
+
+1 parse errors detected in task_id_239-gpt-4.1-nano-temp_0.5-k_2.dfy

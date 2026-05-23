@@ -1,0 +1,11 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_598-gpt-4.1-nano-temp_0.5-k_5.dfy(21,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+21 | function method numberOfDigits(x: int): int
+   | ^^^^^^^^^^^^^^^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_598-gpt-4.1-nano-temp_0.5-k_5.dfy(27,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+27 | function method power(base: int, exp: int): int
+   | ^^^^^^^^^^^^^^^
+
+2 parse errors detected in task_id_598-gpt-4.1-nano-temp_0.5-k_5.dfy

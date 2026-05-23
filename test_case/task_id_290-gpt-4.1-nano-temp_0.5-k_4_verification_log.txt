@@ -1,0 +1,16 @@
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_290-gpt-4.1-nano-temp_0.5-k_4.dfy(9,10): Error: gets expected
+  |
+9 |     for l in lists
+  |           ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_290-gpt-4.1-nano-temp_0.5-k_4.dfy(10,8): Error: ident expected
+   |
+10 |         invariant 0 <= |l| <= |lists| // Since |l| is length of current list
+   |         ^
+
+/home/yqc/dafny-synthesis/output-dynamic_29/task_id_290-gpt-4.1-nano-temp_0.5-k_4.dfy(9,13): Error: Expected 'to' or 'downto'
+  |
+9 |     for l in lists
+  |              ^^^^^
+
+3 parse errors detected in task_id_290-gpt-4.1-nano-temp_0.5-k_4.dfy
