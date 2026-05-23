@@ -1,152 +1,125 @@
 """
-PDF文档向量数据库构建工具
+PDF document vector database builder for Dafny error references.
 """
 
+import argparse
+import os
+import time
 from pathlib import Path
 from typing import List
-from langchain_openai import OpenAIEmbeddings
+
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import Chroma
 from langchain_core.documents import Document
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from tqdm import tqdm
-import time
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_PDF_FILE = REPO_ROOT / "source" / "Dafny_Error.pdf"
+DEFAULT_PERSIST_DIRECTORY = REPO_ROOT / "chroma_db_error"
+DEFAULT_COLLECTION_NAME = "error_documents"
+
+
+def get_api_config(args: argparse.Namespace) -> tuple[str, str]:
+    api_key = args.api_key or os.getenv("OPENAI_API_KEY")
+    base_url = args.base_url or os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
+
+    if not api_key:
+        raise ValueError(
+            "Missing API key. Set OPENAI_API_KEY or pass --api-key."
+        )
+
+    return api_key, base_url
 
 
 class PDFDocumentLoader:
-    """加载和处理PDF文档"""
+    """Load and process PDF documents."""
 
     def __init__(self, api_key: str, base_url: str):
-        """
-        初始化加载器
-        
-        Args:
-            api_key: OpenAI API密钥
-            base_url: API基础URL
-        """
         self.embeddings = OpenAIEmbeddings(
             model="text-embedding-3-small",
             openai_api_key=api_key,
             openai_api_base=base_url,
         )
-        
-        # 文本分割器配置
+
         self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000,        # 每个文本块的大小
-            chunk_overlap=200,      # 块之间的重叠部分
+            chunk_size=1000,
+            chunk_overlap=200,
             length_function=len,
-            separators=["\n\n", "\n", "。", "！", "？", ".", "!", "?", " ", ""]
+            separators=["\n\n", "\n", ".", "!", "?", ";", " ", ""],
         )
 
     def load_pdf(self, pdf_path: str) -> List[Document]:
-        """
-        加载单个PDF文件
-        
-        Args:
-            pdf_path: PDF文件路径
-            
-        Returns:
-            文档列表
-        """
+        """Load a single PDF file."""
         try:
-            print(f"正在加载: {pdf_path}")
+            print(f"Loading: {pdf_path}")
             loader = PyPDFLoader(pdf_path)
             documents = loader.load()
-            print(f"✓ 成功加载 {len(documents)} 页")
+            print(f"Successfully loaded {len(documents)} pages")
             return documents
         except Exception as e:
-            print(f"✗ 加载失败: {e}")
+            print(f"Failed to load PDF: {e}")
             return []
 
     def load_pdf_directory(self, directory: str) -> List[Document]:
-        """
-        从目录加载所有PDF文件
-        
-        Args:
-            directory: PDF文件目录
-            
-        Returns:
-            所有文档的列表
-        """
+        """Load all PDF files from a directory."""
         all_documents = []
         pdf_files = list(Path(directory).glob("*.pdf"))
-        
-        print(f"\n找到 {len(pdf_files)} 个PDF文件\n")
-        
+
+        print(f"\nFound {len(pdf_files)} PDF files\n")
+
         for pdf_file in pdf_files:
             documents = self.load_pdf(str(pdf_file))
-            
-            # 为每个文档添加源文件信息
+
             for doc in documents:
                 doc.metadata["source_file"] = pdf_file.name
-                
+
             all_documents.extend(documents)
-            
+
         return all_documents
 
     def split_documents(self, documents: List[Document]) -> List[Document]:
-        """
-        分割文档为更小的块
-        
-        Args:
-            documents: 原始文档列表
-            
-        Returns:
-            分割后的文档列表
-        """
-        print(f"\n正在分割文档...")
-        print(f"- 原始文档数: {len(documents)}")
-        print(f"- 块大小: {self.text_splitter._chunk_size}")
-        print(f"- 块重叠: {self.text_splitter._chunk_overlap}")
-        
+        """Split documents into smaller chunks."""
+        print("\nSplitting documents...")
+        print(f"- Original document count: {len(documents)}")
+        print(f"- Chunk size: {self.text_splitter._chunk_size}")
+        print(f"- Chunk overlap: {self.text_splitter._chunk_overlap}")
+
         split_docs = self.text_splitter.split_documents(documents)
-        
-        print(f"✓ 分割完成，生成 {len(split_docs)} 个文档块")
+
+        print(f"Splitting complete, generated {len(split_docs)} document chunks")
         return split_docs
 
     def create_vectorstore(
         self,
         documents: List[Document],
-        persist_directory: str = "./chroma_db_error",
-        collection_name: str = "error_documents",
-        batch_size: int = 50,  # 批次大小
+        persist_directory: str = str(DEFAULT_PERSIST_DIRECTORY),
+        collection_name: str = DEFAULT_COLLECTION_NAME,
+        batch_size: int = 50,
     ) -> Chroma:
-        """
-        创建 ChromaDB 向量存储（带进度显示）
-        
-        Args:
-            documents: 文档列表
-            persist_directory: 持久化目录
-            collection_name: 集合名称
-            batch_size: 每批处理的文档数量
-            
-        Returns:
-            Chroma向量存储对象
-        """
-        print(f"\n开始创建向量存储...")
-        print(f"- 文档块数量: {len(documents)}")
-        print(f"- 持久化目录: {persist_directory}")
-        print(f"- 集合名称: {collection_name}")
-        print(f"- 批次大小: {batch_size}")
-        print(f"- 预计批次数: {(len(documents) + batch_size - 1) // batch_size}")
+        """Create a Chroma vector store with progress display."""
+        print("\nCreating vector store...")
+        print(f"- Number of document chunks: {len(documents)}")
+        print(f"- Persist directory: {persist_directory}")
+        print(f"- Collection name: {collection_name}")
+        print(f"- Batch size: {batch_size}")
+        print(f"- Estimated batches: {(len(documents) + batch_size - 1) // batch_size}")
 
-        # 初始化向量存储（使用第一批文档）
-        print(f"\n正在处理向量嵌入...")
-        
-        # 分批处理
+        print("\nProcessing vector embeddings...")
+
         total_batches = (len(documents) + batch_size - 1) // batch_size
         start_time = time.time()
-        
         vectorstore = None
-        
-        with tqdm(total=len(documents), desc="生成向量嵌入", unit="块") as pbar:
+
+        with tqdm(total=len(documents), desc="Generating vector embeddings", unit="chunk") as pbar:
             for i in range(0, len(documents), batch_size):
-                batch = documents[i:i+batch_size]
+                batch = documents[i:i + batch_size]
                 batch_num = i // batch_size + 1
-                
+
                 try:
                     if vectorstore is None:
-                        # 创建初始向量存储
                         vectorstore = Chroma.from_documents(
                             documents=batch,
                             embedding=self.embeddings,
@@ -154,27 +127,25 @@ class PDFDocumentLoader:
                             collection_name=collection_name,
                         )
                     else:
-                        # 添加到现有向量存储
                         vectorstore.add_documents(batch)
-                    
+
                     pbar.update(len(batch))
-                    
-                    # 显示当前进度和预计剩余时间
+
                     elapsed = time.time() - start_time
                     avg_time_per_doc = elapsed / (i + len(batch))
                     remaining_docs = len(documents) - (i + len(batch))
                     eta = avg_time_per_doc * remaining_docs
-                    
+
                     pbar.set_postfix({
-                        '批次': f'{batch_num}/{total_batches}',
-                        '预计剩余': f'{eta/60:.1f}分钟'
+                        "batch": f"{batch_num}/{total_batches}",
+                        "ETA": f"{eta / 60:.1f} min",
                     })
-                    
+
                 except Exception as e:
-                    print(f"\n✗ 批次 {batch_num} 处理失败: {e}")
-                    print(f"正在重试...")
-                    time.sleep(2)  # 等待后重试
-                    
+                    print(f"\nBatch {batch_num} failed: {e}")
+                    print("Retrying...")
+                    time.sleep(2)
+
                     if vectorstore is None:
                         vectorstore = Chroma.from_documents(
                             documents=batch,
@@ -184,78 +155,95 @@ class PDFDocumentLoader:
                         )
                     else:
                         vectorstore.add_documents(batch)
-                    
+
                     pbar.update(len(batch))
 
-        total_time = time.time() - start_time
-        print(f"\n✓ 向量存储创建成功！")
-        
+        print("\nVector store created successfully")
         return vectorstore
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Build the Dafny error PDF vector database."
+    )
+    parser.add_argument("--api-key", help="API key. Defaults to OPENAI_API_KEY.")
+    parser.add_argument(
+        "--base-url",
+        help="API base URL. Defaults to OPENAI_BASE_URL or OpenAI's public API URL.",
+    )
+    parser.add_argument(
+        "--pdf-file",
+        default=str(DEFAULT_PDF_FILE),
+        help="PDF file to load.",
+    )
+    parser.add_argument(
+        "--pdf-directory",
+        help="Directory of PDF files. If set, this is used instead of --pdf-file.",
+    )
+    parser.add_argument(
+        "--persist-directory",
+        default=str(DEFAULT_PERSIST_DIRECTORY),
+        help="Directory where Chroma data is saved.",
+    )
+    parser.add_argument(
+        "--collection-name",
+        default=DEFAULT_COLLECTION_NAME,
+        help="Chroma collection name.",
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=50,
+        help="Number of chunks to embed per batch.",
+    )
+    parser.add_argument(
+        "--no-split",
+        action="store_true",
+        help="Disable document splitting.",
+    )
+    return parser.parse_args()
+
+
 def main():
-    """主函数：构建PDF向量数据库"""
-    
-    # ========== 配置区域 ==========
-    API_KEY = "sk-3mKCbVHEJAOiU1cW72yhmqcYKG9FIWPoIqIA00ImxZ2vwI9b"
-    BASE_URL = "https://turingai.plus/v1"
-    
-    # 选项1: 加载单个PDF文件
-    PDF_FILE = "D:\RAG\source\Dafny_Error.pdf"  # PDF文件路径
-    
-    # 选项2: 加载目录中的所有PDF文件
-    # PDF_DIRECTORY = "pdf_files"  # 取消注释并修改为你的PDF目录
-    
-    PERSIST_DIRECTORY = "./chroma_db_error"  # 数据库保存目录
-    COLLECTION_NAME = "error_documents"      # 集合名称
-    
-    # 是否进行文档分割（推荐开启，特别是对于大文档）
-    SPLIT_DOCUMENTS = True
-    
-    # 批处理大小（调小可以更频繁看到进度，但可能稍慢）
-    BATCH_SIZE = 50
-    # =============================
+    """Build the PDF vector database."""
+    args = parse_args()
+    api_key, base_url = get_api_config(args)
 
     print("=" * 60)
-    print("PDF文档向量数据库构建工具")
+    print("Dafny Error PDF Vector Database Builder")
     print("=" * 60)
 
-    # 初始化加载器
-    loader = PDFDocumentLoader(api_key=API_KEY, base_url=BASE_URL)
+    loader = PDFDocumentLoader(api_key=api_key, base_url=base_url)
 
-    # 加载PDF文件
-    print(f"\n正在加载PDF文件...\n")
-    
-    # 选项1: 加载单个文件
-    documents = loader.load_pdf(PDF_FILE)
-    
-    # 选项2: 加载目录（取消下面两行的注释）
-    # documents = loader.load_pdf_directory(PDF_DIRECTORY)
-    
+    print("\nLoading PDF files...\n")
+    if args.pdf_directory:
+        documents = loader.load_pdf_directory(args.pdf_directory)
+    else:
+        documents = loader.load_pdf(args.pdf_file)
+
     if len(documents) == 0:
-        print("\n未找到任何文档，请检查文件路径")
+        print("\nNo documents found. Please check the input path.")
         return
 
-    print(f"\n总共加载了 {len(documents)} 个页面/文档")
+    print(f"\nTotal pages/documents loaded: {len(documents)}")
 
-    # 分割文档
-    if SPLIT_DOCUMENTS:
+    if not args.no_split:
         documents = loader.split_documents(documents)
 
-    # 创建向量存储
-    vectorstore = loader.create_vectorstore(
+    loader.create_vectorstore(
         documents=documents,
-        persist_directory=PERSIST_DIRECTORY,
-        collection_name=COLLECTION_NAME,
-        batch_size=BATCH_SIZE,
+        persist_directory=args.persist_directory,
+        collection_name=args.collection_name,
+        batch_size=args.batch_size,
     )
 
     print("\n" + "=" * 60)
-    print("数据库构建完成！")
+    print("Database build complete")
     print("=" * 60)
-    print(f"数据库位置: {PERSIST_DIRECTORY}")
-    print(f"集合名称: {COLLECTION_NAME}")
-    print(f"文档块数量: {len(documents)}")
+    print(f"Database location: {args.persist_directory}")
+    print(f"Collection name: {args.collection_name}")
+    print(f"Number of document chunks: {len(documents)}")
+
 
 if __name__ == "__main__":
     main()

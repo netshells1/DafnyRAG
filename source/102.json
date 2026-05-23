@@ -1,0 +1,39 @@
+{
+  "task_id": "102",
+  "task_description": "Implements the selection sort algorithm on the specified array interval [c, f). Uses nested loops to find the minimum value within the subarray and swap positions, ensuring the final interval is sorted while preserving the original multiset.",
+  "method_signature": "method selSort (a:array<int>, c:int, f:int)//f excluded",
+  "test_cases": {
+    "test_1": "var arr1 := new int[5][1, 3, 2, 5, 4];\nselSort(arr1, 1, 4);\nassert sorted_seg(arr1, 1, 4);\nassert multiset(arr1[1..4]) == multiset([3, 2, 5]);\nassert arr1[..1] == [1] && arr1[4..] == [4];",
+    "test_2": "var arr2 := new int[3][5, 1, 2];\nselSort(arr2, 0, 3);\nassert sorted_seg(arr2, 0, 3);\nassert multiset(arr2[0..3]) == multiset([5, 1, 2]);\nassert arr2[..0] == [] && arr2[3..] == [];",
+    "test_3": "var arr3 := new int[4][4, 3, 2, 1];\nselSort(arr3, 0, 2);\nassert sorted_seg(arr3, 0, 2);\nassert multiset(arr3[0..2]) == multiset([4, 3]);\nassert arr3[..0] == [] && arr3[2..] == [2, 1];"
+  },
+  "buggy_code": "predicate sorted_seg(a:array<int>, i:int, j:int) //j not included\nrequires 0 <= i <= j <= a.Length\nreads a\n{\n    forall l, k :: i <= l <= k < j ==> a[l] <= a[k]\n}\n\n\nmethod selSort (a:array<int>, c:int, f:int)//f excluded\nmodifies a \nrequires 0 <= c <= f <= a.Length //when c==f empty sequence\nensures sorted_seg(a,c,f) \nensures multiset(a[c..f]) == old(multiset(a[c..f]))\nensures a[..c]==old(a[..c]) && a[f..]==old(a[f..])\n {if (c<=f-1){//two elements at least\n  var i:=c;\n  while (i<f-1) //outer loop\n  {\n   var less:=i;\n   var j:=i+1;\n   while (j<f) //inner loop\n\n    { if (a[j]<a[less]) {less:=j;}\n      j:=j+1;\n    }\n   a[i],a[less]:=a[less],a[i];\n   i:=i+1;\n  }\n }\n }\n",
+  "verifier_error": [
+    "Warning: this way of using the CLI is deprecated. Use 'dafny --help' to see help for the new Dafny CLI format",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpddnrk1ew/buggy.dfy(17,2): Error: a postcondition could not be proved on this return path",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpddnrk1ew/buggy.dfy(13,26): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpddnrk1ew/buggy.dfy(14,14): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpddnrk1ew/buggy.dfy(14,37): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpddnrk1ew/buggy.dfy(23,16): Error: index out of range",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpddnrk1ew/buggy.dfy(26,9): Error: index out of range",
+    "Dafny program verifier finished with 2 verified, 5 errors"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 17,
+    "context": "while (i<f-1) //outer loop"
+  },
+  "fixed_code": "predicate sorted_seg(a:array<int>, i:int, j:int) //j not included\nrequires 0 <= i <= j <= a.Length\nreads a\n{\n    forall l, k :: i <= l <= k < j ==> a[l] <= a[k]\n}\n\n\nmethod selSort (a:array<int>, c:int, f:int)//f excluded\nmodifies a \nrequires 0 <= c <= f <= a.Length //when c==f empty sequence\nensures sorted_seg(a,c,f) \nensures multiset(a[c..f]) == old(multiset(a[c..f]))\nensures a[..c]==old(a[..c]) && a[f..]==old(a[f..])\n {if (c<=f-1){//two elements at least\n  var i:=c;\n  while (i<f-1) //outer loop\n     decreases f-i\n    invariant c<=i<=f\n    invariant sorted_seg(a,c,i)\n    invariant forall k,l::c<=k<i && i<=l<f ==> a[k]<=a[l]\n    invariant multiset(a[c..f]) == old(multiset(a[c..f]))\n    invariant a[..c]==old(a[..c]) && a[f..]==old(a[f..])\n  {\n   var less:=i;\n   var j:=i+1;\n   while (j<f) //inner loop\n    decreases f-j//write\n    invariant i+1<=j<=f//write\n    invariant i<=less<f\n    invariant sorted_seg(a,c,i)\n    invariant forall k::i<=k<j ==> a[less] <= a[k]\n    invariant forall k,l::c<=k<i && i<=l<f ==> a[k]<=a[l]\n    invariant multiset(a[c..f]) == old(multiset(a[c..f]))\n    invariant a[..c]==old(a[..c]) && a[f..]==old(a[f..])\n\n    { if (a[j]<a[less]) {less:=j;}\n      j:=j+1;\n    }\n   a[i],a[less]:=a[less],a[i];\n   i:=i+1;\n  }\n }\n }\n",
+  "repair_strategy": {
+    "problem_summary": "",
+    "problem_details": {
+      "what": "",
+      "why": "",
+      "how": ""
+    }
+  }
+}

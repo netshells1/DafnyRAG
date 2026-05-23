@@ -1,11 +1,12 @@
 """
-改进的 Dafny 代码修复器 - 修复 JSON 解析和错误处理
+Improved Dafny Code Fixer - Fixed JSON Parsing and Error Handling
 """
 
 import os
 import re
 import json
 import shutil
+import subprocess
 from typing import List, Dict, Optional
 from subprocess import TimeoutExpired, CalledProcessError, check_output
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
@@ -13,9 +14,8 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.documents import Document
 
 import sys
-import os
 
-# 添加项目根目录到路径
+# Add project root to path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 if project_root not in sys.path:
@@ -23,62 +23,62 @@ if project_root not in sys.path:
 
 from core.error_classifier import ErrorClassifier, ErrorType
 from retrievers.smart_retriever import SmartRetriever
-from prompts.templates import PromptTemplates
+from prompts.templatescopy import PromptTemplates
 
 
 class ImprovedDafnyFixer:
-    """改进的 Dafny 代码修复器"""
-    
+    """Improved Dafny Code Fixer"""
+
     def __init__(
         self,
         api_key: str,
         base_url: str,
         output_dir: str = "./output_fixed_improved",
-        clean_output: bool = True
+        clean_output: bool = True,
+        model: str = "gpt-4",
+        temperature: float = 0.2,
     ):
-        """初始化修复器"""
+        """Initialize the fixer"""
         print("=" * 70)
-        print("初始化改进版 Dafny 代码修复器")
+        print("Initializing Improved Dafny Code Fixer")
         print("=" * 70)
-        
-        # 嵌入模型
+
+        # Embedding model
         self.embeddings = OpenAIEmbeddings(
             model="text-embedding-3-small",
             openai_api_key=api_key,
             openai_api_base=base_url,
         )
-        
-        # 生成模型
+
+        # Generation model
         self.llm = ChatOpenAI(
-            # model="gpt-4.1-nano",
-            model="gpt-3.5-turbo",
-            # model="gpt-4",
+            model=model,
             openai_api_key=api_key,
             openai_api_base=base_url,
-            temperature=0.2,
+            temperature=temperature,
         )
-    
-        # 输出目录
+
+        # Output directory
         self.output_dir = output_dir
         if clean_output and os.path.exists(output_dir):
-            print(f"🗑️  清空旧的输出目录: {output_dir}")
+            print(f"Clearing old output directory: {output_dir}")
             shutil.rmtree(output_dir)
-        
+
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
-            print(f"✓ 创建输出目录: {output_dir}")
-        
-        # 知识库
+            print(f"Created output directory: {output_dir}")
+
+        # Knowledge bases
         self.case_db = None
         self.error_db = None
         self.grammar_db = None
-        
-        # 核心组件
+
+        # Core components
         self.error_classifier = ErrorClassifier()
         self.smart_retriever = None
-        
-        print("✓ 修复器初始化完成\n")
-    
+
+        print("Fixer initialized successfully.\n")
+
     def load_all_vectorstores(
         self,
         case_db_dir: str = "./chroma_db",
@@ -88,254 +88,237 @@ class ImprovedDafnyFixer:
         grammar_db_dir: str = "./chroma_db_grammar",
         grammar_db_name: str = "grammar_documents",
     ):
-        """加载所有知识库"""
+        """Load all knowledge bases"""
         print("=" * 70)
-        print("加载知识库")
+        print("Loading Knowledge Bases")
         print("=" * 70)
-        
+
         try:
             self.case_db = Chroma(
                 persist_directory=case_db_dir,
                 embedding_function=self.embeddings,
                 collection_name=case_db_name,
             )
-            print("✓ 案例库加载成功")
+            print("Case database loaded successfully.")
         except Exception as e:
-            print(f"✗ 案例库加载失败: {e}")
+            print(f"Failed to load case database: {e}")
             raise
-        
+
         try:
             self.error_db = Chroma(
                 persist_directory=error_db_dir,
                 embedding_function=self.embeddings,
                 collection_name=error_db_name,
             )
-            print("✓ 错误理论库加载成功")
+            print("Error theory database loaded successfully.")
         except Exception as e:
-            print(f"✗ 错误理论库加载失败: {e}")
+            print(f"Failed to load error theory database: {e}")
             raise
-        
+
         try:
             self.grammar_db = Chroma(
                 persist_directory=grammar_db_dir,
                 embedding_function=self.embeddings,
                 collection_name=grammar_db_name,
             )
-            print("✓ 语法库加载成功")
+            print("Grammar database loaded successfully.")
         except Exception as e:
-            print(f"✗ 语法库加载失败: {e}")
+            print(f"Failed to load grammar database: {e}")
             raise
-        
-        # 初始化智能检索器
+
+        # Initialize smart retriever
         self.smart_retriever = SmartRetriever(
             self.case_db,
             self.error_db,
             self.grammar_db
         )
-        print("✓ 智能检索器初始化完成\n")
-    
+        print("Smart retriever initialized successfully.\n")
+
     def extract_json_from_llm_response(self, content: str) -> Optional[Dict]:
         """
-        改进的 JSON 提取方法 - 支持多种格式和嵌套结构
-        
-        尝试多种策略:
-        1. 提取 ```json ... ``` 代码块
-        2. 直接解析整个响应
-        3. 查找第一个 { 到最后一个 }
+        Improved JSON extraction - supports multiple formats and nested structures.
+
+        Attempts multiple strategies:
+        1. Extract ```json ... ``` code blocks
+        2. Parse the entire response directly
+        3. Find the first { to the last }
         """
-        # 策略 1: 提取 JSON 代码块 (改进的正则，使用贪婪模式)
+        # Strategy 1: Extract JSON code block (improved regex using greedy mode)
         json_match = re.search(r'```json\s*(\{.*\})\s*```', content, re.DOTALL)
         if json_match:
             try:
                 return json.loads(json_match.group(1))
             except json.JSONDecodeError as e:
-                print(f"⚠️  JSON 代码块解析失败: {e}")
-        
-        # 策略 2: 尝试直接解析整个内容
+                print(f"Warning: JSON code block parsing failed: {e}")
+
+        # Strategy 2: Try parsing the entire content directly
         try:
             return json.loads(content.strip())
         except json.JSONDecodeError:
             pass
-        
-        # 策略 3: 查找第一个 { 到最后一个 }
+
+        # Strategy 3: Find first { to last }
         first_brace = content.find('{')
         last_brace = content.rfind('}')
-        
+
         if first_brace != -1 and last_brace != -1 and last_brace > first_brace:
             try:
                 json_str = content[first_brace:last_brace + 1]
                 return json.loads(json_str)
             except json.JSONDecodeError as e:
-                print(f"⚠️  提取 JSON 失败: {e}")
-        
+                print(f"Warning: Failed to extract JSON: {e}")
+
         return None
-    
+
     def extract_code_from_response(self, content: str) -> Optional[str]:
         """
-        从 LLM 响应中提取 Dafny 代码
-        
-        支持多种格式:
+        Extract Dafny code from an LLM response.
+
+        Supports multiple formats:
         1. ```dafny ... ```
-        2. ```java ... ``` (有时 LLM 会错误标记)
-        3. ``` ... ``` (无语言标记)
-        4. 直接的代码文本
+        2. ```java ... ``` (LLMs sometimes mislabel)
+        3. ``` ... ``` (no language tag)
+        4. Raw code text
         """
-        # 尝试提取 dafny 代码块
+        # Try extracting a dafny code block
         dafny_match = re.search(r'```dafny\s*(.*?)\s*```', content, re.DOTALL)
         if dafny_match:
             return dafny_match.group(1).strip()
-        
-        # 尝试提取 java 代码块 (LLM 有时会混淆)
+
+        # Try extracting a java code block (LLMs sometimes confuse the two)
         java_match = re.search(r'```java\s*(.*?)\s*```', content, re.DOTALL)
         if java_match:
             code = java_match.group(1).strip()
-            # 检查是否是 Dafny 代码
             if 'method' in code or 'function' in code or 'requires' in code:
                 return code
-        
-        # 尝试提取任意代码块
+
+        # Try extracting any code block
         code_match = re.search(r'```\s*(.*?)\s*```', content, re.DOTALL)
         if code_match:
             code = code_match.group(1).strip()
-            # 检查是否是 Dafny 代码
             if 'method' in code or 'function' in code:
                 return code
-        
-        # 如果都失败了，尝试查找以 "method" 或 "function" 开头的内容
+
+        # Fallback: find lines starting with "method", "function", etc.
         lines = content.split('\n')
         code_lines = []
         in_code = False
-        
+
         for line in lines:
             if re.match(r'^\s*(method|function|class|datatype)\s+\w+', line):
                 in_code = True
-            
+
             if in_code:
                 code_lines.append(line)
-        
+
         if code_lines:
             return '\n'.join(code_lines).strip()
-        
+
         return None
-    
+
     def analyze_code(self, code: str, errors: List[str]) -> Dict:
-        """
-        在修复前先分析代码
-        """
-        print("\n" + "=" * 70)
-        print("第一步: 代码分析")
-        print("=" * 70)
-        
+        """Analyze code before attempting a fix"""
+
         prompt = PromptTemplates.get_analysis_prompt(code, errors)
-        
+
         try:
             response = self.llm.invoke(prompt)
             content = response.content
-            
-            # 使用改进的 JSON 提取方法
+
             analysis = self.extract_json_from_llm_response(content)
-            
+
             if analysis:
-                print(f"\n📊 代码意图: {analysis.get('intent', 'N/A')}")
-                print(f"📊 算法: {analysis.get('algorithm', 'N/A')}")
-                print(f"📊 错误根因: {analysis.get('error_root_cause', 'N/A')}")
-                print(f"📊 难度评估: {analysis.get('difficulty', 'N/A')}")
-                print(f"📊 建议方向: {analysis.get('suggested_approach', 'N/A')}")
                 return analysis
             else:
-                print("⚠️  无法解析分析结果，使用默认值")
-                print(f"📝 原始响应 (前 500 字符):\n{content[:500]}...")
+                print("Warning: Could not parse analysis result, using defaults.")
+                print(f"Raw response (first 500 chars):\n{content[:500]}...")
                 return {'difficulty': 'medium'}
-                
+
         except Exception as e:
-            print(f"⚠️  代码分析失败: {e}")
+            print(f"Warning: Code analysis failed: {e}")
             return {'difficulty': 'medium'}
-    
+
     def format_cases(self, cases: List[Document]) -> str:
-        """格式化案例"""
+        """Format retrieved cases for prompt injection"""
         if not cases:
-            return "无相似案例"
-        
+            return "No similar cases found."
+
         formatted = []
         for i, doc in enumerate(cases, 1):
             metadata = doc.metadata
             content = doc.page_content
-            
-            # 尝试解析 JSON
+
             try:
                 case_data = json.loads(content)
                 buggy = case_data.get('buggy_code', 'N/A')
                 fixed = case_data.get('fixed_code', 'N/A')
                 errors = case_data.get('verifier_errors', [])
-                
-                case_text = f"""
-### 案例 {i} (Task: {metadata.get('task_id', 'N/A')})
 
-**原始错误**:
+                case_text = f"""
+### Case {i} (Task: {metadata.get('task_id', 'N/A')})
+
+**Original Error**:
 {errors[0] if errors else 'N/A'}
 
-**修复前代码片段**:
+**Buggy Code Snippet**:
 ```dafny
 {buggy}...
 ```
 
-**修复后代码片段**:
+**Fixed Code Snippet**:
 ```dafny
 {fixed}...
 ```
 """
-            except:
+            except Exception:
                 case_text = f"""
-### 案例 {i}
+### Case {i}
 {content[:500]}...
 """
-            
+
             formatted.append(case_text)
-        
+
         return "\n".join(formatted)
-    
+
     def format_auxiliary_docs(self, docs: List[Document]) -> str:
-        """格式化辅助文档"""
+        """Format auxiliary documents for prompt injection"""
         if not docs:
-            return "无相关文档"
-        
+            return "No relevant documents found."
+
         formatted = []
         for i, doc in enumerate(docs, 1):
-            formatted.append(f"### 知识 {i}\n{doc.page_content[:800]}...\n")
-        
+            formatted.append(f"### Knowledge {i}\n{doc.page_content[:800]}...\n")
+
         return "\n".join(formatted)
-    
+
     def generate_first_fix(
         self,
         buggy_code: str,
         verifier_errors: List[str]
     ) -> Dict:
-        """
-        生成首次修复 - 改进的解析逻辑
-        """
+        """Generate the first repair attempt with improved parsing logic"""
         print("\n" + "=" * 70)
-        print("第二步: 错误分类")
+        print("Step 1: Error Classification")
         print("=" * 70)
-        
-        # 1. 错误分类
+
+        # 1. Error classification
         error_analysis = self.error_classifier.classify_errors(verifier_errors)
         primary_type = error_analysis['primary_type']
         type_counts = error_analysis['type_counts']
-        
-        print(f"\n🔍 主要错误类型: {primary_type.value}")
-        print(f"🔍 错误类型统计:")
+
+        print(f"\nPrimary error type: {primary_type.value}")
+        print("Error type breakdown:")
         for etype, count in type_counts.items():
             desc = self.error_classifier.get_error_description(etype)
-            print(f"   - {desc}: {count} 个")
-        
-        # 添加类型描述到分析结果
+            print(f"  - {desc}: {count}")
+
         error_analysis['type_description'] = self.error_classifier.get_error_description(primary_type)
-        
+
         print("\n" + "=" * 70)
-        print("第三步: 智能检索")
+        print("Step 2: Smart Retrieval")
         print("=" * 70)
-        
-        # 2. 智能检索
+
+        # 2. Smart retrieval
         retrieval_result = self.smart_retriever.retrieve_with_fusion(
             buggy_code,
             verifier_errors,
@@ -343,30 +326,20 @@ class ImprovedDafnyFixer:
             k_per_query=1,
             max_total=3
         )
-        
+
         case_docs = retrieval_result['case_docs']
         auxiliary_docs = retrieval_result['auxiliary_docs']
         auxiliary_source = retrieval_result['auxiliary_source']
-        
+
         print("\n" + "=" * 70)
-        print("第四步: 生成修复方案")
+        print("Step 3: Generating Fix")
         print("=" * 70)
-        
-        # 3. 格式化检索结果
+
+        # 3. Format retrieval results
         similar_cases = self.format_cases(case_docs)
         auxiliary_knowledge = self.format_auxiliary_docs(auxiliary_docs)
-        
-        # ======================= 新增代码开始 =======================
-        print("\n" + "↓" * 30 + " 检索到的相似案例 " + "↓" * 30)
-        print(similar_cases)
-        print("-" * 70)
-        print("↓" * 30 + " 检索到的辅助文档 " + "↓" * 30)
-        print(f"来源: {auxiliary_source}")
-        print(auxiliary_knowledge)
-        print("↑" * 30 + " 检索内容结束 " + "↑" * 30 + "\n")
-        # ======================= 新增代码结束 =======================
-        
-        # 4. 构建 Prompt
+
+        # 4. Build prompt
         prompt = PromptTemplates.get_first_fix_prompt(
             buggy_code,
             verifier_errors,
@@ -375,23 +348,22 @@ class ImprovedDafnyFixer:
             auxiliary_knowledge,
             auxiliary_source
         )
-        
-        # 5. 调用 LLM
-        print("\n🤖 调用 LLM 生成修复代码...")
-        
+
+        # 5. Call LLM
+        print("\nCalling LLM to generate fix...")
+
         try:
             response = self.llm.invoke(prompt)
             content = response.content
-            
-            # 尝试解析 JSON
+
             result = self.extract_json_from_llm_response(content)
-            
+
             if result and 'fixed_code' in result:
-                print("✓ 成功解析 LLM 响应")
-                print(f"📝 理解: {result.get('understanding', 'N/A')[:100]}...")
-                print(f"📝 错误原因: {result.get('error_cause', 'N/A')[:100]}...")
-                print(f"📝 修复策略: {result.get('fix_strategy', 'N/A')[:100]}...")
-                
+                print("LLM response parsed successfully.")
+                print(f"  Understanding  : {result.get('understanding', 'N/A')[:100]}...")
+                print(f"  Error cause    : {result.get('error_cause', 'N/A')[:100]}...")
+                print(f"  Fix strategy   : {result.get('fix_strategy', 'N/A')[:100]}...")
+
                 return {
                     'fixed_code': result['fixed_code'],
                     'understanding': result.get('understanding', ''),
@@ -401,14 +373,13 @@ class ImprovedDafnyFixer:
                     'error_analysis': error_analysis
                 }
             else:
-                # 尝试提取代码
-                print("⚠️  无法解析 JSON，尝试直接提取代码...")
-                print(f"📝 原始响应 (前 500 字符):\n{content[:500]}...")
-                
+                print("Warning: Could not parse JSON. Attempting direct code extraction...")
+                print(f"Raw response (first 500 chars):\n{content[:500]}...")
+
                 code = self.extract_code_from_response(content)
-                
+
                 if code:
-                    print("✓ 成功提取代码")
+                    print("Code extracted successfully.")
                     return {
                         'fixed_code': code,
                         'understanding': 'Failed to parse',
@@ -418,7 +389,7 @@ class ImprovedDafnyFixer:
                         'error_analysis': error_analysis
                     }
                 else:
-                    print("✗ 无法提取代码，使用原始代码")
+                    print("Failed to extract code. Returning original code.")
                     return {
                         'fixed_code': buggy_code,
                         'understanding': 'Parse failed',
@@ -427,12 +398,12 @@ class ImprovedDafnyFixer:
                         'key_changes': [],
                         'error_analysis': error_analysis
                     }
-                    
+
         except Exception as e:
-            print(f"✗ 生成修复失败: {e}")
+            print(f"Failed to generate fix: {e}")
             import traceback
             traceback.print_exc()
-            
+
             return {
                 'fixed_code': buggy_code,
                 'understanding': str(e),
@@ -441,7 +412,7 @@ class ImprovedDafnyFixer:
                 'key_changes': [],
                 'error_analysis': error_analysis
             }
-    
+
     def generate_iterative_fix(
         self,
         current_code: str,
@@ -449,31 +420,29 @@ class ImprovedDafnyFixer:
         iteration: int,
         previous_attempts: List[Dict]
     ) -> Dict:
-        """
-        生成迭代修复 - 改进的解析逻辑
-        """
+        """Generate an iterative repair with improved parsing logic"""
         print("\n" + "=" * 70)
-        print("第二步: 错误分类")
+        print("Step 1: Error Classification")
         print("=" * 70)
-        
-        # 错误分类
+
+        # Error classification
         error_analysis = self.error_classifier.classify_errors(current_errors)
         primary_type = error_analysis['primary_type']
         type_counts = error_analysis['type_counts']
-        
-        print(f"\n🔍 主要错误类型: {primary_type.value}")
-        print(f"🔍 错误类型统计:")
+
+        print(f"\nPrimary error type: {primary_type.value}")
+        print("Error type breakdown:")
         for etype, count in type_counts.items():
             desc = self.error_classifier.get_error_description(etype)
-            print(f"   - {desc}: {count} 个")
-        
+            print(f"  - {desc}: {count}")
+
         error_analysis['type_description'] = self.error_classifier.get_error_description(primary_type)
-        
+
         print("\n" + "=" * 70)
-        print("第三步: 构建迭代 Prompt")
+        print("Step 2: Building Iterative Prompt")
         print("=" * 70)
-        
-        # 构建 Prompt
+
+        # Build prompt
         prompt = PromptTemplates.get_iterative_fix_prompt(
             current_code,
             current_errors,
@@ -481,21 +450,20 @@ class ImprovedDafnyFixer:
             previous_attempts,
             error_analysis
         )
-        
-        print("\n🤖 调用 LLM 生成修复代码...")
-        
+
+        print("\nCalling LLM to generate fix...")
+
         try:
             response = self.llm.invoke(prompt)
             content = response.content
-            
-            # 尝试解析 JSON
+
             result = self.extract_json_from_llm_response(content)
-            
+
             if result and 'fixed_code' in result:
-                print("✓ 成功解析 LLM 响应")
-                print(f"📝 反思: {result.get('reflection', 'N/A')[:100]}...")
-                print(f"📝 新策略: {result.get('new_strategy', 'N/A')[:100]}...")
-                
+                print("LLM response parsed successfully.")
+                print(f"  Reflection  : {result.get('reflection', 'N/A')[:100]}...")
+                print(f"  New strategy: {result.get('new_strategy', 'N/A')[:100]}...")
+
                 return {
                     'fixed_code': result['fixed_code'],
                     'reflection': result.get('reflection', ''),
@@ -504,14 +472,13 @@ class ImprovedDafnyFixer:
                     'error_analysis': error_analysis
                 }
             else:
-                # 尝试提取代码
-                print("⚠️  无法解析 JSON，尝试直接提取代码...")
-                print(f"📝 原始响应 (前 500 字符):\n{content[:500]}...")
-                
+                print("Warning: Could not parse JSON. Attempting direct code extraction...")
+                print(f"Raw response (first 500 chars):\n{content[:500]}...")
+
                 code = self.extract_code_from_response(content)
-                
+
                 if code:
-                    print("✓ 成功提取代码")
+                    print("Code extracted successfully.")
                     return {
                         'fixed_code': code,
                         'reflection': 'Failed to parse',
@@ -520,7 +487,7 @@ class ImprovedDafnyFixer:
                         'error_analysis': error_analysis
                     }
                 else:
-                    print("✗ 无法提取代码，使用当前代码")
+                    print("Failed to extract code. Returning current code.")
                     return {
                         'fixed_code': current_code,
                         'reflection': 'Parse failed',
@@ -528,12 +495,12 @@ class ImprovedDafnyFixer:
                         'key_changes': [],
                         'error_analysis': error_analysis
                     }
-        
+
         except Exception as e:
-            print(f"✗ 迭代修复失败: {e}")
+            print(f"Iterative fix failed: {e}")
             import traceback
             traceback.print_exc()
-            
+
             return {
                 'fixed_code': current_code,
                 'reflection': str(e),
@@ -541,24 +508,24 @@ class ImprovedDafnyFixer:
                 'key_changes': [],
                 'error_analysis': error_analysis
             }
-    
+
     def save_fixed_code(self, task_id: str, fixed_code: str, iteration: int = 1) -> str:
-        """保存修复后的代码"""
+        """Save the fixed code to a file"""
         filename = f"task_id_{task_id}-iter_{iteration}-fixed.dfy"
         filepath = os.path.join(self.output_dir, filename)
-        
+
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(fixed_code)
-        
-        print(f"✓ 代码已保存: {filepath}")
+
+        print(f"Code saved: {filepath}")
         return filepath
-    
+
     def verify_dafny_code(
         self, dfy_file_path: str, timeout: int = 60
     ) -> tuple[int, int, str]:
         """
-        验证 Dafny 代码
-        
+        Verify a Dafny source file.
+
         Returns:
             (verification_count, error_count, output)
         """
@@ -570,84 +537,80 @@ class ImprovedDafnyFixer:
                 stderr=subprocess.STDOUT
             )
         except TimeoutExpired:
-            print(f"⏱️  验证超时 (>{timeout}s)")
+            print(f"Verification timed out (>{timeout}s)")
             return (0, -1, "Timeout")
         except CalledProcessError as e:
             cmd_output = e.output
         except FileNotFoundError:
-            print("✗ Dafny 未安装")
+            print("Dafny is not installed or not found on PATH.")
             return (0, -2, "Dafny not found")
         except Exception as e:
-            print(f"✗ 验证失败: {e}")
+            print(f"Verification error: {e}")
             return (0, -2, str(e))
-        
-        # 解析输出
+
+        # Parse output
         verification_count = 0
         error_count = 0
-        
-        # 首先检查是否有 parse errors (语法错误)
+
+        # Check for parse errors (syntax errors) first
         parse_error_match = re.search(r'(\d+)\s+parse\s+errors?', cmd_output, re.IGNORECASE)
         if parse_error_match:
             error_count = int(parse_error_match.group(1))
             verification_count = 0
             return (verification_count, error_count, cmd_output)
-        
-        # 检查验证统计行: "X verified, Y errors"
+
+        # Check summary line: "X verified, Y errors"
         for line in cmd_output.split('\n'):
-            # 提取验证成功的数量
             if 'verified' in line.lower():
                 match = re.search(r'(\d+)\s+verified', line, re.IGNORECASE)
                 if match:
                     verification_count = int(match.group(1))
-            
-            # 提取错误数量 - 从 "X errors" 格式提取
+
             error_match = re.search(r'(\d+)\s+errors?', line, re.IGNORECASE)
             if error_match:
                 error_count = int(error_match.group(1))
-                break  # 找到错误统计就停止
-        
-        # 如果没有找到统计,手动计数 "Error:" 行
+                break
+
+        # Fallback: manually count "Error:" lines if no summary found
         if error_count == 0 and verification_count == 0:
             for line in cmd_output.split('\n'):
                 line_stripped = line.strip()
-                if (': Error:' in line_stripped or 
-                    line_stripped.startswith('Error:') or 
-                    line_stripped.startswith('error:')):
+                if (': Error:' in line_stripped or
+                        line_stripped.startswith('Error:') or
+                        line_stripped.startswith('error:')):
                     error_count += 1
-        
+
         return (verification_count, error_count, cmd_output)
-    
+
     def parse_verifier_errors(self, output: str) -> List[str]:
-        """从验证器输出中提取错误信息"""
+        """Extract error messages from verifier output"""
         errors = []
         for line in output.split('\n'):
             line = line.strip()
-            # 改进：兼容 "file(x,y): Error:" 格式和 "Error:" 开头的格式
             if (': Error:' in line) or (': error:' in line) or \
                line.startswith('Error:') or line.startswith('error:'):
                 errors.append(line)
-        
-        # 如果没有提取到标准错误，尝试提取其它相关信息作为兜底
+
+        # Fallback: extract lines containing keywords if no standard errors found
         if not errors and "errors" in output.lower():
-             # 提取包含 failure 或 violation 的行作为替补
             for line in output.split('\n'):
                 if any(k in line.lower() for k in ['violation', 'failure', 'could not be proved']):
                     errors.append(line.strip())
 
         return errors if errors else []
-    
+
     def save_verification_log(
         self, task_id: str, cmd_output: str, iteration: int = 1
     ) -> str:
-        """保存验证日志"""
+        """Save the verification log to a file"""
         filename = f"task_id_{task_id}-iter_{iteration}-verification.log"
         filepath = os.path.join(self.output_dir, filename)
-        
+
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(cmd_output)
-        
+
         return filepath
-    
+
     def iterative_fix_pipeline(
         self,
         buggy_code: str,
@@ -655,32 +618,29 @@ class ImprovedDafnyFixer:
         task_id: str = "unknown",
         max_iterations: int = 5
     ) -> Dict:
-        """
-        完整的迭代修复流程
-        """
+        """Run the full iterative repair pipeline"""
         print("\n" + "=" * 70)
-        print(f"开始迭代修复流程 (最大 {max_iterations} 次)")
+        print(f"Starting Iterative Repair Pipeline (max {max_iterations} iterations)")
         print("=" * 70)
-        
-        # 确保知识库已加载
+
+        # Ensure knowledge bases are loaded
         if self.case_db is None:
-            print("\n⚠️  知识库未加载，正在加载...")
+            print("\nKnowledge bases not loaded. Loading now...")
             self.load_all_vectorstores()
-        
-        # 代码分析
+
+        # Analyze code before starting
         analysis = self.analyze_code(buggy_code, verifier_errors)
-        
-        # 修复历史
+
         fix_history = []
         current_code = buggy_code
         current_errors = verifier_errors
-        
+
         for iteration in range(1, max_iterations + 1):
             print("\n" + "=" * 70)
-            print(f"迭代 {iteration}/{max_iterations}")
+            print(f"Iteration {iteration}/{max_iterations}")
             print("=" * 70)
-            
-            # 生成修复
+
+            # Generate fix
             if iteration == 1:
                 fix_result = self.generate_first_fix(current_code, current_errors)
             else:
@@ -690,17 +650,17 @@ class ImprovedDafnyFixer:
                     iteration,
                     fix_history
                 )
-            
-            # 保存代码
+
+            # Save code
             dfy_path = self.save_fixed_code(task_id, fix_result['fixed_code'], iteration)
-            
-            # 验证代码
-            print(f"\n🔍 验证修复后的代码...")
+
+            # Verify code
+            print(f"\nVerifying fixed code...")
             verification_count, error_count, verification_output = self.verify_dafny_code(dfy_path)
-            
+
             log_path = self.save_verification_log(task_id, verification_output, iteration)
-            
-            # 记录本次尝试
+
+            # Record this attempt
             iteration_record = {
                 'iteration': iteration,
                 'code': fix_result['fixed_code'],
@@ -712,8 +672,7 @@ class ImprovedDafnyFixer:
                 'success': error_count == 0,
                 'key_changes': fix_result.get('key_changes', [])
             }
-            
-            # 添加分析信息
+
             if iteration == 1:
                 iteration_record['understanding'] = fix_result.get('understanding', '')
                 iteration_record['error_cause'] = fix_result.get('error_cause', '')
@@ -721,47 +680,42 @@ class ImprovedDafnyFixer:
             else:
                 iteration_record['reflection'] = fix_result.get('reflection', '')
                 iteration_record['new_strategy'] = fix_result.get('new_strategy', '')
-            
+
             fix_history.append(iteration_record)
-            
-            # 显示结果和判断成功
-            # 成功条件: 必须有验证通过项 且 没有错误
+
+            # Success requires both passing verifications and zero errors
             is_truly_successful = (error_count == 0 and verification_count > 0)
-            
+
             if is_truly_successful:
-                print(f"\n{'✓' * 35}")
-                print(f"🎉 修复成功! 第 {iteration} 次尝试通过验证!")
-                print(f"   通过: {verification_count} 项")
-                print(f"{'✓' * 35}")
+                print(f"\nRepair succeeded on iteration {iteration}!")
+                print(f"  Verified: {verification_count} item(s)")
                 break
             elif error_count == 0 and verification_count == 0:
-                # 没有验证通过项,也没有错误 - 可能是解析失败或空文件
-                print(f"\n⚠️  验证结果异常 (第 {iteration} 次尝试)")
-                print(f"   无法确定验证状态 (verified=0, errors=0)")
-                print(f"   请手动检查: {log_path}")
-                # 视为失败,继续尝试
+                # Ambiguous result: no errors, but also nothing verified
+                print(f"\nWarning: Ambiguous verification result on iteration {iteration}.")
+                print(f"  verified=0, errors=0 - please inspect manually: {log_path}")
                 if iteration >= max_iterations:
-                    print(f"\n⚠️  已达最大迭代次数")
+                    print("Maximum iterations reached.")
                     break
             elif error_count == -1:
-                print(f"\n⏱️  验证超时")
+                print("\nVerification timed out.")
                 break
             elif error_count == -2:
-                print(f"\n✗ 验证失败")
+                print("\nVerification failed.")
             else:
-                print(f"\n✗ 仍有 {error_count} 个错误")
-                print(f"   通过: {verification_count} 项")
-                
+                print(f"\nStill {error_count} error(s) remaining.")
+                print(f"  Verified: {verification_count} item(s)")
+
                 if iteration < max_iterations:
-                    print(f"\n➡️  继续第 {iteration + 1} 次尝试...")
+                    print(f"\nProceeding to iteration {iteration + 1}...")
                     current_code = fix_result['fixed_code']
                     current_errors = self.parse_verifier_errors(verification_output)
                 else:
-                    print(f"\n⚠️  已达最大迭代次数")
-        
-        # 返回结果
+                    print("Maximum iterations reached.")
+
+        # Return final result
         final_result = fix_history[-1] if fix_history else None
-        
+
         return {
             'task_id': task_id,
             'original_code': buggy_code,
@@ -774,7 +728,3 @@ class ImprovedDafnyFixer:
             'final_code': final_result['code'] if final_result else None,
             'final_error_count': final_result['error_count'] if final_result else -1
         }
-
-
-# 为了兼容性，添加 subprocess 导入
-import subprocess

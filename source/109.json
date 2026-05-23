@@ -1,0 +1,36 @@
+{
+  "task_id": "109",
+  "task_description": "Splits an integer array into two subarrays at the middle position. The first half of elements are stored in the first array, and the remaining elements are stored in the second array, preserving the original order of elements.",
+  "method_signature": "method ArraySplit (a : array<int>) returns (b : array<int>, c : array<int>)",
+  "test_cases": {
+    "test_1": "var a1 := new int[4][1,2,3,4];\nvar b1, c1 := ArraySplit(a1);\nassert b1[..] == [1,2] && c1[..] == [3,4];",
+    "test_2": "var a2 := new int[5][10,20,30,40,50];\nvar b2, c2 := ArraySplit(a2);\nassert b2[..] == [10,20] && c2[..] == [30,40,50];",
+    "test_3": "var a3 := new int[1][100];\nvar b3, c3 := ArraySplit(a3);\nassert b3[..] == [] && c3[..] == [100];"
+  },
+  "buggy_code": "method ArraySplit (a : array<int>) returns (b : array<int>, c : array<int>)\n  ensures fresh(b)\n  ensures fresh(c)\n  ensures a[..] == b[..] + c[..]\n  ensures a.Length == b.Length + c.Length\n  ensures a.Length > 1 ==> a.Length > b.Length\n  ensures a.Length > 1 ==> a.Length > c.Length\n{\n  var splitPoint : int := a.Length / 2;\n\n  b := new int[splitPoint];\n  c := new int[a.Length - splitPoint];\n\n  var i : int := 0;\n\n  while (i < splitPoint)\n  {\n    b[i] := a[i];\n    i := i + 1;\n  }\n\n  // while(i < a.Length)\n  //   invariant splitPoint <= i <= a.Length\n  //   invariant c[..i-splitPoint] == a[..i]\n  // {\n  //   c[i] := a[i];\n  //   i := i+1;\n  // }\n\n  var j : int := 0;\n  while (i < a.Length)\n  {\n    c[j] := a[i];\n    i := i + 1;\n    j := j + 1;\n  }\n\n}\n\n\n\n",
+  "verifier_error": [
+    "Warning: this way of using the CLI is deprecated. Use 'dafny --help' to see help for the new Dafny CLI format",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmp0bu7ypvt/buggy.dfy(31,2): Error: a postcondition could not be proved on this return path",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmp0bu7ypvt/buggy.dfy(4,16): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmp0bu7ypvt/buggy.dfy(33,5): Error: index out of range",
+    "Dafny program verifier finished with 1 verified, 2 errors"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 31,
+    "context": "while (i < a.Length)"
+  },
+  "fixed_code": "method ArraySplit (a : array<int>) returns (b : array<int>, c : array<int>)\n  ensures fresh(b)\n  ensures fresh(c)\n  ensures a[..] == b[..] + c[..]\n  ensures a.Length == b.Length + c.Length\n  ensures a.Length > 1 ==> a.Length > b.Length\n  ensures a.Length > 1 ==> a.Length > c.Length\n{\n  var splitPoint : int := a.Length / 2;\n\n  b := new int[splitPoint];\n  c := new int[a.Length - splitPoint];\n\n  var i : int := 0;\n\n  while (i < splitPoint)\n    invariant 0 <= i <= splitPoint\n    invariant b[..i] == a[..i]\n  {\n    b[i] := a[i];\n    i := i + 1;\n  }\n\n  // while(i < a.Length)\n  //   invariant splitPoint <= i <= a.Length\n  //   invariant c[..i-splitPoint] == a[..i]\n  // {\n  //   c[i] := a[i];\n  //   i := i+1;\n  // }\n\n  var j : int := 0;\n  while (i < a.Length)\n    invariant splitPoint <= i <= a.Length\n    invariant j == i - splitPoint\n    invariant c[..j] == a[splitPoint..i]\n    invariant b[..] + c[..j] == a[..i]\n  {\n    c[j] := a[i];\n    i := i + 1;\n    j := j + 1;\n  }\n\n}\n\n\n\n",
+  "repair_strategy": {
+    "problem_summary": "",
+    "problem_details": {
+      "what": "",
+      "why": "",
+      "how": ""
+    }
+  }
+}

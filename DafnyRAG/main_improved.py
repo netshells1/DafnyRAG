@@ -1,54 +1,59 @@
 """
-改进版 Dafny 代码修复工具 - 主程序
+Dafny Code Repair Tool - Main Program
 """
 
+import os
 import sys
-sys.path.append('/home/claude/dafny_fixer_improved')
+from pathlib import Path
+
+CURRENT_DIR = Path(__file__).resolve().parent
+if str(CURRENT_DIR) not in sys.path:
+    sys.path.insert(0, str(CURRENT_DIR))
 
 from core.improved_fixer import ImprovedDafnyFixer
 
 
 def main():
-    """主函数"""
+    """Main function"""
     
     print("=" * 70)
-    print("改进版 Dafny 代码修复工具")
-    print("主要改进:")
-    print("  ✓ 细化错误分类 (10+ 种错误类型)")
-    print("  ✓ 智能多查询检索")
-    print("  ✓ 代码理解 + 推理步骤")
-    print("  ✓ 带反思的迭代修复")
-    print("  ✓ 增强的 Prompt 设计")
+    print("Dafny Code Repair Tool")
     print("=" * 70)
     
-    # ========== 配置 ==========
-    API_KEY = "sk-3mKCbVHEJAOiU1cW72yhmqcYKG9FIWPoIqIA00ImxZ2vwI9b"
-    BASE_URL = "https://turingai.plus/v1"
+    # ========== Configuration ==========
+    API_KEY = os.getenv("OPENAI_API_KEY")
+    BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
+    MODEL = os.getenv("OPENAI_MODEL", "gpt-4")
+
+    if not API_KEY:
+        print("Missing API key. Set OPENAI_API_KEY before running this script.")
+        return
     
-    # 知识库配置
-    CASE_DB_DIR = "./chroma_db"
+    # Vector store configuration
+    CASE_DB_DIR = str(CURRENT_DIR / "chroma_db")
     CASE_DB_NAME = "dafny_error_cases"
     
-    ERROR_DB_DIR = "./chroma_db_error"
+    ERROR_DB_DIR = str(CURRENT_DIR / "chroma_db_error")
     ERROR_DB_NAME = "error_documents"
     
-    GRAMMAR_DB_DIR = "./chroma_db_grammar"
+    GRAMMAR_DB_DIR = str(CURRENT_DIR / "chroma_db_grammar")
     GRAMMAR_DB_NAME = "grammar_documents"
     
-    OUTPUT_DIR = "./output_fixed_improved"
+    OUTPUT_DIR = str(CURRENT_DIR / "output_fixed_improved")
     MAX_ITERATIONS = 5
     CLEAN_OUTPUT = True
-    # ==========================
+    # ====================================
     
-    # 初始化修复器
+    # Initialize fixer
     fixer = ImprovedDafnyFixer(
         api_key=API_KEY,
         base_url=BASE_URL,
         output_dir=OUTPUT_DIR,
-        clean_output=CLEAN_OUTPUT
+        clean_output=CLEAN_OUTPUT,
+        model=MODEL,
     )
     
-    # 加载知识库
+    # Load knowledge bases
     try:
         fixer.load_all_vectorstores(
             case_db_dir=CASE_DB_DIR,
@@ -59,12 +64,12 @@ def main():
             grammar_db_name=GRAMMAR_DB_NAME,
         )
     except Exception as e:
-        print(f"✗ 加载知识库失败: {e}")
-        print("请确保知识库目录存在且包含正确的数据")
+        print(f"Failed to load knowledge bases: {e}")
+        print("Please ensure the knowledge base directories exist and contain valid data.")
         return
     
-    # ========== 测试案例 ==========
-    # 案例1: 简单的未定义标识符错误
+    # ========== Test Cases ==========
+    # Case 1: Simple unresolved identifier error
     test_case_1 = {
         "task_id": "82",
         "buggy_code": """
@@ -80,7 +85,7 @@ method SphereVolume(radius: real) returns (volume: real)
         ],
     }
     
-    # 案例2: 复杂的循环不变量错误
+    # Case 2: Complex loop invariant error
     test_case_2 = {
         "task_id": "loop_test",
         "buggy_code": """
@@ -103,38 +108,38 @@ method Sum(n: int) returns (sum: int)
         ],
     }
     
-    # 选择测试案例
+    # Select test case
     print("\n" + "=" * 70)
-    print("选择测试案例:")
-    print("  1. 简单案例 (未定义标识符)")
-    print("  2. 复杂案例 (循环不变量)")
+    print("Select a Test Case:")
+    print("  1. Simple case (unresolved identifier)")
+    print("  2. Complex case (loop invariant)")
     print("=" * 70)
     
-    choice = input("\n请输入选择 (1/2，默认1): ").strip()
+    choice = input("\nEnter your choice (1/2, default: 1): ").strip()
     
     if choice == "2":
         test_case = test_case_2
-        print("\n✓ 选择了案例2: 循环不变量错误")
+        print("\nSelected Case 2: Loop Invariant Error")
     else:
         test_case = test_case_1
-        print("\n✓ 选择了案例1: 未定义标识符")
+        print("\nSelected Case 1: Unresolved Identifier")
     
     buggy_code = test_case["buggy_code"]
     verifier_errors = test_case["verifier_errors"]
     task_id = test_case["task_id"]
     
-    # 显示输入
+    # Display input
     print("\n" + "=" * 70)
-    print("输入信息")
+    print("Input Information")
     print("=" * 70)
-    print(f"\n任务ID: {task_id}")
-    print("\n错误代码:")
+    print(f"\nTask ID: {task_id}")
+    print("\nBuggy Code:")
     print(buggy_code)
-    print("\n验证器报错:")
+    print("\nVerifier Errors:")
     for i, err in enumerate(verifier_errors, 1):
         print(f"  {i}. {err}")
     
-    # 执行修复
+    # Run repair pipeline
     result = fixer.iterative_fix_pipeline(
         buggy_code=buggy_code,
         verifier_errors=verifier_errors,
@@ -142,59 +147,59 @@ method Sum(n: int) returns (sum: int)
         max_iterations=MAX_ITERATIONS,
     )
     
-    # 显示最终结果
+    # Display final result
     print("\n" + "=" * 70)
-    print("最终结果")
+    print("Final Result")
     print("=" * 70)
     
-    print(f"\n任务ID: {result['task_id']}")
-    print(f"总迭代次数: {result['total_iterations']}/{result['max_iterations']}")
-    print(f"修复状态: {'✓ 成功' if result['final_success'] else '✗ 失败'}")
-    print(f"最终错误数: {result['final_error_count']}")
+    print(f"\nTask ID: {result['task_id']}")
+    print(f"Total Iterations: {result['total_iterations']}/{result['max_iterations']}")
+    print(f"Repair Status: {'Success' if result['final_success'] else 'Failed'}")
+    print(f"Remaining Errors: {result['final_error_count']}")
     
-    # 显示代码分析
+    # Display code analysis
     if 'code_analysis' in result:
         analysis = result['code_analysis']
-        print(f"\n代码分析:")
-        print(f"  - 难度: {analysis.get('difficulty', 'N/A')}")
-        print(f"  - 意图: {analysis.get('intent', 'N/A')[:100]}...")
+        print(f"\nCode Analysis:")
+        print(f"  - Difficulty: {analysis.get('difficulty', 'N/A')}")
+        print(f"  - Intent: {analysis.get('intent', 'N/A')[:100]}...")
     
-    # 显示迭代历史
+    # Display iteration history
     print("\n" + "=" * 70)
-    print("迭代历史")
+    print("Iteration History")
     print("=" * 70)
     
     for record in result['fix_history']:
-        status = "✓ 成功" if record['success'] else f"✗ 失败 ({record['error_count']} 个错误)"
-        print(f"\n第 {record['iteration']} 次尝试: {status}")
-        print(f"  文件: {record['dfy_file_path']}")
-        print(f"  日志: {record['verification_log_path']}")
+        status = "Success" if record['success'] else f"Failed ({record['error_count']} errors)"
+        print(f"\nIteration {record['iteration']}: {status}")
+        print(f"  File: {record['dfy_file_path']}")
+        print(f"  Log:  {record['verification_log_path']}")
         
         if record.get('key_changes'):
-            print(f"  改动: {', '.join(record['key_changes'][:2])}...")
+            print(f"  Changes: {', '.join(record['key_changes'][:2])}...")
         
         if record['iteration'] == 1:
             if record.get('understanding'):
-                print(f"  理解: {record['understanding'][:80]}...")
+                print(f"  Understanding: {record['understanding'][:80]}...")
         else:
             if record.get('reflection'):
-                print(f"  反思: {record['reflection'][:80]}...")
+                print(f"  Reflection: {record['reflection'][:80]}...")
     
-    # 显示最终代码
+    # Display final code
     if result['final_success']:
         print("\n" + "=" * 70)
-        print("✓ 修复成功的代码")
+        print("Successfully Repaired Code")
         print("=" * 70)
         print(result['final_code'])
     else:
         print("\n" + "=" * 70)
-        print("✗ 修复失败")
+        print("Repair Failed")
         print("=" * 70)
-        print("建议:")
-        print("  1. 检查知识库是否包含相关案例")
-        print("  2. 尝试增加最大迭代次数")
-        print("  3. 手动检查错误类型是否正确分类")
-        print("  4. 查看详细的验证日志了解具体问题")
+        print("Suggestions:")
+        print("  1. Check whether the knowledge base contains relevant cases")
+        print("  2. Try increasing the maximum number of iterations")
+        print("  3. Verify that error types are correctly classified")
+        print("  4. Review the detailed verification logs for specifics")
 
 
 if __name__ == "__main__":

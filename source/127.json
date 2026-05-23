@@ -1,0 +1,39 @@
+{
+  "task_id": "127",
+  "task_description": "Implements odd-even partition sorting for arrays, placing all odd elements before even ones while preserving the element multiset. Maintains the partition invariant via a two-pointer swapping algorithm, ensuring the left section contains only odd elements and the right section only even elements.",
+  "method_signature": "method partitionOddEven(a: array<nat>)",
+  "test_cases": {
+    "test_1": "var a1: array<nat> := new nat[] [1, 2, 3, 4, 5];\npartitionOddEven(a1);\nassert multiset(a1[..]) == multiset([1, 2, 3, 4, 5]);\nassert ! exists i, j :: 0 <= i < j < a1.Length && a1[i] % 2 == 0 && a1[j] % 2 == 1;",
+    "test_2": "var a2: array<nat> := new nat[] [2, 4, 6, 8];\npartitionOddEven(a2);\nassert multiset(a2[..]) == multiset([2, 4, 6, 8]);\nassert ! exists i, j :: 0 <= i < j < a2.Length && a2[i] % 2 == 0 && a2[j] % 2 == 1;",
+    "test_3": "var a3: array<nat> := new nat[] [1, 3, 5, 7];\npartitionOddEven(a3);\nassert multiset(a3[..]) == multiset([1, 3, 5, 7]);\nassert ! exists i, j :: 0 <= i < j < a3.Length && a3[i] % 2 == 0 && a3[j] % 2 == 1;"
+  },
+  "buggy_code": "// Rearranges the elements in an array 'a' of natural numbers,\n// so that all odd numbers appear before all even numbers.\nmethod partitionOddEven(a: array<nat>) \n  modifies a\n  ensures multiset(a[..]) == multiset(old(a[..]))\n  ensures ! exists i, j :: 0 <= i < j < a.Length && even(a[i]) && odd(a[j])  \n{\n    var i := 0; // odd numbers are placed to the left of i\n    var j := a.Length - 1; // even numbers are placed to the right of j\n    while i <= j\n     {\n        if even(a[i]) && odd(a[j]) { a[i], a[j] := a[j], a[i]; }\n        if odd(a[i]) { i := i + 1; }\n        if even(a[j]) { j := j - 1; }\n    }\n}\n \npredicate  odd(n: nat) { n % 2 == 1 }\npredicate  even(n: nat) { n % 2 == 0 }\n\nmethod testPartitionOddEven() {\n    var a: array<nat> := new [] [1, 2, 3];\n    partitionOddEven(a);\n}\n\n",
+  "verifier_error": [
+    "Warning: this way of using the CLI is deprecated. Use 'dafny --help' to see help for the new Dafny CLI format",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmprwai6ttm/buggy.dfy(10,4): Error: a postcondition could not be proved on this return path",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmprwai6ttm/buggy.dfy(5,26): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmprwai6ttm/buggy.dfy(6,10): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmprwai6ttm/buggy.dfy(12,17): Error: index out of range",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmprwai6ttm/buggy.dfy(12,30): Error: index out of range",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmprwai6ttm/buggy.dfy(14,17): Error: index out of range",
+    "Dafny program verifier finished with 4 verified, 5 errors"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 10,
+    "context": "while i <= j"
+  },
+  "fixed_code": "// Rearranges the elements in an array 'a' of natural numbers,\n// so that all odd numbers appear before all even numbers.\nmethod partitionOddEven(a: array<nat>) \n  modifies a\n  ensures multiset(a[..]) == multiset(old(a[..]))\n  ensures ! exists i, j :: 0 <= i < j < a.Length && even(a[i]) && odd(a[j])  \n{\n    var i := 0; // odd numbers are placed to the left of i\n    var j := a.Length - 1; // even numbers are placed to the right of j\n    while i <= j\n      invariant 0 <= i <= j + 1 <= a.Length\n      invariant multiset(a[..]) == old(multiset(a[..]))\n      invariant forall k :: 0 <= k < i ==> odd(a[k])\n      invariant forall k :: j < k < a.Length ==> even(a[k])\n     {\n        if even(a[i]) && odd(a[j]) { a[i], a[j] := a[j], a[i]; }\n        if odd(a[i]) { i := i + 1; }\n        if even(a[j]) { j := j - 1; }\n    }\n}\n \npredicate  odd(n: nat) { n % 2 == 1 }\npredicate  even(n: nat) { n % 2 == 0 }\n\nmethod testPartitionOddEven() {\n    var a: array<nat> := new [] [1, 2, 3];\n    assert a[..] == [1, 2, 3];\n    partitionOddEven(a);\n    assert a[..] == [1, 3, 2] || a[..] == [3, 1, 2];\n}\n\n",
+  "repair_strategy": {
+    "problem_summary": "",
+    "problem_details": {
+      "what": "",
+      "why": "",
+      "how": ""
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "task_id": "123",
+  "task_description": "Verifies that the divide-and-conquer algorithm correctly computes real number exponentiation, optimizes time complexity to O(log n) through recursive decomposition, and uses inductive lemmas to guarantee the multiplicative property of exponentiation x^a * x^b = x^(a+b).",
+  "method_signature": "method powerDC(x: real, n: nat) returns (p : real)",
+  "test_cases": {
+    "test_1": "var res1:=powerDC(2.0, 10);\nassert res1==1024.0;",
+    "test_2": "var res2:=powerDC(-1.0, 3);\nassert res2==-1.0;",
+    "test_3": "var res3:=powerDC(3.0, 4);\nassert res3==81.0;"
+  },
+  "buggy_code": "/* \n* Formal verification of an O(log n) algorithm to calculate the natural power of a real number (x^n), \n* illustrating the usage of lemmas and automatic induction in Dafny.\n* J.  Pascoal Faria, FEUP, Jan/2022.\n*/\n\n// Recursive definition of x^n in functional style, with time and space complexity O(n).\nfunction power(x: real, n: nat) : real {\n    if n == 0 then 1.0 else x * power(x, n-1)\n}\n\n// Computation of x^n in time and space O(log n).\nmethod powerDC(x: real, n: nat) returns (p : real)\n  ensures p == power(x, n)\n{\n    if n == 0 {\n        return 1.0;\n    }\n    else if n == 1 {\n        return x;\n    }\n    else if n % 2 == 0 {\n        productOfPowers(x,  n/2, n/2); // recall lemma\n        var temp := powerDC(x, n/2);\n        return temp * temp;\n    }\n    else {\n        productOfPowers(x, (n-1)/2, (n-1)/2); // recall lemma  \n        var temp := powerDC(x, (n-1)/2);\n        return temp * temp * x;\n    } \n}\n\n// States the property x^a * x^b = x^(a+b), that the method power takes advantage of. \n// The property is proved by automatic induction on 'a'.\nlemma {:induction a} productOfPowers(x: real, a: nat, b: nat) \n  ensures power(x, a) * power(x, b)  == power(x, a + b) \n{ }\n\n\n// A few test cases (checked statically by Dafny).\nmethod testPowerDC() {\n    var p1 := powerDC( 2.0, 5); assert p1 == 32.0;\n    var p2 := powerDC(-2.0, 2); assert p2 == 4.0;\n    var p3 := powerDC(-2.0, 1); assert p3 == -2.0;\n    var p4 := powerDC(-2.0, 0); assert p4 == 1.0;\n    var p5 := powerDC( 0.0, 0); assert p5 == 1.0;\n}\n",
+  "verifier_error": [
+    "Warning: this way of using the CLI is deprecated. Use 'dafny --help' to see help for the new Dafny CLI format",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmp_it7einm/buggy.dfy(36,21): Warning: Could not find a trigger for the induction hypothesis. Without a trigger, this may cause brittle verification. Change or remove the {:induction} attribute to generate a different induction hypothesis, or add {:nowarn} to silence this warning. For more information, see the section on quantifier instantiation rules in the reference manual.",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmp_it7einm/buggy.dfy(38,0): Error: a postcondition could not be proved on this return path",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmp_it7einm/buggy.dfy(37,37): Related location: this is the postcondition that could not be proved",
+    "Dafny program verifier finished with 4 verified, 1 error"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 38,
+    "context": "{ }"
+  },
+  "fixed_code": "/* \n* Formal verification of an O(log n) algorithm to calculate the natural power of a real number (x^n), \n* illustrating the usage of lemmas and automatic induction in Dafny.\n* J.  Pascoal Faria, FEUP, Jan/2022.\n*/\n\n// Recursive definition of x^n in functional style, with time and space complexity O(n).\nfunction power(x: real, n: nat) : real {\n    if n == 0 then 1.0 else x * power(x, n-1)\n}\n\n// Computation of x^n in time and space O(log n).\nmethod powerDC(x: real, n: nat) returns (p : real)\n  ensures p == power(x, n)\n{\n    if n == 0 {\n        return 1.0;\n    }\n    else if n == 1 {\n        return x;\n    }\n    else if n % 2 == 0 {\n        productOfPowers(x,  n/2, n/2); // recall lemma\n        var temp := powerDC(x, n/2);\n        return temp * temp;\n    }\n    else {\n        productOfPowers(x, (n-1)/2, (n-1)/2); // recall lemma  \n        var temp := powerDC(x, (n-1)/2);\n        return temp * temp * x;\n    } \n}\n\n// States the property x^a * x^b = x^(a+b), that the method power takes advantage of. \n// The property is proved by automatic induction on 'a'.\nlemma {:induction a} productOfPowers(x: real, a: nat, b: nat) \n  ensures power(x, a) * power(x, b)  == power(x, a + b) \n{ }\n\n\n// A few test cases (checked statically by Dafny).\nmethod testPowerDC() {\n    var p1 := powerDC( 2.0, 5); assert p1 == 32.0;\n    var p2 := powerDC(-2.0, 2); assert p2 == 4.0;\n    var p3 := powerDC(-2.0, 1); assert p3 == -2.0;\n    var p4 := powerDC(-2.0, 0); assert p4 == 1.0;\n    var p5 := powerDC( 0.0, 0); assert p5 == 1.0;\n}\n",
+  "repair_strategy": {
+    "problem_summary": "",
+    "problem_details": {
+      "what": "",
+      "why": "",
+      "how": ""
+    }
+  }
+}

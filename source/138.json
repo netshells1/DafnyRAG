@@ -1,0 +1,38 @@
+{
+  "task_id": "138",
+  "task_description": "Implements a modulo-based string checksum calculator that verifies data integrity by maintaining a hash value of the data string. The core class uses loop invariants to ensure the checksum always equals the sum of the string's character values modulo 137 when appending characters. Provides methods for data retrieval and checksum verification, constituting a data integrity validation mechanism.",
+  "method_signature": "method Append(d:string)",
+  "test_cases": {
+    "test_1": "var c1 := new CheckSumCalculator();\nc1.Append(\"a\");\nvar res1 := c1.Checksum();\nassert res1 == 97;",
+    "test_2": "var c2 := new CheckSumCalculator();\nc2.Append(\"abc\");\nvar res2 := c2.Checksum();\nassert res2 == (97+98+99)%137;",
+    "test_3": "var c3 := new CheckSumCalculator();\nc3.Append(\"\");\nvar res3 := c3.Checksum();\nassert res3 == 0;"
+  },
+  "buggy_code": "ghost function Hash(s:string):int {\n    SumChars(s) % 137\n}\n\nghost function SumChars(s: string):int {\n    if |s| == 0 then 0 else \n        s[|s| - 1] as int + SumChars(s[..|s| -1])\n}\nclass CheckSumCalculator{\n    var data: string\n    var cs:int\n\n    ghost predicate Valid()\n        reads this\n    {\n        cs == Hash(data)\n    }\n\n    constructor ()\n        ensures Valid() && data == \"\"\n    {\n        data, cs := \"\", 0;\n    }\n\n    method Append(d:string)\n        requires Valid()\n        modifies this\n        ensures Valid() && data == old(data) + d\n    {\n        var i := 0;\n        while i != |d| \n        {\n            cs := (cs + d[i] as int) % 137;\n            data := data + [d[i]];\n            i := i +1;\n        }\n    }\n\n    function GetData(): string\n        requires Valid()\n        reads this\n        ensures Hash(GetData()) == Checksum()\n    {\n        data\n    }\n\n    function Checksum(): int \n        requires Valid()\n        reads this \n        ensures Checksum() == Hash(data)\n    {\n        cs\n    }\n}\n\nmethod Main() {\n    /*\n    var m:= new CheckSumCalculator();\n    m.Append(\"g\");\n    m.Append(\"Grass\");\n    var c:= m.Checksum();\n    var g:= m.GetData();\n    print \"(m.cs)Checksum is \" ,m.cs,\"\\n\";\n    print \"(c)Checksum is \" ,c,\"\\n\";\n    print \"(m.data)Checksum is \" ,m.data,\"\\n\";\n    print \"(g)Checksum is \" ,g,\"\\n\";\n\n    var tmpStr := \"abcde\";\n    var tmpStrOne := \"LLLq\";\n    var tmpSet := {'a','c'};\n    var tmpFresh := {'a','b'};\n    var tmpnum := 1;\n    print \"tmp is \",   tmpSet - tmpFresh;\n\n    var newArray := new int[10];\n    newArray[0]:= 0; */\n    var newSeq := ['a','b','c','d','e','f','g','h'];\n    var newSeqTwo := ['h','g','f','e','d','c','b','a'];\n    var newSet : set<int>;\n    newSet := {1,2,3,4,5};\n    var newSetTwo := {6,7,8,9,10};\n\n    print \"element is newset \",   newSet,\"\\n\";\n\n    var newArray := new int [99];\n    newArray[0] := 99;\n    newArray[1] := 2;\n\n    print \"element is ?  \", |[newArray]|,\"\\n\";\n    var tmpSet := {'a','c'};\n    var tmpFresh := {'c'};\n    print \"tmp is \",   tmpSet - tmpFresh;\n\n    var newMap := map[];\n    newMap := newMap[1:=2];\n    var nnewMap := map[3:=444];\n    print \"keys is \",newMap.Keys,newMap.Values;\n    print \"value is\", nnewMap.Keys,nnewMap.Values;\n}\n",
+  "verifier_error": [
+    "Warning: this way of using the CLI is deprecated. Use 'dafny --help' to see help for the new Dafny CLI format",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpvd_7qa4d/buggy.dfy(31,8): Error: a postcondition could not be proved on this return path",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpvd_7qa4d/buggy.dfy(28,21): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpvd_7qa4d/buggy.dfy(16,11): Related location",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpvd_7qa4d/buggy.dfy(28,32): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpvd_7qa4d/buggy.dfy(33,25): Error: index out of range",
+    "Dafny program verifier finished with 8 verified, 3 errors"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 31,
+    "context": "while i != |d|"
+  },
+  "fixed_code": "ghost function Hash(s:string):int {\n    SumChars(s) % 137\n}\n\nghost function SumChars(s: string):int {\n    if |s| == 0 then 0 else \n        s[|s| - 1] as int + SumChars(s[..|s| -1])\n}\nclass CheckSumCalculator{\n    var data: string\n    var cs:int\n\n    ghost predicate Valid()\n        reads this\n    {\n        cs == Hash(data)\n    }\n\n    constructor ()\n        ensures Valid() && data == \"\"\n    {\n        data, cs := \"\", 0;\n    }\n\n    method Append(d:string)\n        requires Valid()\n        modifies this\n        ensures Valid() && data == old(data) + d\n    {\n        var i := 0;\n        while i != |d| \n            invariant 0<= i <= |d|\n            invariant Valid()\n            invariant data == old(data) + d[..i]\n        {\n            cs := (cs + d[i] as int) % 137;\n            data := data + [d[i]];\n            i := i +1;\n        }\n    }\n\n    function GetData(): string\n        requires Valid()\n        reads this\n        ensures Hash(GetData()) == Checksum()\n    {\n        data\n    }\n\n    function Checksum(): int \n        requires Valid()\n        reads this \n        ensures Checksum() == Hash(data)\n    {\n        cs\n    }\n}\n\nmethod Main() {\n    /*\n    var m:= new CheckSumCalculator();\n    m.Append(\"g\");\n    m.Append(\"Grass\");\n    var c:= m.Checksum();\n    var g:= m.GetData();\n    print \"(m.cs)Checksum is \" ,m.cs,\"\\n\";\n    print \"(c)Checksum is \" ,c,\"\\n\";\n    print \"(m.data)Checksum is \" ,m.data,\"\\n\";\n    print \"(g)Checksum is \" ,g,\"\\n\";\n\n    var tmpStr := \"abcde\";\n    var tmpStrOne := \"LLLq\";\n    var tmpSet := {'a','c'};\n    var tmpFresh := {'a','b'};\n    var tmpnum := 1;\n    print \"tmp is \",   tmpSet - tmpFresh;\n\n    var newArray := new int[10];\n    newArray[0]:= 0; */\n    var newSeq := ['a','b','c','d','e','f','g','h'];\n    var newSeqTwo := ['h','g','f','e','d','c','b','a'];\n    var newSet : set<int>;\n    newSet := {1,2,3,4,5};\n    var newSetTwo := {6,7,8,9,10};\n\n    print \"element is newset \",   newSet,\"\\n\";\n\n    var newArray := new int [99];\n    newArray[0] := 99;\n    newArray[1] := 2;\n\n    print \"element is ?  \", |[newArray]|,\"\\n\";\n    var tmpSet := {'a','c'};\n    var tmpFresh := {'c'};\n    print \"tmp is \",   tmpSet - tmpFresh;\n\n    var newMap := map[];\n    newMap := newMap[1:=2];\n    var nnewMap := map[3:=444];\n    print \"keys is \",newMap.Keys,newMap.Values;\n    print \"value is\", nnewMap.Keys,nnewMap.Values;\n}\n",
+  "repair_strategy": {
+    "problem_summary": "",
+    "problem_details": {
+      "what": "",
+      "why": "",
+      "how": ""
+    }
+  }
+}

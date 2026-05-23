@@ -1,0 +1,40 @@
+{
+  "task_id": "104",
+  "task_description": "Verifies the correctness of the insertion sort algorithm, ensuring the array is sorted in non-decreasing order while preserving the element multiset. Correctness of the sorting process is proven by maintaining loop invariants, ultimately satisfying the orderedness of the entire array.",
+  "method_signature": "method InsertionSort(a: array<int>)",
+  "test_cases": {
+    "test_1": "var arr1 := new int[3][1, 3, 2];\nInsertionSort(arr1);\nassert sorted_seg(arr1, 0, arr1.Length-1);",
+    "test_2": "var arr2 := new int[5][5, 4, 3, 2, 1];\nInsertionSort(arr2);\nassert sorted_seg(arr2, 0, arr2.Length-1);",
+    "test_3": "var arr3 := new int[4][1, 2, 3, 4];\nInsertionSort(arr3);\nassert sorted_seg(arr3, 0, arr3.Length-1);"
+  },
+  "buggy_code": "\npredicate sorted_seg(a:array<int>, i:int, j:int) //i and j included\nrequires 0 <= i <= j+1 <= a.Length\nreads a\n{\n    forall l, k :: i <= l <= k <= j ==> a[l] <= a[k]\n}\n\nmethod InsertionSort(a: array<int>)\n  modifies a;\n  ensures sorted_seg(a,0,a.Length-1) \n  ensures multiset(a[..]) == old(multiset(a[..])) //Add and prove this\n{\n\n  var i := 0;\n  while (i < a.Length)\n  {\n\n     var temp := a[i];\n     var j := i;         \n     while (j > 0 && temp < a[j - 1])\n     {   \n        \n         a[j] := a[j - 1]; \n         j := j - 1;\n     }\n  \n  \n  a[j] := temp;\n  i := i + 1;\n\n  }\n}\n\n\n\n\n\n",
+  "verifier_error": [
+    "Warning: this way of using the CLI is deprecated. Use 'dafny --help' to see help for the new Dafny CLI format",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpodq65d5_/buggy.dfy(10,12): Warning: deprecated style: a semi-colon is not needed here (ID: p_deprecated_semicolon)",
+    "Semicolons are required after statements and declarations in method bodies,  ",
+    "but are deprecated after declarations within modules and types.",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpodq65d5_/buggy.dfy(16,2): Error: a postcondition could not be proved on this return path",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpodq65d5_/buggy.dfy(11,20): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpodq65d5_/buggy.dfy(6,4): Related location",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpodq65d5_/buggy.dfy(12,26): Related location: this is the postcondition that could not be proved",
+    "Dafny program verifier finished with 2 verified, 2 errors"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 16,
+    "context": "while (i < a.Length)"
+  },
+  "fixed_code": "\npredicate sorted_seg(a:array<int>, i:int, j:int) //i and j included\nrequires 0 <= i <= j+1 <= a.Length\nreads a\n{\n    forall l, k :: i <= l <= k <= j ==> a[l] <= a[k]\n}\n\nmethod InsertionSort(a: array<int>)\n  modifies a;\n  ensures sorted_seg(a,0,a.Length-1) \n  ensures multiset(a[..]) == old(multiset(a[..])) //Add and prove this\n{\n\n  var i := 0;\n  assert multiset(a[..]) == old(multiset(a[..]));\n  while (i < a.Length)\n     decreases a.Length-i\n     invariant 0<=i<=a.Length\n     invariant sorted_seg(a,0,i-1)\n     invariant multiset(a[..]) == old(multiset(a[..]))//add\n    invariant forall k::i<k<a.Length ==> a[k] == old(a[k])\n  {\n\n     var temp := a[i];\n     var j := i;         \n     while (j > 0 && temp < a[j - 1])\n         decreases j\n         invariant 0<=j<=i\n         invariant sorted_seg(a,0,j-1) && sorted_seg(a,j+1,i)\n         invariant forall k,l :: 0<=k<=j-1 && j+1<=l<=i ==> a[k]<=a[l]\n         invariant forall k :: j<k<=i ==> temp <a[k]\n         invariant forall k::i<k<a.Length ==> a[k] == old(a[k])\n         invariant multiset(a[..]) - multiset{a[j]} + multiset{temp} == old(multiset(a[..]))//add\n     {   \n        \n         a[j] := a[j - 1]; \n         j := j - 1;\n     }\n  \n  \n  a[j] := temp;\n  i := i + 1;\n\n  }\n}\n\n\n\n\n\n",
+  "repair_strategy": {
+    "problem_summary": "",
+    "problem_details": {
+      "what": "",
+      "why": "",
+      "how": ""
+    }
+  }
+}

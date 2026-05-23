@@ -1,0 +1,37 @@
+{
+  "task_id": "121",
+  "task_description": "Iteratively computes the binomial coefficient C(n, k) using dynamic programming, optimizing time complexity to O(k*(n-k)) by maintaining a one-dimensional array, with equivalence to the recursive mathematical definition verified through loop invariants.",
+  "method_signature": "method Main()",
+  "test_cases": {
+    "test_1": "var res1:=comb(5,2);\nassert res1==10;",
+    "test_2": "var res2:=comb(6,3);\nassert res2==20;",
+    "test_3": "var res3:=comb(4,0);\nassert res3==1;"
+  },
+  "buggy_code": "\n/* \n* Formal specification and verification of a dynamic programming algorithm for calculating C(n, k).\n* FEUP, MIEIC, MFES, 2020/21.\n*/\n\n// Initial recursive definition of C(n, k), based on the Pascal equality.\nfunction comb(n: nat, k: nat): nat \n  requires 0 <= k <= n\n{\n  if k == 0 || k == n then 1 else comb(n-1, k) + comb(n-1, k-1)  \n}\nby method\n// Calculates C(n,k) iteratively in time O(k*(n-k)) and space O(n-k), \n// with dynamic programming.\n{\n  var maxj := n - k;\n  var c := new nat[1 + maxj];\n  forall i | 0 <= i <= maxj {\n       c[i] := 1;\n  }\n  var i := 1;\n  while i <= k \n  {\n    var j := 1;\n    while j <= maxj\n    {\n      c[j] := c[j] + c[j-1];\n      j := j+1;\n    } \n    i := i + 1;\n  }\n  return c[maxj];\n}\n\nlemma combProps(n: nat, k: nat)\n   requires 0 <= k <= n\n   ensures comb(n, k) == comb(n, n-k)\n{}\n\nmethod Main()\n{\n  // Statically checked (proved) test cases!    \n\n\n  var res1 := comb(40, 10);\n  print \"combDyn(40, 10) = \", res1, \"\\n\";\n\n}\n\nmethod testComb() {\n}\n\n\n\n",
+  "verifier_error": [
+    "Warning: this way of using the CLI is deprecated. Use 'dafny --help' to see help for the new Dafny CLI format",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmp71qheihl/buggy.dfy(33,2): Error: a postcondition could not be proved on this return path",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmp71qheihl/buggy.dfy(13,0): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmp71qheihl/buggy.dfy(39,0): Error: a postcondition could not be proved on this return path",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmp71qheihl/buggy.dfy(38,22): Related location: this is the postcondition that could not be proved",
+    "Dafny program verifier finished with 3 verified, 2 errors"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 33,
+    "context": "return c[maxj];"
+  },
+  "fixed_code": "\n/* \n* Formal specification and verification of a dynamic programming algorithm for calculating C(n, k).\n* FEUP, MIEIC, MFES, 2020/21.\n*/\n\n// Initial recursive definition of C(n, k), based on the Pascal equality.\nfunction comb(n: nat, k: nat): nat \n  requires 0 <= k <= n\n{\n  if k == 0 || k == n then 1 else comb(n-1, k) + comb(n-1, k-1)  \n}\nby method\n// Calculates C(n,k) iteratively in time O(k*(n-k)) and space O(n-k), \n// with dynamic programming.\n{\n  var maxj := n - k;\n  var c := new nat[1 + maxj];\n  forall i | 0 <= i <= maxj {\n       c[i] := 1;\n  }\n  var i := 1;\n  while i <= k \n    invariant 1 <= i <= k + 1\n    invariant forall j :: 0 <= j <= maxj ==> c[j] == comb(j + i - 1, i - 1)\n  {\n    var j := 1;\n    while j <= maxj\n        invariant 1 <= j <= maxj + 1\n        invariant forall j' :: 0 <= j' < j ==> c[j'] == comb(j' + i, i)\n        invariant forall j' :: j <= j' <= maxj ==> c[j'] == comb(j' + i - 1, i - 1)\n    {\n      c[j] := c[j] + c[j-1];\n      j := j+1;\n    } \n    i := i + 1;\n  }\n  return c[maxj];\n}\n\nlemma combProps(n: nat, k: nat)\n   requires 0 <= k <= n\n   ensures comb(n, k) == comb(n, n-k)\n{}\n\nmethod Main()\n{\n  // Statically checked (proved) test cases!    \n  assert comb(5, 2) == 10;\n  assert comb(5, 0) == 1;\n  assert comb(5, 5) == 1;\n\n  assert comb(5, 2) == 10;\n\n  var res1 := comb(40, 10);\n  print \"combDyn(40, 10) = \", res1, \"\\n\";\n\n}\n\nmethod testComb() {\n  assert comb(6, 2) == 15;\n  assert comb(6, 3) == 20;\n  assert comb(6, 4) == 15;\n  assert comb(6, 6) == 1;\n}\n\n\n\n",
+  "repair_strategy": {
+    "problem_summary": "",
+    "problem_details": {
+      "what": "",
+      "why": "",
+      "how": ""
+    }
+  }
+}

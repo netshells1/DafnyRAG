@@ -1,20 +1,20 @@
 """
-增强的错误分类器 - 细化错误类型并添加更多模式
+Enhanced Error Classifier - Refined error types with additional patterns
 """
 from typing import List, Dict, Tuple
 from enum import Enum
 
 
 class ErrorType(Enum):
-    """错误类型枚举"""
-    # 语法类错误
+    """Error type enumeration"""
+    # Syntax errors
     SYNTAX_ERROR = "syntax_error"
     PARSE_ERROR = "parse_error"
     TYPE_MISMATCH = "type_mismatch"
     UNDEFINED_IDENTIFIER = "undefined_identifier"
-    INVALID_EXPRESSION = "invalid_expression"  # 新增
+    INVALID_EXPRESSION = "invalid_expression"  # New
     
-    # 验证类错误
+    # Validation errors
     LOOP_INVARIANT = "loop_invariant"
     TERMINATION = "termination"  # decreases clause
     PRECONDITION = "precondition"
@@ -23,17 +23,17 @@ class ErrorType(Enum):
     ARRAY_BOUNDS = "array_bounds"
     NULL_DEREFERENCE = "null_dereference"
     
-    # 其他
+    # Other
     UNKNOWN = "unknown"
 
 
 class ErrorClassifier:
-    """增强的错误分类器"""
+    """Enhanced error classifier"""
     
     def __init__(self):
-        # 定义每种错误类型的关键词模式
+        # Define keyword patterns for each error type
         self.patterns = {
-            # 语法类 - 按优先级排序(越具体的越靠前)
+            # Syntax errors - ordered by priority (more specific first)
             ErrorType.INVALID_EXPRESSION: [
                 "invalid unaryexpression",
                 "invalid binaryexpression",
@@ -64,7 +64,7 @@ class ErrorClassifier:
                 "actual type"
             ],
             
-            # 验证类
+            # Verification errors
             ErrorType.LOOP_INVARIANT: [
                 "loop invariant",
                 "invariant",
@@ -108,11 +108,11 @@ class ErrorClassifier:
         }
     
     def classify_single_error(self, error_msg: str) -> ErrorType:
-        """分类单个错误"""
+        """Classify a single error"""
         error_lower = error_msg.lower()
         
-        # 按优先级匹配(越具体的越优先)
-        # 语法错误优先级: invalid_expression > parse_error > undefined > type_mismatch
+        # Match by priority (more specific types take precedence)
+        # Syntax error priority: invalid_expression > parse_error > undefined > type_mismatch
         priority_order = [
             ErrorType.INVALID_EXPRESSION,
             ErrorType.PARSE_ERROR,
@@ -137,15 +137,15 @@ class ErrorClassifier:
     
     def classify_errors(self, verifier_errors: List[str]) -> Dict:
         """
-        分类所有错误并统计
+        Classify all errors and aggregate statistics.
         
         Returns:
             {
-                'primary_type': ErrorType,  # 主要错误类型
-                'all_types': List[ErrorType],  # 所有错误类型
-                'type_counts': Dict[ErrorType, int],  # 每种类型的数量
-                'is_syntax_error': bool,  # 是否包含语法错误
-                'is_verification_error': bool  # 是否包含验证错误
+                'primary_type': ErrorType,        # Most frequent error type
+                'all_types': List[ErrorType],     # All error types
+                'type_counts': Dict[ErrorType, int],  # Count per error type
+                'is_syntax_error': bool,          # Whether any syntax errors are present
+                'is_verification_error': bool     # Whether any verification errors are present
             }
         """
         if not verifier_errors:
@@ -157,7 +157,7 @@ class ErrorClassifier:
                 'is_verification_error': False
             }
         
-        # 分类每个错误
+        # Classify each error
         all_types = []
         type_counts = {}
         
@@ -166,16 +166,16 @@ class ErrorClassifier:
             all_types.append(error_type)
             type_counts[error_type] = type_counts.get(error_type, 0) + 1
         
-        # 确定主要错误类型(出现最多的)
+        # Determine primary error type (most frequent)
         primary_type = max(type_counts.items(), key=lambda x: x[1])[0]
         
-        # 判断是否包含语法/验证错误
+        # Check whether syntax or verification errors are present
         syntax_types = {
             ErrorType.SYNTAX_ERROR,
             ErrorType.PARSE_ERROR,
             ErrorType.TYPE_MISMATCH,
             ErrorType.UNDEFINED_IDENTIFIER,
-            ErrorType.INVALID_EXPRESSION,  # 新增
+            ErrorType.INVALID_EXPRESSION,  # New
         }
         
         is_syntax_error = any(t in syntax_types for t in all_types)
@@ -190,19 +190,19 @@ class ErrorClassifier:
         }
     
     def get_error_description(self, error_type: ErrorType) -> str:
-        """获取错误类型的描述"""
+        """Get a human-readable description for an error type"""
         descriptions = {
-            ErrorType.LOOP_INVARIANT: "循环不变量不成立",
-            ErrorType.TERMINATION: "终止性证明失败",
-            ErrorType.PRECONDITION: "前置条件不满足",
-            ErrorType.POSTCONDITION: "后置条件不满足",
-            ErrorType.ASSERTION: "断言失败",
-            ErrorType.UNDEFINED_IDENTIFIER: "未定义的标识符",
-            ErrorType.TYPE_MISMATCH: "类型不匹配",
-            ErrorType.PARSE_ERROR: "解析错误",
-            ErrorType.ARRAY_BOUNDS: "数组越界",
-            ErrorType.NULL_DEREFERENCE: "空指针引用",
-            ErrorType.INVALID_EXPRESSION: "无效的表达式",
-            ErrorType.SYNTAX_ERROR: "语法错误"
+            ErrorType.LOOP_INVARIANT: "Loop invariant does not hold",
+            ErrorType.TERMINATION: "Termination proof failed",
+            ErrorType.PRECONDITION: "Precondition not satisfied",
+            ErrorType.POSTCONDITION: "Postcondition not satisfied",
+            ErrorType.ASSERTION: "Assertion failed",
+            ErrorType.UNDEFINED_IDENTIFIER: "Undefined identifier",
+            ErrorType.TYPE_MISMATCH: "Type mismatch",
+            ErrorType.PARSE_ERROR: "Parse error",
+            ErrorType.ARRAY_BOUNDS: "Array index out of bounds",
+            ErrorType.NULL_DEREFERENCE: "Null pointer dereference",
+            ErrorType.INVALID_EXPRESSION: "Invalid expression",
+            ErrorType.SYNTAX_ERROR: "Syntax error"
         }
-        return descriptions.get(error_type, "未知错误")
+        return descriptions.get(error_type, "Unknown error")

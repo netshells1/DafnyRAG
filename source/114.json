@@ -1,0 +1,38 @@
+{
+  "task_id": "114",
+  "task_description": "Implements the bubble sort algorithm, which repeatedly swaps adjacent inverted elements to arrange the array in ascending order. This method ensures the final array is fully sorted while preserving the original multiset, serving as a typical case for formal verification of sorting algorithms.",
+  "method_signature": "method BubbleSort(A:array<int>)",
+  "test_cases": {
+    "test_1": "var A1 := new int[3]; A1[0], A1[1], A1[2] := 3, 1, 2; var res1 := sorted_between(A1, 0, 2); assert res1 == false;",
+    "test_2": "var A2 := new int[4]; A2[0], A2[1], A2[2], A2[3] := 1, 2, 3, 4; var res2 := sorted_between(A2, 0, 3); assert res2 == true;",
+    "test_3": "var A3 := new int[5]; A3[0], A3[1], A3[2], A3[3], A3[4] := 1, 3, 2, 5, 4; var res3 := sorted_between(A3, 1, 3); assert res3 == false;"
+  },
+  "buggy_code": "/*\nBubble Sort is the simplest sorting algorithm that works by \nrepeatedly swapping the adjacent elements if they are in wrong order.\n*/\n\npredicate sorted_between(A:array<int>, from:int, to:int)\n    reads A\n{\n    forall i, j :: 0 <= i <= j < A.Length && from <= i <= j <= to ==> A[i] <= A[j]\n}\n\npredicate sorted(A:array<int>)\n    reads A\n{\n    sorted_between(A, 0, A.Length-1)\n}\n\nmethod BubbleSort(A:array<int>)\n    modifies A\n    ensures sorted(A)\n    ensures multiset(A[..]) == multiset(old(A[..]))\n{\n    var N := A.Length;\n    var i := N-1;\n    while 0 < i\n    {\n        print A[..], \"\\n\";\n        var j := 0;\n        while j < i\n        {\n            if A[j] > A[j+1]\n            {\n                A[j], A[j+1] := A[j+1], A[j];\n                print A[..], \"\\n\";\n            }\n            j := j+1;\n        } \n        i := i-1;\n        print \"\\n\";\n    }\n}\n\nmethod Main() {\n    var A := new int[10];\n    A[0], A[1], A[2], A[3], A[4], A[5], A[6], A[7], A[8], A[9] := 2, 4, 6, 15, 3, 19, 17, 16, 18, 1;\n    BubbleSort(A);\n    print A[..];\n}\n\n/* Explanation:\n\n     // A is ordered for each pair of elements such that\n     // the first element belongs to the left partition of i\n     // and the second element belongs to the right partition of i\n\n     // There is a variable defined by the value that the array takes at position j\n     // Therefore, each value that the array takes for all elements from 0 to j\n     // They are less than or equal to the value of the variable\n*/\n",
+  "verifier_error": [
+    "Warning: this way of using the CLI is deprecated. Use 'dafny --help' to see help for the new Dafny CLI format",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpc6egjh4u/buggy.dfy(25,4): Error: a postcondition could not be proved on this return path",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpc6egjh4u/buggy.dfy(21,28): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpc6egjh4u/buggy.dfy(20,18): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpc6egjh4u/buggy.dfy(15,18): Related location",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpc6egjh4u/buggy.dfy(9,4): Related location",
+    "Dafny program verifier finished with 4 verified, 2 errors"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 25,
+    "context": "while 0 < i"
+  },
+  "fixed_code": "/*\nBubble Sort is the simplest sorting algorithm that works by \nrepeatedly swapping the adjacent elements if they are in wrong order.\n*/\n\npredicate sorted_between(A:array<int>, from:int, to:int)\n    reads A\n{\n    forall i, j :: 0 <= i <= j < A.Length && from <= i <= j <= to ==> A[i] <= A[j]\n}\n\npredicate sorted(A:array<int>)\n    reads A\n{\n    sorted_between(A, 0, A.Length-1)\n}\n\nmethod BubbleSort(A:array<int>)\n    modifies A\n    ensures sorted(A)\n    ensures multiset(A[..]) == multiset(old(A[..]))\n{\n    var N := A.Length;\n    var i := N-1;\n    while 0 < i\n        invariant multiset(A[..]) == multiset(old(A[..]))\n        invariant sorted_between(A, i, N-1)\n        invariant forall n, m :: 0 <= n <= i < m < N ==> A[n] <= A[m]\n        decreases i\n    {\n        print A[..], \"\\n\";\n        var j := 0;\n        while j < i\n            invariant 0 < i < N\n            invariant 0 <= j <= i\n            invariant multiset(A[..]) == multiset(old(A[..]))\n            invariant sorted_between(A, i, N-1)\n            invariant forall n, m :: 0 <= n <= i < m < N ==> A[n] <= A[m]\n            invariant forall n :: 0 <= n <= j ==> A[n] <= A[j]\n            decreases i - j\n        {\n            if A[j] > A[j+1]\n            {\n                A[j], A[j+1] := A[j+1], A[j];\n                print A[..], \"\\n\";\n            }\n            j := j+1;\n        } \n        i := i-1;\n        print \"\\n\";\n    }\n}\n\nmethod Main() {\n    var A := new int[10];\n    A[0], A[1], A[2], A[3], A[4], A[5], A[6], A[7], A[8], A[9] := 2, 4, 6, 15, 3, 19, 17, 16, 18, 1;\n    BubbleSort(A);\n    print A[..];\n}\n\n/* Explanation:\n\ninvariant forall n, m :: 0 <= n <= i <m <N ==> A [n] <= A [m]\n     // A is ordered for each pair of elements such that\n     // the first element belongs to the left partition of i\n     // and the second element belongs to the right partition of i\n\ninvariant forall n :: 0 <= n <= j ==> A [n] <= A [j]\n     // There is a variable defined by the value that the array takes at position j\n     // Therefore, each value that the array takes for all elements from 0 to j\n     // They are less than or equal to the value of the variable\n*/\n",
+  "repair_strategy": {
+    "problem_summary": "",
+    "problem_details": {
+      "what": "",
+      "why": "",
+      "how": ""
+    }
+  }
+}

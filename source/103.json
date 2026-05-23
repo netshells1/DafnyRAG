@@ -1,0 +1,42 @@
+{
+  "task_id": "103",
+  "task_description": "Implements a variant of the Dutch National Flag problem for array element separation, partitioning non-negative elements from strictly negative elements. Uses a two-pointer algorithm to rearrange the array in-place, ensuring the resulting sequence is a permutation of the original array, with the first part containing all non-negative elements and the second part containing all strictly negative elements.",
+  "method_signature": "method separate(v:array<int>) returns (i:int)",
+  "test_cases": {
+    "test_1": "var arr1 := new int[5][1, -2, 3, -4, 5];\nvar idx1 := separate(arr1);\nassert positive(arr1[0..idx1]) && strictNegative(arr1, idx1, arr1.Length);\nassert multiset(arr1[..]) == multiset([1, -2, 3, -4, 5]);",
+    "test_2": "var arr2 := new int[4][0, -1, -3, 2];\nvar idx2 := separate(arr2);\nassert positive(arr2[0..idx2]) && strictNegative(arr2, idx2, arr2.Length);\nassert multiset(arr2[..]) == multiset([0, -1, -3, 2]);",
+    "test_3": "var arr3 := new int[3][-5, -6, -7];\nvar idx3 := separate(arr3);\nassert positive(arr3[0..idx3]) && strictNegative(arr3, idx3, arr3.Length);\nassert multiset(arr3[..]) == multiset([-5, -6, -7]);"
+  },
+  "buggy_code": "predicate strictNegative(v:array<int>,i:int,j:int)\nreads v\nrequires 0<=i<=j<=v.Length\n{forall u | i<=u<j :: v[u]<0}\n\npredicate positive(s:seq<int>)\n{forall u::0<=u<|s| ==> s[u]>=0}\n\npredicate isPermutation(s:seq<int>, t:seq<int>)\n{multiset(s)==multiset(t)}\n\n/**\nreturns an index st new array is a permutation of the old array\npositive first and then strictnegative, i is the firs neg or len if not any */\nmethod separate(v:array<int>) returns (i:int)\nmodifies v\nensures 0<=i<=v.Length\nensures positive(v[0..i]) && strictNegative(v,i,v.Length)\nensures isPermutation(v[0..v.Length], old(v[0..v.Length]))\n{\n    i:=0;\n    var j:=v.Length - 1;\n    while(i<=j)\n    {\n        if(v[i]>=0){\n           i:=i+1;\n        }\n        else if(v[j]>=0){\n            v[i],v[j]:=v[j],v[i];\n            j:=j-1;\n\n            i:=i+1;\n        }\n        else if(v[j]<0){\n            j:=j-1;\n        }\n    }\n    \n}\n",
+  "verifier_error": [
+    "Warning: this way of using the CLI is deprecated. Use 'dafny --help' to see help for the new Dafny CLI format",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpx38mi8hb/buggy.dfy(23,4): Error: a postcondition could not be proved on this return path",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpx38mi8hb/buggy.dfy(18,16): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpx38mi8hb/buggy.dfy(7,1): Related location",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpx38mi8hb/buggy.dfy(18,43): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpx38mi8hb/buggy.dfy(4,1): Related location",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpx38mi8hb/buggy.dfy(19,21): Related location: this is the postcondition that could not be proved",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpx38mi8hb/buggy.dfy(10,12): Related location",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpx38mi8hb/buggy.dfy(25,12): Error: index out of range",
+    "/var/folders/k5/9l2pj80x5tq3143qq5byvdyw0000gn/T/tmpx38mi8hb/buggy.dfy(28,17): Error: index out of range",
+    "Dafny program verifier finished with 3 verified, 5 errors"
+  ],
+  "error_categories": [
+    "VerificationError",
+    "PostconditionNotHeld"
+  ],
+  "primary_error": {
+    "message": "a postcondition could not be proved on this return path",
+    "line": 23,
+    "context": "while(i<=j)"
+  },
+  "fixed_code": "predicate strictNegative(v:array<int>,i:int,j:int)\nreads v\nrequires 0<=i<=j<=v.Length\n{forall u | i<=u<j :: v[u]<0}\n\npredicate positive(s:seq<int>)\n{forall u::0<=u<|s| ==> s[u]>=0}\n\npredicate isPermutation(s:seq<int>, t:seq<int>)\n{multiset(s)==multiset(t)}\n\n/**\nreturns an index st new array is a permutation of the old array\npositive first and then strictnegative, i is the firs neg or len if not any */\nmethod separate(v:array<int>) returns (i:int)\nmodifies v\nensures 0<=i<=v.Length\nensures positive(v[0..i]) && strictNegative(v,i,v.Length)\nensures isPermutation(v[0..v.Length], old(v[0..v.Length]))\n{\n    i:=0;\n    var j:=v.Length - 1;\n    while(i<=j)\n    decreases j-i\n    invariant 0<=i<=j+1<=v.Length\n    invariant strictNegative(v,j+1,v.Length)\n    invariant positive(v[0..i]) \n    invariant isPermutation(v[0..v.Length], old(v[0..v.Length]))\n    {\n        if(v[i]>=0){\n           i:=i+1;\n        }\n        else if(v[j]>=0){\n            assert v[i]<0;\n            v[i],v[j]:=v[j],v[i];\n            j:=j-1;\n\n            i:=i+1;\n        }\n        else if(v[j]<0){\n            j:=j-1;\n        }\n    }\n    \n}\n",
+  "repair_strategy": {
+    "problem_summary": "",
+    "problem_details": {
+      "what": "",
+      "why": "",
+      "how": ""
+    }
+  }
+}
